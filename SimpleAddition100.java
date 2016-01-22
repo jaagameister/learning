@@ -13,8 +13,8 @@ class SimpleAddition100 implements Problem {
 //    static Random random = new Random();
     
     public SimpleAddition100() {
-		int a = new Random().nextInt();
-		int b = new Random().nextInt();;
+		int a = new Random().nextInt(100);
+		int b = new Random().nextInt(100);
 		prompt = new String(a + " + " + b + " = ?");
 		answer = new String(Integer.toString(a + b));
     }
@@ -31,7 +31,7 @@ class SimpleAddition100 implements Problem {
 		Scanner sc = new Scanner(System.in);
 		String ans = "";
 		while (!ans.equals("quit")) {
-			Problem p = new SimpleAddition100Problem();
+			Problem p = new SimpleAddition100();
 			System.out.println(p.getPrompt());
 			ans = sc.next();
 		    if (ans.equals(p.getAnswer())) {
