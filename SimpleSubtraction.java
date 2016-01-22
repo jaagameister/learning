@@ -15,4 +15,9 @@ class SimpleSubtraction extends Problem {
         return new SimpleMultiplication(max);
     }
 
+    public String getTitle() {
+        return "Multiplication to " + max;
+    }
+
+
 }

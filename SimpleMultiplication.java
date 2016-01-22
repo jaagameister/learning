@@ -13,4 +13,8 @@ class SimpleMultiplication extends Problem {
     public Problem next() {
     	return new SimpleMultiplication(max);
     }
+
+    public String getTitle() {
+    	return "Multiplication to " + max;
+    }
 }

@@ -13,4 +13,9 @@ class SimpleAddition extends Problem {
     public Problem next() {
     	return new SimpleAddition(max);
     }
+
+    public String getTitle() {
+    	return "Simple Addition to " + max;
+    }
 }
+

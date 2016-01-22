@@ -27,4 +27,6 @@ public abstract class Problem {
     }
 
     public abstract Problem next();
+
+    public abstract String getTitle();
 }

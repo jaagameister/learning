@@ -38,7 +38,10 @@ public class CommandLine {
 				if (rep < repsRequired) {
 					problem = problem.next();
 				} else {
+					System.out.println("Congratulations !!! you passed " + problem.getTitle());
 					problem = path.next();
+					System.out.println("Now its time to practice " + problem.getTitle());
+
 					repsRequired = 5;
 					rep = 0;
 				}
