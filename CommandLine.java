@@ -6,56 +6,48 @@ public class CommandLine {
 
     public static void main(String[] argv) {
 		Scanner sc = new Scanner(System.in);
-		String ans = "";
+		String command;
 
         System.out.println(LE.HELLO[
         		random.nextInt(LE.HELLO.length)]);
 
-		while (!ans.equals("quit")) {
-			ArrayList<Problem> mission = new ArrayList<Problem>();
-			mission.add(new SimpleAddition(10));
-			mission.add(new SimpleAddition(10));
-			mission.add(new SimpleAddition(10));
-			mission.add(new SimpleAddition(10));
-			mission.add(new SimpleAddition(10));
+		ArrayList<Problem> mission = new ArrayList<Problem>();
+		mission.add(new SimpleAddition(10));
+		mission.add(new SimpleAddition(20));
+		mission.add(new SimpleAddition(30));
+		mission.add(new SimpleAddition(40));
+		Iterator<Problem> path = mission.iterator();
 
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
+		Problem problem = path.next();
+		int repsRequired = 5;
+		int rep = 0;
+		while (true) {
+			System.out.println(problem.getPrompt());
+			String response = sc.next();
 
-			mission.add(new SimpleSubtraction(10));
-			mission.add(new SimpleSubtraction(10));
-			mission.add(new SimpleSubtraction(10));
-			mission.add(new SimpleSubtraction(10));
-			mission.add(new SimpleSubtraction(10));
-
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-			mission.add(new SimpleAddition(100));
-
-			for (Problem p : mission) {
-		        if (!ans.equals("")) {
-			        System.out.println(LE.ENCOURAGE[
-			        		random.nextInt(LE.ENCOURAGE.length)]);
-				}	
-
-				System.out.println(p.getPrompt());
-				ans = sc.next();
-			    if (ans.equals(p.getAnswer())) {
-			        System.out.println(LE.CORRECT[
-			        		random.nextInt(LE.CORRECT.length)]);
-			    } else if (!ans.equals("quit")) {
-			        System.out.println(LE.SORRY[
-			        		random.nextInt(LE.SORRY.length)]);
-			    }
+			if ("quit".equals(response)) {
+		        System.out.println(LE.BYE[
+		        		random.nextInt(LE.BYE.length)]);
+		        return;
 			}
-		}
-        System.out.println(LE.BYE[
-        		random.nextInt(LE.BYE.length)]);
 
+			if (problem.checkAnswer(response)) {
+		        System.out.println(LE.CORRECT[
+		        		random.nextInt(LE.CORRECT.length)]);
+				rep++;
+				if (rep < repsRequired) {
+					problem = problem.next();
+				} else {
+					problem = path.next();
+					repsRequired = 5;
+					rep = 0;
+				}
+			} else {
+		        System.out.println(LE.SORRY[
+		        		random.nextInt(LE.SORRY.length)]);				
+			}
+	        System.out.println(LE.ENCOURAGE[
+			        		random.nextInt(LE.ENCOURAGE.length)]);
+		}
 	}
 }
