@@ -2,8 +2,6 @@ import java.util.Random;
 
 public class ChatBot {
 
-	static Random random = new Random();
-
 	public static final String[] HELLO = { 
 		"Hola", 
 		"Namaste", 
@@ -41,16 +39,37 @@ public class ChatBot {
 		"keep it up"
 	};
 
-	Skill skill;
+	static Random random = new Random();
 
-	public void setSkill(Skill skill) {
-		this.skill = skill;
+	Session session;
+
+	public ChatBot(Session session) {
+		this.session = session;
 	}
 
-	public String getEncouragement() {
-		if (skill.getRemaining() == 1)
+	public String comment() {
+		Skill skill = session.getSkill();
+		if (skill != null && skill.getRemaining() == 1)
 			return "just " + skill.getRemaining() + " left in this skill";
+		return encourage();
+	}
+
+	public String encourage() {
 		return ENCOURAGE[random.nextInt(LE.ENCOURAGE.length)];
 	}
+
+	public String bye() {
+        return BYE[random.nextInt(BYE.length)];
+	}
+
+	public String correct() {
+		return CORRECT[random.nextInt(LE.CORRECT.length)];
+	}
+
+	public String sorry() {
+		return SORRY[random.nextInt(LE.SORRY.length)];	
+	}
+
+
 
 }

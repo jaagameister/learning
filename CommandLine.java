@@ -6,7 +6,9 @@ public class CommandLine {
 
     public static void main(String[] argv) {
 		Scanner sc = new Scanner(System.in);
-		ChatBot chatBot = new ChatBot();
+		Session session = new Session();
+		ChatBot chatBot = new ChatBot(session);
+
 		String command;
 
         System.out.println(LE.HELLO[
@@ -22,26 +24,25 @@ public class CommandLine {
 		Iterator<Skill> path = mission.iterator();
 
 		Skill skill = path.next();
-		chatBot.setSkill(skill);
+		session.setSkill(skill);
 		Problem problem = skill.getProblem();
 		while (true) {
 			System.out.println(problem.getPrompt());
 			String response = sc.nextLine();
 
 			if ("quit".equals(response)) {
-		        System.out.println(LE.BYE[
-		        		random.nextInt(LE.BYE.length)]);
+		        System.out.println(chatBot.bye());
 		        return;
 			} 
 
 			if ("hint".equals(response)) {
 				System.out.println(skill.takeHint());
+				System.out.println(problem.getPrompt());
 				response = sc.nextLine();
 			}
 
 			if (problem.checkAnswer(response)) {
-		        System.out.println(LE.CORRECT[
-		        		random.nextInt(LE.CORRECT.length)]);
+				chatBot.correct();
 		        int remains = skill.solvedOne();
 		        if (remains <= 0) {
 		        	int skillPoints = skill.getPoints();
@@ -50,17 +51,16 @@ public class CommandLine {
 		        	System.out.println("and earned " + skillPoints + " skill points");
 		        	System.out.println("you now have " + points + " total points");
 		        	skill = path.next();
-					chatBot.setSkill(skill);
+					session.setSkill(skill);
 		        	problem = skill.getProblem();
 					System.out.println("Now its time to practice " + problem.getTitle());
 		        } else {
 		        	problem = problem.next();
 		        }
 			} else {
-		        System.out.println(LE.SORRY[
-		        		random.nextInt(LE.SORRY.length)]);				
+		        System.out.println(chatBot.sorry());
 			}
-	        System.out.println(chatBot.getEncouragement());
+	        System.out.println(chatBot.comment());
 		}
 	}
 }
