@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false"
+        android:background="@drawable/chat_msg_left"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/fullname">
+
+        <ImageView
+            android:id="@+id/image_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_url"
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="gone" />
+
+        <TextView
+                android:id="@+id/chat_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#3a3a3a"
+                android:autoText="false"
+                android:autoLink="all"
+                android:textSize="16sp"
+            android:layout_alignParentRight="false"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="10dp"
+            android:layout_alignTop="@+id/image_holder"
+            android:text="Hello!" />
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/fullname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="14sp"
+            android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/txt_time"
+        android:text="9:36pm"
+        android:textColor="#3a3a3a"
+        android:textSize="10sp"
+        android:paddingLeft="5dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+</RelativeLayout>
