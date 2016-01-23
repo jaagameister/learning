@@ -12,11 +12,11 @@ public class CommandLine {
         		random.nextInt(LE.HELLO.length)]);
 
 		ArrayList<Problem> mission = new ArrayList<Problem>();
-		mission.add(new Division(100, 10));
-		mission.add(new Division(1000, 20));
 		mission.add(new Addition(20));
-		mission.add(new Addition(30));
-		mission.add(new Addition(40));
+		mission.add(new Subtraction(20));
+		mission.add(new Multiplication(10));
+		mission.add(new Division(100, 10));
+		mission.add(new DivisionRemainders(100, 10));
 		Iterator<Problem> path = mission.iterator();
 
 		Problem problem = path.next();
@@ -24,7 +24,7 @@ public class CommandLine {
 		int rep = 0;
 		while (true) {
 			System.out.println(problem.getPrompt());
-			String response = sc.next();
+			String response = sc.nextLine();
 
 			if ("quit".equals(response)) {
 		        System.out.println(LE.BYE[

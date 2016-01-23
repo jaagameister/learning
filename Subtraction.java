@@ -1,7 +1,6 @@
 import java.util.*;
 
 class Subtraction extends Problem {
-    int max;
 
     public Subtraction(int max) {
     	super(max);
@@ -12,11 +11,11 @@ class Subtraction extends Problem {
     }
 
     public Problem next() {
-        return new Multiplication(max);
+        return new Subtraction(max);
     }
 
     public String getTitle() {
-        return "Multiplication to " + max;
+        return "Subtraction to " + max;
     }
 
 

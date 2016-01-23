@@ -7,11 +7,10 @@ class Division extends Problem {
         this.divisorMax = divisorMax;
         this.dividendMax = dividendMax;
         int quotientMax =  dividendMax / divisorMax;
-        System.out.println("quotient:" +quotientMax);
-    	int b = new Random().nextInt(divisorMax) + 1;
-		int a = b * new Random().nextInt(quotientMax);
-		setPrompt(new String(a + " / " + b + " = ?"));
-		setAnswer(new String(Integer.toString(a / b)));
+        int b = new Random().nextInt(divisorMax) + 1;
+        int a = b * new Random().nextInt(quotientMax);
+        setPrompt(new String(a + " / " + b + " = ?"));
+        setAnswer(new String(Integer.toString(a / b)));
     }
 
     public Problem next() {
@@ -19,7 +18,8 @@ class Division extends Problem {
     }
 
     public String getTitle() {
-        return "Division to " + max;
+        return "Division with dividend to " + dividendMax + 
+                " and divisor to " + divisorMax;
     }
 
 
