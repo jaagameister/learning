@@ -41,6 +41,10 @@ public abstract class Problem {
     	this.answer = answer;
     }
 
+    public String getHint() {
+        return answer;
+    }
+
     public Problem next() {
         try {
             Constructor<? extends Problem> constructor = 

@@ -1,5 +1,5 @@
 
-public class Skill extends Problem {
+public class Skill {
 	int repsRequired;
 	int rep;
 	int points;
@@ -12,33 +12,17 @@ public class Skill extends Problem {
 		this.points = points;
 	}
 
-	public void setPrompt(String prompt) {
-		problem.setPrompt(prompt);
+	public Problem getProblem() {
+		return problem;
 	}
 
-	public String getPrompt() {
-		return problem.getPrompt();
+	// increments rep and returns remaining
+	public int solvedOne() {
+		rep++;
+		return repsRequired - rep;
 	}
 
-	public boolean checkAnswer(String answer) {
-		boolean correct = problem.checkAnswer(answer);
-		if (correct) 
-			rep++;
-		return correct;
-	}
-
-	public void nextProblem() {
-		problem = problem.next();
-	}
-
-	public String getTitle() {
-		return problem.getTitle();
-	}
-
-	public int completed() {		
-		if (rep >= repsRequired) {
-			return points;
-		} else 
-			return 0;
+	public int getPoints() {
+		return points;
 	}
 }

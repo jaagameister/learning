@@ -21,8 +21,9 @@ public class CommandLine {
 		Iterator<Skill> path = mission.iterator();
 
 		Skill skill = path.next();
+		Problem problem = skill.getProblem();
 		while (true) {
-			System.out.println(skill.getPrompt());
+			System.out.println(problem.getPrompt());
 			String response = sc.nextLine();
 
 			if ("quit".equals(response)) {
@@ -31,19 +32,21 @@ public class CommandLine {
 		        return;
 			}
 
-			if (skill.checkAnswer(response)) {
+			if (problem.checkAnswer(response)) {
 		        System.out.println(LE.CORRECT[
 		        		random.nextInt(LE.CORRECT.length)]);
-		        int skillPoints = skill.completed();
-		        if (skillPoints > 0) {
-					System.out.println("Congratulations !!! you passed " + skill.getTitle());
+		        int remains = skill.solvedOne();
+		        if (remains <= 0) {
+		        	int skillPoints = skill.getPoints();
+					System.out.println("Congratulations !!! you passed " + problem.getTitle());
 		        	points += skillPoints;
 		        	System.out.println("and earned " + skillPoints + " skill points");
 		        	System.out.println("you now have " + points + " total points");
 		        	skill = path.next();
-					System.out.println("Now its time to practice " + skill.getTitle());
+		        	problem = skill.getProblem();
+					System.out.println("Now its time to practice " + problem.getTitle());
 		        } else {
-		        	skill.nextProblem();
+		        	problem = problem.next();
 		        }
 			} else {
 		        System.out.println(LE.SORRY[
