@@ -6,6 +6,7 @@ public class CommandLine {
 
     public static void main(String[] argv) {
 		Scanner sc = new Scanner(System.in);
+		ChatBot chatBot = new ChatBot();
 		String command;
 
         System.out.println(LE.HELLO[
@@ -21,6 +22,7 @@ public class CommandLine {
 		Iterator<Skill> path = mission.iterator();
 
 		Skill skill = path.next();
+		chatBot.setSkill(skill);
 		Problem problem = skill.getProblem();
 		while (true) {
 			System.out.println(problem.getPrompt());
@@ -30,6 +32,11 @@ public class CommandLine {
 		        System.out.println(LE.BYE[
 		        		random.nextInt(LE.BYE.length)]);
 		        return;
+			} 
+
+			if ("hint".equals(response)) {
+				System.out.println(skill.takeHint());
+				response = sc.nextLine();
 			}
 
 			if (problem.checkAnswer(response)) {
@@ -43,6 +50,7 @@ public class CommandLine {
 		        	System.out.println("and earned " + skillPoints + " skill points");
 		        	System.out.println("you now have " + points + " total points");
 		        	skill = path.next();
+					chatBot.setSkill(skill);
 		        	problem = skill.getProblem();
 					System.out.println("Now its time to practice " + problem.getTitle());
 		        } else {
@@ -52,8 +60,7 @@ public class CommandLine {
 		        System.out.println(LE.SORRY[
 		        		random.nextInt(LE.SORRY.length)]);				
 			}
-	        System.out.println(LE.ENCOURAGE[
-			        		random.nextInt(LE.ENCOURAGE.length)]);
+	        System.out.println(chatBot.getEncouragement());
 		}
 	}
 }

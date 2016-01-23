@@ -1,6 +1,8 @@
+import java.util.Random;
 
-// LanguageEngine
-public class LE {
+public class ChatBot {
+
+	static Random random = new Random();
 
 	public static final String[] HELLO = { 
 		"Hola", 
@@ -39,5 +41,16 @@ public class LE {
 		"keep it up"
 	};
 
+	Skill skill;
+
+	public void setSkill(Skill skill) {
+		this.skill = skill;
+	}
+
+	public String getEncouragement() {
+		if (skill.getRemaining() == 1)
+			return "just " + skill.getRemaining() + " left in this skill";
+		return ENCOURAGE[random.nextInt(LE.ENCOURAGE.length)];
+	}
 
 }

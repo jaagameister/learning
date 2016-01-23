@@ -3,6 +3,7 @@ public class Skill {
 	int repsRequired;
 	int rep;
 	int points;
+	boolean hinted = false;
 
 	Problem problem;
 
@@ -19,10 +20,20 @@ public class Skill {
 	// increments rep and returns remaining
 	public int solvedOne() {
 		rep++;
-		return repsRequired - rep;
+		return getRemaining();
 	}
 
 	public int getPoints() {
 		return points;
+	}
+
+	public int getRemaining() {
+		return repsRequired - rep;
+	}
+
+	public String takeHint() {
+		hinted = true;
+		points = points / 2;
+		return problem.getHint();
 	}
 }
