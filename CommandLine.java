@@ -11,11 +11,12 @@ public class CommandLine {
 
 		String command;
 
-        System.out.println(LE.HELLO[
-        		random.nextInt(LE.HELLO.length)]);
+        System.out.println(chatBot.hello());
 
         int points = 0;
 		ArrayList<Skill> mission = new ArrayList<Skill>();
+		mission.add(new Skill(new VariableSubtraction(10), 8, 100));
+		mission.add(new Skill(new VariableAddition(10), 8, 100));
 		mission.add(new Skill(new Addition(10), 2, 100));
 		mission.add(new Skill(new Subtraction(10), 2, 150));
 		mission.add(new Skill(new Multiplication(12, 12), 3, 200));

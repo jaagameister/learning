@@ -55,7 +55,11 @@ public class ChatBot {
 	}
 
 	public String encourage() {
-		return ENCOURAGE[random.nextInt(LE.ENCOURAGE.length)];
+		return ENCOURAGE[random.nextInt(ENCOURAGE.length)];
+	}
+
+	public String hello() {
+        return HELLO[random.nextInt(HELLO.length)];
 	}
 
 	public String bye() {
@@ -63,11 +67,11 @@ public class ChatBot {
 	}
 
 	public String correct() {
-		return CORRECT[random.nextInt(LE.CORRECT.length)];
+		return CORRECT[random.nextInt(CORRECT.length)];
 	}
 
 	public String sorry() {
-		return SORRY[random.nextInt(LE.SORRY.length)];	
+		return SORRY[random.nextInt(SORRY.length)];	
 	}
 
 
