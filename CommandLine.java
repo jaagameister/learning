@@ -12,10 +12,10 @@ public class CommandLine {
         		random.nextInt(LE.HELLO.length)]);
 
 		ArrayList<Problem> mission = new ArrayList<Problem>();
-		mission.add(new SimpleAddition(10));
-		mission.add(new SimpleAddition(20));
-		mission.add(new SimpleAddition(30));
-		mission.add(new SimpleAddition(40));
+		mission.add(new Addition(10));
+		mission.add(new Addition(20));
+		mission.add(new Addition(30));
+		mission.add(new Addition(40));
 		Iterator<Problem> path = mission.iterator();
 
 		Problem problem = path.next();

@@ -1,9 +1,9 @@
 import java.util.*;
 
-class SimpleSubtraction extends Problem {
+class Subtraction extends Problem {
     int max;
 
-    public SimpleSubtraction(int max) {
+    public Subtraction(int max) {
     	super(max);
     	int a = new Random().nextInt(max);
 		int b = new Random().nextInt(a + 1);
@@ -12,7 +12,7 @@ class SimpleSubtraction extends Problem {
     }
 
     public Problem next() {
-        return new SimpleMultiplication(max);
+        return new Multiplication(max);
     }
 
     public String getTitle() {

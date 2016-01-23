@@ -1,8 +1,8 @@
 import java.util.*;
 
-class SimpleAddition extends Problem {
+class Addition extends Problem {
 
-    public SimpleAddition(int max) {
+    public Addition(int max) {
 		super(max);
 		int a = new Random().nextInt(max);
 		int b = new Random().nextInt(max);
@@ -11,7 +11,7 @@ class SimpleAddition extends Problem {
     }
 
     public Problem next() {
-    	return new SimpleAddition(max);
+    	return new Addition(max);
     }
 
     public String getTitle() {
