@@ -10,6 +10,10 @@ class Addition extends Problem {
 		setAnswer(new String(Integer.toString(a + b)));
     }
 
+    public Addition(int max1, int max2) {
+    	this(max1);
+    }
+
     public String getTitle() {
     	return "Simple Addition to " + max1;
     }

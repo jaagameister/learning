@@ -10,6 +10,10 @@ class Subtraction extends Problem {
 		setAnswer(new String(Integer.toString(a - b)));
     }
 
+    public Subtraction(int max1, int max2) {
+        this(max1);
+    }
+
     public String getTitle() {
         return "Subtraction to " + max1;
     }
