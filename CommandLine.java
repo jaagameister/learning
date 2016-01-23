@@ -12,7 +12,8 @@ public class CommandLine {
         		random.nextInt(LE.HELLO.length)]);
 
 		ArrayList<Problem> mission = new ArrayList<Problem>();
-		mission.add(new Addition(10));
+		mission.add(new Division(100, 10));
+		mission.add(new Division(1000, 20));
 		mission.add(new Addition(20));
 		mission.add(new Addition(30));
 		mission.add(new Addition(40));
