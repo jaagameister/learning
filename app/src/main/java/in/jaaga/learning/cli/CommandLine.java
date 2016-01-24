@@ -55,13 +55,16 @@ public class CommandLine {
 
 		if ("quit".equals(response)) {
 			System.out.println(chatBot.bye());
+			sendMessage(chatBot.bye());
 			return;
 		}
 
 		if ("hint".equals(response)) {
 			System.out.println(skill.takeHint());
+			sendMessage(skill.takeHint());
 			System.out.println(problem.getPrompt());
-
+			sendMessage(problem.getPrompt());
+			return;
 		}
 
 		if (problem.checkAnswer(response)) {
