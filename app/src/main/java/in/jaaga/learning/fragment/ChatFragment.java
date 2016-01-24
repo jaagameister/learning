@@ -67,7 +67,7 @@ public class ChatFragment extends Fragment {
         chat_view = (RecyclerView) v.findViewById(R.id.chat_view);
         chat_view.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
         chat_view.setLayoutManager(linearLayoutManager);
         chatAdapter = new ChatAdapter(getActivity(),chat_list);
         chat_view.setAdapter(chatAdapter);
