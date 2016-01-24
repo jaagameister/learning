@@ -17,8 +17,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import in.jaaga.learning.InteractionInterface;
 import in.jaaga.learning.R;
 import in.jaaga.learning.adapter.ChatAdapter;
+import in.jaaga.learning.cli.CommandLine;
 import in.jaaga.learning.pojo.ChatItem;
 
 /**
@@ -29,7 +31,7 @@ import in.jaaga.learning.pojo.ChatItem;
  * Use the {@link ChatFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChatFragment extends Fragment {
+public class ChatFragment extends Fragment implements InteractionInterface{
 
     private ChatFragmentListener mListener;
 
@@ -63,6 +65,7 @@ public class ChatFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_chat, container, false);
 
+
         //Setup the list
         chat_view = (RecyclerView) v.findViewById(R.id.chat_view);
         chat_view.setHasFixedSize(true);
@@ -85,7 +88,15 @@ public class ChatFragment extends Fragment {
 
                         String text = chat_box.getText().toString();
 
-                        Send(text);
+
+                        ChatItem item = new ChatItem();
+                        item.setMessage(text);
+
+                        //TODO Handle name here,hardcoding for now
+                        item.setSender("amar");
+
+                        Send(item);
+                        CommandLine.onResponse(text);
 
                     }
                 }
@@ -93,17 +104,18 @@ public class ChatFragment extends Fragment {
             }
         });
 
+        CommandLine.main(null, this);
+
         return v;
     }
 
-    private void Send(String text){
-        ChatItem item = new ChatItem();
-        item.setMessage(text);
+    @Override
+    public void Send(ChatItem item){
 
-        //TODO Handle name here,hardcoding for now
-        item.setSender("amar");
         chat_list.add(item);
-        chatAdapter.notifyItemInserted(chat_list.size()-1);
+        int position = chat_list.size()-1;
+        chatAdapter.notifyItemInserted(position);
+        chat_view.scrollToPosition(position);
         chat_box.setText("");
     }
 
@@ -136,6 +148,5 @@ public class ChatFragment extends Fragment {
      */
     public interface ChatFragmentListener {
 
-        void Send(String text);
     }
 }
