@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="in.jaaga.learning.activity.ChatFragment">
+    tools:context=".fragment.ChatFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_view"
@@ -27,10 +27,22 @@
         android:id="@+id/linearLayout2">
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/input_text"
-            android:layout_gravity="bottom" />
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/send"
+            android:hint="@string/input_chat_box"
+            android:singleLine="true"
+            android:textSize="15sp"
+            android:background="@drawable/edit_text_chat"
+            android:minLines="1"
+            android:layout_gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp"
+            android:layout_margin="5dp" />
     </LinearLayout>
 
 </RelativeLayout>
