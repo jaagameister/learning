@@ -1,3 +1,4 @@
+package in.jaaga.learning.cli;
 import java.util.*;
 
 class VariableDivision extends Problem {
