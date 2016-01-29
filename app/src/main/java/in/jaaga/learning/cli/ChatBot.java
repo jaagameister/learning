@@ -53,6 +53,10 @@ public class ChatBot {
 		Skill skill = session.getSkill();
 		if (skill != null && skill.getRemaining() == 1)
 			return "just " + skill.getRemaining() + " left in this skill";
+
+		if (session.getName() != null) {
+			return session.getName() + ", " + encourage();
+		}
 		return encourage();
 	}
 
