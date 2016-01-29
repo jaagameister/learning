@@ -1,5 +1,8 @@
 package in.jaaga.learning.cli;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.util.*;
 
 import in.jaaga.learning.InteractionInterface;
@@ -13,8 +16,8 @@ public class CommandLine {
 	private static Session session;
 	private static ChatBot chatBot;
 	private static ArrayList<Skill> mission;
-	private static Skill skill;
-	private static Iterator<Skill> path;
+    private static Iterator<Skill> path;
+    private static Skill skill;
 	private static Problem problem;
 
 	static InteractionInterface interactionInterface;
@@ -51,33 +54,39 @@ public class CommandLine {
 		mission.add(new Skill(new Division(100, 10), 3, 250));
 		mission.add(new Skill(new DivisionRemainders(100, 10), 4, 300));
 
+		return mission;
 	}
 
     public static void main(String[] argv,InteractionInterface minteractionInterface) {
-		interactionInterface = minteractionInterface;
+
+        interactionInterface = minteractionInterface;
 
 		Scanner sc = new Scanner(System.in);
-		session = new Session();
+		session = new Session(minteractionInterface.getActivity());
 		chatBot = new ChatBot(session);
-		ArrayList<Skill> mission = buildMission();
-		Iterator<Skill> path = mission.iterator();
+
+		path = buildMission().iterator();
 		skill = path.next();
 		session.setSkill(skill);
 		problem = skill.getProblem();
 
         System.out.println(chatBot.hello());
 		sendMessage(chatBot.hello());
-		sendMessage("Whats your name ?");
+
+        if (Session.NAME.equals(session.getState()))
+    		sendMessage(chatBot.askName());
 	}
 
 	public static void onResponse(String response){
-		if (session.getName() == null) {
+		if (session.NAME.equals(session.getState())) {
 			session.setName(response);
+            session.setState(session.ACTIVE);
 		}
 
-		if ("quit".equals(response)) {
+		if ("quit".equals(response) || "404".equals(response)) {
 			System.out.println(chatBot.bye());
 			sendMessage(chatBot.bye());
+            session.save();
 			return;
 		}
 
@@ -120,10 +129,12 @@ public class CommandLine {
 
 	}
 
+    private static void sendMessage(String text, String responseType) {
+        sendMessage(text);
+    }
+
 	private static void sendMessage(String text){
-
-
-		ChatItem item = new ChatItem();
+        ChatItem item = new ChatItem();
 		item.setMessage(text);
 		item.setSender("bot");
 		interactionInterface.Send(item);

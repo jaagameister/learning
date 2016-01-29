@@ -60,6 +60,8 @@ public class ChatBot {
 		return encourage();
 	}
 
+	public String askName() { return "what's your name ?"; }
+
 	public String encourage() {
 		return ENCOURAGE[random.nextInt(ENCOURAGE.length)];
 	}
@@ -79,7 +81,5 @@ public class ChatBot {
 	public String sorry() {
 		return SORRY[random.nextInt(SORRY.length)];	
 	}
-
-
 
 }
