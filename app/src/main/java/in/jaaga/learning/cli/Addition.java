@@ -1,5 +1,4 @@
 package in.jaaga.learning.cli;
-
 import java.util.*;
 
 class Addition extends Problem {
