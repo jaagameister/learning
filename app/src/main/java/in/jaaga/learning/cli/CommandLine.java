@@ -16,7 +16,6 @@ public class CommandLine {
 	private static int points = 0;
 	private static Session session;
 	private static ChatBot chatBot;
-	private static ArrayList<Skill> mission;
     private static Iterator<Skill> path;
     private static Skill skill;
 	private static Problem problem;
@@ -24,7 +23,7 @@ public class CommandLine {
 	static InteractionInterface interactionInterface;
 
 	static ArrayList<Skill> buildMission() {
-		mission = new ArrayList<Skill>();
+        ArrayList<Skill> mission = new ArrayList<Skill>();
 		mission.add(new Skill(new Addition(10), 5, 100));
 		mission.add(new Skill(new Addition(100), 5, 150));
 		mission.add(new Skill(new Subtraction(10), 5, 100));
@@ -73,14 +72,15 @@ public class CommandLine {
         System.out.println(chatBot.hello());
 		sendMessage(chatBot.hello());
 
-        if (Session.NAME.equals(session.getState()))
+        if (session.getName() == null)
     		sendMessage(chatBot.askName(), InputType.TYPE_CLASS_TEXT);
-	}
+        else
+            sendMessage(problem.getPrompt());
+    }
 
 	public static void onResponse(String response){
-		if (session.NAME.equals(session.getState())) {
+		if (session.getName() == null) {
 			session.setName(response);
-            session.setState(session.ACTIVE);
 		}
 
 		if ("quit".equals(response) || ".".equals(response)) {

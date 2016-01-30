@@ -4,24 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashMap;
+
 class Session {
-
-    public static final String NAME = "name";
-    public static final String ACTIVE = "active";
-
 	Skill skill;
-	String name;
+    SharedPreferences profile;
     Activity activity;
     String state;
+    String name;
 
     public Session(Activity activity) {
         this.activity = activity;
-        SharedPreferences sharedPrefs = activity.getPreferences(Context.MODE_PRIVATE);
-        name = sharedPrefs.getString("name", "none");
-        if ("none".equals(name))
-            state = NAME;
-        else
-            state = ACTIVE;
+        profile = activity.getPreferences(Context.MODE_PRIVATE);
+        name = profile.getString("name", null);
     }
 
     public String getState() {
@@ -40,18 +35,19 @@ class Session {
 		return skill;
 	}
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void save() {
-        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("name", getName());
-        editor.commit();
+        if (name != null) {
+            SharedPreferences.Editor editor = profile.edit();
+            editor.putString("name", name);
+            editor.commit();
+        }
     }
 }

@@ -67,7 +67,10 @@ public class ChatBot {
 	}
 
 	public String hello() {
-        return HELLO[random.nextInt(HELLO.length)];
+        String name = session.getName();
+		if (name != null)
+			return HELLO[random.nextInt(HELLO.length)] + ", " + name;
+		return HELLO[random.nextInt(HELLO.length)];
 	}
 
 	public String bye() {
