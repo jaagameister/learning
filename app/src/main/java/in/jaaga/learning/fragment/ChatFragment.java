@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,6 +80,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
 
         //Setup the chat box
         chat_box = (EditText) v.findViewById(R.id.input_text);
+        chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
         chat_box.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
@@ -118,6 +120,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         chatAdapter.notifyItemInserted(position);
         chat_view.scrollToPosition(position);
         chat_box.setText("");
+        chat_box.setInputType(item.getResponseType());
     }
 
     @Override

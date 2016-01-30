@@ -2,6 +2,7 @@ package in.jaaga.learning.cli;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.InputType;
 
 import java.util.*;
 
@@ -23,8 +24,7 @@ public class CommandLine {
 	static InteractionInterface interactionInterface;
 
 	static ArrayList<Skill> buildMission() {
-		ArrayList<Skill> mission = new ArrayList<Skill>();
-		mission.add(new Skill(new VariableMultiplication(10, 10), 8, 100));
+		mission = new ArrayList<Skill>();
 		mission.add(new Skill(new Addition(10), 5, 100));
 		mission.add(new Skill(new Addition(100), 5, 150));
 		mission.add(new Skill(new Subtraction(10), 5, 100));
@@ -74,7 +74,7 @@ public class CommandLine {
 		sendMessage(chatBot.hello());
 
         if (Session.NAME.equals(session.getState()))
-    		sendMessage(chatBot.askName());
+    		sendMessage(chatBot.askName(), InputType.TYPE_CLASS_TEXT);
 	}
 
 	public static void onResponse(String response){
@@ -83,7 +83,7 @@ public class CommandLine {
             session.setState(session.ACTIVE);
 		}
 
-		if ("quit".equals(response) || "404".equals(response)) {
+		if ("quit".equals(response) || ".".equals(response)) {
 			System.out.println(chatBot.bye());
 			sendMessage(chatBot.bye());
             session.save();
@@ -129,15 +129,15 @@ public class CommandLine {
 
 	}
 
-    private static void sendMessage(String text, String responseType) {
-        sendMessage(text);
+    private static void sendMessage(String text, int responseType) {
+        ChatItem item = new ChatItem();
+        item.setMessage(text);
+        item.setSender("bot");
+        item.setResponseType(responseType);
+        interactionInterface.Send(item);
     }
 
 	private static void sendMessage(String text){
-        ChatItem item = new ChatItem();
-		item.setMessage(text);
-		item.setSender("bot");
-		interactionInterface.Send(item);
-
+        sendMessage(text, InputType.TYPE_CLASS_PHONE);
 	}
 }
