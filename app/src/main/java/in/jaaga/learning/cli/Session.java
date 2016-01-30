@@ -12,6 +12,7 @@ class Session {
     Activity activity;
     String state;
     String name;
+    int points = 0;
 
     public Session(Activity activity) {
         this.activity = activity;
@@ -43,11 +44,19 @@ class Session {
         this.name = name;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
     public void save() {
         if (name != null) {
             SharedPreferences.Editor editor = profile.edit();
             editor.putString("name", name);
-            editor.commit();
+            editor.apply();
         }
     }
 }

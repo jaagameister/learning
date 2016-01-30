@@ -85,4 +85,15 @@ public class ChatBot {
 		return SORRY[random.nextInt(SORRY.length)];	
 	}
 
+	public String levelUp(Skill last, Skill next) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("Congratulations !!! you passed " + last.getProblem().getTitle());
+        sb.append("\nand earned " + last.getPoints() + " skill points");
+
+        session.addPoints(last.getPoints());
+        sb.append("\nyou now have " + session.getPoints() + " total points");
+        sb.append("\nNow its time to practice " + next.getProblem().getTitle());
+
+        return sb.toString();
+    }
 }

@@ -98,35 +98,24 @@ public class CommandLine {
 			return;
 		}
 
-		if (problem.checkAnswer(response)) {
-			chatBot.correct();
+		if (problem.checkAnswer(response)) {  // correct
+			sendMessage(chatBot.correct());
 			int remains = skill.solvedOne();
 			if (remains <= 0) {
-				int skillPoints = skill.getPoints();
-				System.out.println("Congratulations !!! you passed " + problem.getTitle());
-				sendMessage("Congratulations !!! you passed " + problem.getTitle());
-				points += skillPoints;
-				System.out.println("and earned " + skillPoints + " skill points");
-				sendMessage("and earned " + skillPoints + " skill points");
-				System.out.println("you now have " + points + " total points");
-				sendMessage("you now have " + points + " total points");
+                Skill last = skill;
 				skill = path.next();
 				session.setSkill(skill);
 				problem = skill.getProblem();
-				System.out.println("Now its time to practice " + problem.getTitle());
-				sendMessage("Now its time to practice " + problem.getTitle());
+                sendMessage(chatBot.levelUp(last, skill));
 			} else {
+                System.out.println(chatBot.comment());
 				problem = problem.next();
 			}
 		} else {
 			System.out.println(chatBot.sorry());
 			sendMessage(chatBot.sorry());
 		}
-		System.out.println(chatBot.comment());
-		sendMessage(chatBot.comment());
-
 		sendMessage(problem.getPrompt());
-
 	}
 
     private static void sendMessage(String text, int responseType) {
