@@ -83,10 +83,9 @@ public class CommandLine {
 			session.setName(response);
 		}
 
-		if ("quit".equals(response) || ".".equals(response)) {
-			System.out.println(chatBot.bye());
-			sendMessage(chatBot.bye());
-            session.save();
+		if (".".equals(response)) {
+			System.out.println(chatBot.adminPrompt());
+			sendMessage(chatBot.adminPrompt(), InputType.TYPE_CLASS_TEXT);
 			return;
 		}
 
@@ -97,6 +96,18 @@ public class CommandLine {
 			sendMessage(problem.getPrompt());
 			return;
 		}
+
+        if ("skip".equals(response)) {
+            skill = path.next();
+            session.setSkill(skill);
+            problem = skill.getProblem();
+            sendMessage(problem.getPrompt());
+            return;
+        }
+
+        if ("mission".equals(response)) {
+
+        }
 
 		if (problem.checkAnswer(response)) {  // correct
 			sendMessage(chatBot.correct());

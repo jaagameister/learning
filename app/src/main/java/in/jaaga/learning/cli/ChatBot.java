@@ -96,4 +96,8 @@ public class ChatBot {
 
         return sb.toString();
     }
+
+    public String adminPrompt() {
+        return "Yes, Master...";
+    }
 }
