@@ -5,10 +5,12 @@ package in.jaaga.learning.adapter;
  */
 
 import android.content.Context;
+import android.opengl.Visibility;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -52,14 +54,20 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
-        String message = chat_list.get(position).getMessage();
+        ChatItem ci = chat_list.get(position);
+        String message = ci.getMessage();
+        int resourceId = ci.getResourceId();
 
         ViewHolder mHolder = (ViewHolder) holder;
-
         mHolder.message.setText(message);
 
-
+        System.out.println("resourceId:"+resourceId);
+        if (resourceId != -1) {
+            mHolder.attachment.setImageResource(resourceId);
+            mHolder.attachment.setVisibility(View.VISIBLE);
+        } else {
+            mHolder.attachment.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -75,12 +83,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView message;
+        public ImageView attachment;
 
         public ViewHolder(View vi) {
             super(vi);
 
             message = (TextView) vi.findViewById(R.id.chat_txt);
-
+            attachment = (ImageView) vi.findViewById(R.id.image_holder);
         }
     }
 }

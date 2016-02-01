@@ -5,6 +5,7 @@ package in.jaaga.learning.pojo;
  */
 public class ChatItem {
     String message;
+    int resourceId = -1;
     int responseType;
 
     public String getSender() {
@@ -23,6 +24,14 @@ public class ChatItem {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public void setResourceId(int resourceId ) {
+        this.resourceId = resourceId;
+    }
+
+    public int getResourceId() {
+        return resourceId;
     }
 
     public void setResponseType(int type) {

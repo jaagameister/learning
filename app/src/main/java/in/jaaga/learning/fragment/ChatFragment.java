@@ -116,6 +116,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     public void Send(ChatItem item){
 
         chat_list.add(item);
+
         int position = chat_list.size()-1;
         chatAdapter.notifyItemInserted(position);
         chat_view.scrollToPosition(position);

@@ -16,6 +16,7 @@
         android:layout_above="@+id/linearLayout2"
         app:stackFromEnd="true"/>
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -43,7 +44,7 @@
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
             android:layout_margin="5dp"
-            android:inputType="phone" />
+             />
     </LinearLayout>
 
 </RelativeLayout>

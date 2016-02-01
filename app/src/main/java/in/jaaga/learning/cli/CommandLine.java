@@ -7,6 +7,7 @@ import android.text.InputType;
 import java.util.*;
 
 import in.jaaga.learning.InteractionInterface;
+import in.jaaga.learning.R;
 import in.jaaga.learning.pojo.ChatItem;
 
 
@@ -70,7 +71,6 @@ public class CommandLine {
 		problem = skill.getProblem();
 
         System.out.println(chatBot.hello());
-		sendMessage(chatBot.hello());
 
         if (session.getName() == null)
     		sendMessage(chatBot.askName(), InputType.TYPE_CLASS_TEXT);
@@ -81,7 +81,9 @@ public class CommandLine {
 	public static void onResponse(String response){
 		if (session.getName() == null) {
 			session.setName(response);
-		}
+            sendMessage(problem.getPrompt());
+            return;
+        }
 
 		if (".".equals(response)) {
 			System.out.println(chatBot.adminPrompt());
@@ -106,35 +108,46 @@ public class CommandLine {
         }
 
         if ("mission".equals(response)) {
-
+            return;
         }
 
-		if (problem.checkAnswer(response)) {  // correct
-			sendMessage(chatBot.correct());
-			int remains = skill.solvedOne();
-			if (remains <= 0) {
-                Skill last = skill;
-				skill = path.next();
-				session.setSkill(skill);
-				problem = skill.getProblem();
-                sendMessage(chatBot.levelUp(last, skill));
-			} else {
-                System.out.println(chatBot.comment());
-				problem = problem.next();
-			}
-		} else {
-			System.out.println(chatBot.sorry());
-			sendMessage(chatBot.sorry());
-		}
-		sendMessage(problem.getPrompt());
+        checkAnswer(response);
+        sendMessage(problem.getPrompt());
 	}
 
+    static void checkAnswer(String response) {
+        if (problem.checkAnswer(response)) {  // correct
+            sendMessage(chatBot.correct());
+            int remains = skill.solvedOne();
+            if (remains <= 0) {
+                Skill last = skill;
+                skill = path.next();
+                session.setSkill(skill);
+                problem = skill.getProblem();
+				System.out.println("KS");
+                sendMessage(chatBot.levelUp(last, skill), InputType.TYPE_CLASS_PHONE,  R.drawable.ks);
+            } else {
+                System.out.println(chatBot.comment());
+                problem = problem.next();
+            }
+        } else {
+            System.out.println(chatBot.sorry());
+            sendMessage(chatBot.sorry());
+        }
+    }
+
     private static void sendMessage(String text, int responseType) {
+        sendMessage(text, responseType, -1);
+    }
+
+    private static void sendMessage(String text, int responseType, int imageResourceId) {
         ChatItem item = new ChatItem();
         item.setMessage(text);
         item.setSender("bot");
         item.setResponseType(responseType);
-        interactionInterface.Send(item);
+//		item.setResourceId(R.drawable.ks);
+		item.setResourceId(imageResourceId);
+		interactionInterface.Send(item);
     }
 
 	private static void sendMessage(String text){
