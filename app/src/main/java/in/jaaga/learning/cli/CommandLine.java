@@ -25,6 +25,7 @@ public class CommandLine {
 
 	static ArrayList<Skill> buildMission() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
+		mission.add(new Skill(new DecimalAddition(0, 10, 1), 5, 100));
 		mission.add(new Skill(new Addition(10), 5, 100));
 		mission.add(new Skill(new Addition(100), 5, 150));
 		mission.add(new Skill(new Subtraction(10), 5, 100));
