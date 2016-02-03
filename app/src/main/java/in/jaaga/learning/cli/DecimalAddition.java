@@ -6,12 +6,13 @@ import java.math.*;
 public class DecimalAddition extends Problem {
 
 	int max, min, digitsNumber;
-
+	ArrayList<String> answerList = new ArrayList<String>();
 
     public DecimalAddition (int max, int min, int digitsNumber) {
 		this.max = max;
 		this.min = min;
 		this.digitsNumber = digitsNumber;
+
 		BigDecimal a = generateRandomBigDecimal();
 		a = a.setScale(digitsNumber, RoundingMode.CEILING);
 		BigDecimal b = generateRandomBigDecimal();
@@ -19,13 +20,53 @@ public class DecimalAddition extends Problem {
 		BigDecimal c = new BigDecimal(0).add(a).add(b);
 		c = c.setScale(digitsNumber, RoundingMode.CEILING);
 		setPrompt(a + " + " + b + " = ?");
-		setAnswer(String.valueOf(c));
+
+		String loopAnswer = String.valueOf(c);
+		
+		if (loopAnswer.matches("\\d+.\\d+0+|\\d+.0+")){
+
+			int len = loopAnswer.length();
+			int j = 0;
+			while (loopAnswer.substring(len - j - 1,len -j).equals("0")){
+				j++;
+			}
+
+			if (loopAnswer.matches("\\d+.0+")) {
+				answerList.add(loopAnswer.substring(0, 1));
+			} else {
+				j++;
+			}
+
+			for (int i = 0; i < j; i++){
+				answerList.add(loopAnswer.substring(0, loopAnswer.length() - i));
+			}
+		} else {
+			answerList.add(String.valueOf(c));
+		}
     }
+
+	public boolean checkAnswer(String ans) {
+		return answerList.contains(ans);
+	}
 
 	public BigDecimal generateRandomBigDecimal(){
 		int range = (max - min);
 		BigDecimal randomNumber = new BigDecimal((Math.random() * range) + min);
 		return randomNumber;
+	}
+
+	public String getHint() {
+		String answer = "";
+		if (answerList.size() == 1) {
+			answer = "The answer is: " + answerList.get(0);
+		} else {
+			answer = "Possible answers:\n";
+			for (String s : answerList) {
+				answer = answer.concat(s).concat("\n");
+			}
+			answer = answer.substring(0, answer.length()-2);
+		}
+		return answer;
 	}
 
 	public Problem next() {

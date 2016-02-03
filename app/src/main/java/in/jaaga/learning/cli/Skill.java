@@ -18,6 +18,10 @@ public class Skill {
 		return problem;
 	}
 
+	public void setProblem(Problem problem) {
+		this.problem = problem;
+	}
+
 	// increments rep and returns remaining
 	public int solvedOne() {
 		rep++;

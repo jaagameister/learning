@@ -25,7 +25,8 @@ public class CommandLine {
 
 	static ArrayList<Skill> buildMission() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
-		mission.add(new Skill(new DecimalAddition(0, 10, 1), 5, 100));
+
+		mission.add(new Skill(new DecimalAddition(0, 1, 1), 5, 100));
 		mission.add(new Skill(new Addition(10), 5, 100));
 		mission.add(new Skill(new Addition(100), 5, 150));
 		mission.add(new Skill(new Subtraction(10), 5, 100));
@@ -43,7 +44,8 @@ public class CommandLine {
 
 		mission.add(new Skill(new Addition(-10), 5, 100));
 		mission.add(new Skill(new Subtraction(-10), 5, 150));
-		mission.add(new Skill(new Multiplication(-12, 12), 10, 200));
+		mission.add(new Skill(new Multiplication(-12, 12), 5, 200));
+
 
 		mission.add(new Skill(new VariableDivision(100, 10), 8, 100));
 		mission.add(new Skill(new VariableMultiplication(10, 10), 8, 100));
@@ -130,6 +132,7 @@ public class CommandLine {
             } else {
                 System.out.println(chatBot.comment());
                 problem = problem.next();
+				skill.setProblem(problem);
             }
         } else {
             System.out.println(chatBot.sorry());
