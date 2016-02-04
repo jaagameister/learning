@@ -8,6 +8,7 @@ import in.jaaga.learning.problems.DecimalAddition;
 import in.jaaga.learning.problems.Division;
 import in.jaaga.learning.problems.DivisionRemainders;
 import in.jaaga.learning.problems.Multiplication;
+import in.jaaga.learning.problems.NumbersSequence;
 import in.jaaga.learning.problems.Subtraction;
 import in.jaaga.learning.problems.VariableAddition;
 import in.jaaga.learning.problems.VariableDivision;
@@ -33,6 +34,8 @@ public class Learning {
 
 	ArrayList<Skill> buildMission() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
+
+		mission.add(new Skill(new NumbersSequence(1), 5, 100));
 
 		mission.add(new Skill(new Addition(10), 5, 100));
 		mission.add(new Skill(new Addition(100), 5, 150));
