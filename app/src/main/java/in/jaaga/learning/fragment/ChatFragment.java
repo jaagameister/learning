@@ -1,8 +1,6 @@
 package in.jaaga.learning.fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,8 +20,8 @@ import java.util.ArrayList;
 import in.jaaga.learning.InteractionInterface;
 import in.jaaga.learning.R;
 import in.jaaga.learning.adapter.ChatAdapter;
-import in.jaaga.learning.cli.CommandLine;
-import in.jaaga.learning.pojo.ChatItem;
+import in.jaaga.learning.Learning;
+import in.jaaga.learning.ChatItem;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -99,7 +97,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
                         item.setSender("amar");
 
                         Send(item);
-                        CommandLine.onResponse(text);
+                        Learning.onResponse(text);
 
                     }
                 }
@@ -107,7 +105,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
             }
         });
 
-        CommandLine.main(null, this);
+        Learning.main(null, this);
 
         return v;
     }

@@ -1,11 +1,13 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning.problems;
 import java.util.*;
 
-class Addition extends Problem {
+import in.jaaga.learning.Problem;
+
+public class Addition extends Problem {
+    int max;
 
     public Addition(int max) {
-		init(max);
-
+        this.max = max;
         int a,b;
         if (max > 0) {
 			a = new Random().nextInt(max);
@@ -18,14 +20,14 @@ class Addition extends Problem {
 		setAnswer(new String(Integer.toString(a + b)));
     }
 
-    public Addition(int max1, int max2) {
-    	this(max1);
+    public Problem next() {
+        return new Addition(max);
     }
 
     public String getTitle() {
-        int m = Math.abs(max1);
-        String title = "Addition to " + max1; 
-        if (max1 > 0)
+        int m = Math.abs(max);
+        String title = "Addition to " + max;
+        if (max > 0)
             return title;
         return title + " with negative numbers";
     }

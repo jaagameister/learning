@@ -1,17 +1,23 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.InputType;
 
 import java.util.*;
 
-import in.jaaga.learning.InteractionInterface;
-import in.jaaga.learning.R;
-import in.jaaga.learning.pojo.ChatItem;
+import in.jaaga.learning.Session;
+import in.jaaga.learning.problems.Addition;
+import in.jaaga.learning.problems.DecimalAddition;
+import in.jaaga.learning.problems.Division;
+import in.jaaga.learning.problems.DivisionRemainders;
+import in.jaaga.learning.problems.Multiplication;
+import in.jaaga.learning.problems.Subtraction;
+import in.jaaga.learning.problems.VariableAddition;
+import in.jaaga.learning.problems.VariableDivision;
+import in.jaaga.learning.problems.VariableMultiplication;
+import in.jaaga.learning.problems.VariableSubtraction;
 
 
-public class CommandLine {
+public class Learning {
 	static Random random = new Random();
 
 	private static int points = 0;
@@ -26,7 +32,6 @@ public class CommandLine {
 	static ArrayList<Skill> buildMission() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
-		mission.add(new Skill(new DecimalAddition(0, 1, 1), 5, 100));
 		mission.add(new Skill(new Addition(10), 5, 100));
 		mission.add(new Skill(new Addition(100), 5, 150));
 		mission.add(new Skill(new Subtraction(10), 5, 100));
@@ -46,7 +51,7 @@ public class CommandLine {
 		mission.add(new Skill(new Subtraction(-10), 5, 150));
 		mission.add(new Skill(new Multiplication(-12, 12), 5, 200));
 
-
+		mission.add(new Skill(new DecimalAddition(0, 9, 1), 5, 100));
 		mission.add(new Skill(new VariableDivision(100, 10), 8, 100));
 		mission.add(new Skill(new VariableMultiplication(10, 10), 8, 100));
 		mission.add(new Skill(new VariableSubtraction(10), 8, 100));

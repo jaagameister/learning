@@ -1,11 +1,14 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning.problems;
 
 import java.util.*;
 
-class VariableDivision extends Problem {
+import in.jaaga.learning.Problem;
 
+public class VariableDivision extends Problem {
+    int dividendMax,divisorMax;
     public VariableDivision(int dividendMax, int divisorMax) {
-        init(dividendMax, divisorMax);
+        this.dividendMax = dividendMax;
+        this.divisorMax = divisorMax;
         int quotientMax =  dividendMax / divisorMax;
         int b = new Random().nextInt(divisorMax) + 1;
         int a = b * (new Random().nextInt(quotientMax) + 1);
@@ -18,9 +21,13 @@ class VariableDivision extends Problem {
         }
     }
 
+    public Problem next(){
+        return new VariableDivision(dividendMax, divisorMax);
+    }
+
     public String getTitle() {
-        return "Division with dividend to " + max1 + 
-                " and divisor to " + max2;
+        return "Division with dividend to " + dividendMax +
+                " and divisor to " + divisorMax;
     }
 
 

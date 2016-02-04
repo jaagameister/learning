@@ -1,6 +1,8 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning;
 
 import java.util.Random;
+
+import in.jaaga.learning.Session;
 
 public class ChatBot {
 

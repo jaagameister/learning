@@ -1,4 +1,4 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning;
 
 public class Skill {
 	int repsRequired;

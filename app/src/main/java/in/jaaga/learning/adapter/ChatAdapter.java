@@ -5,7 +5,6 @@ package in.jaaga.learning.adapter;
  */
 
 import android.content.Context;
-import android.opengl.Visibility;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.jaaga.learning.R;
-import in.jaaga.learning.pojo.ChatItem;
+import in.jaaga.learning.ChatItem;
 
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

@@ -1,10 +1,8 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import java.util.HashMap;
 
 class Session {
 	Skill skill;

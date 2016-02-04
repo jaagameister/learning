@@ -1,4 +1,4 @@
-package in.jaaga.learning.pojo;
+package in.jaaga.learning;
 
 /**
  * Created by root on 24/1/16.

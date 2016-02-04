@@ -1,7 +1,9 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning.problems;
 
 import java.util.*;
 import java.math.*;
+
+import in.jaaga.learning.Problem;
 
 public class DecimalAddition extends Problem {
 
@@ -22,7 +24,7 @@ public class DecimalAddition extends Problem {
 		setPrompt(a + " + " + b + " = ?");
 
 		String loopAnswer = String.valueOf(c);
-		
+
 		if (loopAnswer.matches("\\d+.\\d+0+|\\d+.0+")){
 
 			int len = loopAnswer.length();
@@ -74,6 +76,6 @@ public class DecimalAddition extends Problem {
 	}
 
     public String getTitle() {
-    	return "Decimal addition with variables upto " + max1;
+    	return "Decimal addition with variables upto " + max;
     }
 }

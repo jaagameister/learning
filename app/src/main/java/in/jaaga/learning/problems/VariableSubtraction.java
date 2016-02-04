@@ -1,11 +1,13 @@
-package in.jaaga.learning.cli;
+package in.jaaga.learning.problems;
 
 import java.util.*;
 
-public class VariableSubtraction extends Problem {
+import in.jaaga.learning.Problem;
 
+public class VariableSubtraction extends Problem {
+    int max;
     public VariableSubtraction(int max) {
-		init(max);
+		this.max = max;
 		int a = new Random().nextInt(max);
         int b = new Random().nextInt(a + 1);
 		if (new Random().nextInt(2) % 2 == 0) {
@@ -17,11 +19,15 @@ public class VariableSubtraction extends Problem {
         }
     }
 
+    public Problem next(){
+        return new VariableSubtraction(max);
+    }
+
     public VariableSubtraction(int max1, int max2) {
     	this(max1);
     }
 
     public String getTitle() {
-    	return "Subtraction with variables upto " + max1;
+    	return "Subtraction with variables upto " + max;
     }
 }
