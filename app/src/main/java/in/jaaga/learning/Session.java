@@ -1,21 +1,12 @@
 package in.jaaga.learning;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-
 class Session {
 	Skill skill;
-    SharedPreferences profile;
-    Activity activity;
     String state;
     String name;
     int points = 0;
 
-    public Session(Activity activity) {
-        this.activity = activity;
-        profile = activity.getPreferences(Context.MODE_PRIVATE);
-        name = profile.getString("name", null);
+    public Session() {
     }
 
     public String getState() {
@@ -48,13 +39,5 @@ class Session {
 
     public void addPoints(int points) {
         this.points += points;
-    }
-
-    public void save() {
-        if (name != null) {
-            SharedPreferences.Editor editor = profile.edit();
-            editor.putString("name", name);
-            editor.apply();
-        }
     }
 }

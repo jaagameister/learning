@@ -39,9 +39,10 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     private EditText chat_box;
     private ArrayList<ChatItem> chat_list;
     private ChatAdapter chatAdapter;
+    private Learning learning;
 
     public ChatFragment() {
-        // Required empty public constructor
+        learning = new Learning(this);
     }
 
     public static ChatFragment newInstance() {
@@ -96,22 +97,20 @@ public class ChatFragment extends Fragment implements InteractionInterface{
                         //TODO Handle name here,hardcoding for now
                         item.setSender("amar");
 
-                        Send(item);
-                        Learning.onResponse(text);
-
+                        send(item);
+                        learning.onResponse(text);
                     }
                 }
                 return false;
             }
         });
-
-        Learning.main(null, this);
+        learning.start();
 
         return v;
     }
 
     @Override
-    public void Send(ChatItem item){
+    public void send(ChatItem item){
 
         chat_list.add(item);
 
@@ -119,7 +118,10 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         chatAdapter.notifyItemInserted(position);
         chat_view.scrollToPosition(position);
         chat_box.setText("");
-        chat_box.setInputType(item.getResponseType());
+        if (item.getResponseType() == Learning.NUMBER_RESPONSE)
+            chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
+        else
+            chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
     }
 
     @Override
