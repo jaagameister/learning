@@ -3,12 +3,15 @@ package in.jaaga.learning;
 import java.util.*;
 
 import in.jaaga.learning.Session;
+import in.jaaga.learning.missions.General;
+import in.jaaga.learning.missions.Mission;
+import in.jaaga.learning.missions.NegativeNumbers;
 import in.jaaga.learning.problems.Addition;
 import in.jaaga.learning.problems.DecimalAddition;
 import in.jaaga.learning.problems.Division;
 import in.jaaga.learning.problems.DivisionRemainders;
 import in.jaaga.learning.problems.Multiplication;
-import in.jaaga.learning.problems.NumbersSequence;
+//import in.jaaga.learning.problems.NumbersSequence;
 import in.jaaga.learning.problems.Subtraction;
 import in.jaaga.learning.problems.VariableAddition;
 import in.jaaga.learning.problems.VariableDivision;
@@ -26,57 +29,25 @@ public class Learning {
 	private int points = 0;
 	private Session session;
 	private ChatBot chatBot;
+    private Mission mission;
     private Iterator<Skill> path;
     private Skill skill;
 	private Problem problem;
 
 	InteractionInterface interactionInterface;
 
-	ArrayList<Skill> buildMission() {
-        ArrayList<Skill> mission = new ArrayList<Skill>();
-
-		mission.add(new Skill(new NumbersSequence(1), 5, 100));
-
-		mission.add(new Skill(new Addition(10), 5, 100));
-		mission.add(new Skill(new Addition(100), 5, 150));
-		mission.add(new Skill(new Subtraction(10), 5, 100));
-		mission.add(new Skill(new Subtraction(100), 5, 150));
-
-		mission.add(new Skill(new Multiplication(5, 5), 10, 200));
-		mission.add(new Skill(new Multiplication(10, 10), 10, 200));
-		mission.add(new Skill(new Addition(1000), 5, 150));
-
-		mission.add(new Skill(new Division(30, 10), 5, 250));
-		mission.add(new Skill(new Division(100, 10), 5, 250));
-		mission.add(new Skill(new DivisionRemainders(30, 10), 5, 300));
-		mission.add(new Skill(new Subtraction(1000), 5, 100));
-		mission.add(new Skill(new Multiplication(100, 10), 10, 200));
-
-		mission.add(new Skill(new Addition(-10), 5, 100));
-		mission.add(new Skill(new Subtraction(-10), 5, 150));
-		mission.add(new Skill(new Multiplication(-12, 12), 5, 200));
-
-		mission.add(new Skill(new DecimalAddition(0, 9, 1), 5, 100));
-		mission.add(new Skill(new VariableDivision(100, 10), 8, 100));
-		mission.add(new Skill(new VariableMultiplication(10, 10), 8, 100));
-		mission.add(new Skill(new VariableSubtraction(10), 8, 100));
-		mission.add(new Skill(new VariableAddition(10), 8, 100));
-		mission.add(new Skill(new Addition(10), 2, 100));
-		mission.add(new Skill(new Subtraction(10), 2, 150));
-		mission.add(new Skill(new Multiplication(12, 12), 3, 200));
-		mission.add(new Skill(new Division(100, 10), 3, 250));
-		mission.add(new Skill(new DivisionRemainders(100, 10), 4, 300));
-
-		return mission;
-	}
 
     public Learning(InteractionInterface minteractionInterface) {
 		interactionInterface = minteractionInterface;
         Scanner sc = new Scanner(System.in);
         session = new Session();
         chatBot = new ChatBot(session);
+        setMission(new General());
+    }
 
-        path = buildMission().iterator();
+    public void setMission(Mission mission) {
+        this.mission = mission;
+        path = mission.getList().iterator();
         skill = path.next();
         session.setSkill(skill);
         problem = skill.getProblem();
@@ -91,28 +62,36 @@ public class Learning {
 		if (".".equals(response)) {
 			sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
 			return;
-		}
-
-		if ("hint".equals(response)) {
-			sendMessage(skill.takeHint(), NO_RESPONSE);
-			sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
-			return;
-		}
-
-        if ("skip".equals(response)) {
+		} else if (response.contains("help")) {
+            sendMessage("you can say 'hint' for help with the current problem \n"+
+                        "'skip will move to the next skill in the current mission\n"+
+                        "mission will list the current mission and mission options", TEXT_RESPONSE);
+        } else if ("hint".equals(response)) {
+                sendMessage(skill.takeHint(), NO_RESPONSE);
+                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+                return;
+        } else if ("skip".equals(response)) {
             skill = path.next();
             session.setSkill(skill);
             problem = skill.getProblem();
             sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
             return;
+        } else if (response.startsWith("mission")) {
+            if (response.contains("general")) {
+                setMission(new General());
+                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+            } else if (response.contains("negative")) {
+                setMission(new NegativeNumbers());
+                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+            } else {
+                sendMessage("the current mission is: " + mission.getTitle()+
+                            "\n available missions are: general and negative." +
+                            " type - mission negative - to switch.", TEXT_RESPONSE);
+            }
+        } else {
+            checkAnswer(response);
+            sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
         }
-
-        if ("mission".equals(response)) {
-            return;
-        }
-
-        checkAnswer(response);
-        sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
 	}
 
     void checkAnswer(String response) {
