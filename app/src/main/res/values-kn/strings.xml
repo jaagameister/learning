@@ -19,4 +19,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="hello">ಹಲೋ %s</string>
+
+    <string name="addition_title">"ಜೊತೆಗೆ %d"</string>
+    <string name="addition_negative_title">"ಋಣ ಸಂಖ್ಯೆಗಳ ಜೊತೆಗ%dೆ"</string>
+
 </resources>

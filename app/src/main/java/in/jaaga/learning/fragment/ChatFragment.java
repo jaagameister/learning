@@ -1,6 +1,8 @@
 package in.jaaga.learning.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 
 import in.jaaga.learning.InteractionInterface;
 import in.jaaga.learning.R;
+import in.jaaga.learning.S;
 import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
@@ -32,7 +35,6 @@ import in.jaaga.learning.ChatItem;
  * create an instance of this fragment.
  */
 public class ChatFragment extends Fragment implements InteractionInterface{
-
     private ChatFragmentListener mListener;
 
     private RecyclerView chat_view;
@@ -62,6 +64,9 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (S.RESOURCES == null) {
+            S.RESOURCES = getResources();
+        }
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_chat, container, false);

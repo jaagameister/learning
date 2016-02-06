@@ -1,7 +1,12 @@
 package in.jaaga.learning.problems;
+import android.content.res.Resources;
+
 import java.util.*;
 
 import in.jaaga.learning.Problem;
+import in.jaaga.learning.R;
+import in.jaaga.learning.S;
+import in.jaaga.learning.fragment.ChatFragment;
 
 public class Addition extends SimpleProblem {
     int max;
@@ -26,10 +31,10 @@ public class Addition extends SimpleProblem {
 
     public String getTitle() {
         int m = Math.abs(max);
-        String title = "Addition to " + max;
         if (max > 0)
-            return title;
-        return title + " with negative numbers";
+            return S.RESOURCES.getString(R.string.addition_title, max);
+        else
+            return S.RESOURCES.getString(R.string.addition_negative_title, max);
     }
 }
 

@@ -108,7 +108,7 @@ public class Learning {
                 problem = skill.getProblem();
 //				System.out.println("KS");
 //                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE,  R.drawable.ks);
-//                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
+                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
             } else {
 //                System.out.println(chatBot.comment());
                 sendMessage(chatBot.comment(), NO_RESPONSE);

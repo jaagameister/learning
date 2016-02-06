@@ -18,5 +18,18 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
+    <!-- CHATBOT -->
     <string name="hello">hello</string>
+    <string name="bye">bye</string>
+    <string name="correct">correct</string>
+    <string name="incorrect">that\'s not the answer I\'m looking for</string>
+    <string name="encourage">you\'re doing great!</string>
+    <string name="one_left">just one problem left in this skill</string>
+    <string name="ask_name">what\'s your name?</string>
+    <string name="level_up">Congratulations !!! you passed %1$s \n and earned %2$d points. You now have %3$d total points.\n Now it\'s time to practice %4$s </string>
+    <string name="admin_prompt">Yes, Master...</string>
+
+    <!-- PROBLEMS -->
+    <string name="addition_title">"Addition to %d"</string>
+    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
 </resources>
