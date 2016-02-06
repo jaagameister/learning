@@ -83,6 +83,9 @@ public class Learning {
             } else if (response.contains("negative")) {
                 setMission(new NegativeNumbers());
                 sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+            } else if (response.contains("easy")) {
+                setMission(new NegativeNumbers());
+                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
             } else {
                 sendMessage("the current mission is: " + mission.getTitle()+
                             "\n available missions are: general and negative." +
