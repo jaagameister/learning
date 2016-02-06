@@ -4,18 +4,20 @@ import java.util.*;
 
 import in.jaaga.learning.Problem;
 
-public class Division extends Problem {
+public class Division extends SimpleProblem {
     int dividendMax, divisorMax;
 
     public Division(int dividendMax, int divisorMax) {
         this.dividendMax = dividendMax;
         this.divisorMax = divisorMax;
+        int a, b;
 
         int quotientMax =  dividendMax / divisorMax;
-        int b = new Random().nextInt(divisorMax) + 1;
-        int a = b * new Random().nextInt(quotientMax);
-        setPrompt(new String(a + " / " + b + " = ?"));
-        setAnswer(new String(Integer.toString(a / b)));
+        b = new Random().nextInt(divisorMax) + 1;
+        a = b * new Random().nextInt(quotientMax);
+
+        prompt = a + " / " + b + " = ?";
+        answer = Integer.toString(a / b);
     }
 
     public Problem next(){
@@ -26,6 +28,4 @@ public class Division extends Problem {
         return "Division with dividend to " + dividendMax +
                 " and divisor to " + divisorMax;
     }
-
-
 }

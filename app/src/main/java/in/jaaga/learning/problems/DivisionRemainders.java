@@ -4,23 +4,33 @@ import java.util.*;
 
 import in.jaaga.learning.Problem;
 
-public class DivisionRemainders extends Problem {
+public class DivisionRemainders implements Problem {
 	int dividendMax, divisorMax;
+	int a, b, r;
 
     public DivisionRemainders(int dividendMax, int divisorMax) {
 		this.dividendMax = dividendMax;
 		this.divisorMax = divisorMax;
-     	int a = new Random().nextInt(dividendMax);
-		int b = new Random().nextInt(divisorMax) + 1;
-		int r = a % b;
-
-		setPrompt(new String(a + " / " + b + " = ?"));
-		String ans = new String(Integer.toString(a / b));
-		if (r == 0)
-			setAnswer(ans);
-		else
-			setAnswer(ans + " " + r);
+     	a = new Random().nextInt(dividendMax);
+		b = new Random().nextInt(divisorMax) + 1;
+		r = a % b;
     }
+
+	public String getPrompt() {
+		return a + " / " + b + " = ?";
+	}
+
+	public boolean checkAnswer(String answer) {
+		if (Integer.toString(a / b).equals(answer) && r == 0)
+			return true;
+		if (answer.equals(Integer.toString(a / b) + " " + r))
+			return true;
+		return false;
+	}
+
+	public String getHint() {
+		return Integer.toString(a / b) + " " + r;
+	}
 
 	public Problem next(){
 		return  new Division(dividendMax, divisorMax);

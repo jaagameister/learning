@@ -4,21 +4,23 @@ import java.util.*;
 
 import in.jaaga.learning.Problem;
 
-public class Multiplication extends Problem {
+public class Multiplication extends SimpleProblem {
     int factor1, factor2;
+    int a, b;
 
     public Multiplication(int factor1, int factor2) {
     	this.factor1 = factor1;
         this.factor2 = factor2;
 
-		int a = new Random().nextInt(Math.abs(factor1));
-		int b = new Random().nextInt(Math.abs(factor2));
+		a = new Random().nextInt(Math.abs(factor1));
+		b = new Random().nextInt(Math.abs(factor2));
     	if (factor1 < 0) {
 			a -= Math.abs(factor1/2);
 			b -= Math.abs(factor2/2);
 		}
-		setPrompt(new String(a + " * " + b + " = ?"));
-		setAnswer(new String(Integer.toString(a * b)));
+
+        prompt = a + " * " + b + " = ?";
+        answer = Integer.toString(a * b);
     }
 
     public Problem next(){

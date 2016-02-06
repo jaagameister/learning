@@ -4,8 +4,9 @@ import java.util.*;
 
 import in.jaaga.learning.Problem;
 
-public class VariableDivision extends Problem {
+public class VariableDivision extends SimpleProblem {
     int dividendMax,divisorMax;
+
     public VariableDivision(int dividendMax, int divisorMax) {
         this.dividendMax = dividendMax;
         this.divisorMax = divisorMax;
@@ -13,11 +14,11 @@ public class VariableDivision extends Problem {
         int b = new Random().nextInt(divisorMax) + 1;
         int a = b * (new Random().nextInt(quotientMax) + 1);
         if (new Random().nextInt(2) % 2 == 0) {
-            setPrompt(new String(a + " / ? = " + (a/b)));
-            setAnswer(new String(Integer.toString(b)));
+            prompt = (new String(a + " / ? = " + (a/b)));
+            answer = (new String(Integer.toString(b)));
         } else {
-            setPrompt(new String("? / " + b + " = " + (a/b)));
-            setAnswer(new String(Integer.toString(a)));            
+            prompt = (new String("? / " + b + " = " + (a/b)));
+            answer = (new String(Integer.toString(a)));
         }
     }
 

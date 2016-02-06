@@ -1,5 +1,7 @@
 package in.jaaga.learning;
 
+import android.content.res.Resources;
+
 import java.util.Random;
 
 import in.jaaga.learning.Session;
@@ -69,10 +71,8 @@ public class ChatBot {
 	}
 
 	public String hello() {
-        String name = session.getName();
-		if (name != null)
-			return HELLO[random.nextInt(HELLO.length)] + ", " + name;
-		return HELLO[random.nextInt(HELLO.length)];
+//		return getResources().getString(R.string.hello);
+		return "hello";
 	}
 
 	public String bye() {
