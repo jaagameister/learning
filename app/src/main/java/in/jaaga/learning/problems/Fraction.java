@@ -18,7 +18,7 @@ public class Fraction extends SimpleProblem {
 
             prompt = a + " / " + b + " = ?";
 
-            int hcf=0;
+            int hcf=-1;
             int min = Math.min(a,b);
 
             for(int i=min; i >= 1; i--)
