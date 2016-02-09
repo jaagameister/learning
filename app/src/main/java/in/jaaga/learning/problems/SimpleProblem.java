@@ -6,7 +6,7 @@ import in.jaaga.learning.Problem;
  * Created by freeman on 6/2/16.
  */
 public abstract class SimpleProblem implements Problem {
-    String prompt, answer;
+    protected String prompt, answer;
 
     public String getPrompt() {
         return prompt;

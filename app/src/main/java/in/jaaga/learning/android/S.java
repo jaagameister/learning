@@ -1,4 +1,4 @@
-package in.jaaga.learning;
+package in.jaaga.learning.android;
 
 import android.content.res.Resources;
 
