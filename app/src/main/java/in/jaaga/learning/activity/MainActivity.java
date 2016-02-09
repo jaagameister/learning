@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         showChatFragment();
 
         mVisible = true;
-        mContentView = findViewById(R.id.content_container);
+        mContentView = findViewById(R.id.fullscreen_toggle);
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {

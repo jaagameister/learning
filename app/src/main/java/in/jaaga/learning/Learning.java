@@ -83,6 +83,9 @@ public class Learning {
             } else if (response.contains("negative")) {
                 setMission(new NegativeNumbers());
                 sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+            } else if (response.contains("easy")) {
+                setMission(new NegativeNumbers());
+                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
             } else {
                 sendMessage("the current mission is: " + mission.getTitle()+
                             "\n available missions are: general and negative." +
@@ -105,7 +108,7 @@ public class Learning {
                 problem = skill.getProblem();
 //				System.out.println("KS");
 //                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE,  R.drawable.ks);
-//                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
+                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
             } else {
 //                System.out.println(chatBot.comment());
                 sendMessage(chatBot.comment(), NO_RESPONSE);

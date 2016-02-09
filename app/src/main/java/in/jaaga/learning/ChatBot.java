@@ -1,5 +1,7 @@
 package in.jaaga.learning;
 
+import android.content.res.Resources;
+
 import java.util.Random;
 
 import in.jaaga.learning.Session;
@@ -54,52 +56,41 @@ public class ChatBot {
 	public String comment() {
 		Skill skill = session.getSkill();
 		if (skill != null && skill.getRemaining() == 1)
-			return "just " + skill.getRemaining() + " left in this skill";
-
-		if (session.getName() != null) {
-			return session.getName() + ", " + encourage();
-		}
+			return S.RESOURCES.getString(R.string.one_left);
 		return encourage();
 	}
 
-	public String askName() { return "what's your name ?"; }
+	public String askName() {
+		return S.RESOURCES.getString(R.string.ask_name);
+	}
 
 	public String encourage() {
-		return ENCOURAGE[random.nextInt(ENCOURAGE.length)];
+		return S.RESOURCES.getString(R.string.encourage);
 	}
 
 	public String hello() {
-        String name = session.getName();
-		if (name != null)
-			return HELLO[random.nextInt(HELLO.length)] + ", " + name;
-		return HELLO[random.nextInt(HELLO.length)];
+		return S.RESOURCES.getString(R.string.hello);
 	}
 
 	public String bye() {
-        return BYE[random.nextInt(BYE.length)];
+		return S.RESOURCES.getString(R.string.bye);
 	}
 
 	public String correct() {
-		return CORRECT[random.nextInt(CORRECT.length)];
+		return S.RESOURCES.getString(R.string.correct);
 	}
 
 	public String sorry() {
-		return SORRY[random.nextInt(SORRY.length)];	
+		return S.RESOURCES.getString(R.string.incorrect);
 	}
 
 	public String levelUp(Skill last, Skill next) {
-        StringBuffer sb = new StringBuffer();
-        sb.append("Congratulations !!! you passed " + last.getProblem().getTitle());
-        sb.append("\nand earned " + last.getPoints() + " skill points");
-
-        session.addPoints(last.getPoints());
-        sb.append("\nyou now have " + session.getPoints() + " total points");
-        sb.append("\nNow its time to practice " + next.getProblem().getTitle());
-
-        return sb.toString();
+		session.addPoints(last.getPoints());
+		return S.RESOURCES.getString(R.string.level_up, last.getProblem().getTitle(),
+				last.getPoints(), next.getPoints(), next.getProblem().getTitle());
     }
 
     public String adminPrompt() {
-        return "Yes, Master...";
+        return S.RESOURCES.getString(R.string.admin_prompt);
     }
 }

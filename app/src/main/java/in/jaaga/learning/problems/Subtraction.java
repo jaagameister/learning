@@ -4,12 +4,13 @@ import java.util.*;
 import in.jaaga.learning.Problem;
 
 
-public class Subtraction extends Problem {
+public class Subtraction extends SimpleProblem {
     int max;
+
     public Subtraction(int max) {
+        int a, b;
     	this.max = max;
 
-        int a,b;
         if (max > 0) {
         	a = new Random().nextInt(max);
     		b = new Random().nextInt(a + 1);
@@ -17,8 +18,8 @@ public class Subtraction extends Problem {
             a = new Random().nextInt(max * -2) + max;
             b = new Random().nextInt(max * -2) + max;
         }       
-		setPrompt(new String(a + " - " + b + " = ?"));
-		setAnswer(new String(Integer.toString(a - b)));
+        prompt = a + " - " + b + " = ?";
+        answer = Integer.toString(a - b);
     }
 
     public Problem next(){

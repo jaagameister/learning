@@ -5,9 +5,10 @@ import java.math.*;
 
 import in.jaaga.learning.Problem;
 
-public class DecimalAddition extends Problem {
+public class DecimalAddition implements Problem {
 
 	int max, min, digitsNumber;
+	BigDecimal a, b, c;
 	ArrayList<String> answerList = new ArrayList<String>();
 
     public DecimalAddition (int max, int min, int digitsNumber) {
@@ -15,13 +16,12 @@ public class DecimalAddition extends Problem {
 		this.min = min;
 		this.digitsNumber = digitsNumber;
 
-		BigDecimal a = generateRandomBigDecimal();
+		a = generateRandomBigDecimal();
 		a = a.setScale(digitsNumber, RoundingMode.CEILING);
-		BigDecimal b = generateRandomBigDecimal();
+		b = generateRandomBigDecimal();
 		b = b.setScale(digitsNumber, RoundingMode.CEILING);
-		BigDecimal c = new BigDecimal(0).add(a).add(b);
+		c = new BigDecimal(0).add(a).add(b);
 		c = c.setScale(digitsNumber, RoundingMode.CEILING);
-		setPrompt(a + " + " + b + " = ?");
 
 		String loopAnswer = String.valueOf(c);
 
@@ -47,11 +47,15 @@ public class DecimalAddition extends Problem {
 		}
     }
 
+	public String getPrompt() {
+		return a + " + " + b + " = ?";
+	}
+
 	public boolean checkAnswer(String ans) {
 		return answerList.contains(ans);
 	}
 
-	public BigDecimal generateRandomBigDecimal(){
+	BigDecimal generateRandomBigDecimal(){
 		int range = (max - min);
 		BigDecimal randomNumber = new BigDecimal((Math.random() * range) + min);
 		return randomNumber;
