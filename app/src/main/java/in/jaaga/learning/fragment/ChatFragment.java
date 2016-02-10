@@ -21,10 +21,11 @@ import java.util.ArrayList;
 
 import in.jaaga.learning.InteractionInterface;
 import in.jaaga.learning.R;
-import in.jaaga.learning.S;
+import in.jaaga.learning.android.S;
 import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
+import in.jaaga.learning.android.AndroidChatBot;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,7 +45,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     private Learning learning;
 
     public ChatFragment() {
-        learning = new Learning(this);
+        learning = new Learning(this, new AndroidChatBot());
     }
 
     public static ChatFragment newInstance() {
