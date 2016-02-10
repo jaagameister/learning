@@ -1,6 +1,6 @@
 package in.jaaga.learning;
 
-class Session {
+public class Session {
 	Skill skill;
     String state;
     String name;

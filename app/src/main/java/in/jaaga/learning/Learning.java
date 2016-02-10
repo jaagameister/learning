@@ -2,21 +2,10 @@ package in.jaaga.learning;
 
 import java.util.*;
 
-import in.jaaga.learning.Session;
 import in.jaaga.learning.missions.General;
 import in.jaaga.learning.missions.Mission;
 import in.jaaga.learning.missions.NegativeNumbers;
-import in.jaaga.learning.problems.Addition;
-import in.jaaga.learning.problems.DecimalAddition;
-import in.jaaga.learning.problems.Division;
-import in.jaaga.learning.problems.DivisionRemainders;
-import in.jaaga.learning.problems.Multiplication;
 //import in.jaaga.learning.problems.NumbersSequence;
-import in.jaaga.learning.problems.Subtraction;
-import in.jaaga.learning.problems.VariableAddition;
-import in.jaaga.learning.problems.VariableDivision;
-import in.jaaga.learning.problems.VariableMultiplication;
-import in.jaaga.learning.problems.VariableSubtraction;
 
 
 public class Learning {
@@ -37,11 +26,13 @@ public class Learning {
 	InteractionInterface interactionInterface;
 
 
-    public Learning(InteractionInterface minteractionInterface) {
+    public Learning(InteractionInterface minteractionInterface, ChatBot chatBot) {
 		interactionInterface = minteractionInterface;
         Scanner sc = new Scanner(System.in);
         session = new Session();
-        chatBot = new ChatBot(session);
+        this.chatBot = chatBot;
+        this.chatBot.setSession(session);
+//        chatBot = new ChatBot(session);
         setMission(new General());
     }
 
@@ -108,6 +99,7 @@ public class Learning {
                 problem = skill.getProblem();
 //				System.out.println("KS");
 //                sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE,  R.drawable.ks);
+                session.addPoints(last.getPoints());
                 sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
             } else {
 //                System.out.println(chatBot.comment());

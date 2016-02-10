@@ -1,13 +1,16 @@
-package in.jaaga.learning.problems;
+package in.jaaga.learning.android.problems;
 
 import java.util.*;
 
 import in.jaaga.learning.Problem;
+import in.jaaga.learning.problems.SimpleProblem;
+import in.jaaga.learning.R;
+import in.jaaga.learning.android.S;
 
-public class Addition extends SimpleProblem {
+public class AndroidAddition extends SimpleProblem {
     int max;
 
-    public Addition(int max) {
+    public AndroidAddition(int max) {
         this.max = max;
         int a, b;
         if (max > 0) {
@@ -22,15 +25,15 @@ public class Addition extends SimpleProblem {
     }
 
     public Problem next() {
-        return new Addition(max);
+        return new AndroidAddition(max);
     }
 
     public String getTitle() {
         int m = Math.abs(max);
         if (max > 0)
-            return "Addition to "+max;
+            return S.RESOURCES.getString(R.string.addition_title, max);
         else
-            return "Addition to "+max+"with negative numbers";
+            return S.RESOURCES.getString(R.string.addition_negative_title, max);
     }
 }
 
