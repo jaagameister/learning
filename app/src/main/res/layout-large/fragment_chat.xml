@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ChatFragment"
-    android:padding="5dp">
+    android:padding="48dp">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_view"
@@ -16,7 +16,9 @@
         android:layout_marginTop="0dp"
         android:layout_above="@+id/linearLayout2"
         android:isScrollContainer="true"
-        app:stackFromEnd="true"/>
+        app:stackFromEnd="true">
+
+    </android.support.v7.widget.RecyclerView>
 
 
     <LinearLayout
@@ -32,12 +34,12 @@
         <EditText
             android:id="@+id/input_text"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="65dp"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/send"
             android:hint="@string/input_chat_box"
             android:singleLine="true"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:background="@drawable/edit_text_chat"
             android:minLines="1"
             android:layout_gravity="center"
@@ -46,7 +48,7 @@
             android:paddingRight="20dp"
             android:paddingBottom="8dp"
             android:layout_margin="5dp"
-             />
+            />
     </LinearLayout>
 
 </RelativeLayout>
