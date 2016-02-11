@@ -49,12 +49,40 @@ public class NumbersSequence extends SimpleProblem {
         return "Numbers sequence problem with difficulty level " + difficulty;
     }
 
-    static ArrayList<Integer> createSequence(int start, int multiplicator) {
+    public ArrayList<Integer> createSequence(int start, int multiplicator){
         ArrayList<Integer> mySequence = new ArrayList<>();
         mySequence.add(start);
         int size = new Random().nextInt(3) + 4;
-        for (int i = 1; i < size; i++){
-            mySequence.add(mySequence.get(i-1) + multiplicator);
+        switch (difficulty){
+            case 1: for (int i = 1; i < size; i++){
+                mySequence.add(mySequence.get(i-1) + multiplicator);
+            }
+
+                break;
+
+            case 2: if (new Random().nextInt(2) == 1){
+                mySequence.set(0, start + 10);
+                for (int i = 1; i < size; i++){
+                    mySequence.add(mySequence.get(i-1) - multiplicator);
+                }
+            } else {
+                for (int i = 1; i < size; i++){
+                    mySequence.add(mySequence.get(i-1) + multiplicator);
+                }
+            }
+                break;
+
+            case 3:	case 4: case 5: case 6: case 7:case 8: case 9: case 10:
+                if (new Random().nextInt(2) == 1){
+                    for (int i = 1; i < size; i++){
+                        mySequence.add(mySequence.get(i-1) - multiplicator);
+                    }
+                } else {
+                    for (int i = 1; i < size; i++){
+                        mySequence.add(mySequence.get(i-1) + multiplicator);
+                    }
+                }
+                break;
         }
         return mySequence;
     }
