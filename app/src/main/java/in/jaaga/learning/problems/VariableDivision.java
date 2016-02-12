@@ -14,10 +14,10 @@ public class VariableDivision extends SimpleProblem {
         int b = new Random().nextInt(divisorMax) + 1;
         int a = b * (new Random().nextInt(quotientMax) + 1);
         if (new Random().nextInt(2) % 2 == 0) {
-            prompt = (new String(a + " / ? = " + (a/b)));
+            prompt = (new String(a + " ÷ ? = " + (a/b)));
             answer = (new String(Integer.toString(b)));
         } else {
-            prompt = (new String("? / " + b + " = " + (a/b)));
+            prompt = (new String("? ÷ " + b + " = " + (a/b)));
             answer = (new String(Integer.toString(a)));
         }
     }
