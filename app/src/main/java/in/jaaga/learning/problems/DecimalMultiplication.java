@@ -46,7 +46,7 @@ public class DecimalMultiplication implements Problem {
     }
 
     public String getPrompt() {
-        return a + " * " + b + " = ?";
+        return a + " X " + b + " = ?";
     }
 
     public boolean checkAnswer(String ans) {
