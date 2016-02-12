@@ -28,7 +28,7 @@ public class DecimalDivision extends SimpleProblem {
         double b_double = bb.doubleValue();
         double c = a_double/b_double;
         answer = Math.round(c*1000.0)/1000.0;
-        prompt = new String(a + " / " + b +" = ?");
+        prompt = new String(a + " ÷ " + b +" = ?");
     }
     public boolean checkAnswer(String ans) {
         return (answer == Double.parseDouble(ans));
