@@ -17,7 +17,7 @@ public class DivisionRemainders implements Problem {
     }
 
 	public String getPrompt() {
-		return a + " / " + b + " = ?";
+		return a + " ÷ " + b + " = ?";
 	}
 
 	public boolean checkAnswer(String answer) {
