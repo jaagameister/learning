@@ -19,7 +19,7 @@ public class Multiplication extends SimpleProblem {
 			b -= Math.abs(factor2/2);
 		}
 
-        prompt = a + " * " + b + " = ?";
+        prompt = a + " x " + b + " = ?";
         answer = Integer.toString(a * b);
     }
 
