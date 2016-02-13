@@ -25,7 +25,7 @@ public class DecimalMultiplication extends SimpleProblem {
 
     /*
     public String getPrompt() {
-        return a + " * " + b + " = ?";
+        return a + " x " + b + " = ?";
     }
     */
 

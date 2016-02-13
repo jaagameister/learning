@@ -16,7 +16,7 @@ public class Division extends SimpleProblem {
         b = new Random().nextInt(divisorMax) + 1;
         a = b * new Random().nextInt(quotientMax);
 
-        prompt = a + " / " + b + " = ?";
+        prompt = a + " ÷ " + b + " = ?";
         answer = Integer.toString(a / b);
     }
 

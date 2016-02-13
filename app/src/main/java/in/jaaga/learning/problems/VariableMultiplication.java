@@ -13,10 +13,10 @@ public class VariableMultiplication extends SimpleProblem {
 		int a = new Random().nextInt(factor1) + 1;
 		int b = new Random().nextInt(factor2) + 1;
         if (new Random().nextInt(2) % 2 == 0) {
-    		prompt = (new String(a + " * ? = " + (a*b)));
+    		prompt = (new String(a + " x ? = " + (a*b)));
             answer = (new String(Integer.toString(b)));
         } else {
-            prompt = (new String("? * " + b + " = " + (a*b)));
+            prompt = (new String("? x " + b + " = " + (a*b)));
             answer = (new String(Integer.toString(a)));
 
         }
