@@ -17,8 +17,10 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
 import in.jaaga.learning.R;
 import in.jaaga.learning.fragment.ChatFragment;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main);
 
