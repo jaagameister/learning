@@ -31,9 +31,9 @@ public class AndroidAddition extends SimpleProblem {
     public String getTitle() {
         int m = Math.abs(max);
         if (max > 0)
-            return S.RESOURCES.getString(R.string.addition_title, max);
+            return S.getResources().getString(R.string.addition_title, max);
         else
-            return S.RESOURCES.getString(R.string.addition_negative_title, max);
+            return S.getResources().getString(R.string.addition_negative_title, max);
     }
 }
 

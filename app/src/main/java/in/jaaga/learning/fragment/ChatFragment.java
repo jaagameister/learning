@@ -65,13 +65,10 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if (S.RESOURCES == null) {
-            S.RESOURCES = getResources();
-        }
+        S.init(getResources(),getActivity());
+
         // Inflate the layout for this fragment
-
         View v = inflater.inflate(R.layout.fragment_chat, container, false);
-
 
         //Setup the list
         chat_view = (RecyclerView) v.findViewById(R.id.chat_view);

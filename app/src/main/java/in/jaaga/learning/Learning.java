@@ -44,16 +44,29 @@ public class Learning {
         problem = skill.getProblem();
     }
 
-	public void start() {
+    public void start() {
         sendMessage(chatBot.hello(), NO_RESPONSE);
-        sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+        sendMessage(chatBot.askName(),TEXT_RESPONSE);
+        //sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
     }
 
-	public void onResponse(String response){
-		if (".".equals(response)) {
-			sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
-			return;
-		} else if (response.contains("help")) {
+	public void onResponse(String response) {
+        if(session.getName() == null) {
+            session.setName(response);
+            if (DB.containsName(response) == true) {
+                sendMessage("Welcome Back " + session.getName(), NO_RESPONSE);
+            } else {
+                sendMessage("It seems like you are new.\n Nice to meet you ", NO_RESPONSE);
+                DB.addName(response);
+            }
+            sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+        } else if (".".equals(response)) {
+            sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
+            return;
+        } else if (response.equals("whoami"))  {
+            sendMessage(session.getName(),NO_RESPONSE);
+            sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+        } else if (response.contains("help")) {
             sendMessage("you can say 'hint' for help with the current problem \n"+
                         "'skip will move to the next skill in the current mission\n"+
                         "mission will list the current mission and mission options", TEXT_RESPONSE);
@@ -82,11 +95,12 @@ public class Learning {
                             "\n available missions are: general and negative." +
                             " type - mission negative - to switch.", TEXT_RESPONSE);
             }
-        } else {
+        } else if (session.getName() != null) {
             checkAnswer(response);
             sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
         }
-	}
+
+    }
 
     void checkAnswer(String response) {
         if (problem.checkAnswer(response)) {  // correct
