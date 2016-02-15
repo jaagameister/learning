@@ -1,40 +1,47 @@
 package in.jaaga.learning.problems;
 
 import java.util.*;
+import java.math.*;
 
 import in.jaaga.learning.Problem;
 
 public class DecimalMultiplication extends SimpleProblem {
 
-    int max, min, digitsNumber;
-    double a, b, ab, answer;
-    ArrayList<String> answerList = new ArrayList<String>();
+    int max, min;
+    BigDecimal a, b, ab;
 
-    public DecimalMultiplication(int max, int min, int digitsNumber) {
+    public DecimalMultiplication(int max, int min) {
         this.max = max;
         this.min = min;
-        this.digitsNumber = digitsNumber;
 
-        a = new Random().nextDouble() * (max - min) + min;
-        b = new Random().nextDouble() * (max - min) + min;
-        ab = a * b;
-        double roundingMultiplier = Math.pow(10.0, (double)digitsNumber);
-        answer = Math.round(ab * roundingMultiplier) / roundingMultiplier;
-        prompt = a + " * " + b + " = ?";
+        a = getRandomDecimal(max, min);
+        //b is whole #, to avoid making this too hard
+        int rawB = new Random().nextInt(max - min) + min;
+        b = new BigDecimal(rawB);
+        ab = a.multiply(b);
+        prompt = a.setScale(2) + " * " + b.setScale(2) + " = ?";
     }
 
-    /*
-    public String getPrompt() {
-        return a + " x " + b + " = ?";
+    BigDecimal getRandomDecimal(int max, int min) {
+        /* This method returns a random multiple of either 0.1 or 0.25. */
+        boolean tails = new Random().nextBoolean();
+        // tails → return multiple of .1; heads → return multiple of .25
+        if (tails) {
+            int random = new Random().nextInt(max * 10);
+            return new BigDecimal(random).divide(BigDecimal.TEN);
+        } else {
+            int random = new Random().nextInt(max * 4);
+            BigDecimal four = new BigDecimal(4);
+            return new BigDecimal(random).divide(four);
+        }
     }
-    */
 
-    public boolean checkAnswer(String ans) { return (Double.parseDouble(ans) == answer); }
+    public boolean checkAnswer(String ans) { return (Double.parseDouble(ans) == ab.doubleValue()); }
 
-    public String getHint() { return Double.toString(answer); }
+    public String getHint() { return ab.toString(); }
 
     public Problem next() {
-        return new DecimalMultiplication(max, min, digitsNumber);
+        return new DecimalMultiplication(max, min);
     }
 
     public String getTitle() {
