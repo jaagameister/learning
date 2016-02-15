@@ -1,11 +1,12 @@
 package in.jaaga.learning;
 
+
 public class Session {
 	Skill skill;
     String state;
-    String name;
+    String name = null;
     int points = 0;
-
+    String password = "Password";
     public Session() {
     }
 
@@ -29,7 +30,7 @@ public class Session {
         return name;
     }
 
-    public void setName(String name) {
+    public  void setName(String name){
         this.name = name;
     }
 

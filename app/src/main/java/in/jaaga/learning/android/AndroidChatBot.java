@@ -20,41 +20,41 @@ public class AndroidChatBot extends ChatBot {
 		if (session != null) {
 			Skill skill = session.getSkill();
 			if (skill != null && skill.getRemaining() == 1)
-				return S.RESOURCES.getString(R.string.one_left);
+				return S.getResources().getString(R.string.one_left);
 		}
 		return encourage();
 	}
 
 	public String askName() {
-		return S.RESOURCES.getString(R.string.ask_name);
+		return S.getResources().getString(R.string.ask_name);
 	}
 
 	public String encourage() {
-		return S.RESOURCES.getString(R.string.encourage);
+		return S.getResources().getString(R.string.encourage);
 	}
 
 	public String hello() {
-		return S.RESOURCES.getString(R.string.hello);
+		return S.getResources().getString(R.string.hello);
 	}
 
 	public String bye() {
-		return S.RESOURCES.getString(R.string.bye);
+		return S.getResources().getString(R.string.bye);
 	}
 
 	public String correct() {
-		return S.RESOURCES.getString(R.string.correct);
+		return S.getResources().getString(R.string.correct);
 	}
 
 	public String sorry() {
-		return S.RESOURCES.getString(R.string.incorrect);
+		return S.getResources().getString(R.string.incorrect);
 	}
 
 	public String levelUp(Skill last, Skill next) {
-		return S.RESOURCES.getString(R.string.level_up, last.getProblem().getTitle(),
+		return S.getResources().getString(R.string.level_up, last.getProblem().getTitle(),
 				last.getPoints(), next.getPoints(), next.getProblem().getTitle());
     }
 
     public String adminPrompt() {
-        return S.RESOURCES.getString(R.string.admin_prompt);
+        return S.getResources().getString(R.string.admin_prompt);
     }
 }

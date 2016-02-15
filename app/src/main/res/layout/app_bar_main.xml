@@ -26,6 +26,52 @@
      <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/fullscreen_toggle"/>
+        android:id="@+id/fullscreen_toggle">
+     </FrameLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/horizontalScrollView" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:id="@+id/english"
+                android:layout_gravity="left|bottom" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kannada"
+                android:id="@+id/kannada" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hindi"
+                android:id="@+id/hindi" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spanish"
+                android:id="@+id/spanish" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marathi"
+                android:id="@+id/marathi" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
 
 </android.support.design.widget.CoordinatorLayout>
