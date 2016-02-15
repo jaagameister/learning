@@ -1,6 +1,9 @@
 package in.jaaga.learning.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -13,14 +16,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
-import com.crashlytics.android.Crashlytics;
+import java.util.Locale;
+
 import in.jaaga.learning.R;
 import in.jaaga.learning.fragment.ChatFragment;
-import io.fabric.sdk.android.Fabric;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -99,15 +104,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     };
 
+    Button english, marathi;
+    Button kannada, spanish;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        kannada=(Button) findViewById(R.id.kannada);
+        kannada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("kn");
+            }
+        });
+
+        english=(Button) findViewById(R.id.english);
+        english.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("en");
+            }
+        });
+
+        spanish=(Button) findViewById(R.id.spanish);
+        spanish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("es");
+            }
+        });
+
+        marathi=(Button) findViewById(R.id.marathi);
+        marathi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("mr");
+            }
+        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -217,4 +257,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onBackPressed() {
         super.onBackPressed();
     }
+
+    Locale myLocale;
+
+    public void setLocale(String lang) {
+        myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
+    }
+
+
+
 }
