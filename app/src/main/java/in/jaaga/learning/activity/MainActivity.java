@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     };
 
     Button english, marathi;
-    Button kannada, spanish;
+    Button kannada, spanish, hindi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +145,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 setLocale("mr");
+            }
+        });
+        
+        hindi=(Button) findViewById(R.id.hindi);
+        hindi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLocale("hi");
             }
         });
 

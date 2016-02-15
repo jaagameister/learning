@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Learning</string>
+
+    <string name="title_activity_main">Jaaga Learning</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="username">My Name</string>
+    <string name="input_chat_box">Type a answer/command</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- PROBLEMS -->
+    <string name="addition_title">"Addition to %d"</string>
+    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+
+
+    <!-- CHATBOT -->
+    <string name="hello">स्वागत आहे</string>
+    <string name="bye">पुन्हा भेटू!</string>
+    <string name="correct">योग्य</string>
+    <string name="incorrect">अयोग्य</string>
+    <string name="encourage">आपण चांगले करत आहात!</string>
+    <string name="one_left">उर्वरित एक</string>
+    <string name="ask_name">आपले नाव काय आहे?</string>
+    <string name="level_up">अभिनंदन!!! आपण पूर्ण कले%1$s \n आणि मिळवले
+  %2$d गुण. आता  तुझ्याकडे %3$d  एकूण\n %4$s गुण आहेत  !! </string>
+    <string name="admin_prompt">होय सरकार.....</string>
+    <string name="marathi">Marathi</string>
+
+</resources>
+
