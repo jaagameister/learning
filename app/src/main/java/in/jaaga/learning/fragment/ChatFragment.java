@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import in.jaaga.learning.InteractionInterface;
 import in.jaaga.learning.R;
+import in.jaaga.learning.Session;
 import in.jaaga.learning.android.AndroidDB;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.adapter.ChatAdapter;
@@ -46,7 +47,8 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     private Learning learning;
 
     public ChatFragment() {
-        learning = new Learning(this, new AndroidChatBot(), new AndroidDB());
+        Session session = new Session();
+        learning = new Learning(this, session, new AndroidChatBot(session), new AndroidDB());
     }
 
     public static ChatFragment newInstance() {

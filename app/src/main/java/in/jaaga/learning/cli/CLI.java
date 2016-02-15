@@ -15,7 +15,8 @@ public class CLI implements InteractionInterface {
     }
 
     public CLI() {
-        learning = new Learning(this, new ChatBot(), new DB());
+        Session session = new Session();
+        learning = new Learning(this, session, new ChatBot(session), new DB());
         learning.start();
     }
 

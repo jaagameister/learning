@@ -51,7 +51,7 @@ public class AndroidChatBot extends ChatBot {
 
 	public String levelUp(Skill last, Skill next) {
 		return S.getResources().getString(R.string.level_up, last.getProblem().getTitle(),
-				last.getPoints(), next.getPoints(), next.getProblem().getTitle());
+				last.getPoints(), session.getPoints(), next.getProblem().getTitle());
     }
 
     public String adminPrompt() {

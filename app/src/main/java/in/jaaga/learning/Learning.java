@@ -9,11 +9,11 @@ import in.jaaga.learning.missions.NegativeNumbers;
 
 
 public class Learning {
-    public static final int NO_RESPONSE = 0;
-    public static final int NUMBER_RESPONSE = 1;
-    public static final int TEXT_RESPONSE = 2;
+    public static final int NO_RESPONSE = ChatItem.NO_RESPONSE;
+    public static final int NUMBER_RESPONSE = ChatItem.NUMBER_RESPONSE;
+    public static final int TEXT_RESPONSE = ChatItem.TEXT_RESPONSE;
 
-	Random random = new Random();
+    Random random = new Random();
 
 	private int points = 0;
 	private Session session;
@@ -26,10 +26,10 @@ public class Learning {
 	InteractionInterface interactionInterface;
     DB db;
 
-    public Learning(InteractionInterface minteractionInterface, ChatBot chatBot, DB db) {
+    public Learning(InteractionInterface minteractionInterface, Session session, ChatBot chatBot, DB db) {
 		interactionInterface = minteractionInterface;
         this.db = db;
-        session = new Session();
+        this.session = session;
         this.chatBot = chatBot;
         this.chatBot.setSession(session);
         setMission(new General());
@@ -132,12 +132,11 @@ public class Learning {
     }
 
     private void sendMessage(String text, int responseType, int imageResourceId) {
-        ChatItem item = new ChatItem();
-        item.setMessage(text);
+        ChatItem item = new ChatItem(text, responseType);
         item.setSender("bot");
         item.setResponseType(responseType);
 //		item.setResourceId(R.drawable.ks);
-		item.setResourceId(imageResourceId);
+//		item.setResourceId(imageResourceId);
 		interactionInterface.send(item);
     }
 }
