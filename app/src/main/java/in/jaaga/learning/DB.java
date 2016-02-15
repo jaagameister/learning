@@ -1,23 +1,18 @@
 package in.jaaga.learning;
 
-import android.content.SharedPreferences;
-
-import in.jaaga.learning.android.S;
+import java.util.HashMap;
 
 /**
  * Created by root on 14/2/16.
  */
 public class DB {
+    HashMap<String, String> db = new HashMap();
 
-    public static void addName(String name) {
-        SharedPreferences pref = S.getPreferences();
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString(name, "password");
-        editor.commit();
+    public void addName(String name) {
+        db.put(name, "password");
     }
 
-    public static boolean containsName(String name) {
-        SharedPreferences pref = S.getPreferences();
-        return pref.contains(name);
+    public boolean containsName(String name) {
+        return db.containsKey(name);
     }
 }

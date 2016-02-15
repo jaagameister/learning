@@ -24,15 +24,14 @@ public class Learning {
 	private Problem problem;
 
 	InteractionInterface interactionInterface;
+    DB db;
 
-
-    public Learning(InteractionInterface minteractionInterface, ChatBot chatBot) {
+    public Learning(InteractionInterface minteractionInterface, ChatBot chatBot, DB db) {
 		interactionInterface = minteractionInterface;
-        Scanner sc = new Scanner(System.in);
+        this.db = db;
         session = new Session();
         this.chatBot = chatBot;
         this.chatBot.setSession(session);
-//        chatBot = new ChatBot(session);
         setMission(new General());
     }
 
@@ -53,11 +52,11 @@ public class Learning {
 	public void onResponse(String response) {
         if(session.getName() == null) {
             session.setName(response);
-            if (DB.containsName(response) == true) {
+            if (db.containsName(response) == true) {
                 sendMessage("Welcome Back " + session.getName(), NO_RESPONSE);
             } else {
                 sendMessage("It seems like you are new.\n Nice to meet you ", NO_RESPONSE);
-                DB.addName(response);
+                db.addName(response);
             }
             sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
         } else if (".".equals(response)) {

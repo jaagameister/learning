@@ -1,8 +1,5 @@
 package in.jaaga.learning;
 
-import android.content.SharedPreferences;
-
-import in.jaaga.learning.android.S;
 
 public class Session {
 	Skill skill;
