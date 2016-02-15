@@ -5,6 +5,9 @@ import java.util.*;
 import in.jaaga.learning.missions.General;
 import in.jaaga.learning.missions.Mission;
 import in.jaaga.learning.missions.NegativeNumbers;
+import static in.jaaga.learning.android.S.getActivity;
+import static in.jaaga.learning.android.S.getResources;
+import static java.lang.Package.getPackage;
 //import in.jaaga.learning.problems.NumbersSequence;
 
 
@@ -132,11 +135,23 @@ public class Learning {
     }
 
     private void sendMessage(String text, int responseType, int imageResourceId) {
-        ChatItem item = new ChatItem(text, responseType);
-        item.setSender("bot");
-        item.setResponseType(responseType);
-//		item.setResourceId(R.drawable.ks);
-//		item.setResourceId(imageResourceId);
-		interactionInterface.send(item);
+            if (!text.contains("*")) {
+                ChatItem item = new ChatItem(text, responseType);
+                item.setSender("bot");
+                item.setResponseType(responseType);
+                //		item.setResourceId(R.drawable.ks);
+                //		item.setResourceId(imageResourceId);
+                interactionInterface.send(item);
+            } else {
+                String imageName = text.substring(text.indexOf("*") + 1);
+                text = text.substring(0, text.indexOf("*"));
+                ChatItem item = new ChatItem(text, responseType);
+                item.setSender("bot");
+                item.setResponseType(TEXT_RESPONSE);
+                //		item.setResourceId(R.drawable.ks);
+                int resourceId = getResources().getIdentifier(imageName, "drawable", getActivity().getPackageName());
+                item.setResourceId(resourceId);
+                interactionInterface.send(item);
+            }
     }
 }
