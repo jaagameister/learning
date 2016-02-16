@@ -45,6 +45,6 @@ public class DecimalMultiplication extends SimpleProblem {
     }
 
     public String getTitle() {
-        return "Decimal multiplication with variables up to " + max;
+        return "Decimal multiplication with factors up to " + max;
     }
 }
