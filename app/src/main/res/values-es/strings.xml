@@ -21,19 +21,33 @@
     <!-- CHATBOT -->
     <string name="hello">¡Buenas!</string>
     <string name="bye">¡Chau!</string>
-    <string name="correct">¡Exacto!</string>
+    <string name="correct">Exacto.</string>
     <string name="incorrect">Eso no es lo que tenía en mente...</string>
-    <string name="encourage">Estupendo.</string>
-    <string name="one_left">Nos queda sólo una pregunta en esta sección.</string>
+    <string name="encourage">¡Así se hace!</string>
+    <string name="one_left">Nos queda sólo una pregunta en esta sección...</string>
     <string name="ask_name">¿Cómo te llamas?</string>
     <string name="level_up">¡Felicidades! Cumpliste el %1$s \n y ganaste %2$d puntos. Ya tienes un total de %3$d puntos\n y ahora te toque seguir con %4$s.</string>
-    <string name="admin_prompt">Tus deseos son órdenes.</string>
+    <string name="admin_prompt">Tus deseos son órdenes, jefe.</string>
 
     <!-- PROBLEMS -->
     <string name="addition_title">"Suma hasta %d"</string>
     <string name="addition_negative_title">"Suma hasta %d con números negativos"</string>
     <string name="decimal_addition_title">"Suma hasta %d con decimales"</string>
     <string name="decimal_division_title">"División con decimales con dividendo hasta %d y divisor hasta %d"</string>
+    <string name="decimal_multiplication_title">"Multiplicación con decimales hasta %d"</string>
+    <string name="division_title">"División con dividendo hasta %d y divisor hasta %d"</string>
+    <string name="division_remainders_title">"División con resto con dividendo hasta %d y divisor hasta %d"</string>
+    <string name="fractions_title">"Fracciones"</string>
+    <string name="multiplication_title">"Multiplicación hasta %d"</string>
+    <string name="multiplication_negative_title">"Multiplicación hasta %d con números negativos"</string>
+    <string name="number_sequences_title">"Sucesiones numéricas"</string>
+    <string name="percentages_title">"Porcentaje"</string>
+    <string name="subtraction_title">"Resta hasta %d"</string>
+    <string name="subtraction_negative_title">"Resta hasta %d con números negativos"</string>
+    <string name="var_addition_title">"Suma hasta %d con variables"</string>
+    <string name="var_division_title">"División con variables con dividendo hasta %d y divisor hasta %d"</string>
+    <string name="var_multiplication_title">"Multiplicación hasta %d con variables"</string>
+    <string name="var_subtraction_title">"Resta hasta %d con variables"</string>
 
     <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: -->
     <!-- <string name=" _title">" %d"</string> -->
