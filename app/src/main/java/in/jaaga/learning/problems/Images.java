@@ -1,36 +1,31 @@
 package in.jaaga.learning.problems;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
+import in.jaaga.learning.DB;
 import in.jaaga.learning.Problem;
 
 public class Images extends SimpleProblem {
-    int max;
+    static ArrayList<String> imagesList = DB.getImagesList();
 
-    public Images(int max) {
-        this.max = max;
-        int a, b;
-        if (max > 0) {
-			a = new Random().nextInt(max);
-			b = new Random().nextInt(max);
-        } else {  // max is negative
-            a = new Random().nextInt(max * -2) - (-max);
-            b = new Random().nextInt(max * -2) - (-max);
-        }
-        prompt = a + " + " + b + " = ?";
-        answer = Integer.toString(a + b);
+    public Images() {
+
+        Random r = new Random();
+        int rand = r.nextInt(imagesList.size());
+
+        prompt = "What is this?*".concat(imagesList.get(rand));
+        answer = imagesList.get(rand);
+
     }
 
+
     public Problem next() {
-        return new Images(max);
+        return new Images();
     }
 
     public String getTitle() {
-        int m = Math.abs(max);
-        if (max > 0)
-            return "Addition to "+max;
-        else
-            return "Addition to "+max+"with negative numbers";
+        return "Images Guessing";
     }
 }
 
