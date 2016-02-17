@@ -12,8 +12,8 @@ public class General implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
-//		mission.add(new Skill(new NumbersSequence(1), 5, 100));
-        //mission.add(new Skill(new Division(30, 10), 5, 250));
+//		mission.add(new Skill(new NumbersSequence(1), 5, 100);
+        mission.add(new Skill(new Images(), 5, 250));
         mission.add(new Skill(new Addition(10), 5, 100));
         mission.add(new Skill(new Addition(100), 5, 150));
         mission.add(new Skill(new Subtraction(10), 5, 100));
