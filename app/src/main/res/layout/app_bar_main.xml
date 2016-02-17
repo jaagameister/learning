@@ -43,32 +43,32 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="English"
+                android:text="@string/button_en"
                 android:id="@+id/english"
                 android:layout_gravity="left|bottom" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kannada"
+                android:text="@string/button_kn"
                 android:id="@+id/kannada" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hindi"
+                android:text="@string/button_hi"
                 android:id="@+id/hindi" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Spanish"
+                android:text="@string/button_es"
                 android:id="@+id/spanish" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Marathi"
+                android:text="@string/button_mr"
                 android:id="@+id/marathi" />
         </LinearLayout>
     </HorizontalScrollView>
