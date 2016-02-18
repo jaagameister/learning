@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Learning</string>
+
+    <string name="title_activity_main">Jaaga Learning</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="username">My Name</string>
+    <string name="input_chat_box">Type a answer/command</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- CHATBOT -->
+    <string name="hello">¡Buenas!</string>
+    <string name="bye">¡Chau!</string>
+    <string name="correct">Exacto.</string>
+    <string name="incorrect">Eso no es lo que tenía en mente...</string>
+    <string name="encourage">¡Así se hace!</string>
+    <string name="one_left">Nos queda sólo una pregunta en esta sección...</string>
+    <string name="ask_name">¿Cómo te llamas?</string>
+    <string name="level_up">¡Felicidades! Cumpliste el %1$s \n y ganaste %2$d puntos. Ya tienes %3$d puntos\n y ahora te toque seguir con %4$s.</string>
+    <string name="admin_prompt">Tus deseos son órdenes, jefe.</string>
+
+    <!-- PROBLEMS -->
+    <string name="addition_title">"Addition to %d"</string>
+    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+</resources>
