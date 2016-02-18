@@ -29,10 +29,10 @@
     <string name="level_up">Congratulations !!! you passed %1$s \n and earned %2$d points. You now have %3$d total points.\n Now it\'s time to practice %4$s </string>
     <string name="admin_prompt">Yes, Master...</string>
     <string name="button_en">English</string>
-    <string name="button_mr">मराठी </string>
-    <string name="button_es">Español</string>
-    <string name="button_hi">हिंदी </string>
-    <string name="button_kn"> ಕನ್ನಡ</string>
+    <string name="button_mr">मराठी</string>
+    <string name="button_es">español</string>
+    <string name="button_hi">हिंदी</string>
+    <string name="button_kn">ಕನ್ನಡ</string>
 
     <!-- PROBLEMS -->
     <string name="addition_title">"Addition to %d"</string>
