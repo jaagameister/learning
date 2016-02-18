@@ -35,6 +35,25 @@
     <string name="button_kn">ಕನ್ನಡ</string>
 
     <!-- PROBLEMS -->
-    <string name="addition_title">"Addition to %d"</string>
-    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+    <string name="addition_title">Addition to %d</string>
+    <string name="addition_negative_title">Addition to %d with negative numbers</string>
+    <string name="decimal_addition_title">Addition to %d with Decimals</string>
+    <string name="decimal_division_title">Decimal Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="decimal_multiplication_title">Decimal Multiplication to %d</string>
+    <string name="division_title">Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="division_remainders_title">Division with Remainders with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="fractions_title">Fractions</string>
+    <string name="multiplication_title">Multiplication to %d</string>
+    <string name="multiplication_negative_title">Multiplication to %d with Negative Numbers</string>
+    <string name="number_sequences_title">Number Sequences</string>
+    <string name="percentages_title">Percentages</string>
+    <string name="subtraction_title">Subtraction to %d</string>
+    <string name="subtraction_negative_title">Subtraction to %d with Negative Numbers</string>
+    <string name="var_addition_title">Variable Addition to %d</string>
+    <string name="var_division_title">Variable Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="var_multiplication_title">Variable Multiplication to %d</string>
+    <string name="var_subtraction_title">Variable Subtraction to %d</string>
+    <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
+    <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
+
 </resources>
