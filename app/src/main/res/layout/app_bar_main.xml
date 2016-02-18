@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:visibility="gone" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -41,35 +42,49 @@
             android:layout_height="match_parent">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:text="@string/button_en"
+                android:drawableLeft="@drawable/us_flag"
                 android:id="@+id/english"
-                android:layout_gravity="left|bottom" />
+                android:background="@null"
+                android:padding="3dp" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_kn"
-                android:id="@+id/kannada" />
+                android:drawableLeft="@drawable/india_flag"
+                android:id="@+id/kannada"
+                android:background="@null"
+                android:layout_marginLeft="10dp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button_hi"
-                android:id="@+id/hindi" />
+                android:drawableLeft="@drawable/india_flag"
+                android:id="@+id/hindi"
+                android:layout_marginLeft="10dp"
+                android:background="@null" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button_es"
-                android:id="@+id/spanish" />
+                android:id="@+id/spanish"
+                android:drawableLeft="@drawable/es_flag"
+                android:background="@null"
+                android:layout_marginLeft="10dp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button_mr"
-                android:id="@+id/marathi" />
+                android:drawableLeft="@drawable/india_flag"
+                android:id="@+id/marathi"
+                android:background="@null"
+                android:layout_marginLeft="10dp" />
         </LinearLayout>
     </HorizontalScrollView>
 
