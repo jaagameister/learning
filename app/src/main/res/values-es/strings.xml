@@ -30,6 +30,24 @@
     <string name="admin_prompt">Tus deseos son órdenes, jefe.</string>
 
     <!-- PROBLEMS -->
-    <string name="addition_title">"Addition to %d"</string>
-    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+    <string name="addition_title">Suma hasta %d</string>
+    <string name="addition_negative_title">Suma hasta %d con números negativos</string>
+    <string name="decimal_addition_title">Suma hasta %d con decimales</string>
+    <string name="decimal_division_title">División con decimales con dividendo hasta %1$d y divisor hasta %2$d</string>
+    <string name="decimal_multiplication_title">Multiplicación con decimales hasta %d</string>
+    <string name="division_title">División con dividendo hasta %1$d y divisor hasta %2$d</string>
+    <string name="division_remainders_title">División con resto con dividendo hasta %1$d y divisor hasta %2$d</string>
+    <string name="fractions_title">Fracciones</string>
+    <string name="multiplication_title">Multiplicación hasta %d</string>
+    <string name="multiplication_negative_title">Multiplicación hasta %d con números negativos</string>
+    <string name="number_sequences_title">Sucesiones numéricas</string>
+    <string name="percentages_title">Porcentaje</string>
+    <string name="subtraction_title">Resta hasta %d</string>
+    <string name="subtraction_negative_title">Resta hasta %d con números negativos</string>
+    <string name="var_addition_title">Suma hasta %d con variables</string>
+    <string name="var_division_title">División con variables con dividendo hasta %1$d y divisor hasta %2$d</string>
+    <string name="var_multiplication_title">Multiplicación hasta %d con variables</string>
+    <string name="var_subtraction_title">Resta hasta %d con variables</string>
+    <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
+    <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 </resources>
