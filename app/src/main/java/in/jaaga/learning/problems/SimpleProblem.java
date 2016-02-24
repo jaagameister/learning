@@ -1,5 +1,7 @@
 package in.jaaga.learning.problems;
 
+import in.jaaga.learning.ChatItem;
+import in.jaaga.learning.Learning;
 import in.jaaga.learning.Problem;
 
 /**
@@ -10,6 +12,10 @@ public abstract class SimpleProblem implements Problem {
 
     public String getPrompt() {
         return prompt;
+    }
+
+    public ChatItem getPromptChatItem() {
+        return new ChatItem(getPrompt(), Learning.NUMBER_RESPONSE);
     }
 
     public boolean checkAnswer(String answer) {

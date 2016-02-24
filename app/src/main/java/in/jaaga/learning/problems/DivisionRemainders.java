@@ -2,6 +2,8 @@ package in.jaaga.learning.problems;
 
 import java.util.*;
 
+import in.jaaga.learning.ChatItem;
+import in.jaaga.learning.Learning;
 import in.jaaga.learning.Problem;
 
 public class DivisionRemainders implements Problem {
@@ -18,6 +20,10 @@ public class DivisionRemainders implements Problem {
 
 	public String getPrompt() {
 		return a + " ÷ " + b + " = ?";
+	}
+
+	public ChatItem getPromptChatItem() {
+		return new ChatItem(getPrompt(), Learning.NUMBER_RESPONSE);
 	}
 
 	public boolean checkAnswer(String answer) {

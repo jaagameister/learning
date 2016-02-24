@@ -9,6 +9,7 @@ public class DB {
     static ArrayList<String> imagesList = new ArrayList<>();
 
 
+
     public void addName(String name) {
         db.put(name, "password");
     }

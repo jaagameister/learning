@@ -22,12 +22,16 @@ import java.util.ArrayList;
 import in.jaaga.learning.InteractionInterface;
 import in.jaaga.learning.R;
 import in.jaaga.learning.Session;
+import in.jaaga.learning.Skill;
 import in.jaaga.learning.android.AndroidDB;
+import in.jaaga.learning.android.AndroidImages;
+import in.jaaga.learning.android.AndroidMission;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.android.AndroidChatBot;
+import in.jaaga.learning.missions.Mission;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,6 +53,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     public ChatFragment() {
         Session session = new Session();
         learning = new Learning(this, session, new AndroidChatBot(session), new AndroidDB());
+        learning.setMission(new AndroidMission());
     }
 
     public static ChatFragment newInstance() {
@@ -68,7 +73,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        S.init(getResources(),getActivity());
+        S.init(getResources(), getActivity());
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_chat, container, false);
@@ -117,7 +122,6 @@ public class ChatFragment extends Fragment implements InteractionInterface{
 
     @Override
     public void send(ChatItem item){
-
         chat_list.add(item);
 
         int position = chat_list.size()-1;

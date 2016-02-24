@@ -37,4 +37,11 @@
     <!-- PROBLEMS -->
     <string name="addition_title">"Addition to %d"</string>
     <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+
+    <string name="cat">"cat"</string>
+    <string name="dog">"dog"</string>
+    <string name="car">"car"</string>
+    <string name="ball">"ball"</string>
+    <string name="tree">"tree"</string>
+
 </resources>

@@ -7,8 +7,15 @@ public class Session {
     String name = null;
     int points = 0;
     String password = "Password";
+    static String device = "Android";
+
     public Session() {
     }
+
+    public static void setDevice(String input){
+        device = input;
+    }
+
 
     public String getState() {
         return state;

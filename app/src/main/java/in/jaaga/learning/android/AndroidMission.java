@@ -1,19 +1,29 @@
-package in.jaaga.learning.missions;
+package in.jaaga.learning.android;
 
 import java.util.ArrayList;
 
 import in.jaaga.learning.Skill;
-import in.jaaga.learning.android.AndroidImages;
-import in.jaaga.learning.problems.*;
+import in.jaaga.learning.missions.Mission;
+import in.jaaga.learning.problems.Addition;
+import in.jaaga.learning.problems.DecimalAddition;
+import in.jaaga.learning.problems.DecimalDivision;
+import in.jaaga.learning.problems.Division;
+import in.jaaga.learning.problems.DivisionRemainders;
+import in.jaaga.learning.problems.Multiplication;
+import in.jaaga.learning.problems.Subtraction;
+import in.jaaga.learning.problems.VariableAddition;
+import in.jaaga.learning.problems.VariableDivision;
+import in.jaaga.learning.problems.VariableMultiplication;
+import in.jaaga.learning.problems.VariableSubtraction;
 
 /**
- * Created by freeman on 4/2/16.
+ * Created by admin on 24/02/2016.
  */
-public class General implements Mission {
+public class AndroidMission implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
-//		mission.add(new Skill(new NumbersSequence(1), 5, 100);
+		mission.add(new Skill(new AndroidImages(), 5, 100));
         mission.add(new Skill(new Addition(10), 5, 100));
         mission.add(new Skill(new Addition(100), 5, 150));
         mission.add(new Skill(new Subtraction(10), 5, 100));

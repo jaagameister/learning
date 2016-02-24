@@ -10,7 +10,7 @@ public class ChatItem {
 
     String sender;
     String message;
-    String attachment;
+    int attachment;
     int resourceId = -1;
     int responseType;
 
@@ -27,9 +27,9 @@ public class ChatItem {
         this.responseType = responseType;
     }
 
-    public ChatItem(String message, String attachment, int responseType) {
+    public ChatItem(String message, int resourceId, int responseType) {
         this(message, responseType);
-        this.attachment = attachment;
+        this.resourceId = resourceId;
     }
 
     public String getSender() {
