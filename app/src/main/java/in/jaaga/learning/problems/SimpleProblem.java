@@ -19,7 +19,7 @@ public abstract class SimpleProblem implements Problem {
     }
 
     public boolean checkAnswer(String answer) {
-        return this.answer.equals(answer);
+        return this.answer.equalsIgnoreCase(answer);
     }
 
     public String getHint() {
