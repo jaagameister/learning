@@ -25,7 +25,7 @@ import in.jaaga.learning.Session;
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.android.AndroidDB;
 import in.jaaga.learning.android.AndroidImages;
-import in.jaaga.learning.android.AndroidMission;
+import in.jaaga.learning.android.AndroidMathMission;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
@@ -53,7 +53,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     public ChatFragment() {
         Session session = new Session();
         learning = new Learning(this, session, new AndroidChatBot(session), new AndroidDB());
-        learning.setMission(new AndroidMission());
+        learning.setMission(new AndroidMathMission());
     }
 
     public static ChatFragment newInstance() {

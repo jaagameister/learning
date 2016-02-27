@@ -3,7 +3,7 @@ package in.jaaga.learning;
 import java.util.*;
 
 import in.jaaga.learning.android.S;
-import in.jaaga.learning.missions.General;
+import in.jaaga.learning.missions.MathMission;
 import in.jaaga.learning.missions.Mission;
 import in.jaaga.learning.missions.NegativeNumbers;
 import static java.lang.Package.getPackage;
@@ -34,7 +34,7 @@ public class Learning {
         this.session = session;
         this.chatBot = chatBot;
         this.chatBot.setSession(session);
-        setMission(new General());
+        setMission(new MathMission());
     }
 
     public void setMission(Mission mission) {
@@ -87,7 +87,7 @@ public class Learning {
             return;
         } else if (response.startsWith("mission")) {
             if (response.contains("general")) {
-                setMission(new General());
+                setMission(new MathMission());
                 sendMessage(problem.getPromptChatItem());
             } else if (response.contains("negative")) {
                 setMission(new NegativeNumbers());
