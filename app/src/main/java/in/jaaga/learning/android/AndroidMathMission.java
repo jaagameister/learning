@@ -4,18 +4,7 @@ import java.util.ArrayList;
 
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.missions.MathMission;
-import in.jaaga.learning.missions.Mission;
-import in.jaaga.learning.problems.Addition;
-import in.jaaga.learning.problems.DecimalAddition;
-import in.jaaga.learning.problems.DecimalDivision;
-import in.jaaga.learning.problems.Division;
-import in.jaaga.learning.problems.DivisionRemainders;
-import in.jaaga.learning.problems.Multiplication;
-import in.jaaga.learning.problems.Subtraction;
-import in.jaaga.learning.problems.VariableAddition;
-import in.jaaga.learning.problems.VariableDivision;
-import in.jaaga.learning.problems.VariableMultiplication;
-import in.jaaga.learning.problems.VariableSubtraction;
+import in.jaaga.learning.Mission;
 
 /**
  * Created by admin on 24/02/2016.

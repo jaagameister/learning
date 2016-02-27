@@ -1,8 +1,6 @@
 package in.jaaga.learning.fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,18 +18,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.jaaga.learning.InteractionInterface;
+import in.jaaga.learning.LearningContext;
+import in.jaaga.learning.MissionLibrary;
 import in.jaaga.learning.R;
 import in.jaaga.learning.Session;
-import in.jaaga.learning.Skill;
 import in.jaaga.learning.android.AndroidDB;
-import in.jaaga.learning.android.AndroidImages;
+import in.jaaga.learning.android.AndroidLanguageMission;
 import in.jaaga.learning.android.AndroidMathMission;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.android.AndroidChatBot;
-import in.jaaga.learning.missions.Mission;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,9 +49,13 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     private Learning learning;
 
     public ChatFragment() {
+        MissionLibrary ml = new MissionLibrary();
+        ml.addMission("math", new AndroidMathMission());
+        ml.addMission("vocab", new AndroidLanguageMission());
         Session session = new Session();
-        learning = new Learning(this, session, new AndroidChatBot(session), new AndroidDB());
-        learning.setMission(new AndroidMathMission());
+        LearningContext learningContext = new LearningContext(this, session, new AndroidChatBot(session),
+                ml, new AndroidDB());
+        learning = new Learning(learningContext);
     }
 
     public static ChatFragment newInstance() {

@@ -1,4 +1,4 @@
-package in.jaaga.learning.missions;
+package in.jaaga.learning;
 
 import java.util.ArrayList;
 import in.jaaga.learning.Skill;

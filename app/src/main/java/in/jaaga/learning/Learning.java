@@ -2,12 +2,8 @@ package in.jaaga.learning;
 
 import java.util.*;
 
-import in.jaaga.learning.android.S;
 import in.jaaga.learning.missions.MathMission;
-import in.jaaga.learning.missions.Mission;
 import in.jaaga.learning.missions.NegativeNumbers;
-import static java.lang.Package.getPackage;
-//import in.jaaga.learning.problems.NumbersSequence;
 
 
 public class Learning {
@@ -17,6 +13,7 @@ public class Learning {
 
     Random random = new Random();
 
+    private LearningContext context;
 	private int points = 0;
 	private Session session;
 	private ChatBot chatBot;
@@ -28,13 +25,13 @@ public class Learning {
 	InteractionInterface interactionInterface;
     DB db;
 
-    public Learning(InteractionInterface minteractionInterface, Session session, ChatBot chatBot, DB db) {
-		interactionInterface = minteractionInterface;
-        this.db = db;
-        this.session = session;
-        this.chatBot = chatBot;
-        this.chatBot.setSession(session);
-        setMission(new MathMission());
+    public Learning(LearningContext context) {
+        this.context = context;
+		interactionInterface = context.getInteractionInterface();
+        this.db = context.getDB();
+        this.session = context.getSession();
+        this.chatBot = context.getChatBot();
+        setMission(context.getMissionLibrary().getDefaultMission());
     }
 
     public void setMission(Mission mission) {
@@ -51,12 +48,13 @@ public class Learning {
 
     public void start() {
         sendMessage(chatBot.hello(), NO_RESPONSE);
-        sendMessage(chatBot.askName(),TEXT_RESPONSE);
-        //sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+//        sendMessage(chatBot.askName(),TEXT_RESPONSE);
+        sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
     }
 
 	public void onResponse(String response) {
-        if(session.getName() == null) {
+        // TODO remimplement name when we save profiles
+/*        if(false) { //session.getName() == null) {
             session.setName(response);
             if (db.containsName(response) == true) {
                 sendMessage("Welcome Back " + session.getName(), NO_RESPONSE);
@@ -65,20 +63,24 @@ public class Learning {
                 db.addName(response);
             }
             sendMessage(problem.getPromptChatItem());
-        } else if (".".equals(response)) {
+        } else
+*/
+        if (".".equals(response)) {
             sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
             return;
         } else if (response.equals("whoami"))  {
             sendMessage(session.getName(),NO_RESPONSE);
             sendMessage(problem.getPromptChatItem());
+            return;
         } else if (response.contains("help")) {
             sendMessage("you can say 'hint' for help with the current problem \n"+
                         "'skip will move to the next skill in the current mission\n"+
                         "mission will list the current mission and mission options", TEXT_RESPONSE);
+            return;
         } else if ("hint".equals(response)) {
-                sendMessage(skill.takeHint(), NO_RESPONSE);
-                sendMessage(problem.getPromptChatItem());
-                return;
+            sendMessage(skill.takeHint(), NO_RESPONSE);
+            sendMessage(problem.getPromptChatItem());
+            return;
         } else if ("skip".equals(response)) {
             skill = path.next();
             session.setSkill(skill);
@@ -86,24 +88,19 @@ public class Learning {
             sendMessage(problem.getPromptChatItem());
             return;
         } else if (response.startsWith("mission")) {
-            if (response.contains("general")) {
-                setMission(new MathMission());
-                sendMessage(problem.getPromptChatItem());
-            } else if (response.contains("negative")) {
-                setMission(new NegativeNumbers());
-                sendMessage(problem.getPromptChatItem());
-            } else if (response.contains("easy")) {
-                setMission(new NegativeNumbers());
+            String missionName = response.substring("mission".length());
+            Mission newMission = context.getMissionLibrary().getMission(missionName);
+            if (newMission != null) {
+                setMission(newMission);
                 sendMessage(problem.getPromptChatItem());
             } else {
                 sendMessage("the current mission is: " + mission.getTitle()+
-                            "\n available missions are: general and negative." +
-                            " type - mission negative - to switch.", TEXT_RESPONSE);
+                            "\n " + context.getMissionLibrary().getAvailableMissionsHelpStatement(), TEXT_RESPONSE);
             }
-        } else if (session.getName() != null) {
-            checkAnswer(response);
-            sendMessage(problem.getPromptChatItem());
+            return;
         }
+        checkAnswer(response);
+        sendMessage(problem.getPromptChatItem());
     }
 
     void checkAnswer(String response) {
