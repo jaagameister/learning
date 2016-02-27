@@ -3,6 +3,7 @@ package in.jaaga.learning.android;
 import java.util.ArrayList;
 
 import in.jaaga.learning.Skill;
+import in.jaaga.learning.missions.MathMission;
 import in.jaaga.learning.missions.Mission;
 import in.jaaga.learning.problems.Addition;
 import in.jaaga.learning.problems.DecimalAddition;
@@ -20,7 +21,11 @@ import in.jaaga.learning.problems.VariableSubtraction;
  * Created by admin on 24/02/2016.
  */
 public class AndroidMathMission implements Mission {
+
     public ArrayList<Skill> getList() {
+        return new MathMission().getList();
+    }
+    /*
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
         mission.add(new Skill(new Addition(10), 5, 100));
@@ -55,7 +60,8 @@ public class AndroidMathMission implements Mission {
         mission.add(new Skill(new DivisionRemainders(100, 10), 4, 300));
 
         return mission;
-    }
+        */
+
 
     public String getTitle() {
         return "general mission covering everything from simple addition upto variable division";
