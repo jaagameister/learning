@@ -17,7 +17,7 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 	String answer = null;
 
 	public LearnServlet() {
-		learning = new Learning(this, new ChatBot());
+		learning = new Learning(this, new ChatBot(), new DB());
 	}
 
     @Override
