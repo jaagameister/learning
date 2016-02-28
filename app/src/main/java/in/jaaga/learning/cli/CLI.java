@@ -3,7 +3,6 @@ package in.jaaga.learning.cli;
 import java.util.Scanner;
 
 import in.jaaga.learning.*;
-import in.jaaga.learning.android.AndroidChatBot;
 import in.jaaga.learning.missions.Easy;
 import in.jaaga.learning.missions.MathMission;
 import in.jaaga.learning.missions.NegativeNumbers;
@@ -27,7 +26,7 @@ public class CLI implements InteractionInterface {
         ml.addMission("easy", new Easy());
         ml.addMission("negative", new NegativeNumbers());
 
-        LearningContext learningContext = new LearningContext(this, session, new AndroidChatBot(session),
+        LearningContext learningContext = new LearningContext(this, session, new ChatBot(session),
                 ml, new DB());
         learning = new Learning(learningContext);
         learning.start();

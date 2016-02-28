@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.jaaga.learning.*;
+import in.jaaga.learning.missions.*;
 
 public class LearnServlet extends HttpServlet implements InteractionInterface {
 	Learning learning;
@@ -17,8 +18,21 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 	String answer = null;
 
 	public LearnServlet() {
-		learning = new Learning(this, new ChatBot(), new DB());
-	}
+       	Session.setDevice("WEB");
+        Session session = new Session();
+
+        MissionLibrary ml = new MissionLibrary();
+        ml.addMission("math", new MathMission());
+        ml.addMission("easy", new Easy());
+        ml.addMission("negative", new NegativeNumbers());
+
+        LearningContext learningContext = new LearningContext(this, 
+        			session, 
+        			new ChatBot(session),
+                	ml, new DB());
+        learning = new Learning(learningContext);
+        learning.start();	
+    }
 
     @Override
     public void doGet(HttpServletRequest request,
