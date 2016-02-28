@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Learning</string>
+
+    <string name="app_name">Srini</string>
 
     <string name="title_activity_main">Jaaga Learning</string>
 
@@ -19,17 +20,68 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <!-- CHATBOT -->
-    <string name="hello">¡Buenas!</string>
-    <string name="bye">¡Chau!</string>
-    <string name="correct">Exacto.</string>
-    <string name="incorrect">Eso no es lo que tenía en mente...</string>
-    <string name="encourage">¡Así se hace!</string>
-    <string name="one_left">Nos queda sólo una pregunta en esta sección...</string>
-    <string name="ask_name">¿Cómo te llamas?</string>
-    <string name="level_up">¡Felicidades! Cumpliste el %1$s \n y ganaste %2$d puntos. Ya tienes %3$d puntos\n y ahora te toque seguir con %4$s.</string>
-    <string name="admin_prompt">Tus deseos son órdenes, jefe.</string>
 
-    <!-- PROBLEMS -->
+    <!-- Note to language dude or dame —
+        Each array lists things Srini might say in the contexts described one by one below.
+        App will pick one option at random at any given time. You can include as many different 
+        "lines" as come to mind, or as few as one. Each line should be natural, casual, &
+        idiomatic. What would a young adult or teenager say to a slightly younger person in these
+        contexts in the language and culture You working with? --> 
+    <!-- You can include alternatives from different dialects, as long as each line can be
+        generally understood by all speakers of the language at large. --> 
+    <!-- Some lines is used more often than others in real life. You can get Srini to use certain
+        lines more than others by including the more common lines more than once (in the relevant
+        array). --> 
+
+    <string-array name="hello">
+        <!-- ways for Srini to greet You at the start -->
+        <item>¡Buenas!</item>
+    </string-array>
+
+    <string-array name="bye">
+        <!-- ways for Srini to say goodbye -->
+        <item>¡Chau!</item>
+    </string-array>
+
+    <string-array name="correct">
+        <!-- ways for Srini to tell You You got it right -->
+        <item>Exacto.</item>
+    </string-array>
+
+    <string-array name="incorrect">
+        <!-- ways for Srini to tell You You didn't get it right -->
+        <item>Eso no es lo que tenía en mente...</item>
+    </string-array>
+
+    <string-array name="encourage">
+        <!-- ways for Srini to encourage You or say a kind word,
+         such as after You answer a question right -->
+        <item>¡Así se hace!</item>
+    </string-array>
+
+    <string-array name="one_left">
+        <!-- ways for Srini to say You got one problem left in the section -->
+        <item>Nos queda sólo una pregunta en esta sección...</item>
+    </string-array>
+
+    <string-array name="ask_name">
+        <!-- ways for Srini to get your name -->
+        <item>¿Cómo te llamas?</item>
+        <item>¿Cuál es tu nombre?</item>
+    </string-array>
+
+    <!-- what Srini tell You when You get through a skill -->
+    <string name="level_up">¡Felicidades! Cumpliste el %1$s y ganaste %2$d puntos.\
+        Ya tienes %3$d puntos y ahora te toque seguir con %4$s.</string>
+
+    <string-array name="admin_prompt">
+        <!-- ways for a powerful being in the culture(s) or myths pertaining to your language to
+        tell the user it's at his/her service --> 
+        <!-- example: genie in a bottle saying, "Your wish is my command." -->
+        <item>Tus deseos son órdenes, jefe.</item>
+    </string-array>
+
+    <!-- SKILLS / PROBLEM TYPES -->
     <string name="addition_title">Suma hasta %d</string>
     <string name="addition_negative_title">Suma hasta %d con números negativos</string>
     <string name="decimal_addition_title">Suma hasta %d con decimales</string>
@@ -48,6 +100,13 @@
     <string name="var_division_title">División con variables con dividendo hasta %1$d y divisor hasta %2$d</string>
     <string name="var_multiplication_title">Multiplicación hasta %d con variables</string>
     <string name="var_subtraction_title">Resta hasta %d con variables</string>
+
+    <!-- IMAGES -->
+    <string name="tree">árbol</string>
+    <string name="ball">pelota</string>
+    <string name="dog">perro</string>
+    <string name="car">carro</string>
+    <string name="cat">gato</string>
     <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 </resources>
