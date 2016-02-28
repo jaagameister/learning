@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Learning</string>
+    <string name="app_name">Srini</string>
 
     <string name="title_activity_main">Jaaga Learning</string>
 
@@ -19,6 +19,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <!-- CHATBOT -->
+
     <!-- Note to language dude or dame —
         Each array lists things Srini might say in the contexts described one by one below.
         App will pick one option at random at any given time. You can include as many different 
@@ -30,11 +31,13 @@
     <!-- Some lines is used more often than others in real life. You can get Srini to use certain
         lines more than others by including the more common lines more than once (in the relevant
         array). --> 
+
     <string-array name="hello">
         <!-- ways for Srini to greet You at the start -->
         <item>Hello!</item>
         <item>Hey there.</item>
     </string-array>
+
     <string-array name="bye">
         <!-- ways for Srini to say goodbye -->
         <item>Bye...</item>
@@ -48,6 +51,7 @@
         <item>Take care. Bye!</item>
         <item>Take care!</item>
     </string-array>
+
     <string-array name="correct">
         <!-- ways for Srini to tell You You got it right -->
         <item>Right.</item>
@@ -63,7 +67,7 @@
         <item>Good!</item>
         <item>Nice.</item>
     </string-array>
-    <string name="incorrect">that\'s not the answer I\'m looking for</string>
+
     <string-array name="incorrect">
         <!-- ways for Srini to tell You You didn't get it right -->
         <item>That\'s not the answer I\'m looking for.</item>
@@ -73,41 +77,47 @@
         <item>Uh-oh. That\'s not it.</item>
         <item>No. Let\'s try this again.</item>
     </string-array>
+
     <string-array name="encourage">
-        <!-- ways for Srini to encourage You or say a kind word -->
+        <!-- ways for Srini to encourage You or say a kind word,
+         such as after You answer a question right -->
         <item>You\'re doing great.</item>
         <item>So far so good.</item>
         <item>You\'re on a roll!</item>
         <item>Show them how it\'s done!</item>
         <item>Keep up the good work.</item>
     </string-array>
+
     <string-array name="one_left">
         <!-- ways for Srini to say You got one problem left in the section -->
         <item>Just one problem left in this skill.</item>
         <item>Only one more to go in this skill.</item>
     </string-array>
-    <string name="ask_name">what\'s your name?</string>
+
     <string-array name="ask_name">
         <!-- ways for Srini to get your name -->
         <item>What\'s your name?</item>
     </string-array>
+
     <!-- what Srini tell You when You get through a skill -->
     <string name="level_up">Congratulations!!! You passed %1$s\
         and earned %2$d points. You now have %3$d total points.\
         Now it\'s time to practice %4$s.</string>
+
     <string-array name="admin_prompt">
         <!-- ways for a powerful being in the culture(s) or myths pertaining to your language to
         tell the user it's at his/her service --> 
         <!-- example: genie in a bottle saying, "Your wish is my command." -->
         <item>Yes, Master...</item>
     </string-array>
+
     <string name="button_en">English</string>
     <string name="button_mr">मराठी</string>
     <string name="button_es">español</string>
     <string name="button_hi">हिंदी</string>
-    <string name="button_kn"> ಕನ್ನಡ</string>
+    <string name="button_kn">ಕನ್ನಡ</string>
 
-    <!-- PROBLEMS -->
+    <!-- SKILLS / PROBLEM TYPES -->
     <string name="addition_title">"Addition to %d"</string>
     <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
     <string name="decimal_addition_title">Addition to %d with Decimals</string>
@@ -129,10 +139,11 @@
     <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 
-    <string name="cat">"cat"</string>
-    <string name="dog">"dog"</string>
-    <string name="car">"car"</string>
-    <string name="ball">"ball"</string>
-    <string name="tree">"tree"</string>
+    <!-- IMAGES -->
+    <string name="dog">dog</string>
+    <string name="ball">ball</string>
+    <string name="tree">tree</string>
+    <string name="car">car</string>
+    <string name="cat">cat</string>
 
 </resources>
