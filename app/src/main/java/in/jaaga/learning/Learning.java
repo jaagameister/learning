@@ -21,9 +21,11 @@ public class Learning {
 	private Session session;
 	private ChatBot chatBot;
     private Mission mission;
-    private Iterator<Skill> path;
+    private ArrayList<Skill> path;
     private Skill skill;
 	private Problem problem;
+
+    public static int level = 0;
 
 	InteractionInterface interactionInterface;
     DB db;
@@ -39,8 +41,14 @@ public class Learning {
 
     public void setMission(Mission mission) {
         this.mission = mission;
-        path = mission.getList().iterator();
-        skill = path.next();
+        level = 0;
+        setLevel(level);
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+        path = mission.getList();
+        skill = path.get(level);
         session.setSkill(skill);
         problem = skill.getProblem();
     }
@@ -80,7 +88,7 @@ public class Learning {
                 sendMessage(problem.getPromptChatItem());
                 return;
         } else if ("skip".equals(response)) {
-            skill = path.next();
+            skill = path.get(++level);
             session.setSkill(skill);
             problem = skill.getProblem();
             sendMessage(problem.getPromptChatItem());
@@ -112,7 +120,7 @@ public class Learning {
             int remains = skill.solvedOne();
             if (remains <= 0) {
                 Skill last = skill;
-                skill = path.next();
+                skill = path.get(++level);
                 session.setSkill(skill);
                 problem = skill.getProblem();
                 session.addPoints(last.getPoints());
