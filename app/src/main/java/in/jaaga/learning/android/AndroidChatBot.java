@@ -47,7 +47,7 @@ public class AndroidChatBot extends ChatBot {
 		return correct[random.nextInt(correct.length)];
 	}
 
-	public String incorrect() {
+	public String sorry() { // as in "Sorry, incorrect"
 		String[] incorrect = S.getResources().getStringArray(R.array.incorrect );
 		return incorrect[random.nextInt(incorrect.length)];
 	}
@@ -55,10 +55,6 @@ public class AndroidChatBot extends ChatBot {
 	public String encourage() {
 		String[] encourage = S.getResources().getStringArray(R.array.encourage);
 		return encourage[random.nextInt(encourage.length)];
-	}
-
-	public String sorry() {
-		return S.getResources().getString(R.string.incorrect);
 	}
 
 	public String levelUp(Skill last, Skill next) {
