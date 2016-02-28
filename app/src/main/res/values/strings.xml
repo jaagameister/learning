@@ -26,7 +26,7 @@
     <string name="encourage">you\'re doing great!</string>
     <string name="one_left">just one problem left in this skill</string>
     <string name="ask_name">what\'s your name?</string>
-    <string name="level_up">Congratulations !!! you passed %1$s \n and earned %2$d points. You now have %3$d total points.\n Now it\'s time to practice %4$s </string>
+    <string name="level_up">Congratulations !!! you passed %1$s \n and earned %2$d points. You now have %3$d total points.\n Now it\'s time to practice %4$s.</string>
     <string name="admin_prompt">Yes, Master...</string>
     <string name="button_en"> English</string>
     <string name="button_mr"> मराठी </string>
@@ -37,6 +37,24 @@
     <!-- PROBLEMS -->
     <string name="addition_title">"Addition to %d"</string>
     <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+    <string name="decimal_addition_title">Addition to %d with Decimals</string>
+    <string name="decimal_division_title">Decimal Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="decimal_multiplication_title">Decimal Multiplication to %d</string>
+    <string name="division_title">Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="division_remainders_title">Division with Remainders with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="fractions_title">Fractions</string>
+    <string name="multiplication_title">Multiplication to %d</string>
+    <string name="multiplication_negative_title">Multiplication to %d with Negative Numbers</string>
+    <string name="number_sequences_title">Number Sequences</string>
+    <string name="percentages_title">Percentages</string>
+    <string name="subtraction_title">Subtraction to %d</string>
+    <string name="subtraction_negative_title">Subtraction to %d with Negative Numbers</string>
+    <string name="var_addition_title">Variable Addition to %d</string>
+    <string name="var_division_title">Variable Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="var_multiplication_title">Variable Multiplication to %d</string>
+    <string name="var_subtraction_title">Variable Subtraction to %d</string>
+    <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
+    <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 
     <string name="cat">"cat"</string>
     <string name="dog">"dog"</string>
