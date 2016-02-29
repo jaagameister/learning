@@ -1,9 +1,9 @@
 package in.jaaga.learning.missions;
-
 import java.util.ArrayList;
 
 import in.jaaga.learning.Mission;
 import in.jaaga.learning.Skill;
+import in.jaaga.learning.android.AndroidImages;
 import in.jaaga.learning.problems.*;
 
 /**
@@ -13,6 +13,7 @@ public class MathMission implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
+        //mission.add(new Skill(new AndroidImages(), 5, 100));
 		mission.add(new Skill(new NumbersSequence(1), 5, 100));
         mission.add(new Skill(new Addition(10), 5, 100));
         mission.add(new Skill(new Addition(100), 5, 150));

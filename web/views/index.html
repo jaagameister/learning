@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+	body {font: normal 1em Verdana, Arial, sans-serif;}  
+	.user-text {border-bottom-right-radius: 30px;
+			  width: 150px; padding-left: 100px;
+			  height: 20px; background-color: #ffdd00;}
+</style>
+
+<title>Shrini</title>
+</head>
+<body>
+	<h1>Welcome to Shrini's Home.</h1>
+	<div id = "nameContainer"></div>
+	<p class="chat bot-text">Shrini: + message</p>	
+
+	<form action=?>
+        <input type=text size=20 name=answer placeholder="Type a answer/command">
+	</form> 
+
+	<p class="chat user-text"> Me:  + answer</p>
+
+
+
+<script>
+function start() {
+	var getNameCallback = function(json){
+		var data = JSON.parse(json);
+		var nameP = document.createElement('p');
+		nameP.innerText = 'Hello '+ data.response;
+		document.getElementById('nameContainer').appendChild(nameP);
+	};
+	sendAjax("http://localhost:8080/examples/servlets/servlet/LearnServlet?action=getName", getNameCallback);
+}
+
+function sendAjax(url, callback){
+	var request = new XMLHttpRequest();
+	request.open('GET', url, true);
+
+	request.onload = function() {
+	  if (request.status >= 200 && request.status < 400) {
+	    // Success!
+	    var resp = request.responseText;
+	    callback(resp);
+	  } else {
+	    // We reached our target server, but it returned an error
+	  }
+	};
+
+	request.onerror = function() {
+	  // There was a connection error of some sort
+	};
+
+	request.send();
+}
+</script>
+
+</body>
+</html>
+
