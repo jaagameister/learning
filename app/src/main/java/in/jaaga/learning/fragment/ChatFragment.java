@@ -44,9 +44,15 @@ public class ChatFragment extends Fragment implements InteractionInterface{
 
     private RecyclerView chat_view;
     private EditText chat_box;
-    private ArrayList<ChatItem> chat_list;
+    private static ArrayList<ChatItem> chat_list;
     private ChatAdapter chatAdapter;
     private Learning learning;
+
+    private static ChatFragment currentInstance;
+
+
+
+
 
     public ChatFragment() {
         MissionLibrary ml = new MissionLibrary();
@@ -56,19 +62,34 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         LearningContext learningContext = new LearningContext(this, session, new AndroidChatBot(session),
                 ml, new AndroidDB());
         learning = new Learning(learningContext);
+        learning = new Learning(this, session, new AndroidChatBot(session), new AndroidDB());
+        learning.setMission(new AndroidMission());
+        currentInstance = this;
     }
 
     public static ChatFragment newInstance() {
         ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
+        chat_list = new ArrayList<>();
         return fragment;
     }
 
-    @Override
+    public static ChatFragment getCurrentInstance(){
+        return currentInstance;
+    }
+
+    public Learning getLearning(){
+        return learning;
+    }
+
+    public void setLearning(Learning learning){
+        this.learning = learning;
+    }
+
+@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        chat_list = new ArrayList<>();
 
     }
 
@@ -88,6 +109,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         chat_view.setLayoutManager(linearLayoutManager);
         chatAdapter = new ChatAdapter(getActivity(),chat_list);
         chat_view.setAdapter(chatAdapter);
+        chatAdapter.notifyDataSetChanged();
 
 
         //Setup the chat box
@@ -117,7 +139,9 @@ public class ChatFragment extends Fragment implements InteractionInterface{
                 return false;
             }
         });
-        learning.start();
+
+        if (chat_list.isEmpty())
+            learning.start();
 
         return v;
     }
@@ -153,6 +177,16 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         mListener = null;
     }
 
+    public ArrayList<ChatItem> getList(){
+        return chat_list;
+    }
+
+    public void setList(ArrayList<ChatItem> list){
+
+        chat_list = list;
+        //chatAdapter.notifyDataSetChanged();
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -164,6 +198,8 @@ public class ChatFragment extends Fragment implements InteractionInterface{
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface ChatFragmentListener {
+
+
 
     }
 }
