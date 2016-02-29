@@ -30,6 +30,7 @@ import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.android.AndroidChatBot;
+import in.jaaga.learning.missions.MathMission;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,8 +63,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         LearningContext learningContext = new LearningContext(this, session, new AndroidChatBot(session),
                 ml, new AndroidDB());
         learning = new Learning(learningContext);
-        learning = new Learning(this, session, new AndroidChatBot(session), new AndroidDB());
-        learning.setMission(new AndroidMission());
+        learning.setMission(new MathMission());
         currentInstance = this;
     }
 

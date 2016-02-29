@@ -1,9 +1,9 @@
-package in.jaaga.learning.android;
+package in.jaaga.learning.missions;
 
 import java.util.ArrayList;
 
+import in.jaaga.learning.Mission;
 import in.jaaga.learning.Skill;
-import in.jaaga.learning.missions.Mission;
 import in.jaaga.learning.problems.Addition;
 import in.jaaga.learning.problems.DecimalAddition;
 import in.jaaga.learning.problems.DecimalDivision;
@@ -19,7 +19,7 @@ import in.jaaga.learning.problems.VariableSubtraction;
 /**
  * Created by admin on 24/02/2016.
  */
-public class AndroidMission implements Mission {
+public class MathMission implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
