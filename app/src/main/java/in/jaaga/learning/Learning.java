@@ -33,7 +33,10 @@ public class Learning {
         this.db = context.getDB();
         this.session = context.getSession();
         this.chatBot = context.getChatBot();
-        setMission(context.getMissionLibrary().getDefaultMission());
+    }
+
+    public LearningContext getContext() {
+        return this.context;
     }
 
     public void setMission(Mission mission) {

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,19 +52,11 @@ public class ChatFragment extends Fragment implements InteractionInterface{
 
     private static ChatFragment currentInstance;
 
-
-
-
-
     public ChatFragment() {
-        MissionLibrary ml = new MissionLibrary();
-        ml.addMission("math", new AndroidMathMission());
-        ml.addMission("vocab", new AndroidLanguageMission());
         Session session = new Session();
         LearningContext learningContext = new LearningContext(this, session, new AndroidChatBot(session),
-                ml, new AndroidDB());
+                new MissionLibrary(), new AndroidDB());
         learning = new Learning(learningContext);
-        learning.setMission(new MathMission());
         currentInstance = this;
     }
 
@@ -96,7 +89,12 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d("ChatFragment", "onCreateView");
+
         S.init(getResources(), getActivity());
+        learning.getContext().getMissionLibrary().addMission("math", new AndroidMathMission());
+        learning.getContext().getMissionLibrary().addMission("vocab", new AndroidLanguageMission());
+        learning.setMission(learning.getContext().getMissionLibrary().getDefaultMission());
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_chat, container, false);

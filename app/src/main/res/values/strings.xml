@@ -125,8 +125,14 @@
     <string name="button_hi">हिंदी</string>
     <string name="button_kn">ಕನ್ನಡ</string>
 
+
+    <!-- Mission descriptions -->
+    <string name="basic_math_mission">Basic math including addition, subtraction, multiplication, division, negative numbers, decimals, and variables</string>
+
+
     <!-- SKILLS / PROBLEM TYPES -->
     <string name="addition_title">"Addition to %d"</string>
+
     <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
     <string name="decimal_addition_title">Addition to %d with Decimals</string>
     <string name="decimal_division_title">Decimal Division with Dividends to %1$d and Divisors to %2$d</string>
@@ -153,5 +159,36 @@
     <string name="tree">tree</string>
     <string name="car">car</string>
     <string name="cat">cat</string>
+
+    <!-- Story 1 - Amar gets hurt -->
+    <string-array name="story1">
+    <item>Once upon a time there was a small boy who lived on a farm</item>
+    <item>On this farm were many chickens and goats and even ducks</item>
+    <item>Farmer John owned the land and was busy making it nice for everyone</item>
+    <item>One day everyone on the farm was helping john make benches for people to sit on
+        out of large granite stones</item>
+    <item>One boy, Amar, got his finger stuck under the stone and it hurt very much.</item>
+    <item>His friends took him to the hospital where the doctor put stiches in Amars finger to help it heal</item>
+    <item>Then everyone was happy again, though Amar had to keep his hand raised all the time.</item>
+    </string-array>
+    <string name="story1_hint">Press space and then hit enter for the next page</string>
+    <string name="story1_title">Amar gets hurt.</string>
+
+    <!-- Story 2 - Thirsty crow-->
+    <string-array name="story2">
+        <item>One hot day, a thirsty crow flew all over the fields looking for water. For a long time, he could not find any. He felt very weak, almost lost all hope.</item>
+        <item>Suddenly, he saw a water jug below the tree. He flew straight down to see if there was any water inside. Yes, he could see some water inside the jug!</item>
+        <item>The crow tried to push his head into the jug. Sadly, he found that the neck of the jug was too narrow.</item>
+        <item>Then he tried to push the jug to tilt for the water to flow out but the jug was too heavy.</item>
+        <item>The crow thought hard for a while. Then looking around it, he saw some pebbles.</item>
+        <item>he suddenly had a good idea.</item>
+        <item>he started picking up the pebbles one by one, dropping each into the jug. </item>
+        <item>As more and more pebbles filled the jug, the water level kept rising.</item>
+        <item>Soon it was high enough for the crow to drink.</item>
+        <item>His plan had worked!</item>
+    </string-array>
+    <string name="story2_hint">Press space and then hit enter for the next page</string>
+    <string name="story2_title">Thirsty Crow</string>
+
 
 </resources>

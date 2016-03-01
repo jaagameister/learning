@@ -10,8 +10,14 @@ public class Skill {
 	int points;
 	boolean hinted = false;
 
+	String title = null;
 
 	Problem problem;
+
+	public Skill(String title, Problem problem, int repsRequired, int points) {
+		this(problem, repsRequired, points);
+		this.title = title;
+	}
 
 	public Skill(Problem problem, int repsRequired, int points) {
 		this.problem = problem;
