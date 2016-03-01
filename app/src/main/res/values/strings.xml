@@ -190,5 +190,15 @@
     <string name="story2_hint">Press space and then hit enter for the next page</string>
     <string name="story2_title">Thirsty Crow</string>
 
+    <!-- Story 3 - Tommys stockings-->
+    <string-array name="story3">
+        <item>Two little maids went out one day, And really it was shocking! They met poor Tommy on the way, With holes in either stocking.</item>
+        <item>They sat down on a low stone seat, And to and fro kept rocking,While they knitted, swift and neat, Each of them a stocking.</item>
+        <item>And sweet they sang a little song, The dickie-birds kept mocking</item>
+        <item>And Tommy wished that all day longThey\'d sit and knit a stocking</item>
+    </string-array>
+    <string name="story3_hint">Press space and then hit enter for the next page</string>
+    <string name="story3_title">Thirsty Crow</string>
+
 
 </resources>

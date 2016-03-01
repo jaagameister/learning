@@ -32,6 +32,7 @@ import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.android.AndroidChatBot;
 import in.jaaga.learning.missions.MathMission;
+import in.jaaga.learning.missions.NegativeNumbers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -94,6 +95,8 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         S.init(getResources(), getActivity());
         learning.getContext().getMissionLibrary().addMission("math", new AndroidMathMission());
         learning.getContext().getMissionLibrary().addMission("vocab", new AndroidLanguageMission());
+        learning.getContext().getMissionLibrary().addMission("negative", new NegativeNumbers());
+
         learning.setMission(learning.getContext().getMissionLibrary().getDefaultMission());
 
         // Inflate the layout for this fragment
