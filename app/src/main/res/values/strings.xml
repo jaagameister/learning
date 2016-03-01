@@ -36,6 +36,7 @@
         <!-- ways for Srini to greet You at the start -->
         <item>Hello!</item>
         <item>Hey there.</item>
+        <item>Namaste.</item>
     </string-array>
 
     <string-array name="bye">
@@ -50,6 +51,8 @@
         <item>See you later, alligator.</item>
         <item>Take care. Bye!</item>
         <item>Take care!</item>
+        <item>Adios, amigo.</item>
+        <item>Later!</item>
     </string-array>
 
     <string-array name="correct">
@@ -66,6 +69,7 @@
         <item>You nailed it.</item>
         <item>Good!</item>
         <item>Nice.</item>
+        <item>Good job.</item>
     </string-array>
 
     <string-array name="incorrect">
@@ -76,6 +80,7 @@
         <item>Nice try, but not quite.</item>
         <item>Uh-oh. That\'s not it.</item>
         <item>No. Let\'s try this again.</item>
+        <item>Try again.</item>
     </string-array>
 
     <string-array name="encourage">
@@ -86,6 +91,9 @@
         <item>You\'re on a roll!</item>
         <item>Show them how it\'s done!</item>
         <item>Keep up the good work.</item>
+        <item>Keep it up.</item>
+        <item>Keep going.</item>
+        <item>You\'re getting there.</item>
     </string-array>
 
     <string-array name="one_left">
