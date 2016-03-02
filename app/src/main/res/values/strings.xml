@@ -242,14 +242,14 @@
     <!-- Past Tense Sentences -->
     <string name="past1">Ravi ______ the computer class in the morning.</string>
     <string-array name="past1_options">
-    <item>is attending</item>
     <item>attended</item>
+    <item>is attending</item>
     </string-array>
 
-    <string name="past1">The market ______ very noisy.</string>
-    <string-array name="past1_options">
-        <item>is attending</item>
-        <item>attended</item>
+    <string name="past2">The market ______ very noisy.</string>
+    <string-array name="past2_options">
+        <item>was</item>
+        <item>is</item>
     </string-array>
 
 

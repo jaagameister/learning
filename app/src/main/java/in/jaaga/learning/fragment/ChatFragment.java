@@ -80,11 +80,9 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         this.learning = learning;
     }
 
-@Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -111,7 +109,6 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         chatAdapter = new ChatAdapter(getActivity(),chat_list);
         chat_view.setAdapter(chatAdapter);
         chatAdapter.notifyDataSetChanged();
-
 
         //Setup the chat box
         chat_box = (EditText) v.findViewById(R.id.input_text);
@@ -156,7 +153,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         chat_view.scrollToPosition(position);
         chat_box.setText("");
         if (item.getResponseType() == Learning.NUMBER_RESPONSE)
-            chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
+                    chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
         else
             chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
     }
