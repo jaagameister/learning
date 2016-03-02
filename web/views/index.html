@@ -14,17 +14,19 @@
 <body>
 	<h1>Welcome to Shrini's Home.</h1>
 	<div id = "nameContainer"></div>
-	<p class="chat bot-text">Shrini: + message</p>	
-
-	<form action=?>
-        <input type=text size=20 name=answer placeholder="Type a answer/command">
-	</form> 
-
-	<p class="chat user-text"> Me:  + answer</p>
+	<div id = "shriniChat">
+		<p class="chat bot-text">Shrini: + message</p>	
+		<p class="chat user-text"> Me:  + answer</p>
+ 
+	</div>
+		<form action=?>
+	        <input type=text size=20 name=answer placeholder="Type a answer/command">
+		</form1>	
 
 
 
 <script>
+start();
 function start() {
 	var getNameCallback = function(json){
 		var data = JSON.parse(json);
@@ -33,6 +35,14 @@ function start() {
 		document.getElementById('nameContainer').appendChild(nameP);
 	};
 	sendAjax("http://localhost:8080/examples/servlets/servlet/LearnServlet?action=getName", getNameCallback);
+}
+function getBotLine(input){
+	sendAjax("http://localhost:8080/examples/servlets/servlet/LearnServlet?action=getResponse&input="+input, function(resp){
+		var botLine = document.createElement('p');
+		botLine.className = 'chat bot-text';
+		botLine.innerText = data.response;
+		document.getElementById('shriniChat').appendChild(botLine);
+	});	
 }
 
 function sendAjax(url, callback){
@@ -46,7 +56,7 @@ function sendAjax(url, callback){
 	    callback(resp);
 	  } else {
 	    // We reached our target server, but it returned an error
-	  }
+	  }l
 	};
 
 	request.onerror = function() {

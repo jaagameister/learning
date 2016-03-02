@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.json.*;
 
 import in.jaaga.learning.*;
+import in.jaaga.learning.missions.*;
 
 public class LearnServlet extends HttpServlet implements InteractionInterface {
+	
 	Learning learning;
 	HttpServletResponse currentResponse;
 	PrintWriter out;
@@ -20,13 +22,26 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 	Session session = new Session();
 
 	public LearnServlet() {
-		learning = new Learning(this, session, new ChatBot(), new DB());
+		Session.setDevice("CLI");
+		
+		MissionLibrary ml = new MissionLibrary();
+		ml.addMission("math", new MathMission());
+		ml.addMission("easy", new Easy());
+		ml.addMission("negative", new NegativeNumbers());
+
+		LearningContext learningContext = new LearningContext(this, session, new ChatBot(session),
+		        ml, new DB());
+		learning = new Learning(learningContext);
+
+		learning.start();
+		
 	}
 	//(InteractionInterface minteractionInterface, Session session, ChatBot chatBot, DB db)
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {	
 		fixHeaders(response);
+
 		currentResponse = response;
         out = response.getWriter();
         String output = "";
@@ -38,34 +53,30 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 		if (action == null) {action = "";}
 			switch(action) {
 				case "getName": 
-					session.setName("matheo");	
-					output = learning.getSessionName();
+					//output = learning.getSessionName();
 					break;
 				case "setName":
-					String name = request.getParameter("username");
-					session.setName(name);	
+					//String name = request.getParameter("username");
+					//session.setName(name);
+				case "getResponse":
+				//	String input = request.getParameter("input");
+					output = "hp";//learning.onResponse(input);
+					return;
+				//	addLine(answer);				
 				default: break; 
 			}
-		//initHTML();
-		out.println("{\"response\":\"" + output + "\"}");
-		//learning.start();
-		//inputButton();
-
-
-		/*
-		if (answer != learning.getSessionName()) {
+		if (true){//answer != learningContext.getSessionName()) {
 			chatList.clear();
-			learning = new Learning(this, new Session(), new ChatBot(), new DB());
+//			learning = new Learning(this, new Session(), new ChatBot(), new DB());
 			//learning.onResponse(answer);
 			//addLine(answer);	
-		} else {*/
-			/*
+		} else {
+			
 			addLine(answer);
-			printList(chatList);
-			learning.onResponse(answer);
-			inputButton();*/
-		//}
-		//out.println("</body>");
+			//printList(chatList learning.onResponse(answer);
+			
+		}
+		out.println(output);
     }
 	
 	public void send(ChatItem item) {
@@ -88,31 +99,6 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 			e.printStackTrace();
 		}
 	}
-	
-	public void initHTML() {
-		out.println("<style>body {font: normal 10px Verdana, Arial, sans-serif;}" +  
-							".chat-me {border-bottom-right-radius: 30px;" +
-							"width: 150px; padding-left: 100px" +
-							"height: 20px; background-color: #ffdd00;}" +
-					"</style>");	
-		
-        out.println("<head>");
-        out.println("<title>Shrini</title>");
-        out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>Welcome to Shrini's Home.</h1><p>");
-	}	
-
-
-	public void inputButton(){
-		out.print("<form action=\"");
-        out.print("LearnServlet\" ");
-        out.println("<br>");
-        out.println("<input type=text size=20 name=answer placeholder=" + "\"Type a answer/command\"" + ">");
-        out.println("<br>");
-        out.println("</form> <p>");		
-	}
-
 	public void addLine(String answer) {
 		chatList.add("<p class=" + "\"chat-me\"" + "> Me: " + answer + "</p>");
 	}
