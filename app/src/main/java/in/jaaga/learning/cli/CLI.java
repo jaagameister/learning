@@ -3,6 +3,9 @@ package in.jaaga.learning.cli;
 import java.util.Scanner;
 
 import in.jaaga.learning.*;
+import in.jaaga.learning.missions.Easy;
+import in.jaaga.learning.missions.MathMission;
+import in.jaaga.learning.missions.NegativeNumbers;
 
 /**
  * Created by freeman on 4/2/16.
@@ -17,7 +20,15 @@ public class CLI implements InteractionInterface {
     public CLI() {
         Session.setDevice("CLI");
         Session session = new Session();
-        learning = new Learning(this, session, new ChatBot(session), new DB());
+
+        MissionLibrary ml = new MissionLibrary();
+        ml.addMission("math", new MathMission());
+        ml.addMission("easy", new Easy());
+        ml.addMission("negative", new NegativeNumbers());
+
+        LearningContext learningContext = new LearningContext(this, session, new ChatBot(session),
+                ml, new DB());
+        learning = new Learning(learningContext);
         learning.start();
     }
 

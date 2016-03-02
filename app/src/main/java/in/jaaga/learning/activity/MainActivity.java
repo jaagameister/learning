@@ -22,10 +22,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import com.crashlytics.android.Crashlytics;
+
 import java.util.Locale;
 
+import in.jaaga.learning.ChatItem;
+import in.jaaga.learning.Learning;
 import in.jaaga.learning.R;
 import in.jaaga.learning.fragment.ChatFragment;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -107,9 +113,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button english, marathi;
     Button kannada, spanish, hindi;
 
+    private ChatFragment chatFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main);
 
@@ -189,11 +199,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //Show the chat fragment
     private void showChatFragment(){
-
+        chatFragment = ChatFragment.newInstance();
         if(fragmentManager!=null){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.content_container, ChatFragment.newInstance(),"chatFragment");
+            transaction.replace(R.id.content_container,chatFragment,"chatFragment");
             transaction.commit();
+        }
+
+        if(getIntent().getExtras()!=null){
+            ArrayList<ChatItem> chatItems = (ArrayList<ChatItem>) getIntent().getExtras().getSerializable("chat");
+            String levelString = getIntent().getExtras().getString("level");
+            if (levelString != null)
+                chatFragment.getLearning().setLevel(Integer.parseInt(levelString));
+            if(chatItems!=null) {
+                chatFragment.setList(chatItems);
+            }
         }
 
     }
@@ -275,7 +295,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
+        Bundle bundle = null;
+        if(chatFragment!=null){
+            bundle = new Bundle();
+            bundle.putSerializable("chat",chatFragment.getList());
+            bundle.putString("level", Integer.toString(Learning.level));
+        }
+
         Intent refresh = new Intent(this, MainActivity.class);
+        refresh.putExtras(bundle);
         startActivity(refresh);
         finish();
     }

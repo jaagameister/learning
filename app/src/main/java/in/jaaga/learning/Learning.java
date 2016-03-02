@@ -2,13 +2,15 @@ package in.jaaga.learning;
 
 import java.util.*;
 
+<<<<<<< HEAD
 import in.jaaga.learning.android.AndroidDB;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.missions.General;
 import in.jaaga.learning.missions.Mission;
+=======
+import in.jaaga.learning.missions.MathMission;
+>>>>>>> 3d1b5c5ce50ebdfc8556693e66eb467834d76632
 import in.jaaga.learning.missions.NegativeNumbers;
-import static java.lang.Package.getPackage;
-//import in.jaaga.learning.problems.NumbersSequence;
 
 public class Learning {
     public static final int NO_RESPONSE = ChatItem.NO_RESPONSE;
@@ -17,30 +19,46 @@ public class Learning {
 
     Random random = new Random();
 
+<<<<<<< HEAD
     private int points = 0;
+=======
+    private LearningContext context;
+	private int points = 0;
+>>>>>>> 3d1b5c5ce50ebdfc8556693e66eb467834d76632
 	private Session session;
 	private ChatBot chatBot;
     private Mission mission;
-    private Iterator<Skill> path;
+    private ArrayList<Skill> path;
     private Skill skill;
 	private Problem problem;
+
+    public static int level = 0;
 
 	InteractionInterface interactionInterface;
     DB db;
 
-    public Learning(InteractionInterface minteractionInterface, Session session, ChatBot chatBot, DB db) {
-		interactionInterface = minteractionInterface;
-        this.db = db;
-        this.session = session;
-        this.chatBot = chatBot;
-        this.chatBot.setSession(session);
-        setMission(new General());
+    public Learning(LearningContext context) {
+        this.context = context;
+		interactionInterface = context.getInteractionInterface();
+        this.db = context.getDB();
+        this.session = context.getSession();
+        this.chatBot = context.getChatBot();
+    }
+
+    public LearningContext getContext() {
+        return this.context;
     }
 
      public void setMission(Mission mission) {
         this.mission = mission;
-        path = mission.getList().iterator();
-        skill = path.next();
+        level = 0;
+        setLevel(level);
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+        path = mission.getList();
+        skill = path.get(level);
         session.setSkill(skill);
         problem = skill.getProblem();
     }
@@ -51,12 +69,13 @@ public class Learning {
 
     public void start() {
         sendMessage(chatBot.hello(), NO_RESPONSE);
-        sendMessage(chatBot.askName(),TEXT_RESPONSE);
-        //sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+//        sendMessage(chatBot.askName(),TEXT_RESPONSE);
+        sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
     }
 
 	public void onResponse(String response) {
-        if(session.getName() == null) {
+        // TODO remimplement name when we save profiles
+/*        if(false) { //session.getName() == null) {
             session.setName(response);
             if (db.containsName(response) == true) {
                 sendMessage("Welcome Back " + session.getName(), NO_RESPONSE);
@@ -65,45 +84,44 @@ public class Learning {
                 db.addName(response);
             }
             sendMessage(problem.getPromptChatItem());
-        } else if (".".equals(response)) {
+        } else
+*/
+        if (".".equals(response)) {
             sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
             return;
         } else if (response.equals("whoami"))  {
             sendMessage(session.getName(),NO_RESPONSE);
             sendMessage(problem.getPromptChatItem());
+            return;
         } else if (response.contains("help")) {
             sendMessage("you can say 'hint' for help with the current problem \n"+
                         "'skip will move to the next skill in the current mission\n"+
                         "mission will list the current mission and mission options", TEXT_RESPONSE);
+            return;
         } else if ("hint".equals(response)) {
-                sendMessage(skill.takeHint(), NO_RESPONSE);
-                sendMessage(problem.getPromptChatItem());
-                return;
+            sendMessage(skill.takeHint(), NO_RESPONSE);
+            sendMessage(problem.getPromptChatItem());
+            return;
         } else if ("skip".equals(response)) {
-            skill = path.next();
+            skill = path.get(++level);
             session.setSkill(skill);
             problem = skill.getProblem();
             sendMessage(problem.getPromptChatItem());
             return;
         } else if (response.startsWith("mission")) {
-            if (response.contains("general")) {
-                setMission(new General());
-                sendMessage(problem.getPromptChatItem());
-            } else if (response.contains("negative")) {
-                setMission(new NegativeNumbers());
-                sendMessage(problem.getPromptChatItem());
-            } else if (response.contains("easy")) {
-                setMission(new NegativeNumbers());
+            String missionName = response.substring("mission".length());
+            Mission newMission = context.getMissionLibrary().getMission(missionName);
+            if (newMission != null) {
+                setMission(newMission);
                 sendMessage(problem.getPromptChatItem());
             } else {
                 sendMessage("the current mission is: " + mission.getTitle()+
-                            "\n available missions are: general and negative." +
-                            " type - mission negative - to switch.", TEXT_RESPONSE);
+                            "\n " + context.getMissionLibrary().getAvailableMissionsHelpStatement(), TEXT_RESPONSE);
             }
-        } else if (session.getName() != null) {
-            checkAnswer(response);
-            sendMessage(problem.getPromptChatItem());
+            return;
         }
+        checkAnswer(response);
+        sendMessage(problem.getPromptChatItem());
     }
 
     void checkAnswer(String response) {
@@ -113,7 +131,7 @@ public class Learning {
 
             if (remains <= 0) {
                 Skill last = skill;
-                skill = path.next();
+                skill = path.get(++level);
                 session.setSkill(skill);
                 problem = skill.getProblem();
                 session.addPoints(last.getPoints());

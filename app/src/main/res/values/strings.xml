@@ -1,5 +1,10 @@
+<<<<<<< HEAD
     <resources>
     <string name="app_name">Learning</string>
+=======
+<resources>
+    <string name="app_name">Srini</string>
+>>>>>>> 3d1b5c5ce50ebdfc8556693e66eb467834d76632
 
     <string name="title_activity_main">Jaaga Learning</string>
 
@@ -19,29 +24,225 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <!-- CHATBOT -->
-    <string name="hello">hello</string>
-    <string name="bye">bye</string>
-    <string name="correct">correct</string>
-    <string name="incorrect">that\'s not the answer I\'m looking for</string>
-    <string name="encourage">you\'re doing great!</string>
-    <string name="one_left">just one problem left in this skill</string>
-    <string name="ask_name">what\'s your name?</string>
-    <string name="level_up">Congratulations !!! you passed %1$s \n and earned %2$d points. You now have %3$d total points.\n Now it\'s time to practice %4$s </string>
-    <string name="admin_prompt">Yes, Master...</string>
-    <string name="button_en"> English</string>
-    <string name="button_mr"> मराठी </string>
-    <string name="button_es"> Español</string>
-    <string name="button_hi">हिंदी </string>
-    <string name="button_kn"> ಕನ್ನಡ</string>
 
-    <!-- PROBLEMS -->
+    <!-- Note to language dude or dame —
+        Each array lists things Srini might say in the contexts described one by one below.
+        App will pick one option at random at any given time. You can include as many different 
+        "lines" as come to mind, or as few as one. Each line should be natural, casual, &
+        idiomatic. What would a young adult or teenager say to a slightly younger person in these
+        contexts in the language and culture You working with? --> 
+    <!-- You can include alternatives from different dialects, as long as each line can be
+        generally understood by all speakers of the language at large. --> 
+    <!-- Some lines is used more often than others in real life. You can get Srini to use certain
+        lines more than others by including the more common lines more than once (in the relevant
+        array). --> 
+
+    <string-array name="hello">
+        <!-- ways for Srini to greet You at the start -->
+        <item>Hello!</item>
+        <item>Hey there.</item>
+        <item>Namaste.</item>
+    </string-array>
+
+    <string-array name="bye">
+        <!-- ways for Srini to say goodbye -->
+        <item>Bye...</item>
+        <item>Bye...</item>
+        <item>Bye now...</item>
+        <item>See you.</item>
+        <item>So long. See you...</item>
+        <item>See you later.</item>
+        <item>See you later.</item>
+        <item>See you later, alligator.</item>
+        <item>Take care. Bye!</item>
+        <item>Take care!</item>
+        <item>Adios, amigo.</item>
+        <item>Later!</item>
+    </string-array>
+
+    <string-array name="correct">
+        <!-- ways for Srini to tell You You got it right -->
+        <item>Right.</item>
+        <item>Right.</item>
+        <item>Right!</item>
+        <item>Correct.</item>
+        <item>That\'s right.</item>
+        <item>Yes!</item>
+        <item>That\'s it.</item>
+        <item>Exactly.</item>
+        <item>You got it.</item>
+        <item>You nailed it.</item>
+        <item>Good!</item>
+        <item>Nice.</item>
+        <item>Good job.</item>
+    </string-array>
+
+    <string-array name="incorrect">
+        <!-- ways for Srini to tell You You didn't get it right -->
+        <item>That\'s not the answer I\'m looking for.</item>
+        <item>Hmm... Not quite.</item>
+        <item>No, that\'s not it.</item>
+        <item>Nice try, but not quite.</item>
+        <item>Uh-oh. That\'s not it.</item>
+        <item>No. Let\'s try this again.</item>
+        <item>Try again.</item>
+    </string-array>
+
+    <string-array name="encourage">
+        <!-- ways for Srini to encourage You or say a kind word,
+         such as after You answer a question right -->
+        <item>You\'re doing great.</item>
+        <item>So far so good.</item>
+        <item>You\'re on a roll!</item>
+        <item>Show them how it\'s done!</item>
+        <item>Keep up the good work.</item>
+        <item>Keep it up.</item>
+        <item>Keep going.</item>
+        <item>You\'re getting there.</item>
+    </string-array>
+
+    <string-array name="one_left">
+        <!-- ways for Srini to say You got one problem left in the section -->
+        <item>Just one problem left in this skill.</item>
+        <item>Only one more to go in this skill.</item>
+    </string-array>
+
+    <string-array name="ask_name">
+        <!-- ways for Srini to get your name -->
+        <item>What\'s your name?</item>
+    </string-array>
+
+    <!-- what Srini tell You when You get through a skill -->
+    <string name="level_up">Congratulations!!! You passed %1$s\
+        and earned %2$d points. You now have %3$d total points.\
+        Now it\'s time to practice %4$s.</string>
+
+    <string-array name="admin_prompt">
+        <!-- ways for a powerful being in the culture(s) or myths pertaining to your language to
+        tell the user it's at his/her service --> 
+        <!-- example: genie in a bottle saying, "Your wish is my command." -->
+        <item>Yes, Master...</item>
+    </string-array>
+
+    <string name="button_en">English</string>
+    <string name="button_mr">मराठी</string>
+    <string name="button_es">español</string>
+    <string name="button_hi">हिंदी</string>
+    <string name="button_kn">ಕನ್ನಡ</string>
+
+
+    <!-- Mission descriptions -->
+    <string name="basic_math_mission">Basic math including addition, subtraction, multiplication, division, negative numbers, decimals, and variables</string>
+
+
+    <!-- SKILLS / PROBLEM TYPES -->
     <string name="addition_title">"Addition to %d"</string>
-    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
 
-    <string name="cat">"cat"</string>
-    <string name="dog">"dog"</string>
-    <string name="car">"car"</string>
-    <string name="ball">"ball"</string>
-    <string name="tree">"tree"</string>
+    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+    <string name="decimal_addition_title">Addition to %d with Decimals</string>
+    <string name="decimal_division_title">Decimal Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="decimal_multiplication_title">Decimal Multiplication to %d</string>
+    <string name="division_title">Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="division_remainders_title">Division with Remainders with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="fractions_title">Fractions</string>
+    <string name="multiplication_title">Multiplication to %d</string>
+    <string name="multiplication_negative_title">Multiplication to %d with Negative Numbers</string>
+    <string name="number_sequences_title">Number Sequences</string>
+    <string name="percentages_title">Percentages</string>
+    <string name="subtraction_title">Subtraction to %d</string>
+    <string name="subtraction_negative_title">Subtraction to %d with Negative Numbers</string>
+    <string name="var_addition_title">Variable Addition to %d</string>
+    <string name="var_division_title">Variable Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="var_multiplication_title">Variable Multiplication to %d</string>
+    <string name="var_subtraction_title">Variable Subtraction to %d</string>
+    <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
+    <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
+
+    <!-- IMAGES -->
+    <string name="dog">dog</string>
+    <string name="ball">ball</string>
+    <string name="tree">tree</string>
+    <string name="car">car</string>
+    <string name="cat">cat</string>
+
+    <!-- Story 1 - Amar gets hurt -->
+    <string-array name="story1">
+    <item>Once upon a time there was a small boy who lived on a farm</item>
+    <item>On this farm were many chickens and goats and even ducks</item>
+    <item>Farmer John owned the land and was busy making it nice for everyone</item>
+    <item>One day everyone on the farm was helping john make benches for people to sit on
+        out of large granite stones</item>
+    <item>One boy, Amar, got his finger stuck under the stone and it hurt very much.</item>
+    <item>His friends took him to the hospital where the doctor put stiches in Amars finger to help it heal</item>
+    <item>Then everyone was happy again, though Amar had to keep his hand raised all the time.</item>
+    </string-array>
+    <string name="story1_hint">Press space and then hit enter for the next page</string>
+    <string name="story1_title">Amar gets hurt.</string>
+
+    <!-- Story 2 - Thirsty crow-->
+    <string-array name="story2">
+        <item>One hot day, a thirsty crow flew all over the fields looking for water. For a long time, he could not find any. He felt very weak, almost lost all hope.</item>
+        <item>Suddenly, he saw a water jug below the tree. He flew straight down to see if there was any water inside. Yes, he could see some water inside the jug!</item>
+        <item>The crow tried to push his head into the jug. Sadly, he found that the neck of the jug was too narrow.</item>
+        <item>Then he tried to push the jug to tilt for the water to flow out but the jug was too heavy.</item>
+        <item>The crow thought hard for a while. Then looking around it, he saw some pebbles.</item>
+        <item>he suddenly had a good idea.</item>
+        <item>he started picking up the pebbles one by one, dropping each into the jug. </item>
+        <item>As more and more pebbles filled the jug, the water level kept rising.</item>
+        <item>Soon it was high enough for the crow to drink.</item>
+        <item>His plan had worked!</item>
+    </string-array>
+    <string name="story2_hint">Press space and then hit enter for the next page</string>
+    <string name="story2_title">Thirsty Crow</string>
+
+    <!-- Story 3 - Tommys stockings-->
+    <string-array name="story3">
+        <item>Two little maids went out one day, And really it was shocking! They met poor Tommy on the way, With holes in either stocking.</item>
+        <item>They sat down on a low stone seat, And to and fro kept rocking,While they knitted, swift and neat, Each of them a stocking.</item>
+        <item>And sweet they sang a little song, The dickie-birds kept mocking</item>
+        <item>And Tommy wished that all day longThey\'d sit and knit a stocking</item>
+    </string-array>
+    <string name="story3_hint">Press space and then hit enter for the next page</string>
+    <string name="story3_title">Thirsty Crow</string>
+    
+       <!-- Story 4 - The Lion and the mouse-->
+    <string-array name="story4">
+        <item>Once when a lion, the king of the jungle, was asleep, a little mouse began running up and down on him.
+            This soon awakened the lion, who placed his huge paw on the mouse, and opened his big jaws to
+            swallow him.</item>
+        <item>"Pardon, O King!" cried the little Mouse, "Forgive me this time. I shall never repeat it and I shall never
+
+forget your kindness. And who knows, I may be able to do you a good turn one of these days!”</item>
+        <item>The Lion was so tickled by the idea of the mouse being able to help him that he lifted his paw and let
+
+him go.</item>
+        <item>Sometime later, a few hunters captured the lion, and tied him to a tree. After that they went in search
+
+of a wagon, to take him to the zoo.</item>
+        <item>Short StoriesJust then the little mouse happened to pass by. On seeing the lion’s plight, he ran up to him
+
+and gnawed away the ropes that bound him, the king of the jungle.</item>
+        <item>"Was I not right?" said the little mouse, very happy to help the lion.</item>
+        <item>MORAL: Small acts of kindness will be rewarded greatly.</item>
+    </string-array>
+    <string name="story4_hint">Press space and then hit enter for the next page</string>
+    <string name="story4_title">Thirsty Crow</string>
+
+
+
+
+    <!-- Past Tense Sentences -->
+    <string name="past1">Ravi ______ the computer class in the morning.</string>
+    <string-array name="past1_options">
+    <item>is attending</item>
+    <item>attended</item>
+    </string-array>
+
+    <string name="past1">The market ______ very noisy.</string>
+    <string-array name="past1_options">
+        <item>is attending</item>
+        <item>attended</item>
+    </string-array>
+
 
 </resources>

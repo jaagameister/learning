@@ -14,6 +14,7 @@ public class DecimalDivision extends SimpleProblem {
     int dividendMax,divisorMax;
     ArrayList<String> answerList = new ArrayList<String>();
     double answer;
+    int hintNumber = 0;
 
     public DecimalDivision(int dividendMax, int divisorMax) {
         this.dividendMax = dividendMax;
@@ -28,13 +29,19 @@ public class DecimalDivision extends SimpleProblem {
         double b_double = bb.doubleValue();
         double c = a_double/b_double;
         answer = Math.round(c*1000.0)/1000.0;
-        prompt = new String(a + " ÷ " + b +" = ?");
+        prompt = new String(a + " ÷ " + b +" = ? \n(ie. 3.25 round to 3 decimal places)");
     }
     public boolean checkAnswer(String ans) {
-        return (answer == Double.parseDouble(ans));
+        try {
+            return (answer == Double.parseDouble(ans));
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public String getHint() {
+        if (hintNumber++ == 1)
+            return "should be a number like 3.25 round to 3 decimal places";
         return Double.toString(answer);
     }
 
@@ -43,7 +50,7 @@ public class DecimalDivision extends SimpleProblem {
     }
 
     public String getTitle() {
-        return  "Division with dividend to " + dividendMax +
-                " and divisor to " + divisorMax;
+        return  "Decimal division with dividend to " + dividendMax +
+                " and divisor to " + divisorMax + "round answers to 3 decimal places";
     }
 }
