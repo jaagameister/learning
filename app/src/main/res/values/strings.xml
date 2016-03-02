@@ -199,6 +199,30 @@
     </string-array>
     <string name="story3_hint">Press space and then hit enter for the next page</string>
     <string name="story3_title">Thirsty Crow</string>
+    
+       <!-- Story 4 - The Lion and the mouse-->
+    <string-array name="story4">
+        <item>Once when a lion, the king of the jungle, was asleep, a little mouse began running up and down on him.
+            This soon awakened the lion, who placed his huge paw on the mouse, and opened his big jaws to
+            swallow him.</item>
+        <item>"Pardon, O King!" cried the little Mouse, "Forgive me this time. I shall never repeat it and I shall never
+
+forget your kindness. And who knows, I may be able to do you a good turn one of these days!”</item>
+        <item>The Lion was so tickled by the idea of the mouse being able to help him that he lifted his paw and let
+
+him go.</item>
+        <item>Sometime later, a few hunters captured the lion, and tied him to a tree. After that they went in search
+
+of a wagon, to take him to the zoo.</item>
+        <item>Short StoriesJust then the little mouse happened to pass by. On seeing the lion’s plight, he ran up to him
+
+and gnawed away the ropes that bound him, the king of the jungle.</item>
+        <item>"Was I not right?" said the little mouse, very happy to help the lion.</item>
+        <item>MORAL: Small acts of kindness will be rewarded greatly.</item>
+    </string-array>
+    <string name="story4_hint">Press space and then hit enter for the next page</string>
+    <string name="story4_title">Thirsty Crow</string>
+
 
 
 
