@@ -18,6 +18,8 @@ public class AndroidLanguageMission implements Mission {
         mission.add(new Skill(story2, story2.getNumPrompts(), 1000));
         Story story3 = new Story("story3");
         mission.add(new Skill(story3, story3.getNumPrompts(), 1000));
+        Story story4 = new Story("story4");
+        mission.add(new Skill(story4, story4.getNumPrompts(), 1000));
         mission.add(new Skill(new AndroidImages(), 200, 1000));
         return mission;
     }
