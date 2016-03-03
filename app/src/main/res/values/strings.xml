@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-    <resources>
-    <string name="app_name">Learning</string>
-=======
 <resources>
     <string name="app_name">Srini</string>
->>>>>>> 3d1b5c5ce50ebdfc8556693e66eb467834d76632
+
 
     <string name="title_activity_main">Jaaga Learning</string>
 

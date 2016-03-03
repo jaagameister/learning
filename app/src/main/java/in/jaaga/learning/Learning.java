@@ -63,14 +63,15 @@ public class Learning {
 
     public void start() {
         sendMessage(chatBot.hello(), NO_RESPONSE);
-//        sendMessage(chatBot.askName(),TEXT_RESPONSE);
+        //sendMessage(chatBot.askName(),TEXT_RESPONSE);
         sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
     }
 
 	public void onResponse(String response) {
         // TODO remimplement name when we save profiles
-/*        if(false) { //session.getName() == null) {
+/*        if(false) { session.getName() == null) {
             session.setName(response);
+        }
             if (db.containsName(response) == true) {
                 sendMessage("Welcome Back " + session.getName(), NO_RESPONSE);
             } else {
@@ -78,8 +79,8 @@ public class Learning {
                 db.addName(response);
             }
             sendMessage(problem.getPromptChatItem());
-        } else
-*/
+        } else */
+
         if (".".equals(response)) {
             sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
             return;
@@ -133,7 +134,7 @@ public class Learning {
                 sendMessage(chatBot.comment(), NO_RESPONSE);
                 problem = problem.next();
 				skill.setProblem(problem);
-//                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
             }
         } else {
             sendMessage(chatBot.sorry(), NO_RESPONSE);
