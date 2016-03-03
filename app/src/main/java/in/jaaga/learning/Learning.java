@@ -24,6 +24,8 @@ public class Learning {
 
     public static int level = 0;
 
+    public int test = 0;
+
 	InteractionInterface interactionInterface;
     DB db;
 
