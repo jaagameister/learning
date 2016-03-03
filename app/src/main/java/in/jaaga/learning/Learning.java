@@ -1,16 +1,12 @@
 package in.jaaga.learning;
 
+import android.util.Log;
+
 import java.util.*;
 
-<<<<<<< HEAD
-import in.jaaga.learning.android.AndroidDB;
-import in.jaaga.learning.android.S;
-import in.jaaga.learning.missions.General;
-import in.jaaga.learning.missions.Mission;
-=======
 import in.jaaga.learning.missions.MathMission;
->>>>>>> 3d1b5c5ce50ebdfc8556693e66eb467834d76632
 import in.jaaga.learning.missions.NegativeNumbers;
+
 
 public class Learning {
     public static final int NO_RESPONSE = ChatItem.NO_RESPONSE;
@@ -19,12 +15,8 @@ public class Learning {
 
     Random random = new Random();
 
-<<<<<<< HEAD
-    private int points = 0;
-=======
     private LearningContext context;
 	private int points = 0;
->>>>>>> 3d1b5c5ce50ebdfc8556693e66eb467834d76632
 	private Session session;
 	private ChatBot chatBot;
     private Mission mission;
@@ -49,7 +41,9 @@ public class Learning {
         return this.context;
     }
 
-     public void setMission(Mission mission) {
+    public void setMission(Mission mission) {
+        if (mission == null)
+                Log.d("LEARNING", "null mission");
         this.mission = mission;
         level = 0;
         setLevel(level);
@@ -128,7 +122,6 @@ public class Learning {
         if (problem.checkAnswer(response)) {  // correct
             sendMessage(chatBot.correct(), NO_RESPONSE);
             int remains = skill.solvedOne();
-
             if (remains <= 0) {
                 Skill last = skill;
                 skill = path.get(++level);
@@ -136,19 +129,6 @@ public class Learning {
                 problem = skill.getProblem();
                 session.addPoints(last.getPoints());
                 sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
-                if (db.skillAttemptedBefore(session.getName(),last.getProblem().getTitle()) == true) {
-                    db.updatePointsScored(session.getName(),last.getProblem().getTitle(),last.getPoints());
-                    String storedData = db.getData(session.getName(),last.getProblem().getTitle());
-                    sendMessage(storedData,NO_RESPONSE);
-                }
-                else if (db.getUidFromUserName(session.getName()) != -2) {
-                    db.insertSkillAttemptedInDatabase(session.getName(),last.getProblem().getTitle(),last.getPoints());
-                    String storedData = db.getData(session.getName(),last.getProblem().getTitle());
-                    sendMessage(storedData,NO_RESPONSE);
-                }
-                else if (db.getUidFromUserName(session.getName())!= -2) {
-                    sendMessage("Sorry, Get an ANDROID",NO_RESPONSE);
-                }
             } else {
                 sendMessage(chatBot.comment(), NO_RESPONSE);
                 problem = problem.next();
