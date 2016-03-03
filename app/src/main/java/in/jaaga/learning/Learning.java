@@ -63,15 +63,15 @@ public class Learning {
 
     public void start() {
         sendMessage(chatBot.hello(), NO_RESPONSE);
-        //sendMessage(chatBot.askName(),TEXT_RESPONSE);
-        sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+        sendMessage(chatBot.askName(),TEXT_RESPONSE);
+        //sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
     }
 
 	public void onResponse(String response) {
         // TODO remimplement name when we save profiles
-/*        if(false) { session.getName() == null) {
+        if(session.getName() == null) {
             session.setName(response);
-        }
+
             if (db.containsName(response) == true) {
                 sendMessage("Welcome Back " + session.getName(), NO_RESPONSE);
             } else {
@@ -79,9 +79,7 @@ public class Learning {
                 db.addName(response);
             }
             sendMessage(problem.getPromptChatItem());
-        } else */
-
-        if (".".equals(response)) {
+        } else if (".".equals(response)) {
             sendMessage(chatBot.adminPrompt(), TEXT_RESPONSE);
             return;
         } else if (response.equals("whoami"))  {
@@ -115,8 +113,10 @@ public class Learning {
             }
             return;
         }
-        checkAnswer(response);
-        sendMessage(problem.getPromptChatItem());
+        else {
+            checkAnswer(response);
+            sendMessage(problem.getPromptChatItem());
+        }
     }
 
     void checkAnswer(String response) {
@@ -130,11 +130,25 @@ public class Learning {
                 problem = skill.getProblem();
                 session.addPoints(last.getPoints());
                 sendMessage(chatBot.levelUp(last, skill), NUMBER_RESPONSE);
+                //code for keeping records of points
+                if (db.skillAttemptedBefore(session.getName(),last.getProblem().getTitle()) == true) {
+                    db.updatePointsScored(session.getName(),last.getProblem().getTitle(),last.getPoints());
+                    String storedData = db.getData(session.getName(),last.getProblem().getTitle());
+                    sendMessage(storedData,NO_RESPONSE);
+                }
+                else if (db.getUidFromUserName(session.getName()) != -2) {
+                    db.insertSkillAttemptedInDatabase(session.getName(),last.getProblem().getTitle(),last.getPoints());
+                    String storedData = db.getData(session.getName(),last.getProblem().getTitle());
+                    sendMessage(storedData,NO_RESPONSE);
+                }
+                else if (db.getUidFromUserName(session.getName()) == -2) {
+                    sendMessage("Sorry, get an ANDROID",NO_RESPONSE);
+                }
             } else {
                 sendMessage(chatBot.comment(), NO_RESPONSE);
                 problem = problem.next();
 				skill.setProblem(problem);
-                sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
+                //sendMessage(problem.getPrompt(), NUMBER_RESPONSE);
             }
         } else {
             sendMessage(chatBot.sorry(), NO_RESPONSE);

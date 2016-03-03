@@ -138,7 +138,7 @@ public class AndroidDB extends DB {
         cursor.close();
         return "Congratulations, " +name+". Your database ID is " + Integer.toString(uid)+ " .You have practiced " + skillAttempted +
                 " and you have " + Integer.toString(pointsScored) + " points in this skill ."+ " Your lifetime points are "
-                +Integer.toString(getPointsFromDetails(name))+ " .Some more practice then you are a Yoda!";
+                +Integer.toString(getPointsFromDetails(name))+ " . Keep going.";
     }
     public boolean addPointsToDetails(String name) {
         Cursor cursor;
