@@ -8,8 +8,6 @@ public class DB {
     HashMap<String, String> db = new HashMap();
     static ArrayList<String> imagesList = new ArrayList<>();
 
-
-
     public void addName(String name) {
         db.put(name, "password");
     }

@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.json.*;
 
 import in.jaaga.learning.*;
@@ -32,21 +33,28 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 		LearningContext learningContext = new LearningContext(this, session, new ChatBot(session),
 		        ml, new DB());
 		learning = new Learning(learningContext);
+		//learning.setMission(learning.getContext().getMissionLibrary().getDefaultMission());
+		//learning.start();
 
-		learning.start();
 		
 	}
 	//(InteractionInterface minteractionInterface, Session session, ChatBot chatBot, DB db)
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {	
+		//learning.test = 6;
+		HttpSession webSession = request.getSession();
+		//webSession.setAttribute("learning", learning);
+		Learning learnTest = (Learning) webSession.getAttribute("learning");
+		out = response.getWriter();
 		fixHeaders(response);
-
+		out.println(learnTest.test);
 		currentResponse = response;
-        out = response.getWriter();
+        
         String output = "";
 		String answer = request.getParameter("answer");
 		String action = request.getParameter("action");
+		out.println("<h>I'm running</h>");
 
 		//out.println(createJson("result", ""));
 
@@ -60,7 +68,7 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 					//session.setName(name);
 				case "getResponse":
 				//	String input = request.getParameter("input");
-					output = "hp";//learning.onResponse(input);
+					output = "matteo";//learning.onResponse(input);
 					return;
 				//	addLine(answer);				
 				default: break; 
