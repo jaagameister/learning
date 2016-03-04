@@ -33,8 +33,8 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 		LearningContext learningContext = new LearningContext(this, session, new ChatBot(session),
 		        ml, new DB());
 		learning = new Learning(learningContext);
-		learning.setMission(learning.getContext().getMissionLibrary().getDefaultMission());
-		learning.start();
+		//learning.setMission(learning.getContext().getMissionLibrary().getDefaultMission());
+		//learning.start();
 
 		
 	}
@@ -45,10 +45,10 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 		//learning.test = 6;
 		HttpSession webSession = request.getSession();
 		//webSession.setAttribute("learning", learning);
-		Learning learnTest = webSession.getAttribute("learning");
+		Learning learnTest = (Learning) webSession.getAttribute("learning");
 		out = response.getWriter();
 		fixHeaders(response);
-		out.println(learnTest.test.toString());
+		out.println(learnTest.test);
 		currentResponse = response;
         
         String output = "";
