@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.json.*;
 
 import in.jaaga.learning.*;
 import in.jaaga.learning.missions.*;
@@ -45,10 +44,10 @@ public class LearnServlet extends HttpServlet implements InteractionInterface {
 		//learning.test = 6;
 		HttpSession webSession = request.getSession();
 		//webSession.setAttribute("learning", learning);
-		Learning learnTest = (Learning) webSession.getAttribute("learning");
+//		Learning learnTest = (Learning) webSession.getAttribute("learning");
 		out = response.getWriter();
 		fixHeaders(response);
-		out.println(learnTest.test);
+//		out.println(learnTest.test);
 		currentResponse = response;
         
         String output = "";
