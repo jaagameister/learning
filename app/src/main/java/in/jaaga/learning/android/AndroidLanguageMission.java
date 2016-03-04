@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.Mission;
 import in.jaaga.learning.android.problems.PictureBook;
+import in.jaaga.learning.android.problems.Sentence;
 import in.jaaga.learning.android.problems.Story;
 
 /**
@@ -13,6 +14,9 @@ import in.jaaga.learning.android.problems.Story;
 public class AndroidLanguageMission implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
+
+        Sentence s = new Sentence();
+        mission.add(new Skill(s, s.getNumPrompts(), 1000));
 
         PictureBook book1 = new PictureBook("moon");
         mission.add(new Skill(book1, book1.getNumPrompts(), 1000));

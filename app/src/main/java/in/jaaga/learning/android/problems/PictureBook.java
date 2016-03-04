@@ -23,7 +23,7 @@ public class PictureBook implements Problem {
         int resourceId = S.getResources().getIdentifier(name+count, "drawable", S.getActivity().getPackageName());
         Log.d("PictureBook", "resourceId " + resourceId);
         System.out.println("PictureBook + resourceId " + resourceId);
-        while (resourceId != -1) {
+        while (resourceId > 0) {
             book.add(new Integer(resourceId));
             String pageName = name + (++count);
             System.out.println("pageName: "+pageName);

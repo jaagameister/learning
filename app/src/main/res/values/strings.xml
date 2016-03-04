@@ -240,17 +240,16 @@
     <string name="story6_title">The Hare</string>
 
     <!-- Past Tense Sentences -->
-    <string name="past1">Ravi ______ the computer class in the morning.</string>
-    <string-array name="past1_options">
+    <string name="sentence1">Ravi ______ the computer class in the morning.</string>
+    <string-array name="sentence1_options">
     <item>attended</item>
     <item>is attending</item>
     </string-array>
 
-    <string name="past2">The market ______ very noisy.</string>
-    <string-array name="past2_options">
+    <string name="sentence2">The market ______ very noisy.</string>
+    <string-array name="sentence2_options">
         <item>was</item>
         <item>is</item>
     </string-array>
-
 
 </resources>

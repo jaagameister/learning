@@ -14,7 +14,8 @@ public class Story implements Problem {
 
     public Story(String name) {
         int pagesResourceId = S.getActivity().getResources().getIdentifier(name, "array", S.getActivity().getPackageName());
-        pages = S.getActivity().getResources().getStringArray(pagesResourceId);
+        if (pagesResourceId > 0)
+            pages = S.getActivity().getResources().getStringArray(pagesResourceId);
     }
 
     public String getPrompt() {
@@ -39,6 +40,8 @@ public class Story implements Problem {
     }
 
     public int getNumPrompts() {
+        if (pages == null)
+            return 0;
         return pages.length;
     }
 }
