@@ -160,19 +160,21 @@
     <string name="car">car</string>
     <string name="cat">cat</string>
 
-    <!-- Story 1 - Amar gets hurt -->
+    <!-- Story 1 - The Hare and the Tortoise-->
     <string-array name="story1">
-    <item>Once upon a time there was a small boy who lived on a farm</item>
-    <item>On this farm were many chickens and goats and even ducks</item>
-    <item>Farmer John owned the land and was busy making it nice for everyone</item>
-    <item>One day everyone on the farm was helping john make benches for people to sit on
-        out of large granite stones</item>
-    <item>One boy, Amar, got his finger stuck under the stone and it hurt very much.</item>
-    <item>His friends took him to the hospital where the doctor put stiches in Amars finger to help it heal</item>
-    <item>Then everyone was happy again, though Amar had to keep his hand raised all the time.</item>
+        <item>There once was a speedy Hare who bragged about how fast he could run. Tired of hearing him boast, the Tortoise challenged him to a race.</item>
+        <item>All the animals in the forest gathered to watch. </item>
+        <item>The Hare ran down the road for a while and then and paused to rest. </item>
+        <item>He looked back at the tortoise and cried out, "How do you expect to win this race when you are walking along at your slow, slow pace?"</item>
+        <item>The Hare stretched himself out alongside the road and fell asleep, thinking, "There is plenty of time to relax."</item>
+        <item>The Tortoise walked and walked; never ever stopping until he came to the finish line.</item>
+        <item>The animals who were watching cheered so loudly for Tortoise, that they woke up Hare. </item>
+        <item>The Hare stretched and yawned and began to run again, but it was too late. Tortoise was already over the line.</item>
+        <item>MORAL: Slow and steady wins the race.</item>
     </string-array>
     <string name="story1_hint">Press space and then hit enter for the next page</string>
-    <string name="story1_title">Amar gets hurt.</string>
+    <string name="story1_title">The Hare</string>
+
 
     <!-- Story 2 - Thirsty crow-->
     <string-array name="story2">
@@ -224,20 +226,6 @@
     <string name="story5_hint">Press space and then hit enter for the next page</string>
     <string name="story5_title">The Goose</string>
 
- <!-- Story 6 - The Hare and the Tortoise-->
-    <string-array name="story6">
-        <item>There once was a speedy Hare who bragged about how fast he could run. Tired of hearing him boast, the Tortoise challenged him to a race.</item>
-        <item>All the animals in the forest gathered to watch. </item>
-        <item>The Hare ran down the road for a while and then and paused to rest. </item>
-        <item>He looked back at the tortoise and cried out, "How do you expect to win this race when you are walking along at your slow, slow pace?"</item>
-        <item>The Hare stretched himself out alongside the road and fell asleep, thinking, "There is plenty of time to relax."</item>
-        <item>The Tortoise walked and walked; never ever stopping until he came to the finish line.</item>
-        <item>The animals who were watching cheered so loudly for Tortoise, that they woke up Hare. </item>
-        <item>The Hare stretched and yawned and began to run again, but it was too late. Tortoise was already over the line.</item>
-        <item>MORAL: Slow and steady wins the race.</item>
-    </string-array>
-    <string name="story6_hint">Press space and then hit enter for the next page</string>
-    <string name="story6_title">The Hare</string>
 
     <!-- Past Tense Sentences -->
     <string name="sentence1">Ravi ______ the computer class in the morning.</string>
