@@ -1,7 +1,5 @@
 package in.jaaga.learning;
 
-import android.util.Log;
-
 import java.util.*;
 
 import in.jaaga.learning.missions.MathMission;
@@ -44,8 +42,6 @@ public class Learning {
     }
 
     public void setMission(Mission mission) {
-        if (mission == null)
-                Log.d("LEARNING", "null mission");
         this.mission = mission;
         level = 0;
         setLevel(level);
