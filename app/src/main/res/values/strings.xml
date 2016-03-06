@@ -159,6 +159,10 @@
     <string name="tree">tree</string>
     <string name="car">car</string>
     <string name="cat">cat</string>
+    
+    <straing-array name=books>
+        <item>moon</item>
+    </straing-array>
 
     <!-- Story 1 - The Hare and the Tortoise-->
     <string-array name="story1">
