@@ -243,5 +243,53 @@
         <item>was</item>
         <item>is</item>
     </string-array>
+    
+ <string name="sentence3">The delivery man ______ the package.</string>
+    <string-array name="sentence3_options">
+        <item>delivered</item>
+        <item>was delivering</item>
+    </string-array>
+    
+<string name="sentence4">The athletes _____ for Tamil Nadu. </string>
+    <string-array name="sentence4_options">
+        <item>left</item>
+        <item>leaving</item>
+    </string-array>
+    
+    <string name="sentence5">Gita ______ her room </string>
+    <string-array name="sentence5_options">
+        <item>painted</item>
+        <item>is painting</item>
+    </string-array>
+    
+    <string name="sentence6">Ramesh ______ playing cricket yesterday.</string>
+    <string-array name="sentence6_options">
+        <item>was</item>
+        <item>is</item>
+    </string-array>
+    
+    <string name="sentence7">Oh no! The bus ____ without us. </string>
+    <string-array name="sentence7_options">
+        <item>left</item>
+        <item>leave</item>
+    </string-array>
+    
+    <string name="sentence8">I  ___ a mango. </string>
+    <string-array name="sentence8_options">
+        <item>ate</item>
+        <item>eating</item>
+    </string-array>
+    
+    <string name="sentence9">Be quiet. The circus has ______.</string>
+    <string-array name="sentence9_options">
+        <item>started</item>
+        <item>starting</item>
+    </string-array>
+    
+    <string name="sentence10">Rashmi ___to her grandma's house last summer.</string>
+    <string-array name="sentence10_options">
+        <item>went</item>
+        <item>is going</item>
+    </string-array>
 
 </resources>
