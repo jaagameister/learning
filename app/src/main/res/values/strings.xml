@@ -160,9 +160,9 @@
     <string name="car">car</string>
     <string name="cat">cat</string>
     
-    <straing-array name=books>
+    <string-array name="books">
         <item>moon</item>
-    </straing-array>
+    </string-array>
 
     <!-- Story 1 - The Hare and the Tortoise-->
     <string-array name="story1">
@@ -286,7 +286,7 @@
         <item>starting</item>
     </string-array>
     
-    <string name="sentence10">Rashmi ___to her grandma's house last summer.</string>
+    <string name="sentence10">Rashmi ___to her grandma\'s house last summer.</string>
     <string-array name="sentence10_options">
         <item>went</item>
         <item>is going</item>
