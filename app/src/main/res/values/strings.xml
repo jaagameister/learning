@@ -194,6 +194,12 @@
     <string-array name="books">
         <item>moon</item>
     </string-array>
+    
+    <string-array name="books">
+        <item>match</item>
+    </string-array>
+    
+    
     <string name="cow">cow</string>
     <string name="crocodile">crocodile</string>
     <string name="deer">deer</string>
