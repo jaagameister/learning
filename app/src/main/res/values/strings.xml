@@ -154,11 +154,94 @@
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 
     <!-- IMAGES -->
-    <string name="dog">dog</string>
     <string name="ball">ball</string>
     <string name="tree">tree</string>
     <string name="car">car</string>
+
+
+    <!-- BIRD IMAGES START -->
+    <string name="cock">cock</string>
+    <string name="crane">crane</string>
+    <string name="crow">crow</string>
+    <string name="cuckoo">cuckoo</string>
+    <string name="dove">dove</string>
+    <string name="duck">duck</string>
+    <string name="eagle">eagle</string>
+    <string name="hen">hen</string>
+    <string name="kingfisher">kingfisher</string>
+    <string name="kite">kite</string>
+    <string name="mynah">mynah</string>
+    <string name="ostrich">ostrich</string>
+    <string name="owl">owl</string>
+    <string name="parrot">parrot</string>
+    <string name="peacock">peacock</string>
+    <string name="pigeon">pigeon</string>
+    <string name="skylark">skylark</string>
+    <string name="sparrow">sparrow</string>
+    <string name="swan">swan</string>
+    <string name="turkey">turkey</string>
+    <string name="woodpecker">woodpecker</string>
+    <!-- BIRD IMAGES END -->
+
+    <!-- ANIMAL IMAGES START -->
+    <string name="ant">ant</string>
+    <string name="bear">bear</string>
+    <string name="buffalo">buffalo</string>
+    <string name="butterfly">butterfly</string>
+    <string name="camel">camel</string>
     <string name="cat">cat</string>
+    <string name="cow">cow</string>
+    <string name="crocodile">crocodile</string>
+    <string name="deer">deer</string>
+    <string name="dog">dog</string>
+    <string name="donkey">donkey</string>
+    <string name="elephant">elephant</string>
+    <string name="frog">frog</string>
+    <string name="fox">fox</string>
+    <string name="goat">goat</string>
+    <string name="horse">horse</string>
+    <string name="lion">lion</string>
+    <string name="monkey">monkey</string>
+    <string name="mouse">mouse</string>
+    <string name="pig">pig</string>
+    <string name="rabbit">rabbit</string>
+    <string name="sheep">sheep</string>
+    <string name="snake">snake</string>
+    <string name="spider">spider</string>
+    <string name="squirrel">squirrel</string>
+    <string name="tiger">tiger</string>
+    <string name="turtle">turtle</string>
+    <string name="wolf">wolf</string>
+    <!-- ANIMAL IMAGES END -->
+
+    <!-- VEGITABLE IMAGE START -->
+    <string name="beetroot">beetroot</string>
+    <string name="lettuce">lettuce</string>
+    <string name="pumpkin">pumpkin</string>
+    <string name="cabbage">cabbage</string>
+    <string name="capsicum">capsicum</string>
+    <string name="carrot">carrot</string>
+    <string name="cauliflower">cauliflower</string>
+    <string name="corinder">corinder</string>
+    <string name="corn">corn</string>
+    <string name="chilli">chilli</string>
+    <string name="cucumber">cucumber</string>
+    <string name="brinjal">brinjal</string>
+    <string name="garlic">garrlic</string>
+    <string name="ginger">ginger</string>
+    <string name="jackfruit">jackfruit</string>
+    <string name="mushroom">mushroom</string>
+    <string name="onion">onion</string>
+    <string name="pea">pea</string>
+    <string name="mint">mint</string>
+    <string name="potato">potato</string>
+    <string name="luffa">luffa</string>
+    <string name="raddish">raddish</string>
+    <string name="spinach">spinach</string>
+    <string name="tomato">tomato</string>
+    <string name="turnip">turnip</string>
+    <!-- VEGITABLE IMAGE END -->
+
 
     <!-- Story 1 - The Hare and the Tortoise-->
     <string-array name="story1">
