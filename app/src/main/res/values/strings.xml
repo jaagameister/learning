@@ -318,6 +318,23 @@
     </string-array>
     <string name="story5_hint">Press space and then hit enter for the next page</string>
     <string name="story5_title">The Goose</string>
+    
+    <!-- Story 6 - A street or a zoo-->
+    <string-array name="street">
+        <item>Sonu, Monu and Rina set out to play. They saw a kitten.</item>
+        <item>She was looking at a big rat. “oh look!” shouted Sonu.</item>
+        <item>Rina saw a tiny ant going toward the big rat.</item>
+        <item>Suddenly, a very big shadow fell upon them all.</item>
+        <item>A very big eagle came down to the wall. A tiny ant, a small kitten, a big rat and a very big eagle in the same long street!</item>
+        <item>What would the three clever children do now?</item>
+        <item>They clapped their little hands! The eagle spread its big wings and flew away.</item>
+        <item>Rina made the ant climb onto a leaf. She left the leaf on the wall. The ant saw a grain of sugar. She picked it up and ran home.</item>
+        <item>The big rat picked up a half-eaten pakoda and went back into the drain. The small kitten said ‘miaaww’ and started licking her paw.</item>
+        <item>Monu got her some milk in a cup.The three kids played with her.</item>
+        <item>The very big eagle sitting on the tree blinked and flew far away.</item>
+    </string-array>
+    <string name="street5_hint">Press space and then hit enter for the next page</string>
+    <string name="street_title">The street or a zoo</string>
 
 
     <!-- Past Tense Sentences -->
