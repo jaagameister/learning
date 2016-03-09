@@ -11,7 +11,7 @@
     <string name="username">My Name</string>
     <string name="input_chat_box">Type a answer/command</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder temxt -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
@@ -193,10 +193,8 @@
 
     <string-array name="books">
         <item>moon</item>
-    </string-array>
-    
-    <string-array name="books">
         <item>match</item>
+        <item>street</item>
     </string-array>
     
     
