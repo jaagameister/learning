@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.Mission;
+import in.jaaga.learning.android.problems.AnimalImages;
+import in.jaaga.learning.android.problems.BirdImages;
+import in.jaaga.learning.android.problems.FruitImages;
 import in.jaaga.learning.android.problems.PictureBook;
 import in.jaaga.learning.android.problems.Sentence;
 import in.jaaga.learning.android.problems.Story;
+import in.jaaga.learning.android.problems.VegitableImages;
 
 /**
  * Created by admin on 24/02/2016.
@@ -14,6 +18,18 @@ import in.jaaga.learning.android.problems.Story;
 public class AndroidLanguageMission implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
+
+        FruitImages fruit = new FruitImages();
+        mission.add(new Skill(fruit, fruit.getNumPrompts(), 1000));
+
+        VegitableImages vegitable = new VegitableImages();
+        mission.add(new Skill(vegitable, vegitable.getNumPrompts(), 1000));
+
+        AnimalImages animals = new AnimalImages();
+        mission.add(new Skill(animals, animals.getNumPrompts(), 1000));
+
+        BirdImages birds = new BirdImages();
+        mission.add(new Skill(birds, birds.getNumPrompts(), 1000));
 
         Sentence s = new Sentence();
         mission.add(new Skill(s, s.getNumPrompts(), 1000));

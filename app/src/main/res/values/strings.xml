@@ -193,11 +193,7 @@
 
     <string-array name="books">
         <item>moon</item>
-        <item>match</item>
-        <item>street</item>
     </string-array>
-    
-    
     <string name="cow">cow</string>
     <string name="crocodile">crocodile</string>
     <string name="deer">deer</string>
@@ -221,6 +217,10 @@
     <string name="turtle">turtle</string>
     <string name="wolf">wolf</string>
     <!-- ANIMAL IMAGES END -->
+
+    <string-array name="books">
+        <item>moon</item>
+    </string-array>
 
     <!-- VEGITABLE IMAGE START -->
     <string name="beetroot">beetroot</string>
@@ -249,6 +249,30 @@
     <string name="tomato">tomato</string>
     <string name="turnip">turnip</string>
     <!-- VEGITABLE IMAGE END -->
+
+    <!-- FRUIT IMAGE START -->
+    <string name="apple">apple</string>
+    <string name="apricot">apricot</string>
+    <string name="banana">banana</string>
+    <string name="bilberry">bilberry</string>
+    <string name="blackberry">blackberry</string>
+    <string name="blackcurrent">blackcurrent</string>
+    <string name="coconut">coconut</string>
+    <string name="custurdApple">custurd apple</string>
+    <string name="grapes">grapes</string>
+    <string name="guvava">guvava</string>
+    <string name="dates">dates</string>
+    <string name="kiwi">kiwi</string>
+    <string name="lychee">lychee</string>
+    <string name="mango">mango</string>
+    <string name="orange">orange</string>
+    <string name="papaya">papaya</string>
+    <string name="pear">pear</string>
+    <string name="pineapple">pineapple</string>
+    <string name="pomegranet">pomegranet</string>
+    <string name="strawberry">strawberry</string>
+    <string name="watermelon">watermelon</string>
+    <!-- FRUIT IMAGE END -->
 
 
     <!-- Story 1 - The Hare and the Tortoise-->
@@ -316,7 +340,7 @@
     </string-array>
     <string name="story5_hint">Press space and then hit enter for the next page</string>
     <string name="story5_title">The Goose</string>
-    
+
     <!-- Story 6 - A street or a zoo-->
     <string-array name="street">
         <item>Sonu, Monu and Rina set out to play. They saw a kitten.</item>
