@@ -12,28 +12,14 @@ import in.jaaga.learning.android.problems.Sentence;
 import in.jaaga.learning.android.problems.Story;
 import in.jaaga.learning.android.problems.VegitableImages;
 
-/**
- * Created by admin on 24/02/2016.
- */
-public class AndroidLanguageMission implements Mission {
-    public ArrayList<Skill> getList() {
-        ArrayList<Skill> mission = new ArrayList<Skill>();
+public class AndroidLanguageMission extends Mission {
 
-        FruitImages fruit = new FruitImages();
-        mission.add(new Skill(fruit, fruit.getNumPrompts(), 1000));
+    public AndroidLanguageMission(LearningContext ctx) {
+        super(ctx);
 
-        VegitableImages vegitable = new VegitableImages();
-        mission.add(new Skill(vegitable, vegitable.getNumPrompts(), 1000));
-
-        AnimalImages animals = new AnimalImages();
-        mission.add(new Skill(animals, animals.getNumPrompts(), 1000));
-
-        BirdImages birds = new BirdImages();
-        mission.add(new Skill(birds, birds.getNumPrompts(), 1000));
-
-        Sentence s = new Sentence();
-        mission.add(new Skill(s, s.getNumPrompts(), 1000));
-
+        add(new PictureBook());
+        add(new ProblemSkill(ctx, "verb tense sentences", new Sentence(), 10, 200));
+/*
         PictureBook book1 = new PictureBook("moon");
         mission.add(new Skill(book1, book1.getNumPrompts(), 1000));
 
@@ -52,6 +38,7 @@ public class AndroidLanguageMission implements Mission {
 
         mission.add(new Skill(new AndroidImages(), 200, 1000));
         return mission;
+*/
     }
 
     public String getTitle() {

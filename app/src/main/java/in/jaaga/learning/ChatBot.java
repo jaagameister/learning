@@ -60,8 +60,8 @@ public class ChatBot {
 	public String comment() {
 		if (session != null) {
 			Skill skill = session.getSkill();
-			if (skill != null && skill.getRemaining() == 1)
-				return "just " + skill.getRemaining() + " left in this skill";
+//			if (skill != null && skill.getRemaining() == 1)
+//				return "just " + skill.getRemaining() + " left in this skill";
 		}
 		return encourage();
 	}
@@ -89,19 +89,28 @@ public class ChatBot {
 		return SORRY[random.nextInt(SORRY.length)];
 	}
 
-	public String levelUp(Skill last, Skill next) {
+	public String levelUp(String last, String next, int newPoints, int totalPoints) {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Congratulations !!! you passed " + last.getProblem().getTitle());
+/*		sb.append("Congratulations !!! you passed " + last.getProblem().getTitle());
 		sb.append("\nand earned " + last.getPoints() + " skill points");
 
 		session.addPoints(last.getPoints());
 		sb.append("\nyou now have " + session.getPoints() + " total points");
 		sb.append("\nNow its time to practice " + next.getProblem().getTitle());
-
+*/
 		return sb.toString();
 	}
 
 	public String adminPrompt() {
 		return "Yes, Master...";
+	}
+
+	public String help() { return "you can say \\'hint\\' for help with the current problem\\n\n" +
+			"    \\'skip\\' will move to the next skill in the current mission\\n\n" +
+			"    \\'mission\\' will list the current mission and mission options";
+	}
+
+	public String invalidMission() {
+		return "that is not a valid mission, try again.";
 	}
 }

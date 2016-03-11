@@ -1,5 +1,8 @@
 package in.jaaga.learning.android.problems;
 
+import java.util.HashMap;
+import java.util.Properties;
+
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.Problem;
 import in.jaaga.learning.R;
@@ -43,5 +46,11 @@ public class Story implements Problem {
         if (pages == null)
             return 0;
         return pages.length;
+    }
+
+    public void save(HashMap<String, String> session) {
+    }
+
+    public void restore(HashMap<String, String> session) {
     }
 }

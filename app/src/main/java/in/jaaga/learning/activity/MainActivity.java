@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -28,8 +27,9 @@ import com.crashlytics.android.Crashlytics;
 import java.util.Locale;
 
 import in.jaaga.learning.ChatItem;
-import in.jaaga.learning.Learning;
 import in.jaaga.learning.R;
+import in.jaaga.learning.android.AndroidUtils;
+import in.jaaga.learning.android.S;
 import in.jaaga.learning.fragment.ChatFragment;
 import io.fabric.sdk.android.Fabric;
 
@@ -200,17 +200,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Show the chat fragment
     private void showChatFragment(){
         chatFragment = ChatFragment.newInstance();
+        chatFragment.setLearning(AndroidUtils.createLearning(this, chatFragment, getIntent().getExtras()));
+
         if(fragmentManager!=null){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.content_container,chatFragment,"chatFragment");
             transaction.commit();
         }
-
         if(getIntent().getExtras()!=null){
             ArrayList<ChatItem> chatItems = (ArrayList<ChatItem>) getIntent().getExtras().getSerializable("chat");
-            String levelString = getIntent().getExtras().getString("level");
-            if (levelString != null)
-                chatFragment.getLearning().setLevel(Integer.parseInt(levelString));
             if(chatItems!=null) {
                 chatFragment.setList(chatItems);
             }
@@ -299,7 +297,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(chatFragment!=null){
             bundle = new Bundle();
             bundle.putSerializable("chat",chatFragment.getList());
-            bundle.putString("level", Integer.toString(Learning.level));
+            chatFragment.save();
+            bundle.putSerializable("session", S.getSession());
+            bundle.putString("foo", "bar");
+
         }
 
         Intent refresh = new Intent(this, MainActivity.class);

@@ -24,15 +24,16 @@ import in.jaaga.learning.MissionLibrary;
 import in.jaaga.learning.R;
 import in.jaaga.learning.Session;
 import in.jaaga.learning.android.AndroidDB;
-import in.jaaga.learning.android.AndroidLanguageMission;
+//import in.jaaga.learning.android.AndroidLanguageMission;
 import in.jaaga.learning.android.AndroidMathMission;
+import in.jaaga.learning.android.AndroidUtils;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.adapter.ChatAdapter;
 import in.jaaga.learning.Learning;
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.android.AndroidChatBot;
-import in.jaaga.learning.missions.MathMission;
-import in.jaaga.learning.missions.NegativeNumbers;
+//import in.jaaga.learning.missions.MathMission;
+//import in.jaaga.learning.missions.NegativeNumbers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,36 +49,18 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     private RecyclerView chat_view;
     private EditText chat_box;
     private static ArrayList<ChatItem> chat_list;
-    private ChatAdapter chatAdapter;
+    private  ChatAdapter chatAdapter;
     private Learning learning;
 
-    private static ChatFragment currentInstance;
 
     public ChatFragment() {
-        Session session = new Session();
-        LearningContext learningContext = new LearningContext(this, session, new AndroidChatBot(session),
-                new MissionLibrary(), new AndroidDB());
-        learning = new Learning(learningContext);
-        currentInstance = this;
     }
 
     public static ChatFragment newInstance() {
         ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
         chat_list = new ArrayList<>();
-        return fragment;
-    }
-
-    public static ChatFragment getCurrentInstance(){
-        return currentInstance;
-    }
-
-    public Learning getLearning(){
-        return learning;
-    }
-
-    public void setLearning(Learning learning){
-        this.learning = learning;
+         return fragment;
     }
 
     @Override
@@ -90,13 +73,6 @@ public class ChatFragment extends Fragment implements InteractionInterface{
                              Bundle savedInstanceState) {
         Log.d("ChatFragment", "onCreateView");
 
-        S.init(getResources(), getActivity());
-        learning.getContext().getMissionLibrary().addMission("math", new AndroidMathMission());
-        learning.getContext().getMissionLibrary().addMission("vocab", new AndroidLanguageMission());
-        learning.getContext().getMissionLibrary().addMission("negative", new NegativeNumbers());
-
-        learning.setMission(learning.getContext().getMissionLibrary().getDefaultMission());
-
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_chat, container, false);
 
@@ -106,8 +82,11 @@ public class ChatFragment extends Fragment implements InteractionInterface{
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setStackFromEnd(true);
         chat_view.setLayoutManager(linearLayoutManager);
-        chatAdapter = new ChatAdapter(getActivity(),chat_list);
+
+        chatAdapter = new ChatAdapter(null,chat_list);
+
         chat_view.setAdapter(chatAdapter);
+
         chatAdapter.notifyDataSetChanged();
 
         //Setup the chat box
@@ -128,7 +107,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
                         item.setMessage(text);
 
                         //TODO Handle name here,hardcoding for now
-                        item.setSender("amar");
+                        item.setSender("userName");
 
                         send(item);
                         learning.onResponse(text);
@@ -142,6 +121,14 @@ public class ChatFragment extends Fragment implements InteractionInterface{
             learning.start();
 
         return v;
+    }
+
+    public void setLearning(Learning learning) {
+        this.learning = learning;
+    }
+
+    public void save() {
+        learning.save();
     }
 
     @Override
@@ -176,11 +163,12 @@ public class ChatFragment extends Fragment implements InteractionInterface{
     }
 
     public ArrayList<ChatItem> getList(){
+        System.out.println("getList:"+chat_list);
         return chat_list;
     }
 
     public void setList(ArrayList<ChatItem> list){
-
+        System.out.println("setList:"+list);
         chat_list = list;
         //chatAdapter.notifyDataSetChanged();
     }
@@ -196,8 +184,5 @@ public class ChatFragment extends Fragment implements InteractionInterface{
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface ChatFragmentListener {
-
-
-
     }
 }

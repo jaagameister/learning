@@ -9,13 +9,10 @@ import java.util.HashMap;
 public class MissionLibrary {
     HashMap<String, Mission> missions = new HashMap();
     Mission defaultMission;
+    String currentMissionDescriptor;
 
     public Mission getDefaultMission() {
         return defaultMission;
-    }
-
-    public void setDefaultMission(Mission mission) {
-        this.defaultMission = mission;
     }
 
     public void addMission(String descriptor, Mission mission) {

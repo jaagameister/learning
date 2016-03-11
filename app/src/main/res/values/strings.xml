@@ -119,6 +119,8 @@
         <item>Yes, Master...</item>
     </string-array>
 
+    <string name="invalid_mission">Invalid Mission</string>
+
     <string name="button_en">English</string>
     <string name="button_mr">मराठी</string>
     <string name="button_es">español</string>
@@ -193,7 +195,10 @@
 
     <string-array name="books">
         <item>moon</item>
+        <item>match</item>
+        <item>street</item>
     </string-array>
+
     <string name="cow">cow</string>
     <string name="crocodile">crocodile</string>
     <string name="deer">deer</string>
@@ -340,7 +345,7 @@
     </string-array>
     <string name="story5_hint">Press space and then hit enter for the next page</string>
     <string name="story5_title">The Goose</string>
-
+    
     <!-- Story 6 - A street or a zoo-->
     <string-array name="street">
         <item>Sonu, Monu and Rina set out to play. They saw a kitten.</item>
