@@ -14,10 +14,6 @@ public class MissionLibrary {
         return defaultMission;
     }
 
-    public void setDefaultMission(Mission mission) {
-        this.defaultMission = mission;
-    }
-
     public void addMission(String descriptor, Mission mission) {
         if (defaultMission == null)
             defaultMission = mission;

@@ -1,3 +1,4 @@
+
 package in.jaaga.learning.missions;
 
 import java.util.ArrayList;
@@ -5,7 +6,7 @@ import java.util.ArrayList;
 import in.jaaga.learning.Mission;
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.problems.Addition;
-import in.jaaga.learning.problems.DecimalAddition;
+//import in.jaaga.learning.problems.DecimalAddition;
 import in.jaaga.learning.problems.Division;
 import in.jaaga.learning.problems.DivisionRemainders;
 import in.jaaga.learning.problems.Multiplication;
@@ -18,6 +19,7 @@ import in.jaaga.learning.problems.VariableSubtraction;
 /**
  * Created by dolly on 5/2/16.
  */
+/*
 public class Easy implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
@@ -61,3 +63,4 @@ public class Easy implements Mission {
         return "general mission covering everything from simple addition upto variable division";
     }
 }
+*/

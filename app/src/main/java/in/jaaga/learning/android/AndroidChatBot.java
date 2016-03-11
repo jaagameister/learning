@@ -1,30 +1,18 @@
 package in.jaaga.learning.android;
 
+import java.util.Properties;
 import java.util.Random;
 
 import in.jaaga.learning.*;
 
 public class AndroidChatBot extends ChatBot {
-
 	static Random random = new Random();
-
-	Session session;
 
 	public AndroidChatBot() {}
 
-	public AndroidChatBot(Session session) {
-		this.session = session;
-	}
-
-	public String comment() {
-		if (session != null) {
-			Skill skill = session.getSkill();
-			if (skill != null && skill.getRemaining() == 1) {
-				String[] oneLeft = S.getResources().getStringArray(R.array.one_left);
-				return oneLeft[random.nextInt(oneLeft.length)];
-			}
-		}
-		return encourage();
+	public String oneLeft() {
+		String[] oneLeft = S.getResources().getStringArray(R.array.one_left);
+		return oneLeft[random.nextInt(oneLeft.length)];
 	}
 
 	public String hello() {
@@ -57,13 +45,17 @@ public class AndroidChatBot extends ChatBot {
 		return encourage[random.nextInt(encourage.length)];
 	}
 
-	public String levelUp(Skill last, Skill next) {
-		return S.getResources().getString(R.string.level_up, last.getProblem().getTitle(),
-				last.getPoints(), session.getPoints(), next.getProblem().getTitle());
+	public String levelUp(String last, String next, int newPoints, int totalPoints) {
+		return S.getResources().getString(R.string.level_up, last,
+				newPoints, totalPoints, next);
 	}
 
 	public String adminPrompt() {
 		String[] adminPrompt = S.getResources().getStringArray(R.array.admin_prompt);
 		return adminPrompt[random.nextInt(adminPrompt.length)];
+	}
+
+	public String invalidMission() {
+		return S.getResources().getString(R.string.invalid_mission);
 	}
 }

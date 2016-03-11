@@ -1,4 +1,4 @@
-package in.jaaga.learning.problems;
+/*package in.jaaga.learning.problems;
 
 import java.util.*;
 import java.math.*;
@@ -89,3 +89,4 @@ public class DecimalAddition implements Problem {
     	return "Decimal addition with variables upto " + max;
     }
 }
+*/

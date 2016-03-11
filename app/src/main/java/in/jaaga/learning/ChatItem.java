@@ -9,6 +9,7 @@ public class ChatItem implements Serializable {
     public static final int NO_RESPONSE = 0;
     public static final int NUMBER_RESPONSE = 1;
     public static final int TEXT_RESPONSE = 2;
+    public static final String BOT = "bot";
 
     String sender;
     String message;
@@ -20,7 +21,7 @@ public class ChatItem implements Serializable {
 
     public ChatItem(String message) {
         this.message = message;
-        sender = "sender";
+        sender = BOT;
         responseType = NO_RESPONSE;
     }
 
@@ -32,6 +33,11 @@ public class ChatItem implements Serializable {
     public ChatItem(String message, int resourceId, int responseType) {
         this(message, responseType);
         this.resourceId = resourceId;
+    }
+
+    public ChatItem(String message, int responseType, String sender) {
+        this(message, responseType);
+        this.sender = sender;
     }
 
     public String getSender() {

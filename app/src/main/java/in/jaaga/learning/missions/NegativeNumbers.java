@@ -1,3 +1,4 @@
+/*
 package in.jaaga.learning.missions;
 
 import java.util.ArrayList;
@@ -8,9 +9,6 @@ import in.jaaga.learning.problems.Addition;
 import in.jaaga.learning.problems.Multiplication;
 import in.jaaga.learning.problems.Subtraction;
 
-/**
- * Created by freeman on 4/2/16.
- */
 public class NegativeNumbers implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
@@ -32,3 +30,4 @@ public class NegativeNumbers implements Mission {
         return "negative numbers mission covering addition, subtraction and multiplication with negative numbers";
     }
 }
+*/

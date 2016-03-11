@@ -22,9 +22,8 @@ public class AndroidImages extends SimpleProblem {
     }
 
     public ChatItem getPromptChatItem() {
-        int[] IMAGE_RESOURCES = {R.drawable.cat, R.drawable.ball, R.drawable.car, R.drawable.dog, R.drawable.tree};
+        int[] IMAGE_RESOURCES = {R.drawable.ball, R.drawable.car, R.drawable.dog, R.drawable.tree};
         String[] NAMES = {
-                S.getResources().getString(R.string.cat),
                 S.getResources().getString(R.string.ball),
                 S.getResources().getString(R.string.car),
                 S.getResources().getString(R.string.dog),

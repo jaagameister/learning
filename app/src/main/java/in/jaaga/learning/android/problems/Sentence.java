@@ -5,7 +5,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 import in.jaaga.learning.ChatItem;
 import in.jaaga.learning.Problem;
@@ -70,5 +72,13 @@ public class Sentence implements Problem {
 
     public int getNumPrompts() {
         return total;
+    }
+
+    public void save(HashMap<String, String> session) {
+
+    }
+
+    public void restore(HashMap<String, String> session) {
+
     }
 }
