@@ -161,37 +161,118 @@
     <string name="car">car</string>
 
 
-    <!-- BIRD IMAGES START -->
-    <string name="cock">cock</string>
-    <string name="crane">crane</string>
-    <string name="crow">crow</string>
-    <string name="cuckoo">cuckoo</string>
-    <string name="dove">dove</string>
-    <string name="duck">duck</string>
-    <string name="eagle">eagle</string>
-    <string name="hen">hen</string>
-    <string name="kingfisher">kingfisher</string>
-    <string name="kite">kite</string>
-    <string name="mynah">mynah</string>
-    <string name="ostrich">ostrich</string>
-    <string name="owl">owl</string>
-    <string name="parrot">parrot</string>
-    <string name="peacock">peacock</string>
-    <string name="pigeon">pigeon</string>
-    <string name="skylark">skylark</string>
-    <string name="sparrow">sparrow</string>
-    <string name="swan">swan</string>
-    <string name="turkey">turkey</string>
-    <string name="woodpecker">woodpecker</string>
-    <!-- BIRD IMAGES END -->
+    ]-
+    <string-array name="bird">
+        <item>cock</item>
+        <item>crane</item>
+        <item>crow</item>
+        <item>cuckoo</item>
+        <item>dove</item>
+        <item>duck</item>
+        <item>eagle</item>
+        <item>hen</item>
+        <item>kingfisher</item>
+        <item>kite</item>
+        <item>mynah</item>
+        <item>ostrich</item>
+        <item>owl</item>
+        <item>parrot</item>
+        <item>peacock</item>
+        <item>pigeon</item>
+        <item>skylark</item>
+        <item>sparrow</item>
+        <item>swan</item>
+        <item>turkey</item>
+        <item>woodpecker</item>
+    </string-array>
 
-    <!-- ANIMAL IMAGES START -->
-    <string name="ant">ant</string>
-    <string name="bear">bear</string>
-    <string name="buffalo">buffalo</string>
-    <string name="butterfly">butterfly</string>
-    <string name="camel">camel</string>
-    <string name="cat">cat</string>
+    <string-array name="animal">
+        <item>ant</item>
+        <item>bear</item>
+        <item>buffalo</item>
+        <item>camel</item>
+        <item>cat</item>
+        <item>cow</item>
+        <item>crocodile</item>
+        <item>deer</item>
+        <item>dog</item>
+        <item>donkey</item>
+        <item>elephant</item>
+        <item>fox</item>
+        <item>goat</item>
+        <item>horse</item>
+        <item>lion</item>
+        <item>monkey</item>
+        <item>mouse</item>
+        <item>pig</item>
+        <item>rabbit</item>
+        <item>sheep</item>
+        <item>snake</item>
+        <item>spider</item>
+        <item>squirrel</item>
+        <item>tiger</item>
+        <item>turtle</item>
+        <item>wolf</item>
+    </string-array>
+
+    <string-array name="vegitable">
+        <item>beetroot</item>
+        <item>lettuce</item>
+        <item>pumpkin</item>
+        <item>cabbage</item>
+        <item>capsicum</item>
+        <item>carrot</item>
+        <item>cauliflower</item>
+        <item>corinder</item>
+        <item>corn</item>
+        <item>chilli</item>
+        <item>cucumber</item>
+        <item>brinjal</item>
+        <item>garlic</item>
+        <item>ginger</item>
+        <item>jackfruit</item>
+        <item>mushroom</item>
+        <item>onion</item>
+        <item>pea</item>
+        <item>mint</item>
+        <item>potato</item>
+        <item>luffa</item>
+        <item>raddish</item>
+        <item>spinach</item>
+        <item>tomato</item>
+        <item>turnip</item>
+    </string-array>
+
+    <string-array name="fruit">
+        <item>apple</item>
+        <item>appricot</item>
+        <item>banana</item>
+        <item>bilberry</item>
+        <item>blackberry</item>
+        <item>blackcurrent</item>
+        <item>coconut</item>
+        <item>custurd apple</item>
+        <item>grapes</item>
+        <item>guvava</item>
+        <item>dates</item>
+        <item>kiwi</item>
+        <item>lychee</item>
+        <item>mango</item>
+        <item>orange</item>
+        <item>papaya</item>
+        <item>pear</item>
+        <item>pineapple</item>
+        <item>pomegranet</item>
+        <item>strawberry</item>
+        <item>watermelon</item>
+    </string-array>
+
+    <string-array name="vocab">
+        <item>bird</item>
+        <item>vegitable</item>
+        <item>fruit</item>
+        <item>animal</item>
+    </string-array>
 
     <string-array name="books">
         <item>moon</item>
@@ -199,88 +280,7 @@
         <item>street</item>
     </string-array>
 
-    <string name="cow">cow</string>
-    <string name="crocodile">crocodile</string>
-    <string name="deer">deer</string>
-    <string name="dog">dog</string>
-    <string name="donkey">donkey</string>
-    <string name="elephant">elephant</string>
-    <string name="frog">frog</string>
-    <string name="fox">fox</string>
-    <string name="goat">goat</string>
-    <string name="horse">horse</string>
-    <string name="lion">lion</string>
-    <string name="monkey">monkey</string>
-    <string name="mouse">mouse</string>
-    <string name="pig">pig</string>
-    <string name="rabbit">rabbit</string>
-    <string name="sheep">sheep</string>
-    <string name="snake">snake</string>
-    <string name="spider">spider</string>
-    <string name="squirrel">squirrel</string>
-    <string name="tiger">tiger</string>
-    <string name="turtle">turtle</string>
-    <string name="wolf">wolf</string>
-    <!-- ANIMAL IMAGES END -->
-
-    <string-array name="books">
-        <item>moon</item>
-    </string-array>
-
-    <!-- VEGITABLE IMAGE START -->
-    <string name="beetroot">beetroot</string>
-    <string name="lettuce">lettuce</string>
-    <string name="pumpkin">pumpkin</string>
-    <string name="cabbage">cabbage</string>
-    <string name="capsicum">capsicum</string>
-    <string name="carrot">carrot</string>
-    <string name="cauliflower">cauliflower</string>
-    <string name="corinder">corinder</string>
-    <string name="corn">corn</string>
-    <string name="chilli">chilli</string>
-    <string name="cucumber">cucumber</string>
-    <string name="brinjal">brinjal</string>
-    <string name="garlic">garrlic</string>
-    <string name="ginger">ginger</string>
-    <string name="jackfruit">jackfruit</string>
-    <string name="mushroom">mushroom</string>
-    <string name="onion">onion</string>
-    <string name="pea">pea</string>
-    <string name="mint">mint</string>
-    <string name="potato">potato</string>
-    <string name="luffa">luffa</string>
-    <string name="raddish">raddish</string>
-    <string name="spinach">spinach</string>
-    <string name="tomato">tomato</string>
-    <string name="turnip">turnip</string>
-    <!-- VEGITABLE IMAGE END -->
-
-    <!-- FRUIT IMAGE START -->
-    <string name="apple">apple</string>
-    <string name="apricot">apricot</string>
-    <string name="banana">banana</string>
-    <string name="bilberry">bilberry</string>
-    <string name="blackberry">blackberry</string>
-    <string name="blackcurrent">blackcurrent</string>
-    <string name="coconut">coconut</string>
-    <string name="custurdApple">custurd apple</string>
-    <string name="grapes">grapes</string>
-    <string name="guvava">guvava</string>
-    <string name="dates">dates</string>
-    <string name="kiwi">kiwi</string>
-    <string name="lychee">lychee</string>
-    <string name="mango">mango</string>
-    <string name="orange">orange</string>
-    <string name="papaya">papaya</string>
-    <string name="pear">pear</string>
-    <string name="pineapple">pineapple</string>
-    <string name="pomegranet">pomegranet</string>
-    <string name="strawberry">strawberry</string>
-    <string name="watermelon">watermelon</string>
-    <!-- FRUIT IMAGE END -->
-
-
-    <!-- Story 1 - The Hare and the Tortoise-->
+       <!-- Story 1 - The Hare and the Tortoise-->
     <string-array name="story1">
         <item>There once was a speedy Hare who bragged about how fast he could run. Tired of hearing him boast, the Tortoise challenged him to a race.</item>
         <item>All the animals in the forest gathered to watch. </item>
