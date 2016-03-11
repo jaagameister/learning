@@ -64,7 +64,7 @@ public class AnimalImages extends SimpleProblem {
     }
 
     public String getTitle() {
-        return "birds";
+        return "animal";
     }
 
     public String getHint() {
