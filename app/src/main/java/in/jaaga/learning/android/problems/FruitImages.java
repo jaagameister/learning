@@ -1,3 +1,4 @@
+/*
 package in.jaaga.learning.android.problems;
 
 import java.util.Random;
@@ -9,9 +10,7 @@ import in.jaaga.learning.R;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.problems.SimpleProblem;
 
-/**
- * Created by dolly on 9/3/16.
- */
+
 public class FruitImages extends SimpleProblem {
     String[] NAMES = {
             S.getResources().getString(R.string.apple),
@@ -68,3 +67,4 @@ public class FruitImages extends SimpleProblem {
         return NAMES.length;
     }
 }
+*/

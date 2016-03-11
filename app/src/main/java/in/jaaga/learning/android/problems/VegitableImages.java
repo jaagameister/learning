@@ -1,4 +1,4 @@
-package in.jaaga.learning.android.problems;
+/*package in.jaaga.learning.android.problems;
 
 import java.util.Random;
 
@@ -9,9 +9,6 @@ import in.jaaga.learning.R;
 import in.jaaga.learning.android.S;
 import in.jaaga.learning.problems.SimpleProblem;
 
-/**
- * Created by dolly on 8/3/16.
- */
 public class VegitableImages extends SimpleProblem {
     String[] NAMES = {
             S.getResources().getString(R.string.beetroot),
@@ -73,3 +70,4 @@ public class VegitableImages extends SimpleProblem {
         return NAMES.length;
     }
 }
+*/

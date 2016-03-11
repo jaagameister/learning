@@ -2,23 +2,23 @@ package in.jaaga.learning.android;
 
 import java.util.ArrayList;
 
+import in.jaaga.learning.LearningContext;
+import in.jaaga.learning.ProblemSkill;
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.Mission;
-import in.jaaga.learning.android.problems.AnimalImages;
-import in.jaaga.learning.android.problems.BirdImages;
-import in.jaaga.learning.android.problems.FruitImages;
+import in.jaaga.learning.android.AndroidImages;
 import in.jaaga.learning.android.problems.PictureBook;
 import in.jaaga.learning.android.problems.Sentence;
 import in.jaaga.learning.android.problems.Story;
-import in.jaaga.learning.android.problems.VegitableImages;
 
 public class AndroidLanguageMission extends Mission {
 
     public AndroidLanguageMission(LearningContext ctx) {
         super(ctx);
 
-        add(new PictureBook());
         add(new ProblemSkill(ctx, "verb tense sentences", new Sentence(), 10, 200));
+        add(new PictureBook());
+        add(new AndroidImages());
 /*
         PictureBook book1 = new PictureBook("moon");
         mission.add(new Skill(book1, book1.getNumPrompts(), 1000));
