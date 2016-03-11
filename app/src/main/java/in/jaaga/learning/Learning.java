@@ -66,6 +66,7 @@ public class Learning {
         Mission m = ctx.getMissionLibrary().getMission(missionName);
         if (m != null) {
             ctx.setMission(m);
+            ctx.getSession().put("mission", missionName);
             return true;
         } else {
             return false;
@@ -77,6 +78,9 @@ public class Learning {
     }
 
     public void restore() {
+        if (ctx.getSession().size() > 0 && ctx.getSession().get("mission") != null) {
+            setMission(ctx.getSession().get("mission"));
+        }
         ctx.getMission().restore();
     }
 /*
