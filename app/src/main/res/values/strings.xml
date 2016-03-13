@@ -277,6 +277,7 @@
         <item>moon</item>
         <item>match</item>
         <item>street</item>
+        <item>aaloo</item>
     </string-array>
 
        <!-- Story 1 - The Hare and the Tortoise-->
@@ -359,8 +360,21 @@
         <item>Monu got her some milk in a cup.The three kids played with her.</item>
         <item>The very big eagle sitting on the tree blinked and flew far away.</item>
     </string-array>
-    <string name="street5_hint">Press space and then hit enter for the next page</string>
+    <string name="street6_hint">Press space and then hit enter for the next page</string>
     <string name="street_title">The street or a zoo</string>
+    
+    <!-- Story 7 - Aaloo-Maaloo-Kaaloo-->
+    <string-array name="aaloo">
+        <item>For the very first time, Maaloo is collecting vegetables from the garden. He has collected red tomatoes, fresh brinjals and green lady’s fingers.</item>
+        <item>Dadi says, “Well done, Maaloo! Go and get some potatoes too.”</item>
+        <item>Maaloo looked at all the trees, creepers and plants. Not a single potato could he see.</item>
+        <item>“Dadi, the potatoes aren’t ready yet”, said Maaloo, putting the empty basket down. “No Maaloo, there are plenty of potatoes. Look carefully,” said Dadi.</item>
+        <item>Maaloo went into the garden once more. Kaaloo followed him. Maaloo was looking for potatoes when he heard , “Woof! Woof!”</item>
+        <item>“Kaaloo! Stop, Kaaloo” yelled Maaloo, running behind him. “Don’t spoil the garden.” Maaloo saw that Kaaloo was digging away and what do you think was coming out of the mud? Big fat potatoes!</item>
+        <item>“Well done, Kaaloo. You found potatoes!” laughed Maaloo, filling his basket with potatoes.</item>
+    </string-array>
+    <string name="street7_hint">Press space and then hit enter for the next page</string>
+    <string name="street_title">Aaloo-Maaloo-Kaaloo</string>
 
 
     <!-- Past Tense Sentences -->
