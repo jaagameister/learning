@@ -160,9 +160,8 @@
     <string name="tree">tree</string>
     <string name="car">car</string>
 
-
     ]-
-    <string-array name="bird">
+    <string-array name="birds">
         <item>cock</item>
         <item>crane</item>
         <item>crow</item>
@@ -186,7 +185,7 @@
         <item>woodpecker</item>
     </string-array>
 
-    <string-array name="animal">
+    <string-array name="animals">
         <item>ant</item>
         <item>bear</item>
         <item>buffalo</item>
@@ -215,7 +214,7 @@
         <item>wolf</item>
     </string-array>
 
-    <string-array name="vegitable">
+    <string-array name="vegetables">
         <item>beetroot</item>
         <item>lettuce</item>
         <item>pumpkin</item>
@@ -223,7 +222,7 @@
         <item>capsicum</item>
         <item>carrot</item>
         <item>cauliflower</item>
-        <item>corinder</item>
+        <item>coriander</item>
         <item>corn</item>
         <item>chilli</item>
         <item>cucumber</item>
@@ -233,27 +232,27 @@
         <item>jackfruit</item>
         <item>mushroom</item>
         <item>onion</item>
-        <item>pea</item>
+        <item>peas</item>
         <item>mint</item>
         <item>potato</item>
         <item>luffa</item>
-        <item>raddish</item>
+        <item>radish</item>
         <item>spinach</item>
         <item>tomato</item>
         <item>turnip</item>
     </string-array>
 
-    <string-array name="fruit">
+    <string-array name="fruits">
         <item>apple</item>
-        <item>appricot</item>
+        <item>apricot</item>
         <item>banana</item>
         <item>bilberry</item>
         <item>blackberry</item>
-        <item>blackcurrent</item>
+        <item>blackcurrant</item>
         <item>coconut</item>
-        <item>custurd apple</item>
+        <item>custard apple</item>
         <item>grapes</item>
-        <item>guvava</item>
+        <item>guava</item>
         <item>dates</item>
         <item>kiwi</item>
         <item>lychee</item>
@@ -262,16 +261,16 @@
         <item>papaya</item>
         <item>pear</item>
         <item>pineapple</item>
-        <item>pomegranet</item>
+        <item>pomegranate</item>
         <item>strawberry</item>
         <item>watermelon</item>
     </string-array>
 
     <string-array name="vocab">
-        <item>bird</item>
-        <item>vegitable</item>
-        <item>fruit</item>
-        <item>animal</item>
+        <item>birds</item>
+        <item>vegetables</item>
+        <item>fruits</item>
+        <item>animals</item>
     </string-array>
 
     <string-array name="books">
