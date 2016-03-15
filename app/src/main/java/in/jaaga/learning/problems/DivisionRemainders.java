@@ -47,4 +47,18 @@ public class DivisionRemainders implements Problem {
                 " and divsor to " + divisorMax +
 				" and remainders";
 	}
+
+	public void save(HashMap<String, String> session) {
+		session.put("dividend", Integer.valueOf(a).toString());
+		session.put("divisor", Integer.valueOf(b).toString());
+	}
+
+	// TODO error checking ...
+	public void restore(HashMap<String, String> session) {
+		if (session.get("dividend") == null)
+			return;
+		a = Integer.parseInt(session.get("dividend"));
+		b = Integer.parseInt(session.get("divisor"));
+	}
+
 }

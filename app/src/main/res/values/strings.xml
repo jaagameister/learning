@@ -12,7 +12,7 @@
     <string name="username">My Name</string>
     <string name="input_chat_box">Type a answer/command</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder temxt -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
@@ -120,6 +120,8 @@
         <item>Yes, Master...</item>
     </string-array>
 
+    <string name="invalid_mission">Invalid Mission</string>
+
     <string name="button_en">English</string>
     <string name="button_mr">मराठी</string>
     <string name="button_es">español</string>
@@ -155,25 +157,145 @@
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 
     <!-- IMAGES -->
-    <string name="dog">dog</string>
     <string name="ball">ball</string>
     <string name="tree">tree</string>
     <string name="car">car</string>
-    <string name="cat">cat</string>
 
-    <!-- Story 1 - Amar gets hurt -->
+    ]-
+    <string-array name="birds">
+        <item>cock</item>
+        <item>crane</item>
+        <item>crow</item>
+        <item>cuckoo</item>
+        <item>dove</item>
+        <item>duck</item>
+        <item>eagle</item>
+        <item>hen</item>
+        <item>kingfisher</item>
+        <item>kite</item>
+        <item>mynah</item>
+        <item>ostrich</item>
+        <item>owl</item>
+        <item>parrot</item>
+        <item>peacock</item>
+        <item>pigeon</item>
+        <item>skylark</item>
+        <item>sparrow</item>
+        <item>swan</item>
+        <item>turkey</item>
+        <item>woodpecker</item>
+    </string-array>
+
+    <string-array name="animals">
+        <item>ant</item>
+        <item>bear</item>
+        <item>buffalo</item>
+        <item>camel</item>
+        <item>cat</item>
+        <item>cow</item>
+        <item>crocodile</item>
+        <item>deer</item>
+        <item>dog</item>
+        <item>donkey</item>
+        <item>elephant</item>
+        <item>fox</item>
+        <item>goat</item>
+        <item>horse</item>
+        <item>lion</item>
+        <item>monkey</item>
+        <item>mouse</item>
+        <item>pig</item>
+        <item>rabbit</item>
+        <item>sheep</item>
+        <item>snake</item>
+        <item>spider</item>
+        <item>squirrel</item>
+        <item>tiger</item>
+        <item>turtle</item>
+        <item>wolf</item>
+    </string-array>
+
+    <string-array name="vegetables">
+        <item>beetroot</item>
+        <item>lettuce</item>
+        <item>pumpkin</item>
+        <item>cabbage</item>
+        <item>capsicum</item>
+        <item>carrot</item>
+        <item>cauliflower</item>
+        <item>coriander</item>
+        <item>corn</item>
+        <item>chilli</item>
+        <item>cucumber</item>
+        <item>brinjal</item>
+        <item>garlic</item>
+        <item>ginger</item>
+        <item>jackfruit</item>
+        <item>mushroom</item>
+        <item>onion</item>
+        <item>peas</item>
+        <item>mint</item>
+        <item>potato</item>
+        <item>luffa</item>
+        <item>radish</item>
+        <item>spinach</item>
+        <item>tomato</item>
+        <item>turnip</item>
+    </string-array>
+
+    <string-array name="fruits">
+        <item>apple</item>
+        <item>apricot</item>
+        <item>banana</item>
+        <item>bilberry</item>
+        <item>blackberry</item>
+        <item>blackcurrant</item>
+        <item>coconut</item>
+        <item>custard apple</item>
+        <item>grapes</item>
+        <item>guava</item>
+        <item>dates</item>
+        <item>kiwi</item>
+        <item>lychee</item>
+        <item>mango</item>
+        <item>orange</item>
+        <item>papaya</item>
+        <item>pear</item>
+        <item>pineapple</item>
+        <item>pomegranate</item>
+        <item>strawberry</item>
+        <item>watermelon</item>
+    </string-array>
+
+    <string-array name="vocab">
+        <item>birds</item>
+        <item>vegetables</item>
+        <item>fruits</item>
+        <item>animals</item>
+    </string-array>
+
+    <string-array name="books">
+        <item>moon</item>
+        <item>match</item>
+        <item>street</item>
+        <item>aaloo</item>
+    </string-array>
+
+       <!-- Story 1 - The Hare and the Tortoise-->
     <string-array name="story1">
-    <item>Once upon a time there was a small boy who lived on a farm</item>
-    <item>On this farm were many chickens and goats and even ducks</item>
-    <item>Farmer John owned the land and was busy making it nice for everyone</item>
-    <item>One day everyone on the farm was helping john make benches for people to sit on
-        out of large granite stones</item>
-    <item>One boy, Amar, got his finger stuck under the stone and it hurt very much.</item>
-    <item>His friends took him to the hospital where the doctor put stiches in Amars finger to help it heal</item>
-    <item>Then everyone was happy again, though Amar had to keep his hand raised all the time.</item>
+        <item>There once was a speedy Hare who bragged about how fast he could run. Tired of hearing him boast, the Tortoise challenged him to a race.</item>
+        <item>All the animals in the forest gathered to watch. </item>
+        <item>The Hare ran down the road for a while and then and paused to rest. </item>
+        <item>He looked back at the tortoise and cried out, "How do you expect to win this race when you are walking along at your slow, slow pace?"</item>
+        <item>The Hare stretched himself out alongside the road and fell asleep, thinking, "There is plenty of time to relax."</item>
+        <item>The Tortoise walked and walked; never ever stopping until he came to the finish line.</item>
+        <item>The animals who were watching cheered so loudly for Tortoise, that they woke up Hare. </item>
+        <item>The Hare stretched and yawned and began to run again, but it was too late. Tortoise was already over the line.</item>
+        <item>MORAL: Slow and steady wins the race.</item>
     </string-array>
     <string name="story1_hint">Press space and then hit enter for the next page</string>
-    <string name="story1_title">Amar gets hurt.</string>
+    <string name="story1_title">The Hare</string>
+
 
     <!-- Story 2 - Thirsty crow-->
     <string-array name="story2">
@@ -224,34 +346,97 @@
     </string-array>
     <string name="story5_hint">Press space and then hit enter for the next page</string>
     <string name="story5_title">The Goose</string>
-
- <!-- Story 6 - The Hare and the Tortoise-->
-    <string-array name="story6">
-        <item>There once was a speedy Hare who bragged about how fast he could run. Tired of hearing him boast, the Tortoise challenged him to a race.</item>
-        <item>All the animals in the forest gathered to watch. </item>
-        <item>The Hare ran down the road for a while and then and paused to rest. </item>
-        <item>He looked back at the tortoise and cried out, "How do you expect to win this race when you are walking along at your slow, slow pace?"</item>
-        <item>The Hare stretched himself out alongside the road and fell asleep, thinking, "There is plenty of time to relax."</item>
-        <item>The Tortoise walked and walked; never ever stopping until he came to the finish line.</item>
-        <item>The animals who were watching cheered so loudly for Tortoise, that they woke up Hare. </item>
-        <item>The Hare stretched and yawned and began to run again, but it was too late. Tortoise was already over the line.</item>
-        <item>MORAL: Slow and steady wins the race.</item>
+    
+    <!-- Story 6 - A street or a zoo-->
+    <string-array name="street">
+        <item>Sonu, Monu and Rina set out to play. They saw a kitten.</item>
+        <item>She was looking at a big rat. “oh look!” shouted Sonu.</item>
+        <item>Rina saw a tiny ant going toward the big rat.</item>
+        <item>Suddenly, a very big shadow fell upon them all.</item>
+        <item>A very big eagle came down to the wall. A tiny ant, a small kitten, a big rat and a very big eagle in the same long street!</item>
+        <item>What would the three clever children do now?</item>
+        <item>They clapped their little hands! The eagle spread its big wings and flew away.</item>
+        <item>Rina made the ant climb onto a leaf. She left the leaf on the wall. The ant saw a grain of sugar. She picked it up and ran home.</item>
+        <item>The big rat picked up a half-eaten pakoda and went back into the drain. The small kitten said ‘miaaww’ and started licking her paw.</item>
+        <item>Monu got her some milk in a cup.The three kids played with her.</item>
+        <item>The very big eagle sitting on the tree blinked and flew far away.</item>
     </string-array>
-    <string name="story6_hint">Press space and then hit enter for the next page</string>
-    <string name="story6_title">The Hare</string>
+    <string name="street6_hint">Press space and then hit enter for the next page</string>
+    <string name="street_title">The street or a zoo</string>
+    
+    <!-- Story 7 - Aaloo-Maaloo-Kaaloo-->
+    <string-array name="aaloo">
+        <item>For the very first time, Maaloo is collecting vegetables from the garden. He has collected red tomatoes, fresh brinjals and green lady’s fingers.</item>
+        <item>Dadi says, “Well done, Maaloo! Go and get some potatoes too.”</item>
+        <item>Maaloo looked at all the trees, creepers and plants. Not a single potato could he see.</item>
+        <item>“Dadi, the potatoes aren’t ready yet”, said Maaloo, putting the empty basket down. “No Maaloo, there are plenty of potatoes. Look carefully,” said Dadi.</item>
+        <item>Maaloo went into the garden once more. Kaaloo followed him. Maaloo was looking for potatoes when he heard , “Woof! Woof!”</item>
+        <item>“Kaaloo! Stop, Kaaloo” yelled Maaloo, running behind him. “Don’t spoil the garden.” Maaloo saw that Kaaloo was digging away and what do you think was coming out of the mud? Big fat potatoes!</item>
+        <item>“Well done, Kaaloo. You found potatoes!” laughed Maaloo, filling his basket with potatoes.</item>
+    </string-array>
+    <string name="street7_hint">Press space and then hit enter for the next page</string>
+    <string name="street_title">Aaloo-Maaloo-Kaaloo</string>
+
 
     <!-- Past Tense Sentences -->
-    <string name="past1">Ravi ______ the computer class in the morning.</string>
-    <string-array name="past1_options">
+    <string name="sentence1">Ravi ______ the computer class in the morning.</string>
+    <string-array name="sentence1_options">
     <item>attended</item>
     <item>is attending</item>
     </string-array>
 
-    <string name="past2">The market ______ very noisy.</string>
-    <string-array name="past2_options">
+    <string name="sentence2">The market ______ very noisy.</string>
+    <string-array name="sentence2_options">
         <item>was</item>
         <item>is</item>
     </string-array>
 
+ <string name="sentence3">The delivery man ______ the package.</string>
+    <string-array name="sentence3_options">
+        <item>delivered</item>
+        <item>was delivering</item>
+    </string-array>
+
+<string name="sentence4">The athletes _____ for Tamil Nadu. </string>
+    <string-array name="sentence4_options">
+        <item>left</item>
+        <item>leaving</item>
+    </string-array>
+
+    <string name="sentence5">Gita ______ her room </string>
+    <string-array name="sentence5_options">
+        <item>painted</item>
+        <item>is painting</item>
+    </string-array>
+
+    <string name="sentence6">Ramesh ______ playing cricket yesterday.</string>
+    <string-array name="sentence6_options">
+        <item>was</item>
+        <item>is</item>
+    </string-array>
+
+    <string name="sentence7">Oh no! The bus ____ without us. </string>
+    <string-array name="sentence7_options">
+        <item>left</item>
+        <item>leave</item>
+    </string-array>
+
+    <string name="sentence8">I  ___ a mango. </string>
+    <string-array name="sentence8_options">
+        <item>ate</item>
+        <item>eating</item>
+    </string-array>
+
+    <string name="sentence9">Be quiet. The circus has ______.</string>
+    <string-array name="sentence9_options">
+        <item>started</item>
+        <item>starting</item>
+    </string-array>
+
+    <string name="sentence10">Rashmi ___to her grandma\'s house last summer.</string>
+    <string-array name="sentence10_options">
+        <item>went</item>
+        <item>is going</item>
+    </string-array>
 
 </resources>

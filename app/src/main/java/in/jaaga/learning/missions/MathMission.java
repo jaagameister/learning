@@ -1,4 +1,4 @@
-package in.jaaga.learning.missions;
+/*package in.jaaga.learning.missions;
 
 import java.util.ArrayList;
 
@@ -16,9 +16,6 @@ import in.jaaga.learning.problems.VariableDivision;
 import in.jaaga.learning.problems.VariableMultiplication;
 import in.jaaga.learning.problems.VariableSubtraction;
 
-/**
- * Created by admin on 24/02/2016.
- */
 public class MathMission implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
@@ -62,3 +59,4 @@ public class MathMission implements Mission {
         return "general mission covering everything from simple addition upto variable division";
     }
 }
+*/

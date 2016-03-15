@@ -1,4 +1,4 @@
-package in.jaaga.learning.cli;
+/*package in.jaaga.learning.cli;
 
 import java.util.Scanner;
 
@@ -7,9 +7,7 @@ import in.jaaga.learning.missions.Easy;
 import in.jaaga.learning.missions.MathMission;
 import in.jaaga.learning.missions.NegativeNumbers;
 
-/**
- * Created by freeman on 4/2/16.
- */
+
 public class CLI implements InteractionInterface {
     Learning learning;
 
@@ -43,3 +41,4 @@ public class CLI implements InteractionInterface {
         }
     }
 }
+*/

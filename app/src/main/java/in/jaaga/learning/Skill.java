@@ -1,77 +1,18 @@
 package in.jaaga.learning;
 
-public class Skill {
-	long skillStartTime = 0;
-	long skillTimeSpent = 0;
-	long problemStartTime = 0;
+import java.util.HashMap;
+import java.util.Properties;
 
-	int repsRequired;
-	int rep;
-	int points;
-	boolean hinted = false;
-
-	String title = null;
-
-	Problem problem;
-
-	public Skill(String title, Problem problem, int repsRequired, int points) {
-		this(problem, repsRequired, points);
-		this.title = title;
-	}
-
-	public Skill(Problem problem, int repsRequired, int points) {
-		this.problem = problem;
-		this.repsRequired = repsRequired;
-		this.points = points;
-		skillStartTime = System.currentTimeMillis();
-	}
-
-	public Problem getProblem() {
-		return problem;
-	}
-
-	public String getPrompt() {
-        problemStartTime = System.currentTimeMillis();
-        return problem.getPrompt();
-    }
-
-    public boolean checkAnswer(String answer) {
-        if (problem.checkAnswer(answer)) {
-			skillTimeSpent += System.currentTimeMillis() - problemStartTime;
-			return true;
-		}
-		return false;
-    }
-
-	public void setProblem(Problem problem) {
-		this.problem = problem;
-	}
-
-	// increments rep and returns remaining
-	public int solvedOne() {
-		rep++;
-		return getRemaining();
-	}
-
-	public int getPoints() {
-		return points;
-	}
-
-	public long getTimeSpent() {
-		return skillTimeSpent;
-	}
-
-	public long getProblemsCompleted() {
-		return rep;
-	}
-
-	public int getRemaining() {
-		return repsRequired - rep;
-	}
-
-	public String takeHint() {
-		hinted = true;
-		points = points / 2;
-		return problem.getHint();
-	}
+/**
+ * Created by freeman on 8/3/16.
+ */
+public interface Skill {
+    public String getPrompt();
+    public ChatItem getPromptChatItem();
+    public void processResponse(String response);
+    public String getHint();
+    public String getTitle();
+    public int getPoints();
+    public void save(HashMap<String, String> session);
+    public void restore(HashMap<String, String> session);
 }

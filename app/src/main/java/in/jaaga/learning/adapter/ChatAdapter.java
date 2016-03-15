@@ -23,7 +23,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<ChatItem> chat_list;
     private Context ctx;
     private static final int VIEW_TYPE_LEFT = 0, VIEW_TYPE_RIGHT = 1;
-    private static final String CHAT_BOT = "bot";
+    private static final String CHAT_BOT = ChatItem.BOT;
 
 
     public ChatAdapter(Context ctx,ArrayList<ChatItem> chat_list){

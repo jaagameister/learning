@@ -1,21 +1,28 @@
 package in.jaaga.learning;
 
+import java.util.HashMap;
+import java.util.Properties;
+
 /**
  * Created by freeman on 27/2/16.
  */
+
+// TODO: make sure MissionLibrary gets initialized before we start
 public class LearningContext {
-    InteractionInterface interactionInterface;
-    Session session;
+    InteractionInterface ix;
+    HashMap<String, String> session;
     ChatBot chatBot;
     MissionLibrary missionLibrary;
     DB db;
 
+    Mission mission;
+
     public LearningContext(InteractionInterface interactionInterface,
-                   Session session,
+                           HashMap session,
                    ChatBot chatBot,
                    MissionLibrary missionLibrary,
                    DB db) {
-        this.interactionInterface = interactionInterface;
+        this.ix = interactionInterface;
         this.session = session;
         this.chatBot = chatBot;
         this.missionLibrary = missionLibrary;
@@ -23,10 +30,10 @@ public class LearningContext {
     }
 
     public InteractionInterface getInteractionInterface() {
-        return interactionInterface;
+        return ix;
     }
 
-    public Session getSession() {
+    public HashMap<String, String> getSession() {
         return session;
     }
 
@@ -40,6 +47,24 @@ public class LearningContext {
 
     public DB getDB() {
         return db;
+    }
+
+    public Mission getMission() {
+        if (mission == null) {
+            String savedMissionName = session.get("mission");
+            if (savedMissionName != null) {
+                setMission(missionLibrary.getMission(savedMissionName));
+            }
+        }
+
+        if (mission == null) {
+            setMission(missionLibrary.getDefaultMission());
+        }
+        return mission;
+    }
+
+    public void setMission(Mission mission) {
+        this.mission = mission;
     }
 
 }

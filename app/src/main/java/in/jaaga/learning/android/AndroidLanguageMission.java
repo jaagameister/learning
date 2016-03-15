@@ -2,18 +2,24 @@ package in.jaaga.learning.android;
 
 import java.util.ArrayList;
 
+import in.jaaga.learning.LearningContext;
+import in.jaaga.learning.ProblemSkill;
 import in.jaaga.learning.Skill;
 import in.jaaga.learning.Mission;
+import in.jaaga.learning.android.AndroidImages;
 import in.jaaga.learning.android.problems.PictureBook;
+import in.jaaga.learning.android.problems.Sentence;
 import in.jaaga.learning.android.problems.Story;
 
-/**
- * Created by admin on 24/02/2016.
- */
-public class AndroidLanguageMission implements Mission {
-    public ArrayList<Skill> getList() {
-        ArrayList<Skill> mission = new ArrayList<Skill>();
+public class AndroidLanguageMission extends Mission {
 
+    public AndroidLanguageMission(LearningContext ctx) {
+        super(ctx);
+
+        add(new ProblemSkill(ctx, "verb tense sentences", new Sentence(), 10, 200));
+        add(new PictureBook());
+        add(new AndroidImages());
+/*
         PictureBook book1 = new PictureBook("moon");
         mission.add(new Skill(book1, book1.getNumPrompts(), 1000));
 
@@ -32,6 +38,7 @@ public class AndroidLanguageMission implements Mission {
 
         mission.add(new Skill(new AndroidImages(), 200, 1000));
         return mission;
+*/
     }
 
     public String getTitle() {
