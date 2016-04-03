@@ -360,7 +360,7 @@
         <item>Monu got her some milk in a cup.The three kids played with her.</item>
         <item>The very big eagle sitting on the tree blinked and flew far away.</item>
     </string-array>
-    <string name="street6_hint">Press space and then hit enter for the next page</string>
+    <string name="street_hint">Press space and then hit enter for the next page</string>
     <string name="street_title">The street or a zoo</string>
     
     <!-- Story 7 - Aaloo-Maaloo-Kaaloo-->
@@ -373,8 +373,8 @@
         <item>“Kaaloo! Stop, Kaaloo” yelled Maaloo, running behind him. “Don’t spoil the garden.” Maaloo saw that Kaaloo was digging away and what do you think was coming out of the mud? Big fat potatoes!</item>
         <item>“Well done, Kaaloo. You found potatoes!” laughed Maaloo, filling his basket with potatoes.</item>
     </string-array>
-    <string name="street7_hint">Press space and then hit enter for the next page</string>
-    <string name="street_title">Aaloo-Maaloo-Kaaloo</string>
+    <string name="aaloo_hint">Press space and then hit enter for the next page</string>
+    <string name="aaloo_title">Aaloo-Maaloo-Kaaloo</string>
     
     
      <!-- Story 8 - Bunty and Bubbly-->
@@ -391,8 +391,8 @@
         <item>The army of bubbles chases the germs away.</item>
         <item>These days, Bunty likes to use soap and she brushes and scrubs herself clean.</item>
     </string-array>
-    <string name="street7_hint">Press space and then hit enter for the next page</string>
-    <string name="street_title">Bunty-and-Bubbly</string>
+    <string name="bunty_hint">Press space and then hit enter for the next page</string>
+    <string name="bunty_title">Bunty-and-Bubbly</string>
 
 
     <!-- Past Tense Sentences -->
