@@ -12,6 +12,7 @@ import in.jaaga.learning.problems.SimpleProblem;
 /**
  * Created by dolly on 9/3/16.
  */
+/*
 public class FruitImages extends AnimalImages {
 
     String[] NAMES = {
@@ -37,7 +38,7 @@ public class FruitImages extends AnimalImages {
             S.getResources().getString(R.string.strawberry),
             S.getResources().getString(R.string.watermelon)
     };
-    */
+
     int current = 0;
 
     public FruitImages() {
@@ -70,3 +71,4 @@ public class FruitImages extends AnimalImages {
         return NAMES.length;
     }
 }
+*/
