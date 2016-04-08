@@ -29,12 +29,11 @@ public abstract class Mission {
             restore();
         }
         ChatItem p = skill.getPromptChatItem();
-        if (p != null) {
-            return p;
-        } else {
+        if (p == null) {
             levelUp();
-            return skill.getPromptChatItem();
+            p = skill.getPromptChatItem();
         }
+        return p;
     }
 
     public void processResponse(String response) {
@@ -67,8 +66,8 @@ public abstract class Mission {
         Skill last = skill;
         Skill next = skills.get(++index);
         totalPoints += last.getPoints();
-        String cbLevelUp = ctx.getChatBot().levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints);
-        ctx.getInteractionInterface().send(new ChatItem(cbLevelUp));
+        String levelUpText = ctx.getChatBot().levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints);
+        ctx.getInteractionInterface().send(new ChatItem(levelUpText));
         skill = next;
         save();
     }
@@ -76,7 +75,8 @@ public abstract class Mission {
     private void setLevel(String level) {
         if (level == null)
             return;
-        skill = skills.get(Integer.parseInt(level));
+        index = Integer.parseInt(level);
+        skill = skills.get(index);
         initialized = true;
     }
 }

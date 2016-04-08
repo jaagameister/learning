@@ -299,8 +299,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putSerializable("chat",chatFragment.getList());
             chatFragment.save();
             bundle.putSerializable("session", S.getSession());
-            bundle.putString("foo", "bar");
-
         }
 
         Intent refresh = new Intent(this, MainActivity.class);
