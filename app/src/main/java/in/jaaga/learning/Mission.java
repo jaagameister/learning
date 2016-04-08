@@ -24,8 +24,10 @@ public abstract class Mission {
     }
 
     public ChatItem getPrompt() {
-        if (!initialized)
+        if (!initialized) {
+            initialized = true;
             restore();
+        }
         ChatItem p = skill.getPromptChatItem();
         if (p != null) {
             return p;
@@ -51,7 +53,6 @@ public abstract class Mission {
         if ( ctx.getSession().size() == 0)
             return;
         setLevel(ctx.getSession().get("level"));
-        initialized = true;
         skill.restore(ctx.getSession());
     }
 
