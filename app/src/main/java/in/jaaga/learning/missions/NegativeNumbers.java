@@ -1,4 +1,5 @@
 /*
+
 package in.jaaga.learning.missions;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class NegativeNumbers implements Mission {
     public ArrayList<Skill> getList() {
         ArrayList<Skill> mission = new ArrayList<Skill>();
 
-//		mission.add(new Skill(new NumbersSequence(1), 5, 100));
+		mission.add(new Skill(new NumbersSequence(1), 5, 100));
 
         mission.add(new Skill(new Addition(-10), 10, 100));
         mission.add(new Skill(new Addition(-50), 10, 150));

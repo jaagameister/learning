@@ -17,6 +17,7 @@ import in.jaaga.learning.problems.DecimalDivision;
 import in.jaaga.learning.problems.DecimalMultiplication;
 import in.jaaga.learning.problems.Division;
 import in.jaaga.learning.problems.DivisionRemainders;
+import in.jaaga.learning.problems.Fraction;
 import in.jaaga.learning.problems.Multiplication;
 import in.jaaga.learning.problems.Subtraction;
 import in.jaaga.learning.problems.VariableAddition;
@@ -55,6 +56,7 @@ public class AndroidMathMission extends Mission {
         add(new ProblemSkill(ctx, r.getString(R.string.decimal_multiplication_title, 100), new DecimalMultiplication(100,5),5,100));
         add(new ProblemSkill(ctx, r.getString(R.string.decimal_division_title, 100, 10), new DecimalDivision(100,5),5,100));
 
+        add(new ProblemSkill(ctx, r.getString(R.string.fractions_title,10), new Fraction(100),5,100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_addition_title, 100), new VariableAddition(100), 8, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_subtraction_title, 100), new VariableSubtraction(100), 8, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_multiplication_title, 10), new VariableMultiplication(10, 10), 8, 100));

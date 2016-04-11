@@ -8,32 +8,38 @@ import in.jaaga.learning.Problem;
  * Created by Dheeraj on 8/2/16.
  */
 public class Fraction extends SimpleProblem {
-        int max;
+    int max;
 
-        public Fraction(int max) {
-            int a, b;
-            this.max = max;
-            a = new Random().nextInt(max);
-            b = new Random().nextInt(max);
+    public Fraction(int max) {
+        int a, b;
+        this.max = max;
+        a = new Random().nextInt(max);
+        b = new Random().nextInt(max);
+        prompt = a + " ÷ " + b + " = ?";
 
-            prompt = a + " ÷ " + b + " = ?";
+        int hcf=-1;
+        int min = Math.min(a,b);
 
-            int hcf=-1;
-            int min = Math.min(a,b);
-
-            for(int i=min; i >= 1; i--)
-            {
-                if(a%i == 0 && b%i == 0)
-                {
-                    hcf = i;
-                    break;
-                }
+        for(int i=min; i >= 1; i--) {
+            if(a%i == 0 && b%i == 0) {
+                hcf = i;
+                break;
             }
-
-            answer =(a/hcf) + " " + (b/hcf);
         }
+        if(b%hcf == 0) {
+            answer = a/hcf + "";
+        }
+        if(a > b) {
+            int d = a/b;
+            int r = a%b;
+            answer = d +" " + r + "/" + b;
+        }
+        else {
+            answer  = a +"/" + b;
+        }
+    }
 
-    public Problem next(){
+    public Problem next() {
         return new Fraction(max);
     }
 
@@ -42,8 +48,7 @@ public class Fraction extends SimpleProblem {
     }
 
     public String getTitle() {
-        String title = "Fraction to simplest form " + max;
-        return title;
+        return "Fraction to simplest form " + max;
     }
 
 
