@@ -31,8 +31,7 @@ public class AndroidUtils {
         ml.addMission("math", new AndroidMathMission(ctx));
         ml.addMission("vocab", new AndroidLanguageMission(ctx));
         Learning learning = new Learning(ctx);
-        if (session.size() > 0)
-            ctx.getMission().restore();
+        learning.restore();
         return learning;
     }
 /*
