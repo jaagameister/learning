@@ -34,6 +34,8 @@ public class LearningContext {
     }
 
     public HashMap<String, String> getSession() {
+        if (session == null)
+            session = new HashMap<String, String>();
         return session;
     }
 
