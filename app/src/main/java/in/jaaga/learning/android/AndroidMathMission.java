@@ -32,6 +32,7 @@ public class AndroidMathMission extends Mission {
     public AndroidMathMission(LearningContext ctx) {
         super(ctx);
         Resources r = S.getResources();
+
         add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Addition(10), 5, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 100), new Addition(100), 5, 100));
 
@@ -58,7 +59,8 @@ public class AndroidMathMission extends Mission {
         add(new ProblemSkill(ctx, r.getString(R.string.var_subtraction_title, 100), new VariableSubtraction(100), 8, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_multiplication_title, 10), new VariableMultiplication(10, 10), 8, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_division_title, 100, 10), new VariableDivision(100, 10), 8, 100));
-        add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Equation(), 500, 100));
+        add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Equation(), 10, 100));
+        add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Function(), 10, 100));
     }
 
     public String getTitle() {
