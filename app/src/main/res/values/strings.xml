@@ -135,7 +135,7 @@
 
     <!-- SKILLS / PROBLEM TYPES -->
     <string name="addition_title">"Addition to %d"</string>
-
+    <string name="rounding_title">Rounding Numbers upto 3 decimal places</string>
     <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
     <string name="decimal_addition_title">Addition to %d with Decimals</string>
     <string name="decimal_division_title">Decimal Division with Dividends to %1$d and Divisors to %2$d</string>
