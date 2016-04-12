@@ -12,13 +12,13 @@ public class Percent extends SimpleProblem {
         public Percent(int max) {
             int a, b;
             this.max = max;
-            a = new Random().nextInt(max);
+            a = new Random().nextInt(100);
             b = new Random().nextInt(max);
 
-            prompt = a + " % of " + b + " = ?";
-            float z = ((float) a/100)*b;
-            String ans = String.valueOf(z);
-            answer =   String.valueOf(ans);
+            prompt = a + "% of " + b + " = ?";
+            double z = ((float) a/100)*b;
+            z =  Math.round(z*1000.0)/1000.0;
+            answer = String.valueOf(z);
         }
 
         public Problem next(){
