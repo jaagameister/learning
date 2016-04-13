@@ -154,6 +154,7 @@
     <string name="var_multiplication_title">Variable Multiplication to %d</string>
     <string name="var_subtraction_title">Variable Subtraction to %d</string>
     <string name="linear_function_title">Linear Functions</string>
+    <string name="simple_rounding_title">Simple Rounding</string>
     <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 

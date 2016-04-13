@@ -14,7 +14,7 @@ public class Fraction extends SimpleProblem {
         int a, b;
         this.max = max;
         a = new Random().nextInt(max);
-        b = new Random().nextInt(max);
+        b = new Random().nextInt(max) + 1;
         prompt = a + " ÷ " + b + " = ?";
 
         int hcf=-1;

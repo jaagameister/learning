@@ -10,7 +10,7 @@ import in.jaaga.learning.Problem;
  * Created by harish on 12/4/16.
  */
 public class RoundingProblems extends SimpleProblem implements Problem {
-    static final String LOG_TAG = "Rounding Problems";
+    //static final String LOG_TAG = "Rounding Problems";
     public RoundingProblems() {
         Double prob = new Random().nextDouble();
         //Log.d(LOG_TAG,prob.toString());
