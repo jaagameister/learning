@@ -28,8 +28,11 @@ public class AndroidUtils {
         AndroidChatBot chatBot = new AndroidChatBot();
         MissionLibrary ml = new MissionLibrary();
         LearningContext ctx = new LearningContext(ix, session, chatBot, ml, new AndroidDB());
+
         ml.addMission("math", new AndroidMathMission(ctx));
-        ml.addMission("vocab", new AndroidLanguageMission(ctx));
+
+        // TODO: separate language into a different bot
+//        ml.addMission("vocab", new AndroidLanguageMission(ctx));
         Learning learning = new Learning(ctx);
         learning.restore();
         return learning;

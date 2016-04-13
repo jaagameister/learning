@@ -20,7 +20,10 @@ public class Learning {
     }
 
     public void start() {
-        ctx.getInteractionInterface().send(new ChatItem(ctx.chatBot.hello(), NO_RESPONSE));
+        if (ctx.getSession().isEmpty())
+            ctx.getInteractionInterface().send(new ChatItem(ctx.chatBot.hello(), NO_RESPONSE));
+        else
+            ctx.getInteractionInterface().send(new ChatItem(ctx.chatBot.encourage(), NO_RESPONSE));
         ctx.getInteractionInterface().send(ctx.getMission().getPrompt());
     }
 

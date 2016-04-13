@@ -16,8 +16,8 @@ public class AndroidLanguageMission extends Mission {
     public AndroidLanguageMission(LearningContext ctx) {
         super(ctx);
 
-        add(new ProblemSkill(ctx, "verb tense sentences", new Sentence(), 10, 200));
         add(new PictureBook());
+        add(new ProblemSkill(ctx, "verb tense sentences", new Sentence(), 10, 200));
         add(new AndroidImages());
 /*
         PictureBook book1 = new PictureBook("moon");

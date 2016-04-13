@@ -30,11 +30,11 @@ public abstract class SimpleProblem implements Problem {
     }
 
     public void save(HashMap<String, String> session) {
-        session.put("answer", answer);
+//        session.put("answer", answer);
     }
 
     public void restore(HashMap<String, String> session) {
-        if (session.get("answer") != null)
-            answer = (String)session.get("answer");
+//        if (session.get("answer") != null)
+//            answer = (String)session.get("answer");
     }
 }

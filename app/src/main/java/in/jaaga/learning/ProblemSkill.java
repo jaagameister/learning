@@ -41,6 +41,7 @@ public class ProblemSkill implements Skill {
     }
 
 	public ChatItem getPromptChatItem() {
+		System.out.println("rep: "+rep+" req: "+repsRequired);
 		if (rep >= repsRequired)
 			return null;
 		return problem.getPromptChatItem();

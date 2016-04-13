@@ -117,7 +117,7 @@ public class ChatFragment extends Fragment implements InteractionInterface{
             }
         });
 
-        if (chat_list.isEmpty())
+//        if (chat_list.isEmpty())
             learning.start();
 
         return v;

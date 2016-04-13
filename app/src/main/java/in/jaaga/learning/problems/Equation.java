@@ -1,9 +1,8 @@
-package in.jaaga.learning.android;
+package in.jaaga.learning.problems;
 
 import java.util.Random;
 
 import in.jaaga.learning.Problem;
-import in.jaaga.learning.problems.SimpleProblem;
 
 /**
  * Created by freeman on 11/4/16.
