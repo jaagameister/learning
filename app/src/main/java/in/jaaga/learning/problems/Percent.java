@@ -12,7 +12,7 @@ public class Percent extends SimpleProblem {
         public Percent(int max) {
             int a, b;
             this.max = max;
-            a = new Random().nextInt(100);
+            a = new Random().nextInt(20)*5;
             b = new Random().nextInt(max);
 
             prompt = a + "% of " + b + " = ?";

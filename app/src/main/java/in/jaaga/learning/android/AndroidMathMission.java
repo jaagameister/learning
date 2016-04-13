@@ -20,6 +20,7 @@ import in.jaaga.learning.problems.DivisionRemainders;
 import in.jaaga.learning.problems.Equation;
 import in.jaaga.learning.problems.Fraction;
 import in.jaaga.learning.problems.Function;
+import in.jaaga.learning.problems.LinearFunction;
 import in.jaaga.learning.problems.Multiplication;
 import in.jaaga.learning.problems.Percent;
 import in.jaaga.learning.problems.RoundingProblems;
@@ -52,6 +53,7 @@ public class AndroidMathMission extends Mission {
         add(new ProblemSkill(ctx, r.getString(R.string.division_title, 30, 10), new Division(30, 10), 5, 250));
         add(new ProblemSkill(ctx, r.getString(R.string.division_title, 100, 10), new Division(100, 10), 5, 250));
 
+        add(new ProblemSkill(ctx,r.getString(R.string.linear_function_title),new LinearFunction(),5,100));
         add(new ProblemSkill(ctx, r.getString(R.string.addition_negative_title, 10), new Addition(-10), 5, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.subtraction_negative_title, 10), new Subtraction(-10), 5, 150));
         add(new ProblemSkill(ctx, r.getString(R.string.multiplication_negative_title, 12), new Multiplication(-12, 12), 5, 200));
