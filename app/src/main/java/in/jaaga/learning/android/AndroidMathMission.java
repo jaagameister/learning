@@ -37,6 +37,7 @@ public class AndroidMathMission extends Mission {
     public AndroidMathMission(LearningContext ctx) {
         super(ctx);
         Resources r = S.getResources();
+
         add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Addition(10), 5, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 100), new Addition(100), 5, 100));
 
@@ -53,18 +54,20 @@ public class AndroidMathMission extends Mission {
 
         add(new ProblemSkill(ctx, r.getString(R.string.addition_negative_title, 10), new Addition(-10), 5, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.subtraction_negative_title, 10), new Subtraction(-10), 5, 150));
-        add(new ProblemSkill(ctx, r.getString(R.string.multiplication_negative_title, 12        ), new Multiplication(-12, 12), 5, 200));
+        add(new ProblemSkill(ctx, r.getString(R.string.multiplication_negative_title, 12), new Multiplication(-12, 12), 5, 200));
 
 //        add(new MathSkill(ctx, r.getString(R.string.decimal_addition_title, 100), new DecimalAddition(100, 0, 1), 5, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.decimal_multiplication_title, 100), new DecimalMultiplication(100,5),5,100));
         add(new ProblemSkill(ctx,r.getString(R.string.rounding_title),new RoundingProblems(),5,50));
         add(new ProblemSkill(ctx, r.getString(R.string.decimal_division_title, 100, 10), new DecimalDivision(100,5),5,100));
-
         add(new ProblemSkill(ctx, r.getString(R.string.fractions_title,10), new Fraction(100),5,100));
+
         add(new ProblemSkill(ctx, r.getString(R.string.var_addition_title, 100), new VariableAddition(100), 8, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_subtraction_title, 100), new VariableSubtraction(100), 8, 100));
+
         add(new ProblemSkill(ctx, r.getString(R.string.var_multiplication_title, 10), new VariableMultiplication(10, 10), 8, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.var_division_title, 100, 10), new VariableDivision(100, 10), 8, 100));
+
         add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Equation(), 10, 100));
         add(new ProblemSkill(ctx, r.getString(R.string.addition_title, 10), new Function(), 10, 100));
         add(new ProblemSkill(ctx,r.getString(R.string.percentages_title),new Percent(1000),5,200));

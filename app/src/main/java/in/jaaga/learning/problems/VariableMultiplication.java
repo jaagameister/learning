@@ -23,7 +23,7 @@ public class VariableMultiplication extends SimpleProblem {
     }
 
     public Problem next(){
-        return new Multiplication(factor1, factor2);
+        return new VariableMultiplication(factor1, factor2);
     }
 
     public String getTitle() {
