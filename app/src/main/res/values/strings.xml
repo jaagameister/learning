@@ -153,6 +153,8 @@
     <string name="var_division_title">Variable Division with Dividends to %1$d and Divisors to %2$d</string>
     <string name="var_multiplication_title">Variable Multiplication to %d</string>
     <string name="var_subtraction_title">Variable Subtraction to %d</string>
+    <string name="equation_title">Simple equations with one variable</string>
+    <string name="function_title">Simple functions with variable substitution</string>
     <string name="linear_function_title">Linear Functions</string>
     <string name="simple_rounding_title">Simple Rounding</string>
     <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 

@@ -55,7 +55,7 @@ public class ProblemSkill implements Skill {
             send(ctx.getChatBot().correct());
 		} else {
             send(ctx.getChatBot().sorry());
-			send(getHint());
+//			send(getHint());
         }
 		send(ctx.getChatBot().encourage());
 //		ctx.getInteractionInterface().send(problem.getPromptChatItem());
