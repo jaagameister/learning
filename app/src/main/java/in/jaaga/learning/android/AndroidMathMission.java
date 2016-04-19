@@ -2,21 +2,15 @@ package in.jaaga.learning.android;
 
 import android.content.res.Resources;
 
-import java.util.ArrayList;
-
 import in.jaaga.learning.LearningContext;
 import in.jaaga.learning.ProblemSkill;
 import in.jaaga.learning.Mission;
-import in.jaaga.learning.ProblemSkill;
 import in.jaaga.learning.R;
-import in.jaaga.learning.Skill;
-import in.jaaga.learning.android.problems.Story;
 import in.jaaga.learning.problems.Addition;
 //import in.jaaga.learning.problems.DecimalAddition;
 import in.jaaga.learning.problems.DecimalDivision;
 import in.jaaga.learning.problems.DecimalMultiplication;
 import in.jaaga.learning.problems.Division;
-import in.jaaga.learning.problems.DivisionRemainders;
 import in.jaaga.learning.problems.Equation;
 import in.jaaga.learning.problems.Fraction;
 import in.jaaga.learning.problems.Function;
