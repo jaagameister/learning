@@ -20,6 +20,8 @@ public class ProblemSkill implements Skill {
 	long skillTimeSpent = 0;
 	long problemStartTime = 0;
 
+    String title;
+
 	int repsRequired;
 	int rep = 0;
 	int points;
@@ -28,8 +30,9 @@ public class ProblemSkill implements Skill {
 	Problem problem;
 	Bot bot;
 
-	public ProblemSkill(Bot bot, Problem problem, int repsRequired, int points) {
+	public ProblemSkill(Bot bot, String title, Problem problem, int repsRequired, int points) {
         this.bot = bot;
+        this.title = title;
         sender = bot.sender;
 		this.problem = problem;
         this.repsRequired = repsRequired;
@@ -77,7 +80,7 @@ public class ProblemSkill implements Skill {
 	}
 
     public String getTitle() {
-        return "title";
+        return title;
     }
 
 	public void save(HashMap session) {
