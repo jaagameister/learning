@@ -1,16 +1,23 @@
 package in.jaaga.learning.api;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 /**
  * Created by freeman on 19/4/16.
  */
-abstract public class Bot extends BotContext {
+abstract public class Bot {
     public Sender sender;
-
+    public Context context;
 
     // Life cycle methods
     public void onCreate(Bundle savedInstanceState) {}
+
+    public void onAttach(Context context) {
+        this.context = context;
+    }
 
     public void onStart() {}
 
@@ -28,5 +35,11 @@ abstract public class Bot extends BotContext {
 
     public void setSender(Sender sender) {
         this.sender = sender;
+    }
+
+
+    // Utility methods
+    public Resources getResources() {
+        return context.getResources();
     }
 }

@@ -2,7 +2,10 @@ package in.jaaga.learning.bots.srini;
 
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.Random;
 
+import in.jaaga.learning.R;
+import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.api.Sender;
 import in.jaaga.learning.bots.srini.Problem;
@@ -23,9 +26,11 @@ public class ProblemSkill implements Skill {
 	boolean hinted = false;
 
 	Problem problem;
+	Bot bot;
 
-	public ProblemSkill(Sender sender, Problem problem, int repsRequired, int points) {
-        this.sender = sender;
+	public ProblemSkill(Bot bot, Problem problem, int repsRequired, int points) {
+        this.bot = bot;
+        sender = bot.sender;
 		this.problem = problem;
         this.repsRequired = repsRequired;
         this.points = points;
@@ -54,11 +59,14 @@ public class ProblemSkill implements Skill {
             rep++;
 			skillTimeSpent += System.currentTimeMillis() - problemStartTime;
 			problem = problem.next();
-            sender.send(new ChatItem("correct"));
+			String[] correct = bot.getResources().getStringArray(R.array.correct );
+            sender.send(new ChatItem(correct[new Random().nextInt(correct.length)]));
 		} else {
-            sender.send(new ChatItem("sorry, no."));
+			String[] incorrect = bot.getResources().getStringArray(R.array.incorrect );
+            sender.send(new ChatItem(incorrect[new Random().nextInt(incorrect.length)]));
         }
-		sender.send(new ChatItem("keep going"));
+		String[] encourage = bot.getResources().getStringArray(R.array.encourage );
+		sender.send(new ChatItem(encourage[new Random().nextInt(encourage.length)]));
     }
 
 	public int getPoints() {

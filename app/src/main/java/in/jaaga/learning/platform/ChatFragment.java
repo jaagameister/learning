@@ -1,5 +1,6 @@
 package in.jaaga.learning.platform;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -49,6 +50,8 @@ public class ChatFragment extends Fragment implements Sender {
 
 
     public ChatFragment() {
+        testBot = new Srini();
+        testBot.setSender(this);
     }
 
     public static ChatFragment newInstance() {
@@ -61,9 +64,7 @@ public class ChatFragment extends Fragment implements Sender {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        testBot = new Srini();
         testBot.onCreate(savedInstanceState);
-        testBot.setSender(this);
     }
 
     @Override
@@ -150,6 +151,7 @@ public class ChatFragment extends Fragment implements Sender {
             throw new RuntimeException(context.toString()
                     + " must implement ChatFragmentListener");
         }
+        testBot.onAttach(context);
     }
 
     @Override
