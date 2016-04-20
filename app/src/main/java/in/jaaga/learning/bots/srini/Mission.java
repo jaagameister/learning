@@ -46,7 +46,7 @@ public class Mission {
         //String levelUpText = ctx.getChatBot().levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints);
         //send(new ChatItem(levelUpText));
         skill = next;
-        sender.send(new ChatItem("levelUp"));
+        sender.send(new ChatItem(SriniStrings.levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints)));
     }
 
     private void setLevel(String level) {

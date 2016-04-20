@@ -59,14 +59,11 @@ public class ProblemSkill implements Skill {
             rep++;
 			skillTimeSpent += System.currentTimeMillis() - problemStartTime;
 			problem = problem.next();
-			String[] correct = bot.getResources().getStringArray(R.array.correct );
-            sender.send(new ChatItem(correct[new Random().nextInt(correct.length)]));
+            sender.send(new ChatItem(SriniStrings.correct()));
 		} else {
-			String[] incorrect = bot.getResources().getStringArray(R.array.incorrect );
-            sender.send(new ChatItem(incorrect[new Random().nextInt(incorrect.length)]));
+            sender.send(new ChatItem(SriniStrings.sorry()));
         }
-		String[] encourage = bot.getResources().getStringArray(R.array.encourage );
-		sender.send(new ChatItem(encourage[new Random().nextInt(encourage.length)]));
+		sender.send(new ChatItem(SriniStrings.encourage()));
     }
 
 	public int getPoints() {

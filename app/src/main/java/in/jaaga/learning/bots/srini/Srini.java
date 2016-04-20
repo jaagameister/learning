@@ -12,9 +12,11 @@ import in.jaaga.learning.bots.srini.problems.Subtraction;
  * Created by freeman on 19/4/16.
  */
 public class Srini extends Bot {
-    Mission mission = new Mission(sender);
+    Mission mission;
 
     public void init() {
+        SriniStrings.setResources(getResources());
+        mission = new Mission(sender);
         mission.add(new ProblemSkill(this, new Addition(10), 5, 100));
         mission.add(new ProblemSkill(this, new Subtraction(10), 5, 100));
     }
@@ -22,8 +24,9 @@ public class Srini extends Bot {
     public void onStart() {
         super.onStart();
         init();
-        String[] hello = getResources().getStringArray(R.array.hello);
-        sender.send(new ChatItem(hello[new Random().nextInt(hello.length)]));
+//        String[] hello = getResources().getStringArray(R.array.hello);
+//        sender.send(new ChatItem(hello[new Random().nextInt(hello.length)]));
+        sender.send(new ChatItem(SriniStrings.hello()));
         sender.send(mission.getPrompt());
     }
 

@@ -4,7 +4,6 @@ import java.util.*;
 
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.bots.srini.Problem;
-import in.jaaga.learning.bots.srini.ChatBot;
 
 public class DivisionRemainders implements Problem {
 	int dividendMax, divisorMax;
@@ -23,7 +22,7 @@ public class DivisionRemainders implements Problem {
 	}
 
 	public ChatItem getPromptChatItem() {
-		return new ChatItem(getPrompt(), ChatBot.Learning.NUMBER_RESPONSE);
+		return new ChatItem(getPrompt(), ChatItem.NUMBER_RESPONSE);
 	}
 
 	public boolean checkAnswer(String answer) {

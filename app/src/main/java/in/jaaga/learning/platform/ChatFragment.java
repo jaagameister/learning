@@ -20,14 +20,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.jaaga.learning.R;
-//import in.jaaga.learning.bots.srini.android.AndroidLanguageMission;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.api.Sender;
 import in.jaaga.learning.bots.EchoBot;
-import in.jaaga.learning.bots.srini.ChatBot;
 import in.jaaga.learning.bots.srini.Srini;
-//import in.jaaga.learning.missions.MathMission;
-//import in.jaaga.learning.missions.NegativeNumbers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -132,7 +128,7 @@ public class ChatFragment extends Fragment implements Sender {
         chatAdapter.notifyItemInserted(position);
         chat_view.scrollToPosition(position);
         chat_box.setText("");
-        if (item.getResponseType() == ChatBot.Learning.NUMBER_RESPONSE)
+        if (item.getResponseType() == ChatItem.NUMBER_RESPONSE)
                     chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
         else
             chat_box.setInputType(InputType.TYPE_CLASS_TEXT);

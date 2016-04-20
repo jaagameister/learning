@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.bots.srini.Problem;
-import in.jaaga.learning.bots.srini.ChatBot;
 
 /**
  * Created by freeman on 6/2/16.
@@ -17,7 +16,7 @@ public abstract class SimpleProblem implements Problem {
     }
 
     public ChatItem getPromptChatItem() {
-        return new ChatItem(getPrompt(), ChatBot.Learning.NUMBER_RESPONSE);
+        return new ChatItem(getPrompt(), ChatItem.NUMBER_RESPONSE);
     }
 
     public boolean checkAnswer(String answer) {
