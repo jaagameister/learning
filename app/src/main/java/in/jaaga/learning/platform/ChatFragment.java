@@ -23,6 +23,7 @@ import in.jaaga.learning.R;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.api.Sender;
 import in.jaaga.learning.bots.EchoBot;
+import in.jaaga.learning.bots.PictureBook;
 import in.jaaga.learning.bots.srini.Srini;
 
 /**
@@ -42,11 +43,11 @@ public class ChatFragment extends Fragment implements Sender {
     private EditText chat_box;
     private static ArrayList<ChatItem> chat_list;
     private  ChatAdapter chatAdapter;
-    private Srini testBot;
+    private PictureBook testBot;
 
 
     public ChatFragment() {
-        testBot = new Srini();
+        testBot = new PictureBook();
         testBot.setSender(this);
     }
 
@@ -116,6 +117,7 @@ public class ChatFragment extends Fragment implements Sender {
 
     @Override
     public void onStart() {
+        System.out.println("ChatFragment onStart called");
         super.onStart();
         testBot.onStart();
     }

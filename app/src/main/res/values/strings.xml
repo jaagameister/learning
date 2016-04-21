@@ -24,7 +24,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <!-- CHATBOT -->
+    <!-- SRINI Math Tutor -->
 
     <!-- Note to language dude or dame —
         Each array lists things Srini might say in the contexts described one by one below.
@@ -127,11 +127,8 @@
 
     <string name="invalid_mission">Invalid Mission</string>
 
-
-
     <!-- Mission descriptions -->
     <string name="basic_math_mission">Basic math including addition, subtraction, multiplication, division, negative numbers, decimals, and variables</string>
-
 
     <!-- SKILLS / PROBLEM TYPES -->
     <string name="addition_title">"Addition to %d"</string>
@@ -159,6 +156,16 @@
     <string name="simple_rounding_title">Simple Rounding</string>
     <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
+
+
+<!--  PRATHAM - PictureBook bot -->
+
+    <string-array name="books">
+        <item>moon</item>
+        <item>match</item>
+        <item>street</item>
+        <item>aaloo</item>
+    </string-array>
 
 
 </resources>

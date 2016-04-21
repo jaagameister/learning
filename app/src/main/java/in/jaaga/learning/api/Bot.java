@@ -42,4 +42,6 @@ abstract public class Bot {
     public Resources getResources() {
         return context.getResources();
     }
+
+    public String getPackageName() { return context.getPackageName(); }
 }
