@@ -167,5 +167,7 @@
         <item>aaloo</item>
     </string-array>
 
+    <string name="moon_blurb">Let me tell you about the Moon\'s hat.</string>
+    <string name="match_blurb">Would you like a story about a cricket game that was won by a dog?</string>
 
 </resources>

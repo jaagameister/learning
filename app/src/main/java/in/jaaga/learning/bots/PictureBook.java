@@ -24,10 +24,12 @@ public class PictureBook extends Bot {
 
     public void onStart() {
         books = getResources().getStringArray(R.array.books);
-        for (int i = 0; i < books.length; i++)
+        for (int i = 0; i < books.length; i++) {
             Log.d("load", "bookName: " + books[i]);
-        sender.send(new ChatItem("Would you like a story about a cricket game that was won by a dog?"));
+        }
         loadPages(books[0]);
+        onMessageReceived("");
+//        sender.send(new ChatItem("Would you like a story about a cricket game that was won by a dog?"));
     }
 
     private void loadPages(String bookName) {
@@ -49,11 +51,6 @@ public class PictureBook extends Bot {
         if (textId > 0)
             pageText = getResources().getStringArray(textId);
     }
-
-    public String getPrompt() {
-//        return pages[page++];
-        return "picture book";
-    };
 
     public void onMessageReceived(String text) {
         boolean load = false;
