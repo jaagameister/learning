@@ -16,7 +16,7 @@ public class PictureBook extends Bot {
     ArrayList<Integer> illustrations = new ArrayList<Integer>();
     String[] pageText;
     String[] books;
-    int book = 0;
+    int book = 2;
     int page = 0;
 
     public PictureBook() {
@@ -27,7 +27,7 @@ public class PictureBook extends Bot {
         for (int i = 0; i < books.length; i++) {
             Log.d("load", "bookName: " + books[i]);
         }
-        loadPages(books[0]);
+        loadPages(books[book]);
         onMessageReceived("");
 //        sender.send(new ChatItem("Would you like a story about a cricket game that was won by a dog?"));
     }
@@ -36,6 +36,7 @@ public class PictureBook extends Bot {
         System.out.println("load: "+bookName);
         int count = 1;
         System.out.println("picName: "+bookName+count);
+
         int resourceId = getResources().getIdentifier(bookName+count, "drawable",  getPackageName());
         Log.d("PictureBook", "resourceId " + resourceId);
         System.out.println("PictureBook + resourceId " + resourceId);
@@ -61,7 +62,7 @@ public class PictureBook extends Bot {
         }
 
         String pText = null;
-        if (pageText != null)
+        if (pageText != null && pageText.length > page)
             pText = pageText[page];
         else
             pText = "";
