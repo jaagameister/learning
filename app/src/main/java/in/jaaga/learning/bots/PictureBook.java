@@ -33,29 +33,34 @@ public class PictureBook extends Bot {
     }
 
     private void loadPages(String bookName) {
-        System.out.println("load: "+bookName);
+        System.out.println("load: " + bookName);
         int count = 1;
-        System.out.println("picName: "+bookName+count);
+        System.out.println("picName: " + bookName + count);
 
-        int resourceId = getResources().getIdentifier(bookName+count, "drawable",  getPackageName());
+        int resourceId = getResources().getIdentifier(bookName + count, "drawable", getPackageName());
         Log.d("PictureBook", "resourceId " + resourceId);
         System.out.println("PictureBook + resourceId " + resourceId);
         while (resourceId > 0) {
             illustrations.add(new Integer(resourceId));
             String pageName = bookName + (++count);
-            System.out.println("pageName: "+pageName);
+            System.out.println("pageName: " + pageName);
             resourceId = getResources().getIdentifier(pageName, "drawable", getPackageName());
             System.out.println("resourceId " + resourceId);
         }
 
         int textId = getResources().getIdentifier(bookName, "array", getPackageName());
-        if (textId > 0)
+        if (textId > 0) {
             pageText = getResources().getStringArray(textId);
+            Log.d("PicctureBook", "pageText " + pageText[0]);
+        } else {
+            pageText = null;
+        }
     }
 
     public void onMessageReceived(String text) {
         boolean load = false;
         if (page >= illustrations.size()) {
+            Log.d("onMessageReceived", "page >= illustrations.size");
             illustrations.clear();
             loadPages(books[(++book % books.length)]);
             page = 0;
