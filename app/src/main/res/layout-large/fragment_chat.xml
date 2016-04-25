@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".platform.ChatFragment"
-    android:padding="48dp">
+    android:padding="48dp"
+    android:background="#faf5f5">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_view"

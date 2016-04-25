@@ -158,7 +158,7 @@
     <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
 
 
-<!--  PRATHAM - PictureBook bot -->
+    <!--  PRATHAM - PictureBook bot -->
 
     <string-array name="books">
         <item>moon</item>
@@ -185,7 +185,6 @@
         <item>The very big eagle sitting on the tree blinked and flew far away.</item>
     </string-array>
     <string name="street_title">The street or a zoo</string>
-
 
 
 </resources>

@@ -1,8 +1,5 @@
 package in.jaaga.learning.platform;
 
-/**
- * Created by rkm on 22-12-2015.
- */
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

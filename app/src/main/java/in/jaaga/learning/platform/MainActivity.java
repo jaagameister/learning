@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -24,6 +25,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 import com.crashlytics.android.Crashlytics;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import in.jaaga.learning.api.ChatItem;
@@ -34,9 +36,15 @@ import io.fabric.sdk.android.Fabric;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ChatFragment.ChatFragmentListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ChatFragment.ChatFragmentListener,BotListFragment.BotListFragmentInterface {
 
     FragmentManager fragmentManager;
+
+    //Chat bot params
+    public static final String NAME = "name";
+    public static final String IMAGE = "image";
+    public static final String LAST_MESSSAGE = "last_message";
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -118,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Fabric.with(this, new Crashlytics());
 
-            setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -175,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fragmentManager = getSupportFragmentManager();
 
-        showChatFragment();
+        showHomeFragment();
 
         mVisible = true;
         mContentView = findViewById(R.id.fullscreen_toggle);
@@ -194,8 +202,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
     }
 
+    //Show the list of bots available!
+    private void showHomeFragment(){
+
+        if(fragmentManager!=null){
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.content_container,new HomeTabs().newInstance(),"homeTabsFragment");
+            transaction.commit();
+        }
+    }
+
     //Show the chat fragment
-    private void showChatFragment(){
+ /*   private void showChatFragment(){
         chatFragment = ChatFragment.newInstance();
 
         if(fragmentManager!=null){
@@ -210,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
-    }
+    }*/
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -277,6 +295,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
     }
 
@@ -302,5 +321,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
+    @Override
+    public void switchToFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_container,fragment,"chatFragment")
+                .addToBackStack(String.valueOf(fragment.getId()))
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commitAllowingStateLoss();
+    }
 }

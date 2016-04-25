@@ -1,6 +1,5 @@
 package in.jaaga.learning.platform;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,11 +19,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.jaaga.learning.R;
+import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.api.Sender;
-import in.jaaga.learning.bots.EchoBot;
 import in.jaaga.learning.bots.PictureBook;
-import in.jaaga.learning.bots.srini.Srini;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,23 +43,28 @@ public class ChatFragment extends Fragment implements Sender {
     private  ChatAdapter chatAdapter;
     private PictureBook testBot;
 
+    private static Bot mBot;
+
 
     public ChatFragment() {
-        testBot = new PictureBook();
-        testBot.setSender(this);
+
+        if(mBot!=null)
+            mBot.setSender(this);
     }
 
-    public static ChatFragment newInstance() {
+    public static ChatFragment newInstance(Object bot) {
+        mBot = (Bot) bot;
+        chat_list = new ArrayList<>();
         ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
-        chat_list = new ArrayList<>();
-         return fragment;
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        testBot.onCreate(savedInstanceState);
+        //testBot.onCreate(savedInstanceState);
+        mBot.onCreate(savedInstanceState);
     }
 
     @Override
@@ -119,7 +122,8 @@ public class ChatFragment extends Fragment implements Sender {
     public void onStart() {
         System.out.println("ChatFragment onStart called");
         super.onStart();
-        testBot.onStart();
+        //testBot.onStart();
+        mBot.onStart();
     }
 
     @Override
@@ -136,7 +140,8 @@ public class ChatFragment extends Fragment implements Sender {
             chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
 
         if (item.getSender().equals(USER_NAME)) {
-            testBot.onMessageReceived(item.getMessage());
+            //testBot.onMessageReceived(item.getMessage());
+            mBot.onMessageReceived(item.getMessage());
         }
     }
 
@@ -146,10 +151,9 @@ public class ChatFragment extends Fragment implements Sender {
         if (context instanceof ChatFragmentListener) {
             mListener = (ChatFragmentListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement ChatFragmentListener");
+
         }
-        testBot.onAttach(context);
+        mBot.onAttach(context);
     }
 
     @Override
