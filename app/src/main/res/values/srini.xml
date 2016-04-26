@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- SRINI Math Tutor -->
+
+    <!-- Note to language dude or dame —
+        Each array lists things Srini might say in the contexts described one by one below.
+        App will pick one option at random at any given time. You can include as many different 
+        "lines" as come to mind, or as few as one. Each line should be natural, casual, &
+        idiomatic. What would a young adult or teenager say to a slightly younger person in these
+        contexts in the language and culture You working with? --> 
+    <!-- You can include alternatives from different dialects, as long as each line can be
+        generally understood by all speakers of the language at large. --> 
+    <!-- Some lines is used more often than others in real life. You can get Srini to use certain
+        lines more than others by including the more common lines more than once (in the relevant
+        array). --> 
+
+    <string-array name="hello">
+        <!-- ways for Srini to greet You at the start -->
+        <item>Hello!</item>
+        <item>Hey there.</item>
+        <item>Namaste.</item>
+    </string-array>
+
+    <string-array name="bye">
+        <!-- ways for Srini to say goodbye -->
+        <item>Bye...</item>
+        <item>Bye...</item>
+        <item>Bye now...</item>
+        <item>See you.</item>
+        <item>So long. See you...</item>
+        <item>See you later.</item>
+        <item>See you later.</item>
+        <item>See you later, alligator.</item>
+        <item>Take care. Bye!</item>
+        <item>Take care!</item>
+        <item>Adios, amigo.</item>
+        <item>Later!</item>
+    </string-array>
+
+    <string-array name="correct">
+        <!-- ways for Srini to tell You You got it right -->
+        <item>Right.</item>
+        <item>Right.</item>
+        <item>Right!</item>
+        <item>Correct.</item>
+        <item>That\'s right.</item>
+        <item>Yes!</item>
+        <item>That\'s it.</item>
+        <item>Exactly.</item>
+        <item>You got it.</item>
+        <item>You nailed it.</item>
+        <item>Good!</item>
+        <item>Nice.</item>
+        <item>Good job.</item>
+    </string-array>
+
+    <string-array name="incorrect">
+        <!-- ways for Srini to tell You You didn't get it right -->
+        <item>That\'s not the answer I\'m looking for.</item>
+        <item>Hmm... Not quite.</item>
+        <item>No, that\'s not it.</item>
+        <item>Nice try, but not quite.</item>
+        <item>Uh-oh. That\'s not it.</item>
+        <item>No. Let\'s try this again.</item>
+        <item>Try again.</item>
+    </string-array>
+
+    <string-array name="encourage">
+        <!-- ways for Srini to encourage You or say a kind word,
+         such as after You answer a question right -->
+        <item>You\'re doing great.</item>
+        <item>So far so good.</item>
+        <item>You\'re on a roll!</item>
+        <item>Show them how it\'s done!</item>
+        <item>Keep up the good work.</item>
+        <item>Keep it up.</item>
+        <item>Keep going.</item>
+        <item>You\'re getting there.</item>
+    </string-array>
+
+    <string-array name="one_left">
+        <!-- ways for Srini to say You got one problem left in the section -->
+        <item>Just one problem left in this skill.</item>
+        <item>Only one more to go in this skill.</item>
+    </string-array>
+
+    <string-array name="ask_name">
+        <!-- ways for Srini to get your name -->
+        <item>What\'s your name?</item>
+    </string-array>
+
+    <!-- what Srini tell You when You get through a skill -->
+    <string name="level_up">Congratulations!!! You passed %1$s\
+        and earned %2$d points. You now have %3$d total points.\
+        Now it\'s time to practice %4$s.</string>
+
+    <string-array name="admin_prompt">
+        <!-- ways for a powerful being in the culture(s) or myths pertaining to your language to
+        tell the user it's at his/her service --> 
+        <!-- example: genie in a bottle saying, "Your wish is my command." -->
+        <item>Yes, Master...</item>
+    </string-array>
+
+    <string name="invalid_mission">Invalid Mission</string>
+
+    <!-- Mission descriptions -->
+    <string name="basic_math_mission">Basic math including addition, subtraction, multiplication, division, negative numbers, decimals, and variables</string>
+
+    <!-- SKILLS / PROBLEM TYPES -->
+    <string name="addition_title">"Addition to %d"</string>
+    <string name="rounding_title">Rounding Numbers upto 3 decimal places</string>
+    <string name="addition_negative_title">"Addition to %d with negative numbers"</string>
+    <string name="decimal_addition_title">Addition to %d with Decimals</string>
+    <string name="decimal_division_title">Decimal Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="decimal_multiplication_title">Decimal Multiplication to %d</string>
+    <string name="division_title">Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="division_remainders_title">Division with Remainders with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="fractions_title">Fractions</string>
+    <string name="multiplication_title">Multiplication to %d</string>
+    <string name="multiplication_negative_title">Multiplication to %d with Negative Numbers</string>
+    <string name="number_sequences_title">Number Sequences</string>
+    <string name="percentages_title">Percentages</string>
+    <string name="subtraction_title">Subtraction to %d</string>
+    <string name="subtraction_negative_title">Subtraction to %d with Negative Numbers</string>
+    <string name="var_addition_title">Variable Addition to %d</string>
+    <string name="var_division_title">Variable Division with Dividends to %1$d and Divisors to %2$d</string>
+    <string name="var_multiplication_title">Variable Multiplication to %d</string>
+    <string name="var_subtraction_title">Variable Subtraction to %d</string>
+    <string name="equation_title">Simple equations with one variable</string>
+    <string name="function_title">Simple functions with variable substitution</string>
+    <string name="linear_function_title">Linear Functions</string>
+    <string name="simple_rounding_title">Simple Rounding</string>
+    <!-- TEMPLATE FOR FURTHER PROBLEM TYPES: --> 
+    <!-- <string name="problem_type_title">Problem Type to %d</string> --> 
+</resources>
