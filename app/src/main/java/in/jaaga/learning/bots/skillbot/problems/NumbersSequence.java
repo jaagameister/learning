@@ -1,4 +1,4 @@
-package in.jaaga.learning.bots.srini.problems;
+package in.jaaga.learning.bots.skillbot.problems;
 
 /**
  * Created by Matteo on 04/02/2016.
@@ -7,7 +7,7 @@ package in.jaaga.learning.bots.srini.problems;
 import java.util.ArrayList;
 import java.util.Random;
 
-import in.jaaga.learning.bots.srini.Problem;
+import in.jaaga.learning.bots.skillbot.Problem;
 
 public class NumbersSequence extends SimpleProblem {
     int difficulty;

@@ -1,4 +1,4 @@
-package in.jaaga.learning.bots.srini;
+package in.jaaga.learning.bots.skillbot;
 
 import java.util.HashMap;
 

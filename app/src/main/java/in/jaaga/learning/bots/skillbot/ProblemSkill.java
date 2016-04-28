@@ -1,15 +1,10 @@
-package in.jaaga.learning.bots.srini;
+package in.jaaga.learning.bots.skillbot;
 
 import java.util.HashMap;
-import java.util.Properties;
-import java.util.Random;
 
-import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.api.Sender;
-import in.jaaga.learning.bots.srini.Problem;
-import in.jaaga.learning.bots.srini.Skill;
 
 public class ProblemSkill implements Skill {
 	Sender sender;
@@ -62,11 +57,11 @@ public class ProblemSkill implements Skill {
             rep++;
 			skillTimeSpent += System.currentTimeMillis() - problemStartTime;
 			problem = problem.next();
-            sender.send(new ChatItem(SriniStrings.correct()));
+            sender.send(new ChatItem(StringUtil.correct()));
 		} else {
-            sender.send(new ChatItem(SriniStrings.sorry()));
+            sender.send(new ChatItem(StringUtil.sorry()));
         }
-		sender.send(new ChatItem(SriniStrings.encourage()));
+		sender.send(new ChatItem(StringUtil.encourage()));
     }
 
 	public int getPoints() {

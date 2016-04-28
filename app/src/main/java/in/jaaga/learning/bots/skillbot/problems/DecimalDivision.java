@@ -1,11 +1,11 @@
-package in.jaaga.learning.bots.srini.problems;
+package in.jaaga.learning.bots.skillbot.problems;
 
 //import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import in.jaaga.learning.bots.srini.Problem;
+import in.jaaga.learning.bots.skillbot.Problem;
 
 /**
  * Created by root on 6/2/16.

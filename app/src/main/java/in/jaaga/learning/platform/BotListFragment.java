@@ -1,13 +1,10 @@
 package in.jaaga.learning.platform;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +14,9 @@ import java.util.HashMap;
 
 import in.jaaga.learning.R;
 import in.jaaga.learning.bots.EchoBot;
+import in.jaaga.learning.bots.NumberGuess;
 import in.jaaga.learning.bots.PictureBook;
-import in.jaaga.learning.bots.srini.Srini;
+import in.jaaga.learning.bots.skillbot.SkillBot;
 import in.jaaga.learning.platform.adapter.BotList;
 import in.jaaga.learning.platform.adapter.OnItemClickListener;
 
@@ -55,7 +53,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
         bot.put(MainActivity.NAME,"Pratham Ji");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.default_profile_large));
-        bot.put(MainActivity.LAST_MESSSAGE,"Hello,i'm Pratham");
+        bot.put(MainActivity.LAST_MESSSAGE,"Let me tell you a story.");
 
         bot_list.add(bot);
 
@@ -66,6 +64,15 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot.put(MainActivity.LAST_MESSSAGE,"I'm your Echo!");
 
         bot_list.add(bot);
+
+        bot = new HashMap<>();
+
+        bot.put(MainActivity.NAME,"Number Guess");
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.default_profile_large));
+        bot.put(MainActivity.LAST_MESSSAGE,"Think of a number any number...");
+
+        bot_list.add(bot);
+
 
         /********************************************************************************/
     }
@@ -127,7 +134,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         switch (position){
             case 0:
 
-                switchToFragment(new ChatFragment().newInstance(new Srini()));
+                switchToFragment(new ChatFragment().newInstance(new SkillBot()));
 
                 break;
             case 1:
@@ -139,6 +146,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
             case 2:
 
                 switchToFragment(new ChatFragment().newInstance(new EchoBot()));
+
+                break;
+
+            case 3:
+
+                switchToFragment(new ChatFragment().newInstance(new NumberGuess()));
 
                 break;
         }

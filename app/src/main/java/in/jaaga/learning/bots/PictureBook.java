@@ -51,7 +51,7 @@ public class PictureBook extends Bot {
         int textId = getResources().getIdentifier(bookName, "array", getPackageName());
         if (textId > 0) {
             pageText = getResources().getStringArray(textId);
-            Log.d("PicctureBook", "pageText " + pageText[0]);
+            Log.d("PictureBook", "pageText " + pageText[0]);
         } else {
             pageText = null;
         }

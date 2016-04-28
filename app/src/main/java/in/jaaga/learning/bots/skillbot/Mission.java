@@ -1,4 +1,4 @@
-package in.jaaga.learning.bots.srini;
+package in.jaaga.learning.bots.skillbot;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class Mission {
         //String levelUpText = ctx.getChatBot().levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints);
         //send(new ChatItem(levelUpText));
         skill = next;
-        sender.send(new ChatItem(SriniStrings.levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints)));
+        sender.send(new ChatItem(StringUtil.levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints)));
     }
 
     private void setLevel(String level) {

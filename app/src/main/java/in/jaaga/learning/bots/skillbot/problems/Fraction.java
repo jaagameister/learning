@@ -1,8 +1,8 @@
-package in.jaaga.learning.bots.srini.problems;
+package in.jaaga.learning.bots.skillbot.problems;
 
 import java.util.*;
 
-import in.jaaga.learning.bots.srini.Problem;
+import in.jaaga.learning.bots.skillbot.Problem;
 
 /**
  * Created by Dheeraj on 8/2/16.

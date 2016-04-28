@@ -1,4 +1,4 @@
-package in.jaaga.learning.bots.srini;
+package in.jaaga.learning.bots.skillbot;
 
 import android.content.res.Resources;
 
@@ -6,7 +6,7 @@ import java.util.Random;
 
 import in.jaaga.learning.*;
 
-public class SriniStrings {
+public class StringUtil {
 	static Random random = new Random();
 	static Resources res;
 

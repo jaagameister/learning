@@ -1,29 +1,27 @@
-package in.jaaga.learning.bots.srini;
-
-import java.util.Random;
+package in.jaaga.learning.bots.skillbot;
 
 import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
-import in.jaaga.learning.bots.srini.problems.Addition;
-import in.jaaga.learning.bots.srini.problems.DecimalDivision;
-import in.jaaga.learning.bots.srini.problems.DecimalMultiplication;
-import in.jaaga.learning.bots.srini.problems.Division;
-import in.jaaga.learning.bots.srini.problems.Multiplication;
-import in.jaaga.learning.bots.srini.problems.Subtraction;
-import in.jaaga.learning.bots.srini.problems.VariableAddition;
-import in.jaaga.learning.bots.srini.problems.VariableDivision;
-import in.jaaga.learning.bots.srini.problems.VariableMultiplication;
-import in.jaaga.learning.bots.srini.problems.VariableSubtraction;
+import in.jaaga.learning.bots.skillbot.problems.Addition;
+import in.jaaga.learning.bots.skillbot.problems.DecimalDivision;
+import in.jaaga.learning.bots.skillbot.problems.DecimalMultiplication;
+import in.jaaga.learning.bots.skillbot.problems.Division;
+import in.jaaga.learning.bots.skillbot.problems.Multiplication;
+import in.jaaga.learning.bots.skillbot.problems.Subtraction;
+import in.jaaga.learning.bots.skillbot.problems.VariableAddition;
+import in.jaaga.learning.bots.skillbot.problems.VariableDivision;
+import in.jaaga.learning.bots.skillbot.problems.VariableMultiplication;
+import in.jaaga.learning.bots.skillbot.problems.VariableSubtraction;
 
 /**
  * Created by freeman on 19/4/16.
  */
-public class Srini extends Bot {
+public class SkillBot extends Bot {
     Mission mission;
 
     public void init() {
-        SriniStrings.setResources(getResources());
+        StringUtil.setResources(getResources());
         mission = new Mission(sender);
 
         mission.add(new ProblemSkill(this, title(R.string.addition_title, 10),  new Addition(10), 5, 100));
@@ -58,7 +56,7 @@ public class Srini extends Bot {
         init();
 //        String[] hello = getResources().getStringArray(R.array.hello);
 //        sender.send(new ChatItem(hello[new Random().nextInt(hello.length)]));
-        sender.send(new ChatItem(SriniStrings.hello()));
+        sender.send(new ChatItem(StringUtil.hello()));
         sender.send(mission.getPrompt());
     }
 
