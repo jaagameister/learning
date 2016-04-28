@@ -53,7 +53,7 @@ public class BotList extends RecyclerView.Adapter<BotList.ViewHolder> {
         holder.name.setText(name);
         holder.last_msg.setText(last_msg);
 
-        holder.imageView.setImageResource(R.drawable.default_profile_large);
+        holder.imageView.setImageResource(Integer.parseInt(image));
 
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
