@@ -1,18 +1,18 @@
 package in.jaaga.learning.bots;
 
+
 import android.os.AsyncTask;
 import android.util.Log;
 
-//import com.memetix.mst.language.Language;
-//import com.memetix.mst.translate.Translate;
+import com.memetix.mst.language.Language;
+import com.memetix.mst.translate.Translate;
 
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 
-/**
- * Created by root on 2/5/16.
- */
-/*
+//Created by harish on 2/5/16.
+
+
 public class TranslatorBot extends Bot {
 
     private String toLanguage;
@@ -183,4 +183,4 @@ public class TranslatorBot extends Bot {
         }
     }
 }
-*/
+
