@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
@@ -125,8 +126,12 @@ public class ChatFragment extends Fragment implements Sender {
         mBot.onStart();
     }
 
+    //TODO replace option string with telegram style buttons. @amar
     @Override
-    public void send(ChatItem item){
+    public void send(ChatItem item) {
+        if (item.getResponseOptions() != null) {
+            item.setMessage(item.getMessage() + "\n" + makeOptionString(item.getResponseOptions()));
+        }
         chat_list.add(item);
 
         int position = chat_list.size()-1;
@@ -144,6 +149,30 @@ public class ChatFragment extends Fragment implements Sender {
         }
 
 
+    }
+
+    private String makeOptionString(String[] opts) {
+        String[] options = randomize(opts);
+        if (options == null || options.length == 0)
+            return "";
+        StringBuffer s = new StringBuffer("(");
+        s.append(options[0]);
+        for (int i = 1; i < options.length; i++) {
+            s.append(" | " + options[i]);
+        }
+        s.append(")");
+        return s.toString();
+    }
+
+    private String[] randomize(String[] options) {
+        Random r = new Random();
+        for (int i = 0; i < options.length; i++) {
+            int index = r.nextInt(options.length);
+            String tmp = options[index];
+            options[index] = options[i];
+            options[i] = tmp;
+        }
+        return options;
     }
 
     @Override

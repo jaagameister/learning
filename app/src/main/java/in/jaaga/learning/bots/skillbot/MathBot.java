@@ -17,7 +17,7 @@ import in.jaaga.learning.bots.skillbot.problems.VariableSubtraction;
 /**
  * Created by freeman on 19/4/16.
  */
-public class SkillBot extends Bot {
+public class MathBot extends Bot {
     Mission mission;
 
     public void init() {
@@ -54,8 +54,6 @@ public class SkillBot extends Bot {
     public void onStart() {
         super.onStart();
         init();
-//        String[] hello = getResources().getStringArray(R.array.hello);
-//        sender.send(new ChatItem(hello[new Random().nextInt(hello.length)]));
         sender.send(new ChatItem(StringUtil.hello()));
         sender.send(mission.getPrompt());
     }
@@ -63,10 +61,6 @@ public class SkillBot extends Bot {
     public void onMessageReceived(String text) {
         mission.processResponse(text);
         sender.send(mission.getPrompt());
-    }
-
-    private String title(int resourceId) {
-        return getResources().getString(resourceId);
     }
 
     private String title(int resourceId, int arg0) {

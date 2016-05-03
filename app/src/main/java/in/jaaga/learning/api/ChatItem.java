@@ -41,7 +41,14 @@ public class ChatItem implements Serializable {
     }
 
     // TODO: use these options to create buttons for custom keyboard
-    public void setResponseOptions(String[] options) {}
+    String[] options;
+    public void setResponseOptions(String[] options) {
+        this.options = options;
+    }
+
+    public String[] getResponseOptions() {
+        return options;
+    }
 
     public String getSender() {
         return sender;

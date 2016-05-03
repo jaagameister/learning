@@ -3,8 +3,8 @@ package in.jaaga.learning.bots;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.memetix.mst.language.Language;
-import com.memetix.mst.translate.Translate;
+//import com.memetix.mst.language.Language;
+//import com.memetix.mst.translate.Translate;
 
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
@@ -12,6 +12,7 @@ import in.jaaga.learning.api.ChatItem;
 /**
  * Created by root on 2/5/16.
  */
+/*
 public class TranslatorBot extends Bot {
 
     private String toLanguage;
@@ -35,9 +36,9 @@ public class TranslatorBot extends Bot {
             // TODO: uncomment when added in fragment.
             translate(text);
         }
-        /*else if {
-            friendlyBot(text);
-        }*/
+//        else if {
+//            friendlyBot(text);
+//        }
         else sender.send(new ChatItem("To translate add @language to it. For example:" +
                 " @hindi What is your name?",ChatItem.TEXT_RESPONSE));
     }
@@ -182,3 +183,4 @@ public class TranslatorBot extends Bot {
         }
     }
 }
+*/
