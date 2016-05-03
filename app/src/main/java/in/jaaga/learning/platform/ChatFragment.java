@@ -47,7 +47,6 @@ public class ChatFragment extends Fragment implements Sender {
 
 
     public ChatFragment() {
-
         if(mBot!=null)
             mBot.setSender(this);
     }
@@ -143,6 +142,8 @@ public class ChatFragment extends Fragment implements Sender {
             //testBot.onMessageReceived(item.getMessage());
             mBot.onMessageReceived(item.getMessage());
         }
+
+
     }
 
     @Override

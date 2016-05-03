@@ -44,4 +44,5 @@ abstract public class Bot {
     }
 
     public String getPackageName() { return context.getPackageName(); }
+
 }
