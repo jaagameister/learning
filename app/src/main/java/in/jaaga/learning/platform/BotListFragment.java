@@ -14,9 +14,11 @@ import java.util.HashMap;
 
 import in.jaaga.learning.R;
 import in.jaaga.learning.bots.EchoBot;
+import in.jaaga.learning.bots.GrammarBot;
 import in.jaaga.learning.bots.NumberGuess;
 import in.jaaga.learning.bots.PictureBook;
-import in.jaaga.learning.bots.skillbot.SkillBot;
+//import in.jaaga.learning.bots.TranslatorBot;
+import in.jaaga.learning.bots.skillbot.MathBot;
 import in.jaaga.learning.platform.adapter.BotList;
 import in.jaaga.learning.platform.adapter.OnItemClickListener;
 
@@ -73,6 +75,19 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
         bot_list.add(bot);
 
+        bot = new HashMap<>();
+        bot.put(MainActivity.NAME,"Grammar Bot");
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot3));
+        bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
+        bot_list.add(bot);
+
+
+  /*      bot = new HashMap<>();
+        bot.put(MainActivity.NAME,"Bing");
+        bot.put(MainActivity.LAST_MESSSAGE,"Translate anything you want..");
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot4));
+        bot_list.add(bot);
+*/
 
         /********************************************************************************/
     }
@@ -134,7 +149,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         switch (position){
             case 0:
 
-                switchToFragment(new ChatFragment().newInstance(new SkillBot()));
+                switchToFragment(new ChatFragment().newInstance(new MathBot()));
 
                 break;
             case 1:
@@ -154,7 +169,19 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
                 switchToFragment(new ChatFragment().newInstance(new NumberGuess()));
 
                 break;
-        }
+
+            case 4:
+
+                switchToFragment(new ChatFragment().newInstance(new GrammarBot()));
+
+                break;
+
+/*            case 5:
+
+                switchToFragment(new ChatFragment().newInstance(new TranslatorBot()));
+
+                break;
+*/        }
 
 
     }

@@ -10,6 +10,7 @@ import in.jaaga.learning.api.ChatItem;
 public class EchoBot extends Bot {
 
     public void onMessageReceived(String text) {
+
         sender.send(new ChatItem(text, ChatItem.TEXT_RESPONSE));
     }
 }
