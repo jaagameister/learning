@@ -12,23 +12,11 @@ abstract public class Bot {
     public Sender sender;
     public Context context;
 
-    // Life cycle methods
-    public void onCreate(Bundle savedInstanceState) {}
-
-    public void onAttach(Context context) {
+    public final void onAttach(Context context) {
         this.context = context;
     }
 
     public void onStart() {}
-
-    public void onResume() {}
-
-    public void onPause() {}
-
-    public void onStop() {}
-
-    public void onDestroy() {}
-
 
     // Communication methods
     public void onMessageReceived(String text) {}
