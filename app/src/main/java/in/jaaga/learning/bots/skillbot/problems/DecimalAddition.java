@@ -1,91 +1,46 @@
-//package in.jaaga.learning.bots.srini.problems;
-//
-//import java.util.*;
-//import java.math.*;
-//
-//import in.jaaga.learning.api.ChatItem;
-//import in.jaaga.learning.bots.srini.ChatBot.Learning;
-//import in.jaaga.learning.bots.srini.Problem;
-//
-//public class DecimalAddition implements Problem {
-//
-//	int max, min, digitsNumber;
-//	BigDecimal a, b, c;
-//	ArrayList<String> answerList = new ArrayList<String>();
-//
-//    public DecimalAddition (int max, int min, int digitsNumber) {
-//		this.max = max;
-//		this.min = min;
-//		this.digitsNumber = digitsNumber;
-//
-//		a = generateRandomBigDecimal();
-//		a = a.setScale(digitsNumber, RoundingMode.CEILING);
-//		b = generateRandomBigDecimal();
-//		b = b.setScale(digitsNumber, RoundingMode.CEILING);
-//		c = new BigDecimal(0).add(a).add(b);
-//		c = c.setScale(digitsNumber, RoundingMode.CEILING);
-//
-//		String loopAnswer = String.valueOf(c);
-//
-//		if (loopAnswer.matches("\\d+.\\d+0+|\\d+.0+")){
-//
-//			int len = loopAnswer.length();
-//			int j = 0;
-//			while (loopAnswer.substring(len - j - 1,len -j).equals("0")){
-//				j++;
-//			}
-//
-//			if (loopAnswer.matches("\\d+.0+")) {
-//				answerList.add(loopAnswer.substring(0, 1));
-//			} else {
-//				j++;
-//			}
-//
-//			for (int i = 0; i < j; i++){
-//				answerList.add(loopAnswer.substring(0, loopAnswer.length() - i));
-//			}
-//		} else {
-//			answerList.add(String.valueOf(c));
-//		}
-//    }
-//
-//	public String getPrompt() {
-//		return a + " + " + b + " = ?";
-//	}
-//
-//	public ChatItem getPromptChatItem() {
-//		return new ChatItem(getPrompt(), Learning.NUMBER_RESPONSE);
-//	}
-//
-//	public boolean checkAnswer(String ans) {
-//		return answerList.contains(ans);
-//	}
-//
-//	BigDecimal generateRandomBigDecimal(){
-//		int range = (max - min);
-//		BigDecimal randomNumber = new BigDecimal((Math.random() * range) + min);
-//		return randomNumber;
-//	}
-//
-//	public String getHint() {
-//		String answer = "";
-//		if (answerList.size() == 1) {
-//			answer = "The answer is: " + answerList.get(0);
-//		} else {
-//			answer = "Possible answers:\n";
-//			for (String s : answerList) {
-//				answer = answer.concat(s).concat("\n");
-//			}
-//			answer = answer.substring(0, answer.length()-2);
-//		}
-//		return answer;
-//	}
-//
-//	public Problem next() {
-//		return new DecimalAddition(max, min, digitsNumber);
-//	}
-//
-//    public String getTitle() {
-//    	return "Decimal addition with variables upto " + max;
-//    }
-//}
+package in.jaaga.learning.bots.skillbot.problems;
+
+import java.util.*;
+import java.math.*;
+
+import in.jaaga.learning.bots.skillbot.Problem;
+
+public class DecimalAddition extends SimpleProblem {
+    int max1, max2, places;
+    double ans;
+
+    /**
+     * places represent how many digits after the decimal point.
+     * ie. 0 places means generate an integer number
+     * 1 place means generate a number like 10.1
+     * @param max1
+     * @param max2
+     * @param places
+     */
+    public DecimalAddition(int max1, int max2, int places) {
+        this.max1 = max1;
+        this.max2 = max2;
+        this.places = places;
+
+        double ten = Math.pow(10, places);
+
+        Random r = new Random();
+        double a = r.nextInt((int)Math.round(max1 * ten)) / ten;
+        double b = r.nextInt((int)Math.round(max2 * ten)) / ten;
+
+        ans = Math.round((a+b)*ten)/ten;
+        prompt = a + " + " + b + " = ?";
+    }
+
+    public boolean checkAnswer(String text) {
+        try {
+            return Double.parseDouble(text) == ans;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public Problem next() {
+        return new DecimalAddition(max1, max2, places);
+    }
+}

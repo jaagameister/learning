@@ -4,9 +4,13 @@ import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.bots.skillbot.problems.Addition;
+import in.jaaga.learning.bots.skillbot.problems.DecimalAddition;
 import in.jaaga.learning.bots.skillbot.problems.DecimalDivision;
 import in.jaaga.learning.bots.skillbot.problems.DecimalMultiplication;
+import in.jaaga.learning.bots.skillbot.problems.DecimalSubtraction;
 import in.jaaga.learning.bots.skillbot.problems.Division;
+import in.jaaga.learning.bots.skillbot.problems.Equation;
+import in.jaaga.learning.bots.skillbot.problems.Function;
 import in.jaaga.learning.bots.skillbot.problems.Multiplication;
 import in.jaaga.learning.bots.skillbot.problems.Subtraction;
 import in.jaaga.learning.bots.skillbot.problems.VariableAddition;
@@ -49,14 +53,26 @@ public class MathBot extends Bot {
         mission.add(new ProblemSkill(this, title(R.string.multiplication_negative_title, 30), new Multiplication(-12, 12), 5, 200));
 
         // decimals
+        mission.add(new ProblemSkill(this, title(R.string.decimal_addition_title, 100),
+                new DecimalAddition(10, 10, 1), 10, 100));
+        mission.add(new ProblemSkill(this, title(R.string.decimal_addition_title, 100),
+                new DecimalSubtraction(10, 10, 1), 10, 100));
         mission.add(new ProblemSkill(this, title(R.string.decimal_multiplication_title, 100),
                 new DecimalMultiplication(10, 1, 10, 0), 10, 100));
-        mission.add(new ProblemSkill(this, title(R.string.decimal_division_title, 100, 10), new DecimalDivision(100,10),5,100));
 
+// TODO: introduce rounding first
+//        mission.add(new ProblemSkill(this, title(R.string.decimal_division_title, 100, 10), new DecimalDivision(100,10),5,100));
+
+        // variables, Equations & Functions
         mission.add(new ProblemSkill(this, title(R.string.var_addition_title, 100), new VariableAddition(100), 8, 100));
         mission.add(new ProblemSkill(this, title(R.string.var_subtraction_title, 100), new VariableSubtraction(100), 8, 100));
         mission.add(new ProblemSkill(this, title(R.string.var_multiplication_title, 10), new VariableMultiplication(10, 10), 8, 100));
         mission.add(new ProblemSkill(this, title(R.string.var_division_title, 100, 10), new VariableDivision(100, 10), 8, 100));
+
+        mission.add(new ProblemSkill(this, "Equations", new Equation(), 5, 100));
+        mission.add(new ProblemSkill(this, "Functions", new Function(), 5, 100));
+        mission.add(new ProblemSkill(this, "Equations", new Equation(), 25, 100));
+        mission.add(new ProblemSkill(this, "Functions", new Function(), 50, 100));
     }
 
     public void onStart() {
