@@ -20,11 +20,6 @@ public class LinearFunction extends SimpleProblem {
     }
 
     @Override
-    public String getTitle() {
-        return "Linear function";
-    }
-
-    @Override
     public Problem next() {
         return new LinearFunction();
     }

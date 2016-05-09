@@ -19,11 +19,6 @@ public class RoundingProblems extends SimpleProblem implements Problem {
     }
 
     @Override
-    public String getTitle() {
-        return "Rounding problems upto 3 decimal places./n For example, 3.1426898 = 3.143";
-    }
-
-    @Override
     public Problem next() {
         return new RoundingProblems();
     }

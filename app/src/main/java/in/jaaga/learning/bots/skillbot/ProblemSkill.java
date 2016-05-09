@@ -68,15 +68,9 @@ public class ProblemSkill implements Skill {
 		return points;
 	}
 
-	public String getHint() {
-		hinted = true;
-		points = points / 2;
-		return problem.getHint();
+	public String getTitle() {
+		return title;
 	}
-
-    public String getTitle() {
-        return title;
-    }
 
 	public void save(HashMap session) {
         problem.save(session);

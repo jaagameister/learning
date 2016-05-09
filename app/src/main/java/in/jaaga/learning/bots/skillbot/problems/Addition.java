@@ -5,32 +5,27 @@ import java.util.*;
 import in.jaaga.learning.bots.skillbot.Problem;
 
 public class Addition extends SimpleProblem {
-    int max;
+    int max1, max2;
 
     public Addition(int max) {
-        this.max = max;
-        int a, b;
-        if (max > 0) {
-			a = new Random().nextInt(max);
-			b = new Random().nextInt(max);
-        } else {  // max is negative
-            a = new Random().nextInt(max * -2) - (-max);
-            b = new Random().nextInt(max * -2) - (-max);
-        }
+        this(max, max);
+    }
+
+    public Addition(int max1, int max2) {
+        this.max1 = max1;
+        this.max2 = max2;
+
+        Random r = new Random();
+        int a = r.nextInt(Math.abs(max1));
+        if (max1 < 0) a *= -1;
+        int b = r.nextInt(Math.abs(max2));
+        if (max2 < 0) b *= -1;
         prompt = a + " + " + b + " = ?";
         answer = Integer.toString(a + b);
     }
 
     public Problem next() {
-        return new Addition(max);
-    }
-
-    public String getTitle() {
-        int m = Math.abs(max);
-        if (max > 0)
-            return "Addition to "+max;
-        else
-            return "Addition to "+max+"with negative numbers";
+        return new Addition(max1, max2);
     }
 }
 

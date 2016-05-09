@@ -23,23 +23,29 @@ public class MathBot extends Bot {
     public void init() {
         StringUtil.setResources(getResources());
         mission = new Mission(sender);
+/*
+        // addition
+        mission.add(new ProblemSkill(this, title(R.string.addition_title, 10),  new Addition(10), 10, 100));
+        mission.add(new ProblemSkill(this, title(R.string.addition_title, 100), new Addition(100), 7, 100));
+        mission.add(new ProblemSkill(this, title(R.string.addition_title, 1000), new Addition(1000), 4, 100));
 
-        mission.add(new ProblemSkill(this, title(R.string.addition_title, 10),  new Addition(10), 5, 100));
-        mission.add(new ProblemSkill(this, title(R.string.addition_title, 100), new Addition(100), 5, 100));
+        // subtraction
+        mission.add(new ProblemSkill(this, title(R.string.subtraction_title, 10), new Subtraction(10), 10, 100));
+        mission.add(new ProblemSkill(this, title(R.string.subtraction_title, 100), new Subtraction(100), 7, 150));
+        mission.add(new ProblemSkill(this, title(R.string.subtraction_title, 1000), new Subtraction(1000), 4, 150));
 
-        mission.add(new ProblemSkill(this, title(R.string.subtraction_title, 10), new Subtraction(10), 5, 100));
-        mission.add(new ProblemSkill(this, title(R.string.subtraction_title, 100), new Subtraction(100), 5, 150));
+        // multiplication
+        mission.add(new ProblemSkill(this, title(R.string.multiplication_title, 10), new Multiplication(5, 10), 7, 200));
+        mission.add(new ProblemSkill(this, title(R.string.multiplication_title, 10), new Multiplication(10, 10), 7, 200));
 
-        mission.add(new ProblemSkill(this, title(R.string.multiplication_title, 5), new Multiplication(5, 5), 10, 200));
-        mission.add(new ProblemSkill(this, title(R.string.multiplication_title, 10), new Multiplication(10, 10), 10, 200));
-
-        mission.add(new ProblemSkill(this, title(R.string.addition_title, 1000), new Addition(1000), 5, 150));
-
-        mission.add(new ProblemSkill(this, title(R.string.division_title, 30, 10), new Division(30, 10), 5, 250));
+        // division
+        mission.add(new ProblemSkill(this, title(R.string.division_title, 30, 10), new Division(30, 10), 7, 250));
         mission.add(new ProblemSkill(this, title(R.string.division_title, 100, 10), new Division(100, 10), 5, 250));
-
-        mission.add(new ProblemSkill(this, title(R.string.addition_negative_title, 10), new Addition(-10), 5, 100));
-        mission.add(new ProblemSkill(this, title(R.string.subtraction_negative_title, 10), new Subtraction(-10), 5, 150));
+*/
+        // negative numbers
+        mission.add(new ProblemSkill(this, title(R.string.subtraction_negative_title, 10), new Subtraction(10, 15), 10, 150));
+        mission.add(new ProblemSkill(this, title(R.string.addition_negative_title, 10), new Addition(-10, 10), 10, 100));
+        mission.add(new ProblemSkill(this, title(R.string.addition_negative_title, 10), new Addition(-10, 20), 5, 100));
         mission.add(new ProblemSkill(this, title(R.string.multiplication_negative_title, 30), new Multiplication(-12, 12), 5, 200));
 
         mission.add(new ProblemSkill(this, title(R.string.decimal_multiplication_title, 100), new DecimalMultiplication(100,10),5,100));
