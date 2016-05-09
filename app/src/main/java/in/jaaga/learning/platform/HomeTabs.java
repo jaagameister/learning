@@ -45,7 +45,7 @@ public class HomeTabs extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager = getChildFragmentManager();
 
         adapter = new TabsPagerAdapter
                 (fragmentManager);
