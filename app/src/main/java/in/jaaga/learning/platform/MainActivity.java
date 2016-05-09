@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void switchToFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content_container,fragment,"chatFragment")
+                .replace(R.id.content_container,fragment,"chatFragment")
                 .addToBackStack(String.valueOf(fragment.getId()))
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commitAllowingStateLoss();
