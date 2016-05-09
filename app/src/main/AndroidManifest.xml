@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.jaaga.learning">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize">
         <activity
@@ -21,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 <!--
         <provider
             android:authorities="in.jaaga.learning"
@@ -32,5 +37,4 @@
             android:value="78c3bf82596d32f064fbe4c2cefd31926cd035b2" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
