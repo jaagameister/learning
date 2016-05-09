@@ -64,7 +64,9 @@ public class ChatFragment extends Fragment implements Sender {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //testBot.onCreate(savedInstanceState);
-        mBot.onCreate(savedInstanceState);
+        //mBot.onCreate(savedInstanceState);
+        mBot.onAttach(getActivity().getApplicationContext());
+        mBot.onStart();
     }
 
     @Override
@@ -123,7 +125,7 @@ public class ChatFragment extends Fragment implements Sender {
         System.out.println("ChatFragment onStart called");
         super.onStart();
         //testBot.onStart();
-        mBot.onStart();
+        //mBot.onStart();
     }
 
     //TODO replace option string with telegram style buttons. @amar
@@ -133,19 +135,21 @@ public class ChatFragment extends Fragment implements Sender {
             item.setMessage(item.getMessage() + "\n" + makeOptionString(item.getResponseOptions()));
         }
         chat_list.add(item);
+        if(chatAdapter!=null) {
 
-        int position = chat_list.size()-1;
-        chatAdapter.notifyItemInserted(position);
-        chat_view.scrollToPosition(position);
-        chat_box.setText("");
-        if (item.getResponseType() == ChatItem.NUMBER_RESPONSE)
-                    chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
-        else
-            chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
+            int position = chat_list.size() - 1;
+            chatAdapter.notifyItemInserted(position);
+            chat_view.scrollToPosition(position);
+            chat_box.setText("");
+            if (item.getResponseType() == ChatItem.NUMBER_RESPONSE)
+                chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
+            else
+                chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
 
-        if (item.getSender().equals(USER_NAME)) {
-            //testBot.onMessageReceived(item.getMessage());
-            mBot.onMessageReceived(item.getMessage());
+            if (item.getSender().equals(USER_NAME)) {
+                //testBot.onMessageReceived(item.getMessage());
+                mBot.onMessageReceived(item.getMessage());
+            }
         }
 
 
