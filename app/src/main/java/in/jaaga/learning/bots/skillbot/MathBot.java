@@ -23,7 +23,7 @@ public class MathBot extends Bot {
     public void init() {
         StringUtil.setResources(getResources());
         mission = new Mission(sender);
-/*
+
         // addition
         mission.add(new ProblemSkill(this, title(R.string.addition_title, 10),  new Addition(10), 10, 100));
         mission.add(new ProblemSkill(this, title(R.string.addition_title, 100), new Addition(100), 7, 100));
@@ -41,14 +41,16 @@ public class MathBot extends Bot {
         // division
         mission.add(new ProblemSkill(this, title(R.string.division_title, 30, 10), new Division(30, 10), 7, 250));
         mission.add(new ProblemSkill(this, title(R.string.division_title, 100, 10), new Division(100, 10), 5, 250));
-*/
+
         // negative numbers
         mission.add(new ProblemSkill(this, title(R.string.subtraction_negative_title, 10), new Subtraction(10, 15), 10, 150));
         mission.add(new ProblemSkill(this, title(R.string.addition_negative_title, 10), new Addition(-10, 10), 10, 100));
         mission.add(new ProblemSkill(this, title(R.string.addition_negative_title, 10), new Addition(-10, 20), 5, 100));
         mission.add(new ProblemSkill(this, title(R.string.multiplication_negative_title, 30), new Multiplication(-12, 12), 5, 200));
 
-        mission.add(new ProblemSkill(this, title(R.string.decimal_multiplication_title, 100), new DecimalMultiplication(100,10),5,100));
+        // decimals
+        mission.add(new ProblemSkill(this, title(R.string.decimal_multiplication_title, 100),
+                new DecimalMultiplication(10, 1, 10, 0), 10, 100));
         mission.add(new ProblemSkill(this, title(R.string.decimal_division_title, 100, 10), new DecimalDivision(100,10),5,100));
 
         mission.add(new ProblemSkill(this, title(R.string.var_addition_title, 100), new VariableAddition(100), 8, 100));
