@@ -29,7 +29,7 @@ public class PictureBook extends Bot {
             Log.d("load", "bookName: " + books[i]);
         }
         loadPages(books[book]);
-        onMessageReceived("");
+        onMessageReceived("next");
 //        sender.send(new ChatItem("Would you like a story about a cricket game that was won by a dog?"));
     }
 
@@ -78,7 +78,7 @@ public class PictureBook extends Bot {
                 illustrations.clear();
                 book = ((book - 1 + books.length) % books.length);
                 loadPages(books[book]);
-                page = books[book].length();
+                page = illustrations.size()-1;
             }
         }
 
