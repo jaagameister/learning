@@ -119,6 +119,19 @@ public class ChatFragment extends Fragment implements Sender {
             }
         });
 
+        if(!chat_list.isEmpty()){
+
+            ChatItem item = chat_list.get(chat_list.size()-1);
+            if (item.getResponseType() == ChatItem.NUMBER_RESPONSE)
+                chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
+            else
+                chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
+
+            if (item.getResponseOptions() != null) {
+                makeOptionString(item.getResponseOptions());
+            }
+        }
+
         return v;
     }
 
