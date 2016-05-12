@@ -27,8 +27,9 @@
         android:layout_gravity="bottom"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout2">
+        android:layout_alignParentBottom="false"
+        android:id="@+id/linearLayout2"
+        android:layout_above="@+id/option_buttons">
 
         <EditText
             android:id="@+id/input_text"
@@ -48,6 +49,35 @@
             android:paddingBottom="8dp"
             android:layout_margin="5dp"
              />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/option_buttons"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/ll_left">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/ll_right">
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
