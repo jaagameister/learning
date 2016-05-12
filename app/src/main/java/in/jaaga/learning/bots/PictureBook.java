@@ -16,6 +16,7 @@ public class PictureBook extends Bot {
     ArrayList<Integer> illustrations = new ArrayList<Integer>();
     String[] pageText;
     String[] books;
+    public static final String[] OPTIONS = {"back", "next"};
     int book = 2;
     int page = 0;
 
@@ -58,19 +59,33 @@ public class PictureBook extends Bot {
     }
 
     public void onMessageReceived(String text) {
-        boolean load = false;
-        if (page >= illustrations.size()) {
-            Log.d("onMessageReceived", "page >= illustrations.size");
-            illustrations.clear();
-            loadPages(books[(++book % books.length)]);
-            page = 0;
+        Log.d("onMessageReceived: text", text);
+        Log.d("onMessageReceived: page", ""+page);
+        String pText = null;
+        int illustration;
+
+        if ("next".equalsIgnoreCase(text)) {
+            if (++page >= illustrations.size()) {
+                Log.d("onMessageReceived", "page >= illustrations.size");
+                illustrations.clear();
+                loadPages(books[(++book % books.length)]);
+                page = 0;
+            }
+
+        } else { // back
+            if (--page <= 0) {
+                Log.d("onMessageReceived", "page = 0 & action = back");
+                illustrations.clear();
+                book = ((book - 1 + books.length) % books.length);
+                loadPages(books[book]);
+                page = books[book].length();
+            }
         }
 
-        String pText = null;
         if (pageText != null && pageText.length > page)
             pText = pageText[page];
         else
             pText = "";
-        sender.send(new ChatItem(pText, illustrations.get(page++), ChatItem.TEXT_RESPONSE));
+        sender.send(new ChatItem(pText, illustrations.get(page), OPTIONS));
     }
 }
