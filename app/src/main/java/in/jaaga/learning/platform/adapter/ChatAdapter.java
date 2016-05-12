@@ -1,4 +1,4 @@
-package in.jaaga.learning.platform;
+package in.jaaga.learning.platform.adapter;
 
 
 import android.content.Context;
@@ -60,6 +60,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         System.out.println("resourceId:"+resourceId);
         if (resourceId != -1) {
             mHolder.attachment.setImageResource(resourceId);
+            mHolder.attachment.setAdjustViewBounds(true);
             mHolder.attachment.setVisibility(View.VISIBLE);
         } else {
             mHolder.attachment.setVisibility(View.GONE);

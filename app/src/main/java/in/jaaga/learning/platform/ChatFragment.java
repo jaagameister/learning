@@ -25,7 +25,7 @@ import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.api.Sender;
-import in.jaaga.learning.bots.PictureBook;
+import in.jaaga.learning.platform.adapter.ChatAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,7 +43,7 @@ public class ChatFragment extends Fragment implements Sender {
     private RecyclerView chat_view;
     private EditText chat_box;
     private static ArrayList<ChatItem> chat_list;
-    private  ChatAdapter chatAdapter;
+    private ChatAdapter chatAdapter;
     private LinearLayout ll_left,ll_right;
 
     private static Bot mBot;
@@ -88,7 +88,7 @@ public class ChatFragment extends Fragment implements Sender {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setStackFromEnd(true);
         chat_view.setLayoutManager(linearLayoutManager);
-        chatAdapter = new ChatAdapter(null,chat_list);
+        chatAdapter = new ChatAdapter(ChatFragment.this.getContext(),chat_list);
         chat_view.setAdapter(chatAdapter);
         chatAdapter.notifyDataSetChanged();
 
