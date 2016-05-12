@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class ChatFragment extends Fragment implements Sender {
     private EditText chat_box;
     private static ArrayList<ChatItem> chat_list;
     private  ChatAdapter chatAdapter;
-    private PictureBook testBot;
+    private LinearLayout ll_left,ll_right;
 
     private static Bot mBot;
 
@@ -77,17 +79,17 @@ public class ChatFragment extends Fragment implements Sender {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_chat, container, false);
 
+        ll_left = (LinearLayout) v.findViewById(R.id.ll_left);
+        ll_right = (LinearLayout) v.findViewById(R.id.ll_right);
+
         //Setup the list
         chat_view = (RecyclerView) v.findViewById(R.id.chat_view);
         chat_view.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setStackFromEnd(true);
         chat_view.setLayoutManager(linearLayoutManager);
-
         chatAdapter = new ChatAdapter(null,chat_list);
-
         chat_view.setAdapter(chatAdapter);
-
         chatAdapter.notifyDataSetChanged();
 
         //Setup the chat box
@@ -165,6 +167,58 @@ public class ChatFragment extends Fragment implements Sender {
             s.append(" | " + options[i]);
         }
         s.append(")");
+
+        //Show Options
+        int total_options = options.length;
+        int loop = total_options/2;
+        int rem = total_options%2;
+
+        if(ll_left!=null) {
+            //put buttons in left layout
+            for (int i = 0; i < loop + rem; i++) {
+                final Button choice = new Button(ChatFragment.this.getContext());
+                choice.setText(options[i]);
+                choice.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        ll_left.removeAllViews();
+                        ll_right.removeAllViews();
+                        ChatItem item = new ChatItem();
+                        item.setMessage(choice.getText().toString());
+                        //TODO Handle name here,hardcoding for now
+                        item.setSender(USER_NAME);
+                        send(item);
+
+                    }
+                });
+
+                ll_left.addView(choice);
+            }
+
+            //put buttons in right layout
+            for (int i = loop + rem; i < total_options; i++) {
+
+                final Button choice = new Button(ChatFragment.this.getContext());
+                choice.setText(options[i]);
+                choice.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        ll_left.removeAllViews();
+                        ll_right.removeAllViews();
+                        ChatItem item = new ChatItem();
+                        item.setMessage(choice.getText().toString());
+                        //TODO Handle name here,hardcoding for now
+                        item.setSender(USER_NAME);
+                        send(item);
+                    }
+                });
+
+                ll_right.addView(choice);
+            }
+        }
+
         return s.toString();
     }
 
