@@ -29,8 +29,7 @@ public class PictureBook extends Bot {
             Log.d("load", "bookName: " + books[i]);
         }
         loadPages(books[book]);
-        onMessageReceived("next");
-//        sender.send(new ChatItem("Would you like a story about a cricket game that was won by a dog?"));
+        sendPage();
     }
 
     private void loadPages(String bookName) {
@@ -60,8 +59,6 @@ public class PictureBook extends Bot {
 
     public void onMessageReceived(String text) {
         Log.d("onMessageReceived: text", text);
-        Log.d("onMessageReceived: page", ""+page);
-        String pText = null;
         int illustration;
 
         if ("next".equalsIgnoreCase(text)) {
@@ -73,15 +70,21 @@ public class PictureBook extends Bot {
             }
 
         } else { // back
-            if (--page <= 0) {
+            if (--page < 0) {
                 Log.d("onMessageReceived", "page = 0 & action = back");
                 illustrations.clear();
                 book = ((book - 1 + books.length) % books.length);
                 loadPages(books[book]);
-                page = illustrations.size()-1;
+                page = illustrations.size() - 1;
             }
         }
+        Log.d("onMessageReceived: page", "" + page);
+        sendPage();
+    }
 
+    void sendPage() {
+
+        String pText;
         if (pageText != null && pageText.length > page)
             pText = pageText[page];
         else
