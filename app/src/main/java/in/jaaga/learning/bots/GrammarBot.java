@@ -1,5 +1,7 @@
 package in.jaaga.learning.bots;
 
+import java.util.Random;
+
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.bots.skillbot.MathBot;
@@ -32,9 +34,7 @@ public class GrammarBot extends Bot {
         int optionId = getResources().getIdentifier("verb" + count, "array", getPackageName());
         String[] options = getResources().getStringArray(optionId);
         answer = options[0];
-        ChatItem item = new ChatItem(sentence, ChatItem.TEXT_RESPONSE);
-        item.setResponseOptions(options);
-        sender.send(item);
+        sender.send(new ChatItem(sentence, randomize(options)));
     }
 
     @Override
@@ -47,5 +47,16 @@ public class GrammarBot extends Bot {
         }
         sender.send(new ChatItem("Nope. Try again", ChatItem.NO_RESPONSE));
         showPrompt();
+    }
+
+    private String[] randomize(String[] options) {
+        Random r = new Random();
+        for (int i = 0; i < options.length; i++) {
+            int index = r.nextInt(options.length);
+            String tmp = options[index];
+            options[index] = options[i];
+            options[i] = tmp;
+        }
+        return options;
     }
 }

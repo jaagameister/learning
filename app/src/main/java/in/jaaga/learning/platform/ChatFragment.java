@@ -128,7 +128,7 @@ public class ChatFragment extends Fragment implements Sender {
                 chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
 
             if (item.getResponseOptions() != null) {
-                makeOptionString(item.getResponseOptions());
+                showOptions(item.getResponseOptions());
             }
         }
 
@@ -143,12 +143,9 @@ public class ChatFragment extends Fragment implements Sender {
         //mBot.onStart();
     }
 
-    //TODO replace option string with telegram style buttons. @amar
     @Override
     public void send(ChatItem item) {
-        if (item.getResponseOptions() != null) {
-            item.setMessage(item.getMessage() + "\n" + makeOptionString(item.getResponseOptions()));
-        }
+        showOptions(item.getResponseOptions());
         chat_list.add(item);
         if(chatAdapter!=null) {
 
@@ -170,19 +167,11 @@ public class ChatFragment extends Fragment implements Sender {
 
     }
 
-    private String makeOptionString(String[] opts) {
-        String[] options = randomize(opts);
-        if (options == null || options.length == 0)
-            return "";
-        StringBuffer s = new StringBuffer("(");
-        s.append(options[0]);
-        for (int i = 1; i < options.length; i++) {
-            s.append(" | " + options[i]);
-        }
-        s.append(")");
+    private void showOptions(String[] opts) {
+        if (opts == null || opts.length == 0)
+            return ;
 
-        //Show Options
-        int total_options = options.length;
+        int total_options = opts.length;
         int loop = total_options/2;
         int rem = total_options%2;
 
@@ -190,7 +179,7 @@ public class ChatFragment extends Fragment implements Sender {
             //put buttons in left layout
             for (int i = 0; i < loop + rem; i++) {
                 final Button choice = new Button(ChatFragment.this.getContext());
-                choice.setText(options[i]);
+                choice.setText(opts[i]);
                 choice.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -213,7 +202,7 @@ public class ChatFragment extends Fragment implements Sender {
             for (int i = loop + rem; i < total_options; i++) {
 
                 final Button choice = new Button(ChatFragment.this.getContext());
-                choice.setText(options[i]);
+                choice.setText(opts[i]);
                 choice.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -231,19 +220,6 @@ public class ChatFragment extends Fragment implements Sender {
                 ll_right.addView(choice);
             }
         }
-
-        return s.toString();
-    }
-
-    private String[] randomize(String[] options) {
-        Random r = new Random();
-        for (int i = 0; i < options.length; i++) {
-            int index = r.nextInt(options.length);
-            String tmp = options[index];
-            options[index] = options[i];
-            options[i] = tmp;
-        }
-        return options;
     }
 
     @Override
