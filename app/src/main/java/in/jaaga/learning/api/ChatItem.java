@@ -25,6 +25,11 @@ public class ChatItem implements Serializable {
         responseType = NO_RESPONSE;
     }
 
+    public ChatItem(String message, String[] responseOptions) {
+        this(message);
+        setResponseOptions(responseOptions);
+    }
+
     public ChatItem(String message, int responseType) {
         this(message);
         this.responseType = responseType;
@@ -33,6 +38,11 @@ public class ChatItem implements Serializable {
     public ChatItem(String message, int resourceId, int responseType) {
         this(message, responseType);
         this.resourceId = resourceId;
+    }
+
+    public ChatItem(String message, int resourceId, String[] responseOptions) {
+        this(message, resourceId, NO_RESPONSE);
+        setResponseOptions(responseOptions);
     }
 
     public ChatItem(String message, int responseType, String sender) {

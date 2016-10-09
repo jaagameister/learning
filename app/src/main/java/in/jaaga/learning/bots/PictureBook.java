@@ -16,6 +16,7 @@ public class PictureBook extends Bot {
     ArrayList<Integer> illustrations = new ArrayList<Integer>();
     String[] pageText;
     String[] books;
+    public static final String[] OPTIONS = {"back", "next"};
     int book = 2;
     int page = 0;
 
@@ -28,8 +29,7 @@ public class PictureBook extends Bot {
             Log.d("load", "bookName: " + books[i]);
         }
         loadPages(books[book]);
-        onMessageReceived("");
-//        sender.send(new ChatItem("Would you like a story about a cricket game that was won by a dog?"));
+        sendPage();
     }
 
     private void loadPages(String bookName) {
@@ -58,19 +58,37 @@ public class PictureBook extends Bot {
     }
 
     public void onMessageReceived(String text) {
-        boolean load = false;
-        if (page >= illustrations.size()) {
-            Log.d("onMessageReceived", "page >= illustrations.size");
-            illustrations.clear();
-            loadPages(books[(++book % books.length)]);
-            page = 0;
-        }
+        Log.d("onMessageReceived: text", text);
+        int illustration;
 
-        String pText = null;
+        if ("next".equalsIgnoreCase(text)) {
+            if (++page >= illustrations.size()) {
+                Log.d("onMessageReceived", "page >= illustrations.size");
+                illustrations.clear();
+                loadPages(books[(++book % books.length)]);
+                page = 0;
+            }
+
+        } else { // back
+            if (--page < 0) {
+                Log.d("onMessageReceived", "page = 0 & action = back");
+                illustrations.clear();
+                book = ((book - 1 + books.length) % books.length);
+                loadPages(books[book]);
+                page = illustrations.size() - 1;
+            }
+        }
+        Log.d("onMessageReceived: page", "" + page);
+        sendPage();
+    }
+
+    void sendPage() {
+
+        String pText;
         if (pageText != null && pageText.length > page)
             pText = pageText[page];
         else
             pText = "";
-        sender.send(new ChatItem(pText, illustrations.get(page++), ChatItem.TEXT_RESPONSE));
+        sender.send(new ChatItem(pText, illustrations.get(page), OPTIONS));
     }
 }
