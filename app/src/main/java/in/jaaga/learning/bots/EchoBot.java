@@ -9,8 +9,13 @@ import in.jaaga.learning.api.ChatItem;
  */
 public class EchoBot extends Bot {
 
-    public void onMessageReceived(String text) {
+    @Override
+    public void onStart() {
+        sender.send(new ChatItem("I'm rubber and you're glue. Everything you say bounces off me and sticks to you",
+                ChatItem.TEXT_RESPONSE));
+    }
 
+    public void onMessageReceived(String text) {
         sender.send(new ChatItem(text, ChatItem.TEXT_RESPONSE));
     }
 }
