@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".platform.ChatFragment"
+    tools:mContext=".platform.ChatFragment"
     android:padding="48dp"
     android:background="#faf5f5">
 
