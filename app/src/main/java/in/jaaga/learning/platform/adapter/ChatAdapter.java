@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import in.jaaga.learning.R;
@@ -18,14 +20,14 @@ import in.jaaga.learning.api.ChatItem;
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<ChatItem> chat_list;
-    private Context ctx;
+    private Context mContext;
     private static final int VIEW_TYPE_LEFT = 0, VIEW_TYPE_RIGHT = 1;
     private static final String CHAT_BOT = ChatItem.BOT;
 
 
-    public ChatAdapter(Context ctx,ArrayList<ChatItem> chat_list){
+    public ChatAdapter(Context mContext, ArrayList<ChatItem> chat_list){
 
-        this.ctx = ctx;
+        this.mContext = mContext;
         this.chat_list = chat_list;
 
     }
@@ -59,9 +61,9 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         System.out.println("resourceId:"+resourceId);
         if (resourceId != -1) {
-            mHolder.attachment.setImageResource(resourceId);
             mHolder.attachment.setAdjustViewBounds(true);
             mHolder.attachment.setVisibility(View.VISIBLE);
+            Picasso.with(mContext).load(resourceId).into(mHolder.attachment);
         } else {
             mHolder.attachment.setVisibility(View.GONE);
         }
