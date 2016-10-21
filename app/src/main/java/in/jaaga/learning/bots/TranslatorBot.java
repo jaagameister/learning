@@ -39,8 +39,8 @@ public class TranslatorBot extends Bot {
 //        else if {
 //            friendlyBot(text);
 //        }
-        else sender.send(new ChatItem("To translate add @language to it. For example:" +
-                " @hindi What is your name?",ChatItem.TEXT_RESPONSE));
+        else sender.send(new ChatItem("To translate add @language: to it. For example:" +
+                " @hindi: What is your name?",ChatItem.TEXT_RESPONSE));
     }
 
     public void friendlyBot(String text) {
@@ -57,15 +57,12 @@ public class TranslatorBot extends Bot {
     }
 
     private String getEligibleTranslatableString(String originalString) {
-        String translatableString = originalString.split("@\\w+:")[1];
-        translatableString.trim();
-        return translatableString;
+        return originalString.split(":")[1].trim();
     }
 
     private String getLanguageFromString(String originalString) {
         int start = originalString.indexOf(":");
-        String language = originalString.substring(1,start);
-        return language.toUpperCase();
+        return originalString.substring(1,start).trim().toUpperCase();
     }
 
     public void translate(String originalString) {

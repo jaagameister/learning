@@ -161,7 +161,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
             case 2:
 
-                switchToFragment(new ChatFragment().newInstance(new EchoBot()));
+                switchToFragment(new ChatFragment().newInstance(new EchoBot(getActivity())));
 
                 break;
 
