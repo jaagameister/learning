@@ -1,5 +1,7 @@
 package in.jaaga.learning.bots;
 
+import android.content.Context;
+import in.jaaga.learning.t2s.Speech;
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
 //import android.R;
