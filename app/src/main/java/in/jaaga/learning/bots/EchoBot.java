@@ -8,6 +8,12 @@ import in.jaaga.learning.api.ChatItem;
  * Created by freeman on 19/4/16.
  */
 public class EchoBot extends Bot {
+    
+    private final Speech speech;
+
+    public EchoBot(Context context){
+        speech = new Speech(context);
+    }
 
     @Override
     public void onStart() {
@@ -17,5 +23,8 @@ public class EchoBot extends Bot {
 
     public void onMessageReceived(String text) {
         sender.send(new ChatItem(text, ChatItem.TEXT_RESPONSE));
+        if(speech.isReady()){
+        speech.speak(text);
+        }
     }
 }
