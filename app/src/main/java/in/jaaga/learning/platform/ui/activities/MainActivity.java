@@ -1,4 +1,4 @@
-package in.jaaga.learning.platform;
+package in.jaaga.learning.platform.ui.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -22,14 +22,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
 import com.crashlytics.android.Crashlytics;
 
-import java.util.HashMap;
 import java.util.Locale;
 
-import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.R;
+import in.jaaga.learning.platform.ui.fragments.BotListFragment;
+import in.jaaga.learning.platform.ui.fragments.ChatFragment;
+import in.jaaga.learning.platform.ui.HomeTabs;
 import io.fabric.sdk.android.Fabric;
 
 /**

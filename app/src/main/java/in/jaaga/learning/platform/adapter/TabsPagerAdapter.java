@@ -1,15 +1,21 @@
 package in.jaaga.learning.platform.adapter;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import in.jaaga.learning.platform.BotListFragment;
+import in.jaaga.learning.R;
+import in.jaaga.learning.platform.ui.fragments.BotListFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    public TabsPagerAdapter(FragmentManager fm) {
+    private static int MAIN_DASHBOARD_TAB_COUNT = 2;
+    private String[] tabTitles;
+
+    public TabsPagerAdapter(Context mContext, FragmentManager fm) {
         super(fm);
+        tabTitles = mContext.getResources().getStringArray(R.array.main_dashboard_tab_titles);
     }
 
     @Override
@@ -17,10 +23,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
         switch (index) {
             case 0:
-                return new BotListFragment().newInstance();
-
+                return BotListFragment.newInstance();
             case 1:
-                return new BotListFragment().newInstance();
+                return BotListFragment.newInstance();
         }
 
         return null;
@@ -28,22 +33,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // get item count - equal to number of tabs
-        return 2;
+        return MAIN_DASHBOARD_TAB_COUNT;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-
-        switch (position) {
-            case 0:
-
-                return "Chat";
-            case 1:
-
-                return "Contacts";
-        }
-
-        return super.getPageTitle(position);
+        return tabTitles[position];
     }
 }

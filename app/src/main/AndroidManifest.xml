@@ -12,16 +12,11 @@
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize">
         <activity
-            android:name=".platform.MainActivity"
+            android:name=".platform.ui.activities.MainActivity"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!--
@@ -34,7 +29,17 @@
             android:name="io.fabric.ApiKey"
             android:value="78c3bf82596d32f064fbe4c2cefd31926cd035b2" />
 
-        <activity android:name=".platform.util.DashboardActivity"></activity>
+        <activity
+            android:name=".platform.ui.activities.DashboardActivity"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="app_background">#eee</color>
     <color name="actionMenuTextColor">#ffffff</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="primaryTextColor">#212121</color>
+    <color name="secondaryTextColor">#727272</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>

@@ -67,5 +67,11 @@
     </string-array>
     <string name="aaloo_title">Aaloo-Maaloo-Kaaloo</string>
 
+    <!-- Strings related to Main Dashboard -->
+    <string-array name="main_dashboard_tab_titles">
+        <item>Chat</item>
+        <item>Contacts</item>
+    </string-array>
+
 
 </resources>

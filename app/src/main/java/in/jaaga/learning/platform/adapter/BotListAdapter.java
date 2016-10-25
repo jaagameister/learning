@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -14,21 +15,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import in.jaaga.learning.R;
-import in.jaaga.learning.platform.MainActivity;
-import in.jaaga.learning.platform.util.CircleImageView;
+import in.jaaga.learning.platform.ui.activities.MainActivity;
+import in.jaaga.learning.platform.util.CircleTransform;
 
 public class BotListAdapter extends RecyclerView.Adapter<BotListAdapter.ViewHolder> {
 
     private ArrayList<HashMap<String, String>> bot_list = new ArrayList<HashMap<String, String>>();
     OnItemClickListener itemClickListener;
-    private int layoutResourceIds;
     private Context mContext;
 
 
-    public BotListAdapter(Context mContext, int layoutResourceId, ArrayList<HashMap<String, String>> bot_list, OnItemClickListener itemClickListener) {
+    public BotListAdapter(Context mContext, ArrayList<HashMap<String, String>> bot_list, OnItemClickListener itemClickListener) {
 
         this.itemClickListener = itemClickListener;
-        this.layoutResourceIds = layoutResourceId;
         this.bot_list = bot_list;
         this.mContext = mContext;
 
@@ -39,7 +38,7 @@ public class BotListAdapter extends RecyclerView.Adapter<BotListAdapter.ViewHold
 
 
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(layoutResourceIds, viewGroup, false);
+                .inflate(R.layout.bot_list_adapter, viewGroup, false);
 
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
@@ -55,7 +54,7 @@ public class BotListAdapter extends RecyclerView.Adapter<BotListAdapter.ViewHold
         holder.name.setText(name);
         holder.last_msg.setText(last_msg);
 
-        Picasso.with(mContext).load(Integer.parseInt(image)).into(holder.imageView);
+        Picasso.with(mContext).load(Integer.parseInt(image)).transform(new CircleTransform()).into(holder.imageView);
 
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,14 +72,14 @@ public class BotListAdapter extends RecyclerView.Adapter<BotListAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView imageView;
+        ImageView imageView;
         TextView name;
         TextView last_msg;
         CardView item;
 
         public ViewHolder(View v) {
             super(v);
-            imageView = (CircleImageView) v.findViewById(R.id.img_bot);
+            imageView = (ImageView) v.findViewById(R.id.img_bot);
             name = (TextView) v.findViewById(R.id.tv_name);
             last_msg = (TextView) v.findViewById(R.id.tv_last_msg);
             item = (CardView) v.findViewById(R.id.card_item);

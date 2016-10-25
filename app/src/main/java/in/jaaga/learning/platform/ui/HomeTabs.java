@@ -1,4 +1,4 @@
-package in.jaaga.learning.platform;
+package in.jaaga.learning.platform.ui;
 
 
 import android.os.Bundle;
@@ -48,7 +48,7 @@ public class HomeTabs extends Fragment {
         fragmentManager = getChildFragmentManager();
 
         adapter = new TabsPagerAdapter
-                (fragmentManager);
+                (getActivity(),fragmentManager);
 
     }
 

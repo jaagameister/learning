@@ -1,4 +1,4 @@
-package in.jaaga.learning.platform;
+package in.jaaga.learning.platform.ui.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;

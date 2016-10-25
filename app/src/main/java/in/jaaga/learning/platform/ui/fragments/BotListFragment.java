@@ -1,4 +1,4 @@
-package in.jaaga.learning.platform;
+package in.jaaga.learning.platform.ui.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ import in.jaaga.learning.bots.TranslatorBot;
 import in.jaaga.learning.bots.skillbot.MathBot;
 import in.jaaga.learning.platform.adapter.BotListAdapter;
 import in.jaaga.learning.platform.adapter.OnItemClickListener;
+import in.jaaga.learning.platform.ui.activities.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +36,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
     private RecyclerView bot_list_view;
     private BotListFragmentInterface mListener;
-    private BotListAdapter adapter_bot_list;
+    private BotListAdapter mBotListAdapter;
     private static ArrayList<HashMap<String, String>> bot_list;
 
     public BotListFragment() {
@@ -95,8 +96,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
 
     public static BotListFragment newInstance() {
-        BotListFragment fragment = new BotListFragment();
-        return fragment;
+        return new BotListFragment();
     }
 
     @Override
@@ -111,12 +111,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_bot_list, container, false);
 
-        adapter_bot_list = new BotListAdapter(getActivity(), R.layout.bot_list_adapter, bot_list,this);
+        mBotListAdapter = new BotListAdapter(getActivity(), bot_list,this);
 
         bot_list_view = (RecyclerView) v.findViewById(R.id.rv_bot_list);
         bot_list_view.setHasFixedSize(true);
         setLayoutManager();
-        bot_list_view.setAdapter(adapter_bot_list);
+        bot_list_view.setAdapter(mBotListAdapter);
 
         return v;
     }
