@@ -150,36 +150,36 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         switch (position){
             case 0:
 
-                switchToFragment(new ChatFragment().newInstance(new MathBot()));
+                switchToFragment(ChatFragment.newInstance(new MathBot()));
 
                 break;
             case 1:
 
-                switchToFragment(new ChatFragment().newInstance(new PictureBook()));
+                switchToFragment(ChatFragment.newInstance(new PictureBook()));
 
                 break;
 
             case 2:
 
-                switchToFragment(new ChatFragment().newInstance(new EchoBot(getActivity())));
+                switchToFragment(ChatFragment.newInstance(new EchoBot(getActivity())));
 
                 break;
 
             case 3:
 
-                switchToFragment(new ChatFragment().newInstance(new NumberGuess()));
+                switchToFragment(ChatFragment.newInstance(new NumberGuess()));
 
                 break;
 
             case 4:
 
-                switchToFragment(new ChatFragment().newInstance(new GrammarBot()));
+                switchToFragment(ChatFragment.newInstance(new GrammarBot()));
 
                 break;
 
             case 5:
 
-                switchToFragment(new ChatFragment().newInstance(new TranslatorBot()));
+                switchToFragment(ChatFragment.newInstance(new TranslatorBot()));
 
                 break;
         }

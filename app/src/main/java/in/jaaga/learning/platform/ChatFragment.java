@@ -122,11 +122,7 @@ public class ChatFragment extends Fragment implements Sender {
         if(!chat_list.isEmpty()){
 
             ChatItem item = chat_list.get(chat_list.size()-1);
-            if (item.getResponseType() == ChatItem.NUMBER_RESPONSE)
-                chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
-            else
-                chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
-
+            setResponseType(item.getResponseType());
             if (item.getResponseOptions() != null) {
                 showOptions(item.getResponseOptions());
             }
@@ -153,11 +149,7 @@ public class ChatFragment extends Fragment implements Sender {
             chatAdapter.notifyItemInserted(position);
             chat_view.scrollToPosition(position);
             chat_box.setText("");
-            if (item.getResponseType() == ChatItem.NUMBER_RESPONSE)
-                chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
-            else
-                chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
-
+            setResponseType(item.getResponseType());
             if (item.getSender().equals(USER_NAME)) {
                 //testBot.onMessageReceived(item.getMessage());
                 mBot.onMessageReceived(item.getMessage());
@@ -165,6 +157,21 @@ public class ChatFragment extends Fragment implements Sender {
         }
 
 
+    }
+
+    private void setResponseType(int type){
+
+        switch (type){
+            case ChatItem.NUMBER_RESPONSE:
+                chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
+                break;
+            case ChatItem.NO_RESPONSE:
+                chat_box.setVisibility(View.GONE);
+                break;
+            default:
+                chat_box.setInputType(InputType.TYPE_CLASS_TEXT);
+                break;
+        }
     }
 
     private void showOptions(String[] opts) {
