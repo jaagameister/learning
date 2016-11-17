@@ -58,7 +58,7 @@
       <item>Hi Anuj</item>
       <item>Hello Anuj</item>
     </string-array>
-    <string-array name="hellobot_reply_greeting_nextQ">
+    <string-array name="hellobot_reply_greeting_nextQId">
       <item>hellobot_what_is_your_name</item>
     </string-array>
     
@@ -68,7 +68,7 @@
       <item>How are you?</item>
       <item>Hi! How are you?</item>
     </string-array>
-    <string-array name="hellobot_reply_how_are_you_nextQ">
+    <string-array name="hellobot_reply_how_are_you_nextQId">
       <item>hellobot_i_am_good</item>
     </string-array>
     
@@ -77,7 +77,7 @@
     <string-array name="hellobot_reply_my_name_is_list">
       <item>Hi! my name is {{user.name}}.</item>
     </string-array>
-    <string-array name="hellobot_reply_my_name_is_nextQ">
+    <string-array name="hellobot_reply_my_name_is_nextQId">
       <item>hellobot_how_are_you</item>
     </string-array>
     
@@ -91,7 +91,7 @@
       <item>thank you</item>
       <item>I am well</item>
     </string-array>
-    <string-array name="hellobot_reply_i_am_good_nextQ">
+    <string-array name="hellobot_reply_i_am_good_nextQId">
       <item>hellobot_that_is_great</item>
       <item>hellobot_my_friend</item>
     </string-array>
@@ -103,16 +103,16 @@
       <item>Not good.</item>
       <item>Really bad</item>
     </string-array>
-    <string-array name="hellobot_reply_i_am_not_good_nextQ">
+    <string-array name="hellobot_reply_i_am_not_good_nextQId">
       <item>hellobot_i_am_sorry</item>
       <item>hellobot_my_friend</item>
     </string-array>
     
     
-    <string-array name="hellobot_reply_hi_everyone_list">
+    <string-array name="hellobot_reply_hi_everyone_nextQId">
       <item>hellobot_end</item>
     </string-array>
-    <string-array name="hellobot_reply_hi_everyone_nextQ">
+    <string-array name="hellobot_reply_hi_everyone_list">
       <item>Hi everyone!</item>
     </string-array>
 </resources>

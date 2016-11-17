@@ -14,16 +14,18 @@ import java.util.*;
 public class Anuj extends Bot {
     String curBot;  // The conversation being used right now
     String curQId;  // the current question ID (NOT question string)
-    String [] cur_replies;  // list of currently allowed replies
+    String [] curReplies;  // list of currently allowed replies
+    String [] curReplyBlobs;
+    String end_id;
 
     /* Getter for curQId */
     public String get_curQId() {
         return this.curQId;
     }
 
-    /* Getter for cur_replies */
+    /* Getter for curReplies */
     public String [] get_cur_replies() {
-        return this.cur_replies;
+        return this.curReplies;
     }
 
 
@@ -65,68 +67,72 @@ public class Anuj extends Bot {
     }
 
     /* Get all the possible replies for a given question */
-    private String [] get_all_replies(String ques_id) {
-       // get the "categories" / blobs for possible replies
-       String [] reply_blobs = get_reply_blobs(ques_id);
+    private void set_cur_replies() {
        List<String> replies = new ArrayList<String>();
+       // TODO: do it better!
+       List<String> curReplyBlobs = new ArrayList<String>();
+
+       // get the "categories" / blobs for possible replies
+       String [] reply_blobs = get_reply_blobs(this.curQId);
        // get all possible replies from within the blobs
        for (int i=0; i<reply_blobs.length; ++i) {
-         replies.addAll(Arrays.asList(get_reply_list_from_name(reply_blobs[i])));
+         String [] reply_list = get_reply_list_from_name(reply_blobs[i]);
+         replies.addAll(Arrays.asList(reply_list));
+         for(int j=0; j<reply_list.length; ++j) {
+            curReplyBlobs.add(reply_blobs[i]);
+         }
        }
-       return replies.toArray(new String[0]);
+       this.curReplies = replies.toArray(new String[0]);
+       this.curReplyBlobs = curReplyBlobs.toArray(new String[0]);
+       System.out.println(Arrays.toString(this.curReplies));
+       System.out.println(Arrays.toString(this.curReplyBlobs));
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        curBot = "hellobot";
+        this.curBot = "hellobot";
 
-        curQId = curBot + "_start";
-        System.out.println(this.cur_replies == null);
-        System.out.println(this.cur_replies);
+        // The first thing the bot says is always in "<bot-name>_start"
+        this.curQId = this.curBot + "_start";
+        // System.out.println(this.curReplies == null);
+        // System.out.println(this.curReplies);
+
+        // the id of the last thing is always "<bot-name>_end";
+        this.end_id = this.curBot + "_end";
  
-        // TODO: Figure out if we need to free this array first. Memory leaks?
-        this.cur_replies = get_all_replies(this.curQId);
-
-        ChatItem item = new ChatItem(get_string_from_name(this.curQId), ChatItem.TEXT_RESPONSE);
-        item.setResponseOptions(this.cur_replies);
-        sender.send(item);
-
-        // curQId = getResources().getIdentifier("_start_", "string", getPackageName());
-        // System.out.println(curQIdId);
-
-        // showPrompt();
+        showNextQuestion();
     }
 
-    // public void showPrompt() {
-    //     // get sentence
-    //     int sId = getResources().getIdentifier("verb" + count, "string", getPackageName());
-    //     System.out.println(sId);
-    //     if (sId == 0) {
-    //         count = 1;
-    //         sId = getResources().getIdentifier("verb" + count, "string", getPackageName());
-    //     }
-    //     System.out.println(count);
-    //     String sentence = getResources().getString(sId);
+    @Override
+    public void onMessageReceived(String text) {
+        int replyIndex = Arrays.asList(this.curReplies).indexOf(text);
+        if(replyIndex == -1) {
+          System.out.println("INVALID REPLY RECEIVED!");
+          return;
+        }
 
-    //     // get options
-    //     int optionId = getResources().getIdentifier("verb" + count, "array", getPackageName());
-    //     String[] options = getResources().getStringArray(optionId);
-    //     answer = options[0];
-    //     ChatItem item = new ChatItem(sentence, ChatItem.TEXT_RESPONSE);
-    //     item.setResponseOptions(options);
-    //     sender.send(item);
-    // }
+        String curReplyBlob = this.curReplyBlobs[replyIndex];
+        String [] nextQIds = get_string_array_from_name(curReplyBlob + "_nextQId");
 
-    // @Override
-    // public void onMessageReceived(String text) {
-    //     if (answer.equalsIgnoreCase(text)) {
-    //         sender.send(new ChatItem("Awesome", ChatItem.NO_RESPONSE));
-    //         count++;
-    //         showPrompt();
-    //         return;
-    //     }
-    //     sender.send(new ChatItem("Nope. Try again", ChatItem.NO_RESPONSE));
-    //     showPrompt();
-    // }
+        // NOTE: If there are multiple nextQIds, only the last one actually has
+        // replies, others are just things that the bot says before the
+        // question.
+        for(int i=0; i<nextQIds.length; ++i) {
+          this.curQId = nextQIds[i];
+          showNextQuestion();
+        }
+        // TODO: HANDLE THE END!!
+    }
+
+
+     private void showNextQuestion() {
+         // TODO: Figure out if we need to free this array first. Memory leaks?
+         // this.curReplies = get_all_replies(this.curQId);
+         set_cur_replies();
+
+         ChatItem item = new ChatItem(get_string_from_name(this.curQId), ChatItem.TEXT_RESPONSE);
+         item.setResponseOptions(this.curReplies);
+         sender.send(item);
+     }
 };
