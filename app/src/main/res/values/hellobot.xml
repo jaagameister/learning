@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BOT SAYS! -->
+    <string name="hellobot_start">Hi! I am Pratham bot!</string>
+    <string name="hellobot_start_label">Part1: First greeting!</string>
+    <string-array name="hellobot_start_reply_blobs">
+      <item>hellobot_reply_greeting</item>
+      <item>hellobot_reply_how_are_you</item>
+      <item>hellobot_reply_my_name_is</item>
+    </string-array>
+    
+    
+    <string name="hellobot_what_is_your_name">What is your name?</string>
+    <string-array name="hellobot_what_is_your_name_reply_blobs">
+      <item>hellobot_reply_my_name_is</item>
+    </string-array>
+    
+    
+    <string name="hellobot_how_are_you">How are you today?</string>
+    <string-array name="hellobot_how_are_you_reply_blobs">
+      <item>hellobot_reply_i_am_good</item>
+      <item>hellobot_reply_i_am_not_good</item>
+    </string-array>
+    
+    
+    <string name="hellobot_i_am_good">I am good, thank you! And you?</string>
+    <string-array name="hellobot_i_am_good_reply_blobs">
+      <item>hellobot_reply_i_am_good</item>
+      <item>hellobot_reply_i_am_not_good</item>
+    </string-array>
+    
+    
+    <string name="hellobot_that_is_great">That is great!</string>
+    <string-array name="hellobot_that_is_great_reply_blobs">
+    </string-array>
+    
+    
+    <string name="hellobot_i_am_sorry">I am sorry about that.</string>
+    <string-array name="hellobot_i_am_sorry_reply_blobs">
+    </string-array>
+    
+    
+    <string name="hellobot_my_friend">Look! Here are my friends Sonu, Monu and Golu. Say hi to everyone.</string>
+    <string name="hellobot_my_friend_label">Part2: Meet my friends!</string>
+    <string-array name="hellobot_my_friend_reply_blobs">
+      <item>hellobot_reply_hi_everyone</item>
+    </string-array>
+    
+    
+    <string name="hellobot_end">It was nice talking to you. Bye</string>
+    
+    
+    <!-- REPLY BLOBS! -->
+    <string name="hellobot_reply_greeting_label">Basic greetings.</string>
+    <string-array name="hellobot_reply_greeting_list">
+      <item>Hi!</item>
+      <item>Hello!</item>
+      <item>Hi Anuj</item>
+      <item>Hello Anuj</item>
+    </string-array>
+    <string-array name="hellobot_reply_greeting_nextQ">
+      <item>hellobot_what_is_your_name</item>
+    </string-array>
+    
+    
+    <string name="hellobot_reply_how_are_you_label">how are you type.</string>
+    <string-array name="hellobot_reply_how_are_you_list">
+      <item>How are you?</item>
+      <item>Hi! How are you?</item>
+    </string-array>
+    <string-array name="hellobot_reply_how_are_you_nextQ">
+      <item>hellobot_i_am_good</item>
+    </string-array>
+    
+    
+    <string name="hellobot_reply_my_name_is_label">tell your name</string>
+    <string-array name="hellobot_reply_my_name_is_list">
+      <item>Hi! my name is {{user.name}}.</item>
+    </string-array>
+    <string-array name="hellobot_reply_my_name_is_nextQ">
+      <item>hellobot_how_are_you</item>
+    </string-array>
+    
+    
+    <string name="hellobot_reply_i_am_good_label">I am good!</string>
+    <string-array name="hellobot_reply_i_am_good_list">
+      <item>I am good</item>
+      <item>thank you!</item>
+      <item>I am excellent</item>
+      <item>Well</item>
+      <item>thank you</item>
+      <item>I am well</item>
+    </string-array>
+    <string-array name="hellobot_reply_i_am_good_nextQ">
+      <item>hellobot_that_is_great</item>
+      <item>hellobot_my_friend</item>
+    </string-array>
+    
+    
+    <string name="hellobot_reply_i_am_not_good_label">I am not good!</string>
+    <string-array name="hellobot_reply_i_am_not_good_list">
+      <item>I am not well..</item>
+      <item>Not good.</item>
+      <item>Really bad</item>
+    </string-array>
+    <string-array name="hellobot_reply_i_am_not_good_nextQ">
+      <item>hellobot_i_am_sorry</item>
+      <item>hellobot_my_friend</item>
+    </string-array>
+    
+    
+    <string-array name="hellobot_reply_hi_everyone_list">
+      <item>hellobot_end</item>
+    </string-array>
+    <string-array name="hellobot_reply_hi_everyone_nextQ">
+      <item>Hi everyone!</item>
+    </string-array>
+</resources>
