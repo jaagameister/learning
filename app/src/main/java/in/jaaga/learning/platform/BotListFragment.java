@@ -15,6 +15,7 @@ import java.util.HashMap;
 import in.jaaga.learning.R;
 import in.jaaga.learning.bots.EchoBot;
 import in.jaaga.learning.bots.GrammarBot;
+import in.jaaga.learning.bots.Anuj;
 import in.jaaga.learning.bots.NumberGuess;
 import in.jaaga.learning.bots.PictureBook;
 //import in.jaaga.learning.bots.TranslatorBot;
@@ -89,6 +90,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot4));
         bot_list.add(bot);
 
+
+        bot = new HashMap<>();
+        bot.put(MainActivity.NAME,"Anuj");
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot3));
+        bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
+        bot_list.add(bot);
 
         /********************************************************************************/
     }
@@ -180,6 +187,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
             case 5:
 
                 switchToFragment(new ChatFragment().newInstance(new TranslatorBot()));
+
+                break;
+
+            case 6:
+
+                switchToFragment(new ChatFragment().newInstance(new Anuj()));
 
                 break;
         }
