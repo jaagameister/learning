@@ -21,7 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
+import in.jaaga.learning.bots.Anuj;
 import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
 import in.jaaga.learning.api.ChatItem;
@@ -46,6 +49,7 @@ public class ChatFragment extends Fragment implements Sender {
     private static ArrayList<ChatItem> chat_list;
     private ChatAdapter chatAdapter;
     private LinearLayout ll_options,ll_right;
+    private String reply;
 
     private static Bot mBot;
 
@@ -72,6 +76,13 @@ public class ChatFragment extends Fragment implements Sender {
         mBot.onStart();
     }
 
+    private void sendTextChatItem(String text) {
+        ChatItem item = new ChatItem();
+        item.setMessage(text);
+        //TODO Handle name here,hardcoding for now
+        item.setSender(USER_NAME);
+        send(item);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,6 +104,9 @@ public class ChatFragment extends Fragment implements Sender {
         chat_view.setAdapter(chatAdapter);
         chatAdapter.notifyDataSetChanged();
 
+        // For languageBot mainly
+        this.reply = "";
+
         //Setup the chat box
         chat_box = (EditText) v.findViewById(R.id.input_text);
         chat_box.setInputType(InputType.TYPE_CLASS_PHONE);
@@ -103,17 +117,16 @@ public class ChatFragment extends Fragment implements Sender {
                         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(chat_box.getWindowToken(),
                                 InputMethodManager.RESULT_UNCHANGED_SHOWN);
-
+              
                         String text = chat_box.getText().toString();
 
-
-                        ChatItem item = new ChatItem();
-                        item.setMessage(text);
-
-                        //TODO Handle name here,hardcoding for now
-                        item.setSender(USER_NAME);
-
-                        send(item);
+                        if (mBot instanceof Anuj) {
+                            if (reply != "") {
+                                sendTextChatItem(reply);
+                            }
+                        } else {
+                            sendTextChatItem(text);
+                        }
                     }
                 }
                 return false;
@@ -128,7 +141,25 @@ public class ChatFragment extends Fragment implements Sender {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        String text = charSequence.toString();
+                        if (mBot instanceof Anuj) {
+                            Anuj languageBot = (Anuj) mBot;
 
+                            // TODO: HUGE scope for improvement over this
+                            // linear method - relevant iff number of replies
+                            // gets large.
+                            List<String> filteredReplies = new ArrayList<String>();
+                            String possible_replies[] = languageBot.getCurReplies();
+                            for (int j=0; j<possible_replies.length; ++j) {
+                                if(possible_replies[j].toLowerCase().replaceAll("\\s+", "").contains(charSequence.toString().toLowerCase().replaceAll("\\s+", ""))) {
+                                  filteredReplies.add(possible_replies[j]);
+                                }
+                            }
+
+                            showOptions(filteredReplies.toArray(new String[0]));
+                            // TODO: activate / deactivate the button depending
+                            // on this
+                        }
             }
 
             @Override
@@ -186,27 +217,27 @@ public class ChatFragment extends Fragment implements Sender {
     }
 
     private void showOptions(String[] opts) {
-        if (opts == null || opts.length == 0)
-            return ;
-
-        int total_options = opts.length;
-
         if(ll_options !=null) {
             //put buttons in left layout
             ll_options.removeAllViews();
+            this.reply = "";
+
+            // we want to clear the options regardless
+            if (opts == null || opts.length == 0)
+                return ;
+
+            // By default, the first match would be sent
+            this.reply = opts[0];
+
+            int total_options = opts.length;
+
             for (int i = 0; i < total_options; i++) {
                 final Button choice = new Button(ChatFragment.this.getContext());
                 choice.setText(opts[i]);
                 choice.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        ChatItem item = new ChatItem();
-                        item.setMessage(choice.getText().toString());
-                        //TODO Handle name here,hardcoding for now
-                        item.setSender(USER_NAME);
-                        send(item);
-
+                        sendTextChatItem(choice.getText().toString());
                     }
                 });
 

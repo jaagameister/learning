@@ -24,7 +24,7 @@ public class Anuj extends Bot {
     }
 
     /* Getter for curReplies */
-    public String [] get_cur_replies() {
+    public String [] getCurReplies() {
         return this.curReplies;
     }
 
