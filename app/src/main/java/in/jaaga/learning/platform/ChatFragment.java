@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -19,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import in.jaaga.learning.R;
 import in.jaaga.learning.api.Bot;
@@ -44,7 +45,7 @@ public class ChatFragment extends Fragment implements Sender {
     private EditText chat_box;
     private static ArrayList<ChatItem> chat_list;
     private ChatAdapter chatAdapter;
-    private LinearLayout ll_left,ll_right;
+    private LinearLayout ll_options,ll_right;
 
     private static Bot mBot;
 
@@ -79,8 +80,8 @@ public class ChatFragment extends Fragment implements Sender {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        ll_left = (LinearLayout) v.findViewById(R.id.ll_left);
-        ll_right = (LinearLayout) v.findViewById(R.id.ll_right);
+        ll_options = (LinearLayout) v.findViewById(R.id.option_buttons);
+        //ll_right = (LinearLayout) v.findViewById(R.id.ll_right);
 
         //Setup the list
         chat_view = (RecyclerView) v.findViewById(R.id.chat_view);
@@ -116,6 +117,23 @@ public class ChatFragment extends Fragment implements Sender {
                     }
                 }
                 return false;
+            }
+        });
+
+        chat_box.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
@@ -172,20 +190,17 @@ public class ChatFragment extends Fragment implements Sender {
             return ;
 
         int total_options = opts.length;
-        int loop = total_options/2;
-        int rem = total_options%2;
 
-        if(ll_left!=null) {
+        if(ll_options !=null) {
             //put buttons in left layout
-            for (int i = 0; i < loop + rem; i++) {
+            ll_options.removeAllViews();
+            for (int i = 0; i < total_options; i++) {
                 final Button choice = new Button(ChatFragment.this.getContext());
                 choice.setText(opts[i]);
                 choice.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-                        ll_left.removeAllViews();
-                        ll_right.removeAllViews();
                         ChatItem item = new ChatItem();
                         item.setMessage(choice.getText().toString());
                         //TODO Handle name here,hardcoding for now
@@ -195,29 +210,7 @@ public class ChatFragment extends Fragment implements Sender {
                     }
                 });
 
-                ll_left.addView(choice);
-            }
-
-            //put buttons in right layout
-            for (int i = loop + rem; i < total_options; i++) {
-
-                final Button choice = new Button(ChatFragment.this.getContext());
-                choice.setText(opts[i]);
-                choice.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        ll_left.removeAllViews();
-                        ll_right.removeAllViews();
-                        ChatItem item = new ChatItem();
-                        item.setMessage(choice.getText().toString());
-                        //TODO Handle name here,hardcoding for now
-                        item.setSender(USER_NAME);
-                        send(item);
-                    }
-                });
-
-                ll_right.addView(choice);
+                ll_options.addView(choice);
             }
         }
     }
