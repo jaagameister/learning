@@ -75,7 +75,7 @@
     
     <string name="hellobot_reply_my_name_is_label">tell your name</string>
     <string-array name="hellobot_reply_my_name_is_list">
-      <item>Hi! my name is {{user.name}}.</item>
+      <item>Hi! my name is %s~!@#username</item>
     </string-array>
     <string-array name="hellobot_reply_my_name_is_nextQId">
       <item>hellobot_how_are_you</item>

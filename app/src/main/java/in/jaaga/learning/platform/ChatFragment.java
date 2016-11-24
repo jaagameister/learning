@@ -26,9 +26,7 @@ import java.util.Arrays;
 
 import in.jaaga.learning.bots.Anuj;
 import in.jaaga.learning.R;
-import in.jaaga.learning.api.Bot;
-import in.jaaga.learning.api.ChatItem;
-import in.jaaga.learning.api.Sender;
+import in.jaaga.learning.api.*;
 import in.jaaga.learning.platform.adapter.ChatAdapter;
 
 /**
@@ -120,6 +118,8 @@ public class ChatFragment extends Fragment implements Sender {
               
                         String text = chat_box.getText().toString();
 
+                        //~~
+                        //if reply text partially matches with any option, send first match
                         if (mBot instanceof Anuj) {
                             if (reply != "") {
                                 sendTextChatItem(reply);
@@ -148,15 +148,15 @@ public class ChatFragment extends Fragment implements Sender {
                             // TODO: HUGE scope for improvement over this
                             // linear method - relevant iff number of replies
                             // gets large.
-                            List<String> filteredReplies = new ArrayList<String>();
-                            String possible_replies[] = languageBot.getCurReplies();
+                            List<ChatReply> filteredReplies = new ArrayList<ChatReply>();
+                            ChatReply[] possible_replies = languageBot.getCurReplies();
                             for (int j=0; j<possible_replies.length; ++j) {
-                                if(possible_replies[j].toLowerCase().replaceAll("\\s+", "").contains(charSequence.toString().toLowerCase().replaceAll("\\s+", ""))) {
+                                if(possible_replies[j].displayText.toLowerCase().replaceAll("\\s+", "").contains(charSequence.toString().toLowerCase().replaceAll("\\s+", ""))) {
                                   filteredReplies.add(possible_replies[j]);
                                 }
                             }
 
-                            showOptions(filteredReplies.toArray(new String[0]));
+                            showOptions(filteredReplies.toArray(new ChatReply[0]));
                             // TODO: activate / deactivate the button depending
                             // on this
                         }
@@ -216,7 +216,7 @@ public class ChatFragment extends Fragment implements Sender {
 
     }
 
-    private void showOptions(String[] opts) {
+    private void showOptions(final ChatReply[] opts) {
         if(ll_options !=null) {
             //put buttons in left layout
             ll_options.removeAllViews();
@@ -227,20 +227,36 @@ public class ChatFragment extends Fragment implements Sender {
                 return ;
 
             // By default, the first match would be sent
-            this.reply = opts[0];
+            this.reply = opts[0].displayText;
 
             int total_options = opts.length;
 
             for (int i = 0; i < total_options; i++) {
                 final Button choice = new Button(ChatFragment.this.getContext());
-                choice.setText(opts[i]);
+                choice.setTag(i);
+                choice.setText(opts[i].displayText);
                 choice.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        sendTextChatItem(choice.getText().toString());
+                        int index = (int)view.getTag();
+                        if (opts[index].type == ChatReplyType.Parameterized) {
+                            chat_box.setText(opts[index].formatString.replace("%s", ""));
+                        }
+                        else {
+                            chat_box.setText(opts[index].displayText);
+                        }
                     }
                 });
-
+//                choice.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        this.opts[index].formatString.replace("%s", "");
+//
+//                        chat_box.setText(((Button)view).getText());
+//                        //sendTextChatItem(choice.getText().toString());
+//                    }
+//                });
                 ll_options.addView(choice);
             }
         }

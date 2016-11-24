@@ -1,6 +1,9 @@
 package in.jaaga.learning.api;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import in.jaaga.learning.api.*;
 
 /**
  * Created by root on 24/1/16.
@@ -25,7 +28,7 @@ public class ChatItem implements Serializable {
         responseType = NO_RESPONSE;
     }
 
-    public ChatItem(String message, String[] responseOptions) {
+    public ChatItem(String message, ChatReply[] responseOptions) {
         this(message);
         setResponseOptions(responseOptions);
     }
@@ -41,6 +44,10 @@ public class ChatItem implements Serializable {
     }
 
     public ChatItem(String message, int resourceId, String[] responseOptions) {
+        this(message, resourceId, ChatItem.convertToChatReplyOptions(responseOptions));
+    }
+
+    public ChatItem(String message, int resourceId, ChatReply[] responseOptions) {
         this(message, resourceId, NO_RESPONSE);
         setResponseOptions(responseOptions);
     }
@@ -51,12 +58,12 @@ public class ChatItem implements Serializable {
     }
 
     // TODO: use these options to create buttons for custom keyboard
-    String[] options;
-    public void setResponseOptions(String[] options) {
+    ChatReply[] options;
+    public void setResponseOptions(ChatReply[] options) {
         this.options = options;
     }
 
-    public String[] getResponseOptions() {
+    public ChatReply[] getResponseOptions() {
         return options;
     }
 
@@ -90,5 +97,17 @@ public class ChatItem implements Serializable {
 
     public int getResponseType() {
         return responseType;
+    }
+
+    private static ChatReply[] convertToChatReplyOptions(String[] options) {
+        ArrayList<ChatReply> replies = new ArrayList<>(options.length);
+        ChatReply reply = new ChatReply();
+        for (int i = 0; i < options.length; i++){
+            reply.type = ChatReplyType.Regular;
+            reply.displayText = options[0];
+            replies.add(reply);
+        }
+        replies.add(reply);
+        return replies.toArray(new ChatReply[0]);
     }
 }
