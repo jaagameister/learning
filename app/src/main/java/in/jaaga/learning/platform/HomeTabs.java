@@ -47,8 +47,7 @@ public class HomeTabs extends Fragment {
 
         fragmentManager = getChildFragmentManager();
 
-        adapter = new TabsPagerAdapter
-                (fragmentManager);
+        adapter = new TabsPagerAdapter(fragmentManager);
 
     }
 

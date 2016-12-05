@@ -23,6 +23,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import in.jaaga.learning.bots.Anuj;
 import in.jaaga.learning.R;
@@ -120,13 +121,16 @@ public class ChatFragment extends Fragment implements Sender {
 
                         //~~
                         //if reply text partially matches with any option, send first match
-                        if (mBot instanceof Anuj) {
-                            if (reply != "") {
-                                sendTextChatItem(reply);
-                            }
-                        } else {
+
+                        //dharmesh
+                        //changed to send text in chatbox in any of the cases.
+//                        if (mBot instanceof Anuj) {
+//                            if (reply != "") {
+//                                sendTextChatItem(reply);
+//                            }
+//                        } else {
                             sendTextChatItem(text);
-                        }
+//                        }
                     }
                 }
                 return false;
@@ -151,9 +155,42 @@ public class ChatFragment extends Fragment implements Sender {
                             List<ChatReply> filteredReplies = new ArrayList<ChatReply>();
                             ChatReply[] possible_replies = languageBot.getCurReplies();
                             for (int j=0; j<possible_replies.length; ++j) {
-                                if(possible_replies[j].displayText.toLowerCase().replaceAll("\\s+", "").contains(charSequence.toString().toLowerCase().replaceAll("\\s+", ""))) {
-                                  filteredReplies.add(possible_replies[j]);
+                                ChatReply reply = possible_replies [j];
+                                if (reply.type == ChatReplyType.Regular) {
+                                    if (reply.displayText.toLowerCase().replaceAll("\\s+", "").contains(charSequence.toString().toLowerCase().replaceAll("\\s+", ""))) {
+                                        filteredReplies.add(possible_replies[j]);
+                                    }
                                 }
+                                else if (reply.type == ChatReplyType.Parameterized )
+                                {
+                                    System.out.println("HELLO");
+                                    System.out.println(reply.formatString.replace("%s","\\w+"));
+                                    System.out.println(charSequence.toString().toLowerCase());
+
+                                    String str1 = reply.formatString.toLowerCase().replace("%s","\\w+");
+                                    String str2 = charSequence.toString().toLowerCase();
+
+                                    System.out.println("HELLO1");
+
+                                    if (Pattern.matches(str1, str2)){
+                                        System.out.println("Patterns matched");
+                                    }
+                                    else {
+                                        System.out.println("Patterns did not match");
+                                    }
+
+                                    if (str1.replaceAll("\\s+", "").contains(str2.replaceAll("\\s+", ""))){
+                                        filteredReplies.add(reply);
+                                        //Pattern.matches()
+                                    }
+                                    else if (Pattern.matches(str1, str2)
+                                            ) {
+                                        filteredReplies.add(reply);
+                                    }
+                                }
+//                                if(possible_replies[j].displayText.toLowerCase().replaceAll("\\s+", "").contains(charSequence.toString().toLowerCase().replaceAll("\\s+", ""))) {
+//                                  filteredReplies.add(possible_replies[j]);
+//                                }
                             }
 
                             showOptions(filteredReplies.toArray(new ChatReply[0]));
@@ -212,8 +249,6 @@ public class ChatFragment extends Fragment implements Sender {
                 mBot.onMessageReceived(item.getMessage());
             }
         }
-
-
     }
 
     private void showOptions(final ChatReply[] opts) {
@@ -239,8 +274,22 @@ public class ChatFragment extends Fragment implements Sender {
                     @Override
                     public void onClick(View view) {
                         int index = (int)view.getTag();
+
                         if (opts[index].type == ChatReplyType.Parameterized) {
-                            chat_box.setText(opts[index].formatString.replace("%s", ""));
+                            //chat_box.setText(opts[index].formatString.replace("%s", ""));
+                            String str = opts[index].formatString;
+                            String strDisplay = "";
+                            int indexOfPlaceholder = -1;
+                            for (int ii = 0; ii < opts[index].parameterNames.size(); ii++) {
+                                indexOfPlaceholder = str.indexOf("%s");
+                                strDisplay += str.substring(0, indexOfPlaceholder);
+                                strDisplay += opts[index].parameterNames.get(ii);
+                                str = str.substring(indexOfPlaceholder + 2);
+                            }
+                            strDisplay += str;
+                            chat_box.setText(strDisplay);
+                            chat_box.setSelection(opts[index].formatString.indexOf("%s"), opts[index].formatString.indexOf("%s") + opts[index].parameterNames.get(0).length());
+                            //chat_box.setSelection(opts[index].formatString.indexOf(""));
                         }
                         else {
                             chat_box.setText(opts[index].displayText);

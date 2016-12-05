@@ -1,5 +1,7 @@
 package in.jaaga.learning.bots;
 
+import junit.framework.Assert;
+
 import in.jaaga.learning.api.*;
 
 import java.util.*;
@@ -91,21 +93,25 @@ public class Anuj extends Bot {
         for (int i = 0; i < replies_array.length; i++) {
             ChatReply reply = new ChatReply();
             String[] reply_parts = replies_array[i].split("~!@#");
-            if (reply_parts.length > 1)
+            if (reply_parts.length == 2)
             {
                 reply.type = ChatReplyType.Parameterized;
                 reply.displayText = reply_parts[0].replaceAll("%s", "______");
                 reply.formatString = reply_parts[0];
                 reply.parameterNames = new ArrayList<String>(reply_parts.length - 1);
-                for (int j = 1; j < reply_parts.length; j++){
-                    reply.parameterNames.add(reply_parts[j]);
+                String parameternames[] = reply_parts[1].split(",");
+                for (int j = 0; j < parameternames.length; j++){
+                    reply.parameterNames.add(parameternames[j]);
                 }
                 reply.parameters = new Hashtable<String, String>(reply_parts.length - 1);
             }
-            else
+            else if (reply_parts.length == 1)
             {
                 reply.type = ChatReplyType.Regular;
                 reply.displayText = reply_parts[0];
+            }
+            else {
+                Assert.fail("Reply parts cannot be more then 2");
             }
             this.curReplies.add(reply);
         }
@@ -139,15 +145,69 @@ public class Anuj extends Bot {
     //TODO: extract variables in better way. Problem: if there is a * in given text, this method will fail.
     public void onMessageReceived(String text) {
         int replyIndex = -1;
-        //Arrays.asList(this.curReplies).indexOf(text);
         for (int i = 0; i < this.curReplies.size(); i++)
         {
-            if (text.equals(this.curReplies.get(i).displayText))
-            //if (Pattern.matches(text, this.curReplies.get(i).formatString.replace("%s","*")))
+            ChatReply reply = this.curReplies.get(i);
+            reply.replyText = text;
+
+            if (reply.type == ChatReplyType.Parameterized){
+                System.out.println("Format String: '" + reply.formatString + "'");
+                System.out.println("Regular expression: '" + reply.formatString.replace("%s","\\w+") + "'");
+            }
+
+            if (reply.type == ChatReplyType.Regular && reply.displayText.equals(text))
             {
                 replyIndex = i;
                 break;
             }
+            else if (reply.type == ChatReplyType.Parameterized){
+                String str1 = reply.formatString.toLowerCase().replace("%s","\\w+");
+                String str2 = text.toLowerCase();
+                if (Pattern.matches(str1, str2)) {
+                    String strFormatStringPart = reply.formatString;
+                    String strUserInputStringPart = text;
+                    String prefixString;
+                    String postfixString;
+
+                    int indexOfPlaceholder = -1;
+                    int indexOfNextPlaceholder = -1;
+
+                    int j = 0;
+
+                    String parametername;
+                    String parametervalue;
+                    int indexOfPostfixString = -1;
+
+                    do
+                    {
+                        parametername = reply.parameterNames.get(j++);
+                        indexOfPlaceholder = strFormatStringPart.indexOf("%s");
+                        strFormatStringPart = strFormatStringPart.substring((indexOfPlaceholder) + 2);
+                        strUserInputStringPart = strUserInputStringPart.substring(indexOfPlaceholder);
+                        indexOfNextPlaceholder = strFormatStringPart.indexOf("%s");
+                        if (indexOfNextPlaceholder == -1) {
+                            parametervalue = strUserInputStringPart;
+                        }
+                        else {
+                            postfixString = strFormatStringPart.substring(0, indexOfNextPlaceholder);
+                            indexOfPostfixString = strUserInputStringPart.indexOf(postfixString);
+                            parametervalue = strUserInputStringPart.substring(0, indexOfPostfixString);
+                            strUserInputStringPart = strUserInputStringPart.substring(indexOfPostfixString);
+                        }
+                        reply.parameters.put(parametername, parametervalue);
+                    } while (indexOfNextPlaceholder != -1);
+
+                    replyIndex = i;
+                    break;
+                }
+            }
+//                    ||
+//                reply.type == ChatReplyType.Parameterized && Pattern.matches(text, reply.formatString.replace("%s","\\w+")))
+//            //if (text.equals(this.curReplies.get(i).displayText))
+//            //if (Pattern.matches(text, this.curReplies.get(i).formatString.replace("%s","\\w+")))
+//            {
+//
+//            }
         }
 
         if(replyIndex == -1) {
