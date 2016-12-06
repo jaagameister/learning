@@ -14,7 +14,7 @@
       <item>hellobot_reply_my_name_is</item>
     </string-array>
     
-    <string name="hellobot_how_are_you">How are you today?</string>
+    <string name="hellobot_how_are_you">How are you today %s?~!@#username</string>
 
     <string-array name="hellobot_how_are_you_reply_blobs">
       <item>hellobot_reply_i_am_good</item>
@@ -73,7 +73,7 @@
     
     <string name="hellobot_reply_my_name_is_label">tell your name</string>
     <string-array name="hellobot_reply_my_name_is_list" formatted="false">
-      <item formatted="false">Hi! my name is %s and I live in %s. DummyText~!@#username,cityname</item>
+      <item formatted="false">Hi! my name is %s~!@#username</item>
     </string-array>
     <string-array name="hellobot_reply_my_name_is_nextQId">
       <item>hellobot_how_are_you</item>

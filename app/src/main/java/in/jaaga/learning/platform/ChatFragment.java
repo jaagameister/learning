@@ -48,7 +48,7 @@ public class ChatFragment extends Fragment implements Sender {
     private static ArrayList<ChatItem> chat_list;
     private ChatAdapter chatAdapter;
     private LinearLayout ll_options,ll_right;
-    private String reply;
+    private ChatReply reply;
 
     private static Bot mBot;
 
@@ -104,7 +104,7 @@ public class ChatFragment extends Fragment implements Sender {
         chatAdapter.notifyDataSetChanged();
 
         // For languageBot mainly
-        this.reply = "";
+        //this.reply = "";
 
         //Setup the chat box
         chat_box = (EditText) v.findViewById(R.id.input_text);
@@ -121,16 +121,20 @@ public class ChatFragment extends Fragment implements Sender {
 
                         //~~
                         //if reply text partially matches with any option, send first match
-
                         //dharmesh
                         //changed to send text in chatbox in any of the cases.
-//                        if (mBot instanceof Anuj) {
-//                            if (reply != "") {
-//                                sendTextChatItem(reply);
-//                            }
-//                        } else {
+
+
+                        if (mBot instanceof Anuj) {
+                            if (reply.type == ChatReplyType.Regular) {
+                                sendTextChatItem(reply.displayText);
+                            }
+                            else {
+                                sendTextChatItem(text);
+                            }
+                        } else {
                             sendTextChatItem(text);
-//                        }
+                        }
                     }
                 }
                 return false;
@@ -164,10 +168,10 @@ public class ChatFragment extends Fragment implements Sender {
                                 else if (reply.type == ChatReplyType.Parameterized )
                                 {
                                     System.out.println("HELLO");
-                                    System.out.println(reply.formatString.replace("%s","\\w+"));
+                                    System.out.println(reply.formatString.replace("%s","[\\w\\s.]+"));
                                     System.out.println(charSequence.toString().toLowerCase());
 
-                                    String str1 = reply.formatString.toLowerCase().replace("%s","\\w+");
+                                    String str1 = reply.formatString.toLowerCase().replace("%s","[\\w\\s.]+");
                                     String str2 = charSequence.toString().toLowerCase();
 
                                     System.out.println("HELLO1");
@@ -255,14 +259,14 @@ public class ChatFragment extends Fragment implements Sender {
         if(ll_options !=null) {
             //put buttons in left layout
             ll_options.removeAllViews();
-            this.reply = "";
+            this.reply = null;
 
             // we want to clear the options regardless
             if (opts == null || opts.length == 0)
                 return ;
 
             // By default, the first match would be sent
-            this.reply = opts[0].displayText;
+            this.reply = opts[0];
 
             int total_options = opts.length;
 
@@ -293,6 +297,7 @@ public class ChatFragment extends Fragment implements Sender {
                         }
                         else {
                             chat_box.setText(opts[index].displayText);
+                            chat_box.setSelection(opts[index].displayText.length());
                         }
                     }
                 });

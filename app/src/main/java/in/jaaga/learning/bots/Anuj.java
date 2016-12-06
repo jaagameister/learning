@@ -20,6 +20,7 @@ public class Anuj extends Bot {
     List<ChatReply> curReplies = new ArrayList<ChatReply>(); // list of currently allowed replies
     String [] curReplyBlobs;
     String end_id;
+    Hashtable<String, String> userInputs = new Hashtable<String, String>();
 
     /* Getter for curQId */
     public String get_curQId() {
@@ -41,7 +42,29 @@ public class Anuj extends Bot {
             return "";
         }
 
-        return getResources().getString(id);
+        String text = getResources().getString(id);
+        String[] parts = text.split("~!@#");
+        if (parts.length == 2)
+        {
+            String parameternames[] = parts[1].split(",");
+            ArrayList<String> parameterValues = new ArrayList<String>(parts.length - 1);
+
+            for (int i = 0; i < parameternames.length; i++){
+                String parametername = parameternames[i];
+                if (this.userInputs.containsKey(parametername)){
+                    parameterValues.add(this.userInputs.get(parameternames[i]));
+                }
+                else {
+                    parameterValues.add(parametername);
+                }
+            }
+            text = String.format(parts[0], parameterValues.toArray(new String[0]));
+        }
+        else if (parts.length != 1){
+            Assert.fail("Reply parts cannot be more then 2");
+        }
+
+        return text;
     }
 
     private String [] get_string_array_from_name(String name) {
@@ -152,7 +175,7 @@ public class Anuj extends Bot {
 
             if (reply.type == ChatReplyType.Parameterized){
                 System.out.println("Format String: '" + reply.formatString + "'");
-                System.out.println("Regular expression: '" + reply.formatString.replace("%s","\\w+") + "'");
+                System.out.println("Regular expression: '" + reply.formatString.replace("%s","[\\w\\s.]+") + "'");
             }
 
             if (reply.type == ChatReplyType.Regular && reply.displayText.equals(text))
@@ -161,7 +184,7 @@ public class Anuj extends Bot {
                 break;
             }
             else if (reply.type == ChatReplyType.Parameterized){
-                String str1 = reply.formatString.toLowerCase().replace("%s","\\w+");
+                String str1 = reply.formatString.toLowerCase().replace("%s","[\\w\\s.]+");
                 String str2 = text.toLowerCase();
                 if (Pattern.matches(str1, str2)) {
                     String strFormatStringPart = reply.formatString;
@@ -195,6 +218,10 @@ public class Anuj extends Bot {
                             strUserInputStringPart = strUserInputStringPart.substring(indexOfPostfixString);
                         }
                         reply.parameters.put(parametername, parametervalue);
+
+                        if (!this.userInputs.containsKey(parametername)){
+                            this.userInputs.put(parametername, parametervalue);
+                        }
                     } while (indexOfNextPlaceholder != -1);
 
                     replyIndex = i;
