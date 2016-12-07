@@ -28,6 +28,11 @@ public class ChatItem implements Serializable {
         responseType = NO_RESPONSE;
     }
 
+    public ChatItem(String message, String[] responseOptions) {
+        this(message);
+        setResponseOptions(ChatItem.convertToChatReplyOptions(responseOptions));
+    }
+
     public ChatItem(String message, ChatReply[] responseOptions) {
         this(message);
         setResponseOptions(responseOptions);
@@ -101,13 +106,13 @@ public class ChatItem implements Serializable {
 
     private static ChatReply[] convertToChatReplyOptions(String[] options) {
         ArrayList<ChatReply> replies = new ArrayList<>(options.length);
-        ChatReply reply = new ChatReply();
+        ChatReply reply;
         for (int i = 0; i < options.length; i++){
+            reply = new ChatReply();
             reply.type = ChatReplyType.Regular;
-            reply.displayText = options[0];
+            reply.displayText = options[i];
             replies.add(reply);
         }
-        replies.add(reply);
         return replies.toArray(new ChatReply[0]);
     }
 }

@@ -1,6 +1,5 @@
 package in.jaaga.learning.bots;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import in.jaaga.learning.api.*;
@@ -34,7 +33,7 @@ public class GrammarBot extends Bot {
         int optionId = getResources().getIdentifier("verb" + count, "array", getPackageName());
         String[] options = getResources().getStringArray(optionId);
         answer = options[0];
-        sender.send(new ChatItem(sentence, convertToChatReplyOptions(randomize(options))));
+        sender.send(new ChatItem(sentence, randomize(options)));
     }
 
     @Override
@@ -59,27 +58,4 @@ public class GrammarBot extends Bot {
         }
         return options;
     }
-
-    private ChatReply[] convertToChatReplyOptions(String[] options) {
-        ArrayList<ChatReply> replies = new ArrayList<>(options.length);
-        for (int i = 0; i < options.length; i++){
-            ChatReply reply = new ChatReply();
-            reply.type = ChatReplyType.Regular;
-            reply.displayText = options[i];
-            replies.add(reply);
-        }
-        return replies.toArray(new ChatReply[0]);
-    }
-
-//    private ChatReply[] randomize(ChatReply[] options) {
-//        Random r = new Random();
-//        for (int i = 0; i < options.length; i++) {
-//            int index = r.nextInt(options.length);
-//            ChatReply tmp = options[index];
-//            options[index] = options[i];
-//            options[i] = tmp;
-//        }
-//        return options;
-//    }
-
 }
