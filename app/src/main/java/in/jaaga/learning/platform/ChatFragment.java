@@ -292,6 +292,11 @@ public class ChatFragment extends Fragment implements Sender {
                             }
                             strDisplay += str;
                             chat_box.setText(strDisplay);
+                            chat_box.requestFocus();
+                            //show soft keyboard
+                            InputMethodManager imm = (InputMethodManager)  getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.showSoftInput(chat_box, InputMethodManager.SHOW_IMPLICIT);
+                            //select user-input
                             chat_box.setSelection(opts[index].formatString.indexOf("%s"), opts[index].formatString.indexOf("%s") + opts[index].parameterNames.get(0).length());
                             //chat_box.setSelection(opts[index].formatString.indexOf(""));
                         }
