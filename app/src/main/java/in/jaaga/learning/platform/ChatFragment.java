@@ -296,8 +296,9 @@ public class ChatFragment extends Fragment implements Sender {
                             //chat_box.setSelection(opts[index].formatString.indexOf(""));
                         }
                         else {
-                            chat_box.setText(opts[index].displayText);
-                            chat_box.setSelection(opts[index].displayText.length());
+                            //chat_box.setText(opts[index].displayText);
+                            sendTextChatItem(opts[index].displayText);
+                            //chat_box.setSelection(opts[index].displayText.length());
                         }
                     }
                 });
