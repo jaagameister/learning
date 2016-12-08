@@ -124,16 +124,13 @@ public class ChatFragment extends Fragment implements Sender {
                         //dharmesh
                         //changed to send text in chatbox in any of the cases.
 
-
-                        if (mBot instanceof Anuj) {
+                        if (reply != null) {
                             if (reply.type == ChatReplyType.Regular) {
                                 sendTextChatItem(reply.displayText);
                             }
                             else {
                                 sendTextChatItem(text);
                             }
-                        } else {
-                            sendTextChatItem(text);
                         }
                     }
                 }
