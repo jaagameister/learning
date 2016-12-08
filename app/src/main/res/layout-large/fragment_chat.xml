@@ -7,6 +7,22 @@
     android:padding="48dp"
     android:background="#faf5f5">
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/option_buttons">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_view"
         android:layout_width="match_parent"
@@ -15,7 +31,7 @@
         android:layout_marginLeft="0dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:layout_above="@+id/linearLayout2"
+        android:layout_above="@+id/horizontalScrollView"
         android:isScrollContainer="true"
         app:stackFromEnd="true">
 
