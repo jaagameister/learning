@@ -53,8 +53,8 @@
     <string-array name="hellobot_reply_greeting_list">
       <item>Hi!</item>
       <item>Hello!</item>
-      <item>Hi Anuj</item>
-      <item>Hello Anuj</item>
+      <!--<item>Hi Anuj</item>-->
+      <!--<item>Hello Anuj</item>-->
     </string-array>
     <string-array name="hellobot_reply_greeting_nextQId">
       <item>hellobot_what_is_your_name</item>

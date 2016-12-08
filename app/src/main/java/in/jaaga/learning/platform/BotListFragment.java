@@ -92,7 +92,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
 
         bot = new HashMap<>();
-        bot.put(MainActivity.NAME,"Anuj");
+        bot.put(MainActivity.NAME,"Conversation Bot");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot3));
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
         bot_list.add(bot);
