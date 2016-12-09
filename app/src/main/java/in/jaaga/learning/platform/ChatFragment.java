@@ -164,14 +164,11 @@ public class ChatFragment extends Fragment implements Sender {
                                 }
                                 else if (reply.type == ChatReplyType.Parameterized )
                                 {
-                                    System.out.println("HELLO");
                                     System.out.println(reply.formatString.replace("%s","[\\w\\s.]+"));
                                     System.out.println(charSequence.toString().toLowerCase());
 
                                     String str1 = reply.formatString.toLowerCase().replace("%s","[\\w\\s.]+");
                                     String str2 = charSequence.toString().toLowerCase();
-
-                                    System.out.println("HELLO1");
 
                                     if (Pattern.matches(str1, str2)){
                                         System.out.println("Patterns matched");
