@@ -195,12 +195,12 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
         textToSpeech.destroy();
     }
 
-    @Override
+    /*@Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         // TODO Auto-generated method stub
         getMenuInflater().inflate(R.menu.select_menu, menu);
         return true;
-    }
+    }*/
 
     @Override
     public void switchToFragment(Fragment fragment) {
