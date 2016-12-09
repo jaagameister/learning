@@ -1,0 +1,78 @@
+<resources>
+    <string name="impulse">Really quick</string>
+
+    <string name="app_name">Srini</string>
+
+    <string name="button_en">English</string>
+    <string name="button_mr">मराठी</string>
+    <string name="button_es">español</string>
+    <string name="button_hi">हिंदी</string>
+    <string name="button_kn">ಕನ್ನಡ</string>
+
+    <string name="title_activity_main">Jaaga Learning</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="username">My Name</string>
+    <string name="input_chat_box">Type a answer/command</string>
+
+    <!-- TODO: Remove or change this placeholder temxt -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+
+    <!--  PRATHAM - PictureBook bot -->
+
+    <string-array name="books">
+        <item>moon</item>
+        <item>match</item>
+        <item>street</item>
+        <item>aaloo</item>
+    </string-array>
+
+    <string name="moon_blurb">Let me tell you about the Moon\'s hat.</string>
+    <string name="match_blurb">Would you like a story about a cricket game that was won by a dog?</string>
+
+    <!-- Story 6 - A street or a zoo-->
+    <string-array name="street">
+        <item>Sonu, Monu and Rina set out to play. They saw a kitten.</item>
+        <item>She was looking at a big rat. “oh look!” shouted Sonu.</item>
+        <item>Rina saw a tiny ant going toward the big rat.</item>
+        <item>Suddenly, a very big shadow fell upon them all.</item>
+        <item>A very big eagle came down to the wall. A tiny ant, a small kitten, a big rat and a very big eagle in the same long street!</item>
+        <item>What would the three clever children do now?</item>
+        <item>They clapped their little hands! The eagle spread its big wings and flew away.</item>
+        <item>Rina made the ant climb onto a leaf. She left the leaf on the wall. The ant saw a grain of sugar. She picked it up and ran home.</item>
+        <item>The big rat picked up a half-eaten pakoda and went back into the drain. The small kitten said ‘miaaww’ and started licking her paw.</item>
+        <item>Monu got her some milk in a cup.The three kids played with her.</item>
+        <item>The very big eagle sitting on the tree blinked and flew far away.</item>
+    </string-array>
+    <string name="street_title">The street or a zoo</string>
+
+    <!-- Story 7 - Aaloo-Maaloo-Kaaloo-->
+    <string-array name="aaloo">
+        <item>For the very first time, Maaloo is collecting vegetables from the garden. He has collected red tomatoes, fresh brinjals and green lady’s fingers.</item>
+        <item>Dadi says, “Well done, Maaloo! Go and get some potatoes too.”</item>
+        <item>Maaloo looked at all the trees, creepers and plants. Not a single potato could he see.</item>
+        <item>“Dadi, the potatoes aren’t ready yet”, said Maaloo, putting the empty basket down. “No Maaloo, there are plenty of potatoes. Look carefully,” said Dadi.</item>
+        <item>Maaloo went into the garden once more. Kaaloo followed him. Maaloo was looking for potatoes when he heard , “Woof! Woof!”</item>
+        <item>“Kaaloo! Stop, Kaaloo” yelled Maaloo, running behind him. “Don’t spoil the garden.” Maaloo saw that Kaaloo was digging away and what do you think was coming out of the mud? Big fat potatoes!</item>
+        <item>“Well done, Kaaloo. You found potatoes!” laughed Maaloo, filling his basket with potatoes.</item>
+    </string-array>
+    <string name="aaloo_title">Aaloo-Maaloo-Kaaloo</string>
+
+    <string-array name="menu">
+        <item>Speak</item>
+        <item>Dictionary</item>
+        <item>Copy</item>
+    </string-array>
+
+
+</resources>

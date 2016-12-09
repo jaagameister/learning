@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="verb1">The cat ______ over the moon.</string>
+    <string-array name="verb1">
+        <item>jumped</item>
+        <item>jumps</item>
+        <item>will jump</item>
+    </string-array>
+
+    <string name="verb2">The boy ______ the cake.</string>
+    <string-array name="verb2">
+        <item>ate</item>
+        <item>eats</item>
+        <item>will eat</item>
+    </string-array>
+
+    <string name="verb3">The cow ______ in the road.</string>
+    <string-array name="verb3">
+        <item>sat</item>
+        <item>sits</item>
+        <item>will sit</item>
+    </string-array>
+
+    <string name="verb4">The man ______ drunk.</string>
+    <string-array name="verb4">
+        <item>was</item>
+        <item>is</item>
+        <item>will be</item>
+    </string-array>
+
+
+
+
+
+</resources>

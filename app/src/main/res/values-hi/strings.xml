@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Learning</string>
+
+    <string name="title_activity_main">Jaaga Learning</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="username">My Name</string>
+    <string name="input_chat_box">Type a answer/command</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- CHATBOT -->
+
+    <!-- Note to language dude or dame —
+        Each array lists things Srini might say in the contexts described one by one below.
+        App will pick one option at random at any given time. You can include as many different 
+        "lines" as come to mind, or as few as one. Each line should be natural, casual, &
+        idiomatic. What would a young adult or teenager say to a slightly younger person in these
+        contexts in the language and culture You working with? --> 
+    <!-- You can include alternatives from different dialects, as long as each line can be
+        generally understood by all speakers of the language at large. --> 
+    <!-- Some lines is used more often than others in real life. You can get Srini to use certain
+        lines more than others by including the more common lines more than once (in the relevant
+        array). --> 
+
+    <string-array name="hello">
+        <!-- ways for Srini to greet You at the start -->
+        <item>नमस्ते, आपका स्वागत है</item>
+    </string-array>
+
+    <string-array name="bye">
+        <!-- ways for Srini to say goodbye -->
+        <item>धन्यवाद, खेलने के लिए</item>
+    </string-array>
+
+    <string-array name="correct">
+        <!-- ways for Srini to tell You You got it right -->
+        <item>सही जवाब</item>
+    </string-array>
+
+    <string-array name="incorrect">
+        <!-- ways for Srini to tell You You didn't get it right -->
+        <item>ओह ओ!! सही जवाब दे</item>
+    </string-array>
+
+    <string-array name="encourage">
+        <!-- ways for Srini to encourage You or say a kind word,
+         such as after You answer a question right -->
+        <item>बहुत अच्छा..........</item>
+    </string-array>
+
+    <string-array name="one_left">
+        <!-- ways for Srini to say You got one problem left in the section -->
+        <item>बस एक और सवाल</item>
+    </string-array>
+
+    <string-array name="ask_name">
+        <!-- ways for Srini to get your name -->
+        <item>आपका नाम क्या है?</item>
+    </string-array>
+
+    <!-- what Srini tell You when You get through a skill -->
+    <string name="level_up">बहुत अच्छा!!! आप सफल हो गए %1$s आपको मिले\
+        अंक| %2$d आपके कुल अंक %3$d. %4$s अब और अधिक जानने की कोशिश\
+        करो!!</string>
+
+    <string-array name="admin_prompt">
+        <!-- ways for a powerful being in the culture(s) or myths pertaining to your language to
+        tell the user it's at his/her service --> 
+        <!-- example: genie in a bottle saying, "Your wish is my command." -->
+        <item>जी गुरुजी......</item>
+    </string-array>
+
+    <!-- SKILLS / PROBLEM TYPES -->
+    <string name="addition_title">"जोड़"</string>
+    <string name="addition_negative_title">"नकारात्मक जोड"</string>
+
+</resources>
+
