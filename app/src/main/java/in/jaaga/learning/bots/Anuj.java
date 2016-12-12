@@ -184,12 +184,18 @@ public class Anuj extends Bot {
                 break;
             }
             else if (reply.type == ChatReplyType.Parameterized){
+
+                //Parsing of user input string to extract variables (dictionary values)
+
+                //Limitation: Solution will not work properly if
+                //i) if string following variable value is substring of user input for the variable.
+                //ii) if entire user input string (answer suggestion) needs to have separator ~@#$
+
                 String str1 = reply.formatString.toLowerCase().replace("%s","[\\w\\s.]+");
                 String str2 = text.toLowerCase();
                 if (Pattern.matches(str1, str2)) {
                     String strFormatStringPart = reply.formatString;
                     String strUserInputStringPart = text;
-                    String prefixString;
                     String postfixString;
 
                     int indexOfPlaceholder = -1;
@@ -209,14 +215,22 @@ public class Anuj extends Bot {
                         strUserInputStringPart = strUserInputStringPart.substring(indexOfPlaceholder);
                         indexOfNextPlaceholder = strFormatStringPart.indexOf("%s");
                         if (indexOfNextPlaceholder == -1) {
+                            postfixString = strFormatStringPart;
+                        }
+                        else
+                        {
+                            postfixString = strFormatStringPart.substring(0, indexOfNextPlaceholder);
+                        }
+
+                        if (postfixString == "") {
                             parametervalue = strUserInputStringPart;
                         }
                         else {
-                            postfixString = strFormatStringPart.substring(0, indexOfNextPlaceholder);
                             indexOfPostfixString = strUserInputStringPart.indexOf(postfixString);
                             parametervalue = strUserInputStringPart.substring(0, indexOfPostfixString);
                             strUserInputStringPart = strUserInputStringPart.substring(indexOfPostfixString);
                         }
+
                         reply.parameters.put(parametername, parametervalue);
 
                         if (!this.userInputs.containsKey(parametername)){
