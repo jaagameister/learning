@@ -36,7 +36,7 @@
                 android:autoText="false"
                 android:autoLink="all"
                 android:textSize="16sp"
-            android:layout_alignParentRight="false"
+                android:layout_alignParentRight="false"
                 android:layout_alignParentLeft="true"
                 android:gravity="left"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -44,7 +44,10 @@
                 android:paddingTop="10dp"
                 android:paddingRight="8dp"
                 android:paddingBottom="10dp"
-            android:layout_alignTop="@+id/image_holder" />
+            android:layout_alignTop="@+id/image_holder"
+            android:textIsSelectable="true"
+            android:longClickable="true"
+            android:focusable="true"/>
 
     </LinearLayout>
 

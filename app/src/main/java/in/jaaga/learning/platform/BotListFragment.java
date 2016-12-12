@@ -21,7 +21,7 @@ import in.jaaga.learning.bots.PictureBook;
 //import in.jaaga.learning.bots.TranslatorBot;
 import in.jaaga.learning.bots.TranslatorBot;
 import in.jaaga.learning.bots.skillbot.MathBot;
-import in.jaaga.learning.platform.adapter.BotList;
+import in.jaaga.learning.platform.adapter.BotListAdapter;
 import in.jaaga.learning.platform.adapter.OnItemClickListener;
 
 /**
@@ -36,7 +36,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
     private RecyclerView bot_list_view;
     private BotListFragmentInterface mListener;
-    private BotList adapter_bot_list;
+    private BotListAdapter adapter_bot_list;
     private static ArrayList<HashMap<String, String>> bot_list;
 
     public BotListFragment() {
@@ -118,7 +118,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_bot_list, container, false);
 
-        adapter_bot_list = new BotList(getActivity(), R.layout.bot_list_adapter, bot_list,this);
+        adapter_bot_list = new BotListAdapter(getActivity(), R.layout.bot_list_adapter, bot_list,this);
 
         bot_list_view = (RecyclerView) v.findViewById(R.id.rv_bot_list);
         bot_list_view.setHasFixedSize(true);
@@ -157,36 +157,36 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         switch (position){
             case 0:
 
-                switchToFragment(new ChatFragment().newInstance(new MathBot()));
+                switchToFragment(ChatFragment.newInstance(new MathBot()));
 
                 break;
             case 1:
 
-                switchToFragment(new ChatFragment().newInstance(new PictureBook()));
+                switchToFragment(ChatFragment.newInstance(new PictureBook()));
 
                 break;
 
             case 2:
 
-                switchToFragment(new ChatFragment().newInstance(new EchoBot()));
+                switchToFragment(ChatFragment.newInstance(new EchoBot(getActivity())));
 
                 break;
 
             case 3:
 
-                switchToFragment(new ChatFragment().newInstance(new NumberGuess()));
+                switchToFragment(ChatFragment.newInstance(new NumberGuess()));
 
                 break;
 
             case 4:
 
-                switchToFragment(new ChatFragment().newInstance(new GrammarBot()));
+                switchToFragment(ChatFragment.newInstance(new GrammarBot()));
 
                 break;
 
             case 5:
 
-                switchToFragment(new ChatFragment().newInstance(new TranslatorBot()));
+                switchToFragment(ChatFragment.newInstance(new TranslatorBot()));
 
                 break;
 

@@ -1,42 +1,32 @@
 package in.jaaga.learning.platform;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.support.design.widget.NavigationView;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.os.Handler;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
 import com.crashlytics.android.Crashlytics;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.Locale;
 
-import in.jaaga.learning.api.ChatItem;
 import in.jaaga.learning.R;
+import in.jaaga.learning.platform.helper.DatabaseHelper;
+import in.jaaga.learning.t2s.Speech;
 import io.fabric.sdk.android.Fabric;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,ChatFragment.ChatFragmentListener,BotListFragment.BotListFragmentInterface {
+
+public class MainActivity extends AppCompatActivity implements ChatFragment.ChatFragmentListener,BotListFragment.BotListFragmentInterface {
 
     FragmentManager fragmentManager;
 
@@ -45,80 +35,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static final String IMAGE = "image";
     public static final String LAST_MESSSAGE = "last_message";
 
-    /**
-     * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
-     */
-    private static final boolean AUTO_HIDE = true;
-
-    /**
-     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
-     * user interaction before hiding the system UI.
-     */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
-
-    /**
-     * Some older devices needs a small delay between UI widget updates
-     * and a change of the status and navigation bar.
-     */
-    private static final int UI_ANIMATION_DELAY = 300;
-    private final Handler mHideHandler = new Handler();
-    private View mContentView;
-    private final Runnable mHidePart2Runnable = new Runnable() {
-        @SuppressLint("InlinedApi")
-        @Override
-        public void run() {
-            // Delayed removal of status and navigation bar
-
-            // Note that some of these constants are new as of API 16 (Jelly Bean)
-            // and API 19 (KitKat). It is safe to use them, as they are inlined
-            // at compile-time and do nothing on earlier devices.
-            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        }
-    };
-    private View mControlsView;
-    private final Runnable mShowPart2Runnable = new Runnable() {
-        @Override
-        public void run() {
-            // Delayed display of UI elements
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.show();
-            }
-//            mControlsView.setVisibility(View.VISIBLE);
-        }
-    };
-    private boolean mVisible;
-    private final Runnable mHideRunnable = new Runnable() {
-        @Override
-        public void run() {
-            hide();
-        }
-    };
-    /**
-     * Touch listener to use for in-layout UI controls to delay hiding the
-     * system UI. This is to prevent the jarring behavior of controls going away
-     * while interacting with activity UI.
-     */
-    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (AUTO_HIDE) {
-                delayedHide(AUTO_HIDE_DELAY_MILLIS);
-            }
-            return false;
-        }
-    };
+    public static Speech textToSpeech;
+    public static DatabaseHelper myDbHelper;
 
     Button english, marathi;
     Button kannada, spanish, hindi;
 
     private ChatFragment chatFragment;
+
+    View decorView;
+    int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +59,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(uiOptions);
+        getSupportActionBar().hide();
+        decorView.setOnSystemUiVisibilityChangeListener
+                (new View.OnSystemUiVisibilityChangeListener() {
+                    @Override
+                    public void onSystemUiVisibilityChange(int visibility) {
+                        // Note that system bars will only be "visible" if none of the
+                        // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
+                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                            // TODO: The system bars are visible.
+                            decorView.setSystemUiVisibility(uiOptions);
+                        } else {
+                            // TODO: The system bars are NOT visible.
+                            decorView.setSystemUiVisibility(uiOptions);
+                        }
+                    }
+                });
 
         kannada=(Button) findViewById(R.id.kannada);
         kannada.setOnClickListener(new View.OnClickListener() {
@@ -171,35 +119,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        textToSpeech = new Speech(MainActivity.this);
+        myDbHelper = new DatabaseHelper(this);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    myDbHelper.createDataBase();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
         fragmentManager = getSupportFragmentManager();
-
         showHomeFragment();
 
-        mVisible = true;
-        mContentView = findViewById(R.id.fullscreen_toggle);
-
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //toggle();
-            }
-        });
-
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-//        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
     }
 
     //Show the list of bots available!
@@ -212,90 +147,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    //Show the chat fragment
- /*   private void showChatFragment(){
-        chatFragment = ChatFragment.newInstance();
-
-        if(fragmentManager!=null){
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.content_container,chatFragment,"chatFragment");
-            transaction.commit();
-        }
-        if(getIntent().getExtras()!=null){
-            ArrayList<ChatItem> chatItems = (ArrayList<ChatItem>) getIntent().getExtras().getSerializable("chat");
-            if(chatItems!=null) {
-                chatFragment.setList(chatItems);
-            }
-        }
-
-    }*/
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
-        delayedHide(100);
-    }
-
-    private void toggle() {
-        if (mVisible) {
-            hide();
-        } else {
-            show();
-        }
-    }
-
-    private void hide() {
-        // Hide UI first
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-        mVisible = false;
-
-        // Schedule a runnable to remove the status and navigation bar after a delay
-        mHideHandler.removeCallbacks(mShowPart2Runnable);
-        mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    @SuppressLint("InlinedApi")
-    private void show() {
-        // Show the system bar
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-        mVisible = true;
-
-        // Schedule a runnable to display UI elements after a delay
-        mHideHandler.removeCallbacks(mHidePart2Runnable);
-        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    /**
-     * Schedules a call to hide() in [delay] milliseconds, canceling any
-     * previously scheduled calls.
-     */
-    private void delayedHide(int delayMillis) {
-        mHideHandler.removeCallbacks(mHideRunnable);
-        mHideHandler.postDelayed(mHideRunnable, delayMillis);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
-
         super.onBackPressed();
     }
 
@@ -320,6 +174,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         finish();
     }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+        textToSpeech.destroy();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        textToSpeech = new Speech(MainActivity.this);
+        decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(uiOptions);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        myDbHelper.close();
+        textToSpeech.destroy();
+    }
+
+    /*@Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        // TODO Auto-generated method stub
+        getMenuInflater().inflate(R.menu.select_menu, menu);
+        return true;
+    }*/
 
     @Override
     public void switchToFragment(Fragment fragment) {

@@ -89,6 +89,9 @@ public class PictureBook extends Bot {
             pText = pageText[page];
         else
             pText = "";
-        sender.send(new ChatItem(pText, illustrations.get(page), OPTIONS));
+
+        ChatItem chatItem = new ChatItem(pText, illustrations.get(page), OPTIONS);
+        chatItem.setResponseType(ChatItem.NO_RESPONSE);
+        sender.send(chatItem);
     }
 }
