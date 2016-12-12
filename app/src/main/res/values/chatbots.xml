@@ -1,0 +1,7 @@
+<resources>
+    <!--  List of all chatbots available! -->
+    <string-array name="chatbots">
+        <item>hellobot</item>
+        <item>farmbot</item>
+    </string-array>
+</resources>

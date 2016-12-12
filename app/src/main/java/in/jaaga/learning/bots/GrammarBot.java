@@ -2,8 +2,7 @@ package in.jaaga.learning.bots;
 
 import java.util.Random;
 
-import in.jaaga.learning.api.Bot;
-import in.jaaga.learning.api.ChatItem;
+import in.jaaga.learning.api.*;
 import in.jaaga.learning.bots.skillbot.MathBot;
 
 /**

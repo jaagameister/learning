@@ -7,6 +7,23 @@
     android:padding="5dp"
     android:background="#faf5f5">
 
+<HorizontalScrollView
+    android:id="@+id/horizontalScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/linearLayout2"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/option_buttons">
+
+    </LinearLayout>
+</HorizontalScrollView>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_view"
         android:layout_width="match_parent"
@@ -15,7 +32,7 @@
         android:layout_marginLeft="0dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:layout_above="@+id/linearLayout2"
+        android:layout_above="@+id/horizontalScrollView"
         android:isScrollContainer="true"
         app:stackFromEnd="true"/>
 
@@ -27,9 +44,8 @@
         android:layout_gravity="bottom"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
-        android:layout_alignParentBottom="false"
-        android:id="@+id/linearLayout2"
-        android:layout_above="@+id/option_buttons">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout2">
 
         <EditText
             android:id="@+id/input_text"
@@ -51,33 +67,5 @@
              />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/option_buttons"
-        android:layout_alignParentBottom="true">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:id="@+id/ll_left">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:id="@+id/ll_right">
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>
