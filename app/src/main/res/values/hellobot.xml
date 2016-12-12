@@ -36,18 +36,52 @@
     <string name="hellobot_i_am_sorry">I am sorry about that.</string>
     <string-array name="hellobot_i_am_sorry_reply_blobs">
     </string-array>
-    
-    
-    <string name="hellobot_my_friend">Look! Here are my friends Sonu, Monu and Golu. Say hi to everyone.</string>
-    <string name="hellobot_my_friend_label">Part2: Meet my friends!</string>
-    <string-array name="hellobot_my_friend_reply_blobs">
-      <item>hellobot_reply_hi_everyone</item>
+
+    <string name="hellobot_Manju">Meet my friend Manju. Manju is a farmer. Say hi to Manju.</string>
+    <string-array name="hellobot_Manju_reply_blobs">
+      <item>hellobot_reply_Manju</item>
     </string-array>
-    
-    
+
+    <string name="hellobot_banana">Manju grows bananas on his farm. What color is the banana?</string>
+    <string-array name="hellobot_banana_reply_blobs">
+      <item>hellobot_reply_banana</item>
+      <item>hellobot_reply_banana_dont_know</item>
+    </string-array>
+
+    <string name="hellobot_banana_correct">That is correct! Bananas are usually yellow!</string>
+    <string name="hellobot_banana_dont_know">That is okay! This Banana is yellow.</string>
+
+    <string name="hellobot_John">Now meet my friend John. Ask him how he is.</string>
+    <string-array name="hellobot_John_reply_blobs">
+      <item>hellobot_reply_John</item>
+    </string-array>
+
+    <string name="hellobot_newspaper">He is doing well. He is reading something. Do you know what he is reading?</string>
+    <string-array name="hellobot_newspaper_reply_blobs">
+      <item>hellobot_reply_newspaper</item>
+      <item>hellobot_reply_newspaper_dont_know</item>
+    </string-array>
+
+    <string name="hellobot_newspaper_correct">That is correct! He is reading a newspaper.</string>
+    <string name="hellobot_newspaper_dont_know">That is okay! He is reading a newspaper.</string>
+
+    <string name="hellobot_Dharmesh">Here is my friend Dharmesh and his pet. Do you know which animal that is?</string>
+    <string-array name="hellobot_Dharmesh_reply_blobs">
+      <item>hellobot_reply_dog</item>
+      <item>hellobot_reply_dog_dont_know</item>
+    </string-array>
+
+    <string name="hellobot_dog_correct">Yes, that is a dog. His name is Ramu!</string>
+    <string name="hellobot_dog_dont_know">His pet is a dog! His name is Ramu!</string>
+
+    <string name="hellobot_bye">It is time to go now. Goodbye!</string>
+    <string-array name="hellobot_bye_reply_blobs">
+      <item>hellobot_reply_bye</item>
+    </string-array>
+
     <string name="hellobot_end">It was nice talking to you. Bye</string>
-    
-    
+
+
     <!-- REPLY BLOBS! -->
     <string name="hellobot_reply_greeting_label">Basic greetings.</string>
     <string-array name="hellobot_reply_greeting_list">
@@ -91,7 +125,7 @@
     </string-array>
     <string-array name="hellobot_reply_i_am_good_nextQId">
       <item>hellobot_that_is_great</item>
-      <item>hellobot_my_friend</item>
+      <item>hellobot_Manju</item>
     </string-array>
     
     
@@ -103,14 +137,98 @@
     </string-array>
     <string-array name="hellobot_reply_i_am_not_good_nextQId">
       <item>hellobot_i_am_sorry</item>
-      <item>hellobot_my_friend</item>
+      <item>hellobot_Manju</item>
     </string-array>
     
     
-    <string-array name="hellobot_reply_hi_everyone_nextQId">
+    <string-array name="hellobot_reply_Manju_nextQId">
+      <item>hellobot_banana</item>
+    </string-array>
+    <string-array name="hellobot_reply_Manju_list">
+      <item>Hi Manju.</item>
+      <item>Hi</item>
+      <item>Hello</item>
+      <item>Hello Manju</item>
+    </string-array>
+    
+    
+    <string-array name="hellobot_reply_banana_nextQId">
+      <item>hellobot_banana_correct</item>
+      <item>hellobot_John</item>
+    </string-array>
+    <string-array name="hellobot_reply_banana_list">
+      <item>Yellow</item>
+      <item>The banana is yellow.</item>
+      <item>It is yellow.</item>
+    </string-array>
+    
+    
+    <string-array name="hellobot_reply_banana_dont_know_nextQId">
+      <item>hellobot_banana_dont_know</item>
+      <item>hellobot_John</item>
+    </string-array>
+    <string-array name="hellobot_reply_banana_dont_know_list">
+      <item>I am sorry, I do not know that.</item>
+      <item>I do not know that.</item>
+      <item>I do not know.</item>
+    </string-array>
+    
+    
+    <string-array name="hellobot_reply_John_nextQId">
+      <item>hellobot_newspaper</item>
+    </string-array>
+    <string-array name="hellobot_reply_John_list">
+      <item>How are you John?</item>
+      <item>How are you?</item>
+    </string-array>
+
+
+    <string-array name="hellobot_reply_newspaper_nextQId">
+      <item>hellobot_newspaper_correct</item>
+      <item>hellobot_Dharmesh</item>
+    </string-array>
+    <string-array name="hellobot_reply_newspaper_list">
+      <item>Newspaper</item>
+      <item>That is a newspaper!</item>
+    </string-array>
+    
+    
+    <string-array name="hellobot_reply_newspaper_dont_know_nextQId">
+      <item>hellobot_newspaper_dont_know</item>
+      <item>hellobot_Dharmesh</item>
+    </string-array>
+    <string-array name="hellobot_reply_newspaper_dont_know_list">
+      <item>I am sorry, I do not know that.</item>
+      <item>I do not know that.</item>
+      <item>I do not know.</item>
+    </string-array>
+
+
+    <string-array name="hellobot_reply_dog_nextQId">
+      <item>hellobot_dog_correct</item>
+      <item>hellobot_bye</item>
+    </string-array>
+    <string-array name="hellobot_reply_dog_list">
+      <item>Banana</item>
+      <item>That is a dog!</item>
+    </string-array>
+    
+    
+    <string-array name="hellobot_reply_dog_dont_know_nextQId">
+      <item>hellobot_dog_dont_know</item>
+      <item>hellobot_bye</item>
+    </string-array>
+    <string-array name="hellobot_reply_dog_dont_know_list">
+      <item>I am sorry, I do not know that.</item>
+      <item>I do not know that.</item>
+      <item>I do not know.</item>
+    </string-array>
+
+
+    <string-array name="hellobot_reply_bye_nextQId">
       <item>hellobot_end</item>
     </string-array>
-    <string-array name="hellobot_reply_hi_everyone_list">
-      <item>Hi everyone!</item>
+    <string-array name="hellobot_reply_bye_list">
+      <item>Bye everyone!</item>
     </string-array>
 </resources>

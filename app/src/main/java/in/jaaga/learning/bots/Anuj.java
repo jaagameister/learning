@@ -259,9 +259,16 @@ public class Anuj extends Bot {
     private void showNextQuestion() {
         // TODO: Figure out if we need to free this array first. Memory leaks?
         // this.curReplies = get_all_replies(this.curQId);
+        ChatItem item;
+        int imageId = getResources().getIdentifier(this.curQId.toLowerCase(), "drawable", getPackageName());
+
         set_cur_replies();
 
-        ChatItem item = new ChatItem(get_string_from_name(this.curQId), ChatItem.TEXT_RESPONSE);
+        if (imageId == 0) {
+            item = new ChatItem(get_string_from_name(this.curQId), ChatItem.TEXT_RESPONSE);
+        } else {
+            item = new ChatItem(get_string_from_name(this.curQId), imageId, ChatItem.TEXT_RESPONSE);
+        }
         item.setResponseOptions(this.curReplies.toArray(new ChatReply[0]));
         sender.send(item);
     }
