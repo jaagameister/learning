@@ -66,7 +66,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
         bot = new HashMap<>();
         bot.put(MainActivity.NAME,"Grammar Bot");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.grammar_bot));
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.grammar));
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
         bot_list.add(bot);
 
