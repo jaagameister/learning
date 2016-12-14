@@ -64,7 +64,7 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot = new HashMap<>();
 
         bot.put(MainActivity.NAME,"Echo Bot");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot1));
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.echo));
         bot.put(MainActivity.LAST_MESSSAGE,"I'm your Echo!");
 
         bot_list.add(bot);
@@ -72,14 +72,14 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot = new HashMap<>();
 
         bot.put(MainActivity.NAME,"Number Guess");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot2));
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.number_guess));
         bot.put(MainActivity.LAST_MESSSAGE,"Think of a number any number...");
 
         bot_list.add(bot);
 
         bot = new HashMap<>();
         bot.put(MainActivity.NAME,"Grammar Bot");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot3));
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.grammar_bot));
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
         bot_list.add(bot);
 
@@ -87,13 +87,13 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot = new HashMap<>();
         bot.put(MainActivity.NAME,"Bing");
         bot.put(MainActivity.LAST_MESSSAGE,"Translate anything you want..");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot4));
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bing));
         bot_list.add(bot);
 
 
         bot = new HashMap<>();
         bot.put(MainActivity.NAME,"Conversation Bot");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bot3));
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.conversation));
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
         bot_list.add(bot);
 
