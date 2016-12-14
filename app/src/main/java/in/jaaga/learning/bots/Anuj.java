@@ -222,7 +222,7 @@ public class Anuj extends Bot {
                             postfixString = strFormatStringPart.substring(0, indexOfNextPlaceholder);
                         }
 
-                        if (postfixString == "") {
+                        if (postfixString.isEmpty()) {
                             parametervalue = strUserInputStringPart;
                         }
                         else {
