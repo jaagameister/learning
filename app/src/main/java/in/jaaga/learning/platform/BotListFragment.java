@@ -50,31 +50,18 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot.put(MainActivity.NAME,"Srini");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.srini));
         bot.put(MainActivity.LAST_MESSSAGE,"Srini here!");
-
         bot_list.add(bot);
 
         bot = new HashMap<>();
-
         bot.put(MainActivity.NAME,"Pratham Ji");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.pratham));
         bot.put(MainActivity.LAST_MESSSAGE,"Let me tell you a story.");
-
         bot_list.add(bot);
 
         bot = new HashMap<>();
-
-        bot.put(MainActivity.NAME,"Echo Bot");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.echo));
-        bot.put(MainActivity.LAST_MESSSAGE,"I'm your Echo!");
-
-        bot_list.add(bot);
-
-        bot = new HashMap<>();
-
         bot.put(MainActivity.NAME,"Number Guess");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.number_guess));
         bot.put(MainActivity.LAST_MESSSAGE,"Think of a number any number...");
-
         bot_list.add(bot);
 
         bot = new HashMap<>();
@@ -83,18 +70,23 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
         bot_list.add(bot);
 
-
         bot = new HashMap<>();
         bot.put(MainActivity.NAME,"Bing");
         bot.put(MainActivity.LAST_MESSSAGE,"Translate anything you want..");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bing));
         bot_list.add(bot);
 
-
         bot = new HashMap<>();
         bot.put(MainActivity.NAME,"Conversation Bot");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.conversation));
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
+        bot_list.add(bot);
+
+
+        bot = new HashMap<>();
+        bot.put(MainActivity.NAME,"Echo Bot");
+        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.echo));
+        bot.put(MainActivity.LAST_MESSSAGE,"I'm your Echo!");
         bot_list.add(bot);
 
         /********************************************************************************/
@@ -168,31 +160,31 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
             case 2:
 
-                switchToFragment(ChatFragment.newInstance(new EchoBot(getActivity())));
+                switchToFragment(ChatFragment.newInstance(new NumberGuess()));
 
                 break;
 
             case 3:
 
-                switchToFragment(ChatFragment.newInstance(new NumberGuess()));
+                switchToFragment(ChatFragment.newInstance(new GrammarBot()));
 
                 break;
 
             case 4:
 
-                switchToFragment(ChatFragment.newInstance(new GrammarBot()));
+                switchToFragment(ChatFragment.newInstance(new TranslatorBot()));
 
                 break;
 
             case 5:
 
-                switchToFragment(ChatFragment.newInstance(new TranslatorBot()));
+                switchToFragment(new ChatFragment().newInstance(new Anuj()));
 
                 break;
 
             case 6:
 
-                switchToFragment(new ChatFragment().newInstance(new Anuj()));
+                switchToFragment(ChatFragment.newInstance(new EchoBot(getActivity())));
 
                 break;
         }
