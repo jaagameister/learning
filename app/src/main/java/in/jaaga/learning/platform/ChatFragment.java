@@ -224,7 +224,7 @@ public class ChatFragment extends Fragment implements Sender {
 
     @Override
     public void send(ChatItem item) {
-        //showOptions(item.getResponseOptions());
+        showOptions(item.getResponseOptions());
         chat_list.add(item);
         if(chatAdapter!=null) {
 
