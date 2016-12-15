@@ -13,16 +13,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import in.jaaga.learning.R;
+import in.jaaga.learning.bots.ConversationBot;
 import in.jaaga.learning.bots.EchoBot;
 import in.jaaga.learning.bots.GrammarBot;
-import in.jaaga.learning.bots.ConversationBot;
 import in.jaaga.learning.bots.NumberGuess;
 import in.jaaga.learning.bots.PictureBook;
-//import in.jaaga.learning.bots.TranslatorBot;
-import in.jaaga.learning.bots.TranslatorBot;
 import in.jaaga.learning.bots.skillbot.MathBot;
 import in.jaaga.learning.platform.adapter.BotListAdapter;
 import in.jaaga.learning.platform.adapter.OnItemClickListener;
+
+//import in.jaaga.learning.bots.TranslatorBot;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,12 +68,6 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
         bot.put(MainActivity.NAME,"Grammar Bot");
         bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.grammar));
         bot.put(MainActivity.LAST_MESSSAGE,"Who ya gonna call!");
-        bot_list.add(bot);
-
-        bot = new HashMap<>();
-        bot.put(MainActivity.NAME,"Bing");
-        bot.put(MainActivity.LAST_MESSSAGE,"Translate anything you want..");
-        bot.put(MainActivity.IMAGE,String.valueOf(R.drawable.bing));
         bot_list.add(bot);
 
         bot = new HashMap<>();
@@ -172,19 +166,12 @@ public class BotListFragment extends Fragment implements OnItemClickListener {
 
             case 4:
 
-                switchToFragment(ChatFragment.newInstance(new TranslatorBot()));
+                switchToFragment(ChatFragment.newInstance(new ConversationBot()));
 
                 break;
 
             case 5:
 
-                switchToFragment(new ChatFragment().newInstance(new Anuj()));
-
-                break;
-
-            case 6:
-
-                switchToFragment(new ChatFragment().newInstance(new ConversationBot()));
                 switchToFragment(ChatFragment.newInstance(new EchoBot(getActivity())));
 
                 break;
