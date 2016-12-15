@@ -22,10 +22,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
-import in.jaaga.learning.bots.Anuj;
+import in.jaaga.learning.bots.ConversationBot;
 import in.jaaga.learning.R;
 import in.jaaga.learning.api.*;
 import in.jaaga.learning.platform.adapter.ChatAdapter;
@@ -101,8 +100,6 @@ public class ChatFragment extends Fragment implements Sender {
         chat_view.setLayoutManager(linearLayoutManager);
         chatAdapter = new ChatAdapter(ChatFragment.this.getContext(),chat_list);
         chat_view.setAdapter(chatAdapter);
-        chatAdapter.notifyDataSetChanged();
-
         // For languageBot mainly
         //this.reply = "";
 
@@ -112,7 +109,7 @@ public class ChatFragment extends Fragment implements Sender {
         chat_box.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    if (chat_box.getText().length() != 0 && chat_box.getText().toString() != "") {
+                    if (!chat_box.getText().toString().isEmpty()) {
                         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(chat_box.getWindowToken(),
                                 InputMethodManager.RESULT_UNCHANGED_SHOWN);
@@ -131,6 +128,8 @@ public class ChatFragment extends Fragment implements Sender {
                             else {
                                 sendTextChatItem(text);
                             }
+                        }else {
+                            sendTextChatItem(text);
                         }
                     }
                 }
@@ -147,8 +146,8 @@ public class ChatFragment extends Fragment implements Sender {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                         String text = charSequence.toString();
-                        if (mBot instanceof Anuj) {
-                            Anuj languageBot = (Anuj) mBot;
+                        if (mBot instanceof ConversationBot) {
+                            ConversationBot languageBot = (ConversationBot) mBot;
 
                             // TODO: HUGE scope for improvement over this
                             // linear method - relevant iff number of replies
@@ -225,7 +224,7 @@ public class ChatFragment extends Fragment implements Sender {
 
     @Override
     public void send(ChatItem item) {
-        showOptions(item.getResponseOptions());
+        //showOptions(item.getResponseOptions());
         chat_list.add(item);
         if(chatAdapter!=null) {
 
@@ -260,7 +259,7 @@ public class ChatFragment extends Fragment implements Sender {
 
     private void showOptions(final ChatReply[] opts) {
         if(ll_options !=null) {
-            //put buttons in left layout
+
             ll_options.removeAllViews();
             this.reply = null;
 

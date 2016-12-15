@@ -9,11 +9,11 @@ import java.util.regex.Pattern;
 /*
  * Language chat-bot using simple rules.
  * The chat-bot follows the flow defined in the "bot_hello.xml" file.
- * Anuj Khare <khareanuj18@gmail.com>
+ * ConversationBot Khare <khareanuj18@gmail.com>
  * 17 Nov '16'
  */
 
-public class Anuj extends Bot {
+public class ConversationBot extends Bot {
 
     String curBot;  // The conversation being used right now
     String curQId;  // the current question ID (NOT question string)
@@ -286,4 +286,4 @@ public class Anuj extends Bot {
         item.setResponseOptions(this.curReplies.toArray(new ChatReply[0]));
         sender.send(item);
     }
-};
+}

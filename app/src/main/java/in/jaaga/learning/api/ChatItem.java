@@ -9,9 +9,9 @@ import in.jaaga.learning.api.*;
  * Created by root on 24/1/16.
  */
 public class ChatItem implements Serializable {
-    public static final int NO_RESPONSE = 0;
-    public static final int NUMBER_RESPONSE = 1;
-    public static final int TEXT_RESPONSE = 2;
+    public static final int NO_RESPONSE = 1;
+    public static final int NUMBER_RESPONSE = 2;
+    public static final int TEXT_RESPONSE = 3;
     public static final String BOT = "bot";
 
     String sender;
@@ -25,7 +25,7 @@ public class ChatItem implements Serializable {
     public ChatItem(String message) {
         this.message = message;
         sender = BOT;
-        responseType = NO_RESPONSE;
+        responseType = TEXT_RESPONSE;
     }
 
     public ChatItem(String message, String[] responseOptions) {

@@ -38,16 +38,13 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
     public static Speech textToSpeech;
     public static DatabaseHelper myDbHelper;
 
-    Button english, marathi;
-    Button kannada, spanish, hindi;
-
-    private ChatFragment chatFragment;
-
     View decorView;
-    int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_FULLSCREEN
+    int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+            | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,68 +54,9 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
 
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(uiOptions);
-        getSupportActionBar().hide();
-        decorView.setOnSystemUiVisibilityChangeListener
-                (new View.OnSystemUiVisibilityChangeListener() {
-                    @Override
-                    public void onSystemUiVisibilityChange(int visibility) {
-                        // Note that system bars will only be "visible" if none of the
-                        // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
-                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                            // TODO: The system bars are visible.
-                            decorView.setSystemUiVisibility(uiOptions);
-                        } else {
-                            // TODO: The system bars are NOT visible.
-                            decorView.setSystemUiVisibility(uiOptions);
-                        }
-                    }
-                });
-
-        kannada=(Button) findViewById(R.id.kannada);
-        kannada.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLocale("kn");
-            }
-        });
-
-        english=(Button) findViewById(R.id.english);
-        english.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLocale("en");
-            }
-        });
-
-        spanish=(Button) findViewById(R.id.spanish);
-        spanish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLocale("es");
-            }
-        });
-
-        marathi=(Button) findViewById(R.id.marathi);
-        marathi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLocale("mr");
-            }
-        });
         
-        hindi=(Button) findViewById(R.id.hindi);
-        hindi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLocale("hi");
-            }
-        });
-
         textToSpeech = new Speech(MainActivity.this);
         myDbHelper = new DatabaseHelper(this);
         new Thread(new Runnable() {
@@ -142,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
 
         if(fragmentManager!=null){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.content_container,new HomeTabs().newInstance(),"homeTabsFragment");
+            transaction.replace(R.id.content_container,BotListFragment.newInstance(),"BotListFragment");
             transaction.commit();
         }
     }
@@ -150,10 +88,11 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
 
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
     }
 
-    Locale myLocale;
+    /*Locale myLocale;
 
     public void setLocale(String lang) {
         myLocale = new Locale(lang);
@@ -172,6 +111,14 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
         refresh.putExtras(bundle);
         startActivity(refresh);
         finish();
+    }*/
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            decorView.setSystemUiVisibility(uiOptions);
+        }
     }
 
     @Override
@@ -194,13 +141,6 @@ public class MainActivity extends AppCompatActivity implements ChatFragment.Chat
         myDbHelper.close();
         textToSpeech.destroy();
     }
-
-    /*@Override
-    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        // TODO Auto-generated method stub
-        getMenuInflater().inflate(R.menu.select_menu, menu);
-        return true;
-    }*/
 
     @Override
     public void switchToFragment(Fragment fragment) {

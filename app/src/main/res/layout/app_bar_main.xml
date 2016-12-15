@@ -22,77 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:mContext=".platform.MainActivity"
-        tools:showIn="@layout/app_bar_main"
-        android:layout_below="@+id/horizontalScrollView">
-
+        tools:mContext=".platform.MainActivity">
     </FrameLayout>
-    
-     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fullscreen_toggle">
-     </FrameLayout>
-
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:id="@+id/horizontalScrollView"
-        android:background="@android:color/white"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/button_en"
-                android:drawableLeft="@drawable/us_flag"
-                android:id="@+id/english"
-                android:background="@null"
-                android:padding="3dp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_kn"
-                android:drawableLeft="@drawable/india_flag"
-                android:id="@+id/kannada"
-                android:background="@null"
-                android:layout_marginLeft="10dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_hi"
-                android:drawableLeft="@drawable/india_flag"
-                android:id="@+id/hindi"
-                android:layout_marginLeft="10dp"
-                android:background="@null" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_es"
-                android:id="@+id/spanish"
-                android:drawableLeft="@drawable/es_flag"
-                android:background="@null"
-                android:layout_marginLeft="10dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/button_mr"
-                android:drawableLeft="@drawable/india_flag"
-                android:id="@+id/marathi"
-                android:background="@null"
-                android:layout_marginLeft="10dp" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
 
 </RelativeLayout>
