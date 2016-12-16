@@ -5,6 +5,7 @@
     tools:mContext="in.jaaga.learning.platform.BotListFragment">
 
     <android.support.v7.widget.RecyclerView
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_bot_list" />

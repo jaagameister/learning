@@ -1,71 +1,57 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:mContext=".platform.ChatFragment"
-    android:padding="48dp"
+    android:padding="24dp"
     android:background="#faf5f5">
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+    <EditText
+        android:id="@+id/input_text"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:hint="@string/input_chat_box"
+        android:textSize="16sp"
+        android:background="@drawable/edit_text_chat"
+        android:minLines="1"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:maxLines="1" />
+
+    <RelativeLayout
+        android:id="@+id/layout_extra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout2"
-        android:scrollbars="none">
+        android:layout_above="@+id/input_text">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/option_buttons">
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/chat_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:layout_above="@+id/horizontalScrollView"
-        android:isScrollContainer="true"
-        app:stackFromEnd="true">
-
-    </android.support.v7.widget.RecyclerView>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout2">
-
-        <EditText
-            android:id="@+id/input_text"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/send"
-            android:hint="@string/input_chat_box"
-            android:singleLine="true"
-            android:textSize="18sp"
-            android:background="@drawable/edit_text_chat"
-            android:minLines="1"
-            android:layout_gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="8dp"
-            android:layout_margin="5dp"
-            />
-    </LinearLayout>
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/option_buttons">
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/chat_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/horizontalScrollView"
+            app:stackFromEnd="true"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>
