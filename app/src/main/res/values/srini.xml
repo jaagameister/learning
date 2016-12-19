@@ -95,6 +95,10 @@
         and earned %2$d points. You now have %3$d total points.\
         Now it\'s time to practice %4$s.</string>
 
+    <!-- what Srini tell You when You get through a skill -->
+    <string name="all_levels_completed">Yay!!! you have completed all the levels.\nCongratulations!</string>
+
+
     <string-array name="admin_prompt">
         <!-- ways for a powerful being in the culture(s) or myths pertaining to your language to
         tell the user it's at his/her service --> 

@@ -41,7 +41,14 @@ public class Mission {
     public void levelUp() {
         System.out.println("mission:levelUp");
         Skill last = skill;
-        Skill next = skills.get(++index);
+        index = ++index;
+        Skill next = null;
+        if(skills.size()>index) {
+            next = skills.get(index);
+        }else{
+            sender.send(new ChatItem(StringUtil.allLevelsComplete(),ChatItem.NO_RESPONSE));
+            return;
+        }
         totalPoints += last.getPoints();
         //String levelUpText = ctx.getChatBot().levelUp(last.getTitle(), next.getTitle(), last.getPoints(), totalPoints);
         //send(new ChatItem(levelUpText));

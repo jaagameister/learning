@@ -27,7 +27,6 @@ public class MathBot extends Bot {
     public void init() {
         StringUtil.setResources(getResources());
         mission = new Mission(sender);
-
         // addition
         mission.add(new ProblemSkill(this, title(R.string.addition_title, 10),  new Addition(10), 10, 100));
         mission.add(new ProblemSkill(this, title(R.string.addition_title, 100), new Addition(100), 7, 100));
@@ -84,7 +83,9 @@ public class MathBot extends Bot {
 
     public void onMessageReceived(String text) {
         mission.processResponse(text);
-        sender.send(mission.getPrompt());
+        if(mission.getPrompt()!=null) {
+            sender.send(mission.getPrompt());
+        }
     }
 
     private String title(int resourceId, int arg0) {

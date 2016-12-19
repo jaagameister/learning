@@ -54,6 +54,10 @@ public class StringUtil {
 				newPoints, totalPoints, next);
 	}
 
+	public static String allLevelsComplete() {
+		return res.getString(R.string.all_levels_completed);
+	}
+
 	public static String adminPrompt() {
 		String[] adminPrompt = res.getStringArray(R.array.admin_prompt);
 		return adminPrompt[random.nextInt(adminPrompt.length)];
