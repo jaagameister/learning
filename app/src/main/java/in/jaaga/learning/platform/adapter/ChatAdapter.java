@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import in.jaaga.learning.R;
+import in.jaaga.learning.*;
 import in.jaaga.learning.api.ChatItem;
 
 import static in.jaaga.learning.platform.MainActivity.myDbHelper;
